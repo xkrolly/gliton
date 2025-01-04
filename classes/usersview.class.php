@@ -882,8 +882,8 @@ return $heading;
 
     	$vals = $projectID;
     	$pendingData = $this->select('pending', ' WHERE projectID = ?', $vals);
-
-    	$vals = array('projectCat'=>$catid, 'projectTitle'=>$title, 'projectID'=>$projectID, 'projectType'=>$projectType, 'owner'=>$owner);
+      	!empty($pendingData[0]['contributor']) ? $contributors = $pendingData[0]['contributor'].'.'.$contributors : $contributors;
+    	$vals = array('projectCat'=>$catid, 'projectTitle'=>$title, 'projectID'=>$projectID, 'contributor'=>$contributors, 'projectType'=>$projectType, 'owner'=>$owner);
     	count($pendingData) == 0 ? $this->insert2Db('pending', $vals) : '';
 
     }
