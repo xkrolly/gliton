@@ -111,14 +111,14 @@ if( !defined('tutortochat') || !defined('stdtochat') || !defined('resume')) {
 						$cat_quota = $_tutor_Quota[0];
 
 
-			          $usersView->dec_cons($_POST['categoryPass']) === 'TRUE' ? $pass=true : $usersView->categoryPass($_POST['category']);
+		    	          $usersView->dec_cons($_POST['categoryPass']) === 'TRUE' ? $pass=true : $usersView->categoryPass($_POST['category']);
 
 			          $coinCheck = $usersView->select('coin', ' WHERE coin_id = ?', $recipient_id);
 		          	
-		          	count($coinCheck) > 0 ? $coinTotal = $coinCheck[0]['Gcoin'] + intval($tutor_Quota) : $coinTotal = intval($tutor_Quota);
-		          	$coinVals = $coinTotal.', '.$recipient_id;
-		          	$values = array('Gcoin'=>$coinTotal, 'coin_id'=>$recipient_id);
-		          	count($coinCheck) > 0 ? $usersContr->update('coin', 'Gcoin = ? WHERE coin_id = ?', $coinVals) : $usersContr->insert('coin', $values);
+			          	count($coinCheck) > 0 ? $coinTotal = $coinCheck[0]['Gcoin'] + intval($tutor_Quota) : $coinTotal = intval($tutor_Quota);
+			          	$coinVals = $coinTotal.', '.$recipient_id;
+			          	$values = array('Gcoin'=>$coinTotal, 'coin_id'=>$recipient_id);
+			          	count($coinCheck) > 0 ? $usersContr->update('coin', 'Gcoin = ? WHERE coin_id = ?', $coinVals) : $usersContr->insert('coin', $values);
 				   }
 					$_SESSION['tutor'] = $recipient_id;
 					$_SESSION['learner'] = $user_id;
@@ -228,6 +228,8 @@ if( !defined('tutortochat') || !defined('stdtochat') || !defined('resume')) {
 								$usersContr->insert('chat', $chat_vals2);
 						$que = '';
 								
+		
+
 						if($_SESSION['insertToScd'] == TRUE){
                     
             		    //get shrdk to scd db
@@ -246,7 +248,8 @@ if( !defined('tutortochat') || !defined('stdtochat') || !defined('resume')) {
                         $_SESSION['SET_CHAT'] = FALSE;
                         $_POST['chat'] = '';
     				}
-                    
+
+          
 			}
 			
 			elseif( $xpat == 1 && $_SESSION['SET_CHAT'] == TRUE){   
