@@ -1,6 +1,6 @@
 <?php
 header("Access-Control-Allow-Origin: https://ravemodal-dev.herokuapp.com/v3/hosted/pay");
-
+//is it updating or commiting?
 include_once 'includes/autoloader.inc.php';
 $imp = '';
 $pgv = new usersView();
