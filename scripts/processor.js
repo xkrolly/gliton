@@ -1128,7 +1128,6 @@ var category = $('#category').val();
   else{
     var chatpop = $('#chatpop').val();
     chatpop == 'duo' ? path = '../' : path = '';
-            alert('b4 upload');
     
     $.ajax({
         url: path+'includes/setenquiry.inc.php',
@@ -1139,7 +1138,6 @@ var category = $('#category').val();
         cache: false,
         processData: false,
         success: function(data){
-            alert('upload success');
             localStorage.setItem('uploadID', data.n);
 
             /*document.getElementById('encmsg').value='';
