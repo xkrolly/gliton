@@ -405,13 +405,15 @@ if( !defined('tutortochat') || !defined('stdtochat') || !defined('resume')) {
 							<div style='display:flex; align-items:center; justify-content:center; background:#fff; border:1px solid #ccc; border-radius:10px; filter:drop-shadow(1px 1px 1px #333);' class='chatInput'>
 								<textarea value='' oninput='changeSubBtnId()' name='enquiry' id='enquiry' class='form-control' style='width:70%; font-size:16px; height:40px; max-height:200px; padding:8px; border:0px;' placeholder='Chat with a ".$recipient."...'></textarea>
 								<div style='display:flex; justify-content:space-around; width:25%; align-items:center;'>
-								 <div id='recordButton' style='border:transparent; background:transparent; padding:0; margin-right:8px;'>
+					
+									<div style='border:transparent; background:transparent; padding:0; margin-right:8px;' id='vidrec'><span class='material-icons off-theme2'>&#xe226;</span></div>
+					
+								    <div id='recordButton' style='border:transparent; background:transparent; padding:0;'>
 								       <span class='material-icons dropshadow' id='mic' style='color:#222;'>&#xe029;</span>
 									</div>
 									<input type='file' name='upload[]' id='upload' class='upload' capture='camera' accept='video/*' multiple onchange='loadImg()' style='width:2px; height:2px;'>
-									<div id='imgUpload' style='border:transparent; background:transparent; padding:0;'><span id='uploadIcon' class='uploadIcon material-icons' style='margin-bottom:2px;'>&#xe226;</span>
+									<div id='imgUpload' style='border:transparent; background:transparent; padding:0; margin-left:8px;'><span id='uploadIcon' class='uploadIcon material-icons' style='margin-bottom:2px;'>&#xe412;</span>
 									</div>
-									<div style='border:transparent; background:transparent; padding:0; margin-left:8px;' id='vidrec'><span class='material-icons off-theme2'>&#xe412;</span></div>
 								</div>
 							</div>
 							<button type='submit' id='post_enq' style='display:flex; height:50px; width:50px; border-radius:50%; justify-content:center; align-items:center; border:2px solid #2186f3; background:#2186f3; color:#fff; margin-left:5px; filter:drop-shadow(1px 1px 1px #333);'><span id='activeTimer' style='font-size:12px'></span><span id='setInner'>
