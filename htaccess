@@ -1,0 +1,13 @@
+RewriteEngine On
+RewriteCond %{HTTP_HOST} glit\.ng [NC]
+RewriteCond %{SERVER_PORT} 80
+RewriteRule ^(.*)$ https://glit.ng/$1 [R,L]
+Header add Access-Control-Allow-Origin "*"
+Header add Access-Control-Allow-Methods "GET, PUT, POST, DELETE"
+Header add Access-Control-Allow-Headers "Content-Type, Authorization"
+
+Options +FollowSymLinks
+RewriteEngine On
+RewriteRule ^([A-Za-z-]*)/?$ index.php?page=$1 [N]
+RewriteRule ^([a-zA-Z-]+).html index.php [QSA,L]
+
