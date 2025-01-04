@@ -1,0 +1,6 @@
+animation-name: animateflash;
+animation-duration: 3s;
+@keyframes animateflash{
+  from {background: linear-gradient(5deg, white, black)}
+  to {background: linear-gradient(300deg, white, black)}
+}
