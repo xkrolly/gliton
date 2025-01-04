@@ -347,13 +347,14 @@ function fixappo(n, cat, a){
             data: {appofix:n, cat:cat},
             dataType:'json',
             success: function(data){
-                alert('YESSS');
                 data.resp == 1? resp = 'Appointment fixed successfully' : (data.resp== 2 ? resp='This period has just been taken few moment ago! Pick another.' : resp='');
                 document.querySelector('#apporesp').innerHTML = resp;
                 if(data.resp == 1){
                     document.getElementById('appo'+data.appo).setAttribute("disabled", '');
                     document.getElementById('appo'+data.appo).style.background = '#eee';
-                    
+                    document.getElementById('appo'+data.appo).style.border = '1px solid #eee';
+                    document.getElementById('appo'+data.appo).style.color = '#fff';
+
                 }else{
                 document.querySelector('#apporesp').style.background = 'yellow';
                 document.querySelector('#apporesp').style.color = 'red';
