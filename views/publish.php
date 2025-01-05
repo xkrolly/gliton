@@ -244,7 +244,7 @@ $keyWords.="<div class='error-text'></div>
                    1) Material items used  
                    2) Immaterial items
                    3) Total duration  
-                   4) Effectiveness/efficiency of the procedure
+                   4) Product efficacy/procedure efficiency
                    5) Expectations/End results' class='form-control' cols='6' rows='6' required style='font-size:12px; padding:5px;' value=''></textarea>
               </div>
             </div>";
