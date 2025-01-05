@@ -12,8 +12,8 @@ if(!empty($_GET['link'])){
 	$cat_id = str_replace(' ', '+', $link_dec_arr[4]);
 	$price = str_replace(' ', '+', $_price);
 	$key = str_replace(' ', '+', $key);
-	$buyer = str_replace(' ', '+', $buyer);
-	$_vals = $productID.', '.$key.', '.$buyer;
+	//$buyer = str_replace(' ', '+', $buyer);
+	$_buyer = $usersView->dec_cons($buyer);
 
     $tx_status = $_GET['status'];
     $tx_ref = $_GET['tx_ref'];
@@ -58,11 +58,12 @@ if(!empty($_GET['link'])){
 
 ..........................................*/
 
+$buy_er = $usersView->usercode($_buyer);
+	$_vals = $productID.', '.$key.', %.'.$buy_er.'.%';
 
+	$purchData = $usersView->select('purchase', ' WHERE product_id = ? AND productKey = ? AND buyer LIKE ?', $_vals);
 
-	$purchData = $usersView->select('purchase', ' WHERE product_id = ? AND productKey = ? AND buyer = ?', $_vals);
-
-	$val = array('product_id'=>$productID, 'productKey'=> $key, 'buyer'=>$buyer);
+	$val = array('product_id'=>$productID, 'productKey'=> $key, 'buyer'=>'.'.$buyer.'.');
 	count($purchData) == 0 ? $usersContr->insert('purchase', $val) : '';
 
     /////////////
