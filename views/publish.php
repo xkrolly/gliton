@@ -313,8 +313,8 @@ $aoiLn = count($aoi_data2) - 1;
 $keyWords.="<div class='form-group'>
                  <label style='color:#fff; background:deepskyblue; padding:5px; font-weight:bold; font-size:18px;'>Add Price tag</label>
            
-                  <input type='number' class='form-control' name='price' placeholder='Price per copy' required style='font-size:12px; margin-bottom:-10px;'>
-                  <i style='color:#bbb; margin-top:-30px; font-size:10px;'>25% to be claimed by Glit</i>
+                  <input type='number' class='form-control' name='price' placeholder='Price per copy' required style='font-size:12px; margin-bottom:-6px;'>
+                  <i style='color:#aaa; font-size:10px;'>25% to be claimed by Glit</i>
             </div>
              <div class='form-group' style='margin-top:20px;'>
                  <label style='color:#fff; background:deepskyblue; padding:5px; font-weight:bold; font-size:18px;'>Accessible to:
