@@ -52,10 +52,9 @@ class UsersView extends Users {
 	}
 	
     public function fetchAssets($user){
-    	$__me = $user;
-		$_me = $this->enc_cons($__me);
-		$me = str_replace('==', '', $_me);
-    	$rows = $this->select('purchase', ' WHERE buyer = ?', $me);
+    	$_me = $this->usercode($user);
+  		$me = '%.'.$_me.'.%';
+    	$rows = $this->select('purchase', ' WHERE buyer LIKE ?', $me);
     	$all = count($rows);
     	
     	$prdID = array();
@@ -872,8 +871,9 @@ return $heading;
 	public function fetchPending(){
     	$userData = $this->fetchUser();
     	$me = $userData[0]['profile_id'];
-    
-    	$vals = $me.', %_'.$me.'_%';
+    	$_me = $this->usercode($me); 
+    	
+    	$vals = $me.', %.'.$_me.'.%';
     	$pendingData = $this->select('pending', ' WHERE owner = ? or contributor LIKE ?', $vals);
     	return $pendingData;
     }
@@ -882,7 +882,9 @@ return $heading;
 
     	$vals = $projectID;
     	$pendingData = $this->select('pending', ' WHERE projectID = ?', $vals);
-      	!empty($pendingData[0]['contributor']) ? $contributors = $pendingData[0]['contributor'].'.'.$contributors : $contributors;
+      	
+      	!empty($pendingData[0]['contributor']) ? $contributors = $pendingData[0]['contributor'].$contributors.'.' : '.'.$contributors.'.';
+
     	$vals = array('projectCat'=>$catid, 'projectTitle'=>$title, 'projectID'=>$projectID, 'contributor'=>$contributors, 'projectType'=>$projectType, 'owner'=>$owner);
     	count($pendingData) == 0 ? $this->insert2Db('pending', $vals) : '';
 
@@ -1683,6 +1685,75 @@ $eachClass	.="		</div><div style='width:100%;'>
 
 	}
 
+	public function usercode($userDigit){
+		$first = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j'];
+		$second = ['t', 's', 'r', 'q', 'p', 'o', 'n', 'm', 'l', 'k'];
+		$userDigit = str_split($userDigit);
+		$len = count($userDigit);
+
+		$n = 0;
+		$nlen = $len - 1;
+		$output = array();
+
+		while($n <= $nlen){
+			 intval($userDigit[$n]) == 0 ? $_x = 10 : $_x = intval($userDigit[$n]);
+			 $x = $_x - 1;
+
+			($n+1) % 2 == 0 ? $userDigitCode = $second[$x] : $userDigitCode = $first[$x];
+			$output[] = $userDigitCode; 
+			
+			$n++;
+		}
+		$output = implode('', $output);
+		return $output;
+
+	}
+public function usercode2($userDigit){
+		$first = ['j', 'i', 'h', 'g', 'f', 'e', 'd', 'c', 'b', 'a'];
+		$second = ['k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't'];
+		$userDigit = str_split($userDigit);
+		$len = count($userDigit);
+
+		$n = 0;
+		$nlen = $len - 1;
+		$output = array();
+
+		while($n <= $nlen){
+			 intval($userDigit[$n]) == 0 ? $_x = 10 : $_x = intval($userDigit[$n]);
+			 $x = $_x - 1;
+
+			 ($n+1) % 2 == 0 ? $userDigitCode = $second[$x] : $userDigitCode = $first[$x];
+			 $output[] = $userDigitCode; 
+			
+			 $n++;
+		}
+		$output = implode('', $output);
+		return $output;
+
+	}
+public function usercode3($userDigit){
+		$first = ['j', 'i', 'h', 'g', 'f', 'e', 'd', 'c', 'b', 'a'];
+		$second = ['q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+		$userDigit = str_split($userDigit);
+		$len = count($userDigit);
+
+		$n = 0;
+		$nlen = $len - 1;
+		$output = array();
+
+		while($n <= $nlen){
+			 intval($userDigit[$n]) == 0 ? $_x = 10 : $_x = intval($userDigit[$n]);
+			 $x = $_x - 1;
+
+			 ($n+1) % 2 == 0 ? $userDigitCode = $second[$x] : $userDigitCode = $first[$x];
+			 $output[] = $userDigitCode; 
+			
+			 $n++;
+		}
+		$output = implode('', $output);
+		return $output;
+
+	}
 	public function share_ClassPayment($admin, $tutor, $product_ID, $cat){
 			
 			/*Admin share*/
@@ -2095,12 +2166,13 @@ $eachClass	.="		</div><div style='width:100%;'>
 	public function checkPurchase($product_ID){
 			//is it bought already???
 		$myData = $this->fetchUser();
-		$__me = $myData[0]['profile_id'];
-		$_me = $this->enc_cons($__me);
+		$_me = $myData[0]['profile_id'];
+/*		$_me = $this->enc_cons($__me);
 		$me = str_replace('==', '', $_me);
-
+*/
+		$me = '%.'.$this->usercode($_me).'.%';
 		$vals = $product_ID.', '.$me;
-		$purchaseData = $this->select('purchase', ' WHERE product_id = ? and buyer = ?', $vals);
+		$purchaseData = $this->select('purchase', ' WHERE product_id = ? and buyer LIKE ?', $vals);
 		//if bought already, pass else buy
 		count($purchaseData) > 0 ? $key = $purchaseData[0]['productKey'] : $this->buyProduct($product_ID);
 		$_SESSION['product_keyx'] = $key;
