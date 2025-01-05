@@ -99,7 +99,7 @@ $sol .="<video style='z-index:10; display:none; background:#fff; height:100vh; w
                         <div class='form-group' id='textQ' style='display:none; padding:5px; margin-bottom:20px;'>
                                 <input type='text' name='title' id='textspace' class='form-control' placeholder='Your succintly descriptive title with metrics' style='font-size:14px; border-radius:20px;'/>
                                 <div style='display:flex; flex-direction:column; font-size:12px; padding-left:20px; padding-right:20px; padding-top:30px;' >
-                                      <h6 style='font-size:13px; font-weight:bold; text-align:justify;'>NOTE: Title should reflect the uniqueness of your solution approach by quantifying all or either of the following parameters in figures <span class='material-icons' style='margin-left:10px; color:#2166f3; font-size:22px;' onclick='$(\"#imodal\").slideDown(20);'>&#xe88e;</span></h6>
+                                      <h6 style='font-size:12px; text-align:justify;'>NOTE: Title should reflect the uniqueness of your solution approach by quantifying all or either of the following parameters in figures <span class='material-icons' style='margin-left:10px; color:#2166f3; font-size:22px;' onclick='$(\"#imodal\").slideDown(20);'>&#xe88e;</span></h6>
                                 </div>
                         </div>
                     </div>
