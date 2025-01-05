@@ -365,7 +365,7 @@ $keyWords.="<div class='form-group'>
                         $('#chat_pop').val(chatpop); */
                 </script>
             </div>
-            <div style='font-size:10px; background:yellow; color:red; margin-left:20px; padding:5px; text-align:left;'>NOTE: Ensure relevant Keyphrases, succint insight, accurate CVE(confirmatory visual evidence) before you publish</div>
+            <div style='font-size:10px; background:yellow; color:red; margin-left:20px; padding:5px 5px -10px 5px; text-align:left;'>NOTE: Ensure relevant Keyphrases, succint insight, accurate CVE(confirmatory visual evidence) before you publish</div>
              </div> 
       
             </form>";
