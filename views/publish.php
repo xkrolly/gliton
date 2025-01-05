@@ -314,7 +314,7 @@ $keyWords.="<div class='form-group'>
                  <label style='color:#fff; background:deepskyblue; padding:5px; font-weight:bold; font-size:18px;'>Add Price tag</label>
            
                   <input type='number' class='form-control' name='price' placeholder='Price per copy' required style='font-size:12px; margin-bottom:-6px;'>
-                  <i style='color:#aaa; font-size:10px;'>25% to be claimed by Glit</i>
+                  <i style='color:#555; font-size:10px;'>25% to be claimed by Glit</i>
             </div>
              <div class='form-group' style='margin-top:20px;'>
                  <label style='color:#fff; background:deepskyblue; padding:5px; font-weight:bold; font-size:18px;'>Accessible to:
@@ -347,7 +347,7 @@ $keyWords.="<div class='form-group'>
 
 
   $keyWords.="
-<h6 style='font-size:12px;'>NOTE: Ensure relevant Keyphrases, succint insight, accurate CVe before you publish</h6>
+<h6 style='font-size:10px; background:yellow; color:red; padding:5px;'>NOTE: Ensure relevant Keyphrases, succint insight, accurate CVe before you publish</h6>
               <div class='form-group'>
                 <input type='submit' name='publish' value='Publish' style='font-size:16px;'>
                 <input type='hidden' name='publink' value='".$_uniqconv_id."'>
