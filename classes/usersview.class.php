@@ -5020,7 +5020,7 @@ public function chatPg($recipient_id, $resumingCID, $aoiCurrent, $empty, $cidLim
                      $chatpop = 'd';
                     
                 	$Chats .= $this->showModal2($content, 'dialog'.$chat_id, '', 'none');
-    				$Chats .="<div class='each-sectio' style='display:flex; width:100%; align-items:center; justify-content:space-between; margin-top:0px; margin-bottom:20px; background:#888; padding:3px; color:#fff; font-size:14px; position:fixed; top:0.2px; left:0px; z-index:100;'>
+    				$Chats .="<div class='each-sectio' style='display:flex; width:100%; align-items:center; justify-content:space-between; margin-top:0px; margin-bottom:20px; background:rgba(0, 0, 0, .6); padding:3px; color:#fff; font-size:14px; position:fixed; top:0.2px; left:0px; z-index:100;'>
     					
             					<div style='display:flex;'>
             						<a href='../index.php?page=profile&pid=$recipient_id_enc' style='color:#000; text-decoration:none;'>".$imageView."</a>
