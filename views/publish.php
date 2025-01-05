@@ -207,9 +207,9 @@ if($chatpop == 's'){
         <input type='hidden' name='encmsg' id='encmsg' value=''>";
   }
 $keyWords.="<div class='error-text'></div>
-            <h2 style=' text-align:center; font-weight:1000; margin-bottom:-10px;'>Publish Your SolScript</h2>     
+            <h2 style=' text-align:center; font-weight:1000; margin-bottom:-5px;'>Publish Your SolScript</h2>     
             <div style='width:100%; text-align:center;'><span style='font-size:10px; font-style='italic;'>(Earn massively. Let the whole world pay for your secret sauce!)</span></div><br>     
-            <br><div class='form-group'>
+            <div class='form-group'>
               <div>
                 <label style='color:#fff; background:deepskyblue; padding:5px; font-weight:bold; font-size:18px;'>Heading</label>
               </div>
