@@ -346,8 +346,7 @@ $keyWords.="<div class='form-group'>
 	</div>";
 
 
-  $keyWords.="
-<h6 style='font-size:10px; background:yellow; color:red; padding:5px;'>NOTE: Ensure relevant Keyphrases, succint insight, accurate CVe before you publish</h6>
+  $keyWords.="<div style='display:flex; justify-content:space-between;'>
               <div class='form-group'>
                 <input type='submit' name='publish' value='Publish' style='font-size:16px;'>
                 <input type='hidden' name='publink' value='".$_uniqconv_id."'>
@@ -366,6 +365,8 @@ $keyWords.="<div class='form-group'>
                         $('#chat_pop').val(chatpop); */
                 </script>
             </div>
+            <h6 style='font-size:10px; background:yellow; color:red; margin-left:auto; padding:5px;'>NOTE: Ensure relevant Keyphrases, succint insight, accurate CVe before you publish</h6>
+             </div> 
       
             </form>";
       
