@@ -421,7 +421,7 @@ function pageView(content){
 
 function paymentSubpage(url, title, price, balance){
     var price = parseInt(price)/1000;
-    balance = 1;
+
     balance < price ? disable='disabled' : disable = '';
     
   var subpage = " <div id='paySubpage' style='background:#fff; padding:20px; color:#000; height:100%; width:100%; position:fixed; top:0; right:0; bottom:0;'>"+
