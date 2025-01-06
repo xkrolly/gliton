@@ -421,6 +421,7 @@ function pageView(content){
 
 function paymentSubpage(url, title, price, balance){
     var price = parseInt(price)/1000;
+    balance = 1;
     balance < price ? disable='disabled' : disable = '';
     
   var subpage = " <div id='paySubpage' style='background:#fff; padding:20px; color:#000; height:100%; width:100%; position:fixed; top:0; right:0; bottom:0;'>"+
@@ -431,9 +432,13 @@ function paymentSubpage(url, title, price, balance){
                     "<h4 style='color:#000; width:100%; text-align:center; padding:20px; font-family:roboto; font-weight:bold; font-size:20px;'>&quot;"+title+"&quot;</h4>"+
                     "<h3>@</h3>"+
                     "<div style='display:flex; justify-content:center; align-items:center; font-weight:bold; font-size:25px; color:#fff; background:#2166f3; border-radius:50%; height:60px; width:60px; filter:drop-shadow(1px 1px 1px #ccc);'>"+price+"GC</div>"+
-                    "<h6 id='walletBal'>Your wallet balance - "+balance+"GC</h6>"+
-                    "<div style='display:flex; flex-direction:column; align-items:center;'><a href='"+url+"' "+disable+"><button "+disable+" id='payBtn' class='theme' style='border-radius:10px;'>Proceed to pay</button></a><span style='margin:20px auto;'>OR</span><a href='index.php?page=buycoin&price="+price+"' style='text-decoration:underlined;'>Fund your wallet</a>"+
-                    "<br><br><span onclick='cancelPay();' style='color:red;'>Cancel</span></div>"+
+                    "<h6 id='walletBal'>Your balance: "+balance+"GC</h6>";
+                    
+if(balance < price){
+      subpage +=   "<a href='index.php?page=buycoin&price="+price+"' style='text-decoration:underlined;'>Fund your wallet</a>";
+}    
+  subpage +=       "<br><br><br><div style='display:flex; flex-direction:column; align-items:center;'><a href='"+url+"' "+disable+"><button "+disable+" id='payBtn' class='theme' style='border-radius:10px;'>Proceed to pay</button></a><span style='margin:10px auto;'></span>"+
+                    "<span onclick='cancelPay();' style='color:#aaa; font-size:16px; text-decoration:underlined;'>Cancel</span></div>"+
                   "</div></div>";
 $('main').hide();
 document.getElementById('_paymentSubpage').innerHTML = subpage;
