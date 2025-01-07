@@ -429,15 +429,15 @@ function paymentSubpage(url, title, price, balance){
                     "<h6 style='color:#000; width:100%; text-align:center;'>Pay "+price+"GC to own this solscript</h6>"+
                     "<hr>"+
                     "<span class='material-icons' style='background:rgba(0, 0, 0, .1); padding:10px; border-radius:50%; font-size:90px; filter:drop-shadow(1px 1px .5px #444); color:#fff'>&#xef6e;</span>"+
-                    "<h4 style='color:#000; width:100%; text-align:center; padding:20px; font-family:roboto; font-weight:bold; font-size:20px;'>&quot;"+title+"&quot;</h4>"+
+                    "<h4 style='color:#444; width:100%; text-align:center; padding:20px; font-family:roboto; font-weight:bold; font-size:20px;'>"+title+"</h4>"+
                     "<h3>@</h3>"+
-                    "<div style='display:flex; justify-content:center; align-items:center; font-weight:bold; font-size:25px; color:#fff; background:#2166f3; border-radius:50%; height:60px; width:60px; filter:drop-shadow(1px 1px 1px #ccc);'>"+price+"GC</div>"+
+                    "<div style='display:flex; justify-content:center; align-items:center; font-weight:bold; font-size:20px; color:#fff; background:#2166f3; border-radius:50%; height:60px; width:60px; filter:drop-shadow(1px 1px 1px #ccc); padding:10px;'>"+price+"GC</div>"+
                     "<h6 id='walletBal'>Your balance: "+balance+"GC</h6>";
                     
 if(balance < price){
-      subpage +=   "<a href='index.php?page=buycoin&price="+price+"' style='text-decoration:underlined;'>Fund your wallet</a>";
+      subpage +=   "<a href='index.php?page=buycoin&price="+price+"' style='text-decoration:underlined; font-size:10px;'>Fund your wallet</a>";
 }    
-  subpage +=       "<br><br><br><div style='display:flex; flex-direction:column; align-items:center;'><a href='"+url+"' "+disable+"><button "+disable+" id='payBtn' class='theme' style='border-radius:10px;'>Proceed to pay</button></a><span style='margin:10px auto;'></span>"+
+      subpage +=    "<br><br><br><div style='display:flex; flex-direction:column; align-items:center; font-size:12px;'><a href='"+url+"' "+disable+"><button "+disable+" id='payBtn' class='theme' style='border-radius:10px;'>Proceed to pay</button></a><span style='margin:10px auto;'></span>"+
                     "<span onclick='cancelPay();' style='color:#aaa; font-size:16px; text-decoration:underlined;'>Cancel</span></div>"+
                   "</div></div>";
 $('main').hide();
