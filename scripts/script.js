@@ -424,21 +424,24 @@ function paymentSubpage(url, title, price, balance){
 
     balance < price ? disable='disabled' : disable = '';
     
-  var subpage = " <div id='paySubpage' style='background:#fff; padding:20px; color:#000; height:100%; width:100%; position:fixed; top:0; right:0; bottom:0;'>"+
-                    "<div style='display:flex; flex-direction:column; height:100%; padding:10px; align-items:center; justify-content:space-around; border:5px solid #2166f3; border-radius:20px;'>"+
+  var subpage = " <div id='paySubpage' style='background:#fff; padding:20px; color:#000; height:100%; width:100%; position:fixed; top:0; right:0; bottom:0; border: 5px solid #2166f3; border-radius:10px;'>"+
+                    "<div style='display:flex; flex-direction:column; height:100%; padding:10px; align-items:center; justify-content:space-around;'>"+
                     "<h6 style='color:#000; width:100%; text-align:center;'>Pay "+price+"GC to own this solscript</h6>"+
                     "<hr>"+
-                    "<span class='material-icons' style='background:rgba(0, 0, 0, .1); padding:10px; border-radius:50%; font-size:90px; filter:drop-shadow(1px 1px .5px #444); color:#fff'>&#xef6e;</span>"+
-                    "<h4 style='color:#444; width:100%; text-align:center; padding:20px; font-family:roboto; font-weight:bold; font-size:20px;'>"+title+"</h4>"+
+                    "<div style='width:150px; height:150px; border-radius:50%; filter:drop-shadow(1px 1px 1px #aaa) drop-shadow(-1px -1px 1px #aaa); background:#fff;'></div>"+
+                    "<h4 style='color:#444; width:100%; text-align:center; padding:20px; font-family:roboto; font-weight:bold; font-size:24px;'>"+title+"</h4>"+
+ "<div style='font-size:12px; padding:5px 20px 20px 10px;'>i am really happy to inform you of the approach i used which paved way for the wntire process to be so fast. I am deklighted as well to inform the right brothers abut it all. Thanls very ,uch to everyone that contributed to the succesfu; completion of this great work. Gracisa!</div>"+
                     "<h3>@</h3>"+
-                    "<div style='display:flex; justify-content:center; align-items:center; font-weight:bold; font-size:20px; color:#fff; background:#2166f3; border-radius:50%; height:60px; width:60px; filter:drop-shadow(1px 1px 1px #ccc); padding:10px;'>"+price+"GC</div>"+
-                    "<h6 id='walletBal'>Your balance: "+balance+"GC</h6>";
+                    "<div style='display:flex; justify-content:center; align-items:center; font-weight:bold; color:#fff; background:red; border-radius:50%; height:60px; width:60px; padding:10px; margin-bottom:20px;'><span style='font-size:26px;'>"+price+"</span><sub style='font-size:10px;'>GC</sub></div>"+
+                    "<h6 id='walletBal'  style='font-size:12px;'>Wallet: <span style='font-size:12px;'>"+balance+"</span><sub style='font-size:8px;'>GC</sub></h6>";
                     
 if(balance < price){
       subpage +=   "<a href='index.php?page=buycoin&price="+price+"' style='text-decoration:underlined; font-size:10px;'>Fund your wallet</a>";
 }    
-      subpage +=    "<br><br><br><div style='display:flex; flex-direction:column; align-items:center; font-size:12px;'><a href='"+url+"' "+disable+"><button "+disable+" id='payBtn' class='theme' style='border-radius:10px;'>Proceed to pay</button></a><span style='margin:10px auto;'></span>"+
+      subpage +=    "<br><br><br><div style='display:flex; flex-direction:column; align-items:center; font-size:12px; width:100%;'><a href='"+url+"' "+disable+" style='width:100%;'><button "+disable+" id='payBtn' class='form-control theme' style='border-radius:10px; width:100%; padding:20px auto 20px auto;'>Proceed to pay</button></a><span style='margin:10px auto;'></span>"+
                     "<span onclick='cancelPay();' style='color:#aaa; font-size:16px; text-decoration:underlined;'>Cancel</span></div>"+
+                         "<div class='ribbon-wrap'><div class='ribbon'>Special offer</div></div>"+
+               
                   "</div></div>";
 $('main').hide();
 document.getElementById('_paymentSubpage').innerHTML = subpage;
@@ -450,7 +453,7 @@ document.getElementById('_paymentSubpage').style.display = 'block';
 
         
     }else{ 
-        document.getElementById('walletBal').style.color = '#0f0';
+        document.getElementById('walletBal').style.color = 'green';
         document.getElementById('payBtn').style.background = '#2166f3';
     }
     
