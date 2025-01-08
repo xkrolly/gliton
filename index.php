@@ -4,6 +4,8 @@ header("Access-Control-Allow-Origin: https://ravemodal-dev.herokuapp.com/v3/host
 include_once 'includes/autoloader.inc.php';
 $imp = '';
 $pgv = new usersView();
+/*$code = $pgv->usercode('220915');
+var_dump($code);*/
 $pgv->content='';
     $pgv->addScript('scripts/jquery-3.6.0.min.js');
     $pgv->addScript('scripts/jquery.mobile-1.4.5.min.js');    
@@ -62,6 +64,29 @@ $pgv->embeddedStyle = "<style>
       display:flex;
     }
 
+
+
+.ribbon-wrap{
+  width:150px;
+  height:150px;
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  pointer-events: none;
+}
+
+.ribbon{
+  width: 230px;
+  font-size: 0.918rem;
+  text-align: center;
+  padding: 8px 0;
+  background: #2166f3;
+  color:#fff;
+  position:absolute;
+  transform: rotate(-45deg);
+  right: -17px;
+  top:29%;
+}
 
   </style>";
 
@@ -171,6 +196,7 @@ $pgv->embeddedStyle = "<style>
     opacity: 0;
   }
 }
+
 
  </style>";
 } // lobster fonts/
