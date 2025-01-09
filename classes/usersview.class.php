@@ -3639,7 +3639,7 @@ public function newList($user){
 
 	$query = '';
 
-/*	if(!empty($matchDiff_array)){ 
+	if(!empty($matchDiff_array)){ 
     	    
     	$matchDiff_str = implode(", ", $matchDiff_array);
     	foreach($matchDiff_array as $match){
@@ -3649,7 +3649,7 @@ public function newList($user){
 	}else{
 	        $pub = $this->select('publish', " WHERE pub_id > ?", 0);
 	}
-*/	        $pub = $this->select('publish', " WHERE pub_id > ?", 0);
+//	        $pub = $this->select('publish', " WHERE pub_id > ?", 0);
 	$ln = count($pub) - 1;
 	$all = '';
 	$que = '';
