@@ -58,15 +58,20 @@ if(!empty($_GET['link'])){
 
 ..........................................*/
 
-$buy_er = $usersView->usercode($_buyer);
+    $buy_er = $usersView->usercode($_buyer);
 	$_vals = $productID.', '.$key.', %.'.$buy_er.'.%';
-
-	$purchData = $usersView->select('purchase', ' WHERE product_id = ? AND productKey = ? AND buyer LIKE ?', $_vals);
-
+	$_vals2 = $productID.', '.$key;
 	$val = array('product_id'=>$productID, 'productKey'=> $key, 'buyer'=>'.'.$buyer.'.');
-	count($purchData) == 0 ? $usersContr->insert('purchase', $val) : '';
 
-    /////////////
+	//check if the product is previously bought by this user
+	$purchData = $usersView->select('purchase', ' WHERE product_id = ? AND productKey = ? AND buyer LIKE ?', $_vals);
+	//check if the product has ever been sold
+	$purchData2 = $usersView->select('purchase', ' WHERE product_id = ? AND productKey = ?', $_vals2);
+
+	count($purchData2) > 0 ? $newBuyerList = $purchData2[0]['buyer'].$buy_er.'.' : $newBuyerList = $purchData2[0]['buyer']; //which is still d old buyerlist
+	$_vals3 = $newBuyerList.', '.$productID;
+	count($purchData2) == 0 ? $usersContr->insert('purchase', $val) : (count($purchData) == 0 ? $usersContr->update('purchase', 'buyer = ? WHERE product_id = ?', $_vals3) : '' );
+
 	$buyer = str_replace(' ', '+', $buyer);
 	$_buyer = $usersView->dec_cons($buyer);
 
