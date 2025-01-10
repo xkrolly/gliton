@@ -433,7 +433,7 @@ function paymentSubpage(url, title, price, balance, insight){
  "<div style='font-size:12px; padding:5px 20px 20px 10px; text-align:center;'>"+insight+"</div>"+
                     "<h3>@</h3>"+
                     "<div style='display:flex; justify-content:center; align-items:center; font-weight:bold; color:#fff; background:red; border-radius:50%; height:60px; width:60px; padding:10px; margin-bottom:20px;'><span style='font-size:26px;'>"+price+"</span><sub style='font-size:10px;'>GC</sub></div>"+
-                    "<h6 id='walletBal'  style='font-size:12px;'><span class='material-icons' style='margin-left:10px; color:#0f0; font-size:50px;'>&#xe850;</span>"+
+                    "<h6 id='walletBal'  style='font-size:12px;'><span id='wallet' class='material-icons' style='margin-left:10px; font-size:50px;'>&#xe850;</span>"+
                     "<span style='font-size:12px;'>"+balance+"</span><sub style='font-size:8px;'>GC</sub></h6>";
                     
 if(balance < price){
@@ -451,10 +451,12 @@ document.getElementById('_paymentSubpage').style.display = 'block';
         document.getElementById('payBtn').style.background = '#eee';
         document.getElementById('payBtn').style.border = '1px solid #eee';
         document.getElementById('walletBal').style.color = 'red';
+        document.getElementById('wallet').style.color = 'red';
 
         
     }else{ 
         document.getElementById('walletBal').style.color = 'green';
+        document.getElementById('wallet').style.color = 'green';
         document.getElementById('payBtn').style.background = '#2166f3';
     }
     
