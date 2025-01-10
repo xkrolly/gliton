@@ -3639,7 +3639,7 @@ public function newList($user){
 
 	$query = '';
 
-	if(!empty($matchDiff_array)){ 
+	if(!empty($matchDiff_array) && count($matchDiff_array) >= 5){ 
     	    
     	$matchDiff_str = implode(", ", $matchDiff_array);
     	foreach($matchDiff_array as $match){
