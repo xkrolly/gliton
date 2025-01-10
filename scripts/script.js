@@ -433,7 +433,8 @@ function paymentSubpage(url, title, price, balance, insight){
  "<div style='font-size:12px; padding:5px 20px 20px 10px; text-align:center;'>"+insight+"</div>"+
                     "<h3>@</h3>"+
                     "<div style='display:flex; justify-content:center; align-items:center; font-weight:bold; color:#fff; background:red; border-radius:50%; height:60px; width:60px; padding:10px; margin-bottom:20px;'><span style='font-size:26px;'>"+price+"</span><sub style='font-size:10px;'>GC</sub></div>"+
-                    "<h6 id='walletBal'  style='font-size:12px;'>Wallet: <span style='font-size:12px;'>"+balance+"</span><sub style='font-size:8px;'>GC</sub></h6>";
+                    "<h6 id='walletBal'  style='font-size:12px;'><span class='material-icons' style='margin-left:10px; color:#0f0; font-size:50px;'>&#xe850;</span>"+
+                    "<span style='font-size:12px;'>"+balance+"</span><sub style='font-size:8px;'>GC</sub></h6>";
                     
 if(balance < price){
       subpage +=   "<a href='index.php?page=buycoin&price="+price+"' style='text-decoration:underlined; font-size:10px;'>Fund your wallet</a>";
