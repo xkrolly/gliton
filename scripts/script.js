@@ -426,14 +426,14 @@ function paymentSubpage(url, title, price, balance, insight){
     
   var subpage = " <div id='paySubpage' style='background:#fff; padding:20px; color:#000; height:100%; width:100%; position:fixed; top:0; right:0; bottom:0; border: 5px solid #2166f3; border-radius:10px;'>"+
                     "<div style='display:flex; flex-direction:column; height:100%; padding:10px; align-items:center; justify-content:space-around;'>"+
-                    "<h6 style='color:#000; width:100%; text-align:center;'>Pay "+price+"GC to own this solscript</h6>"+
+                    "<h6 style='color:#000; width:100%; text-align:center; font-size:13px;'>Pay "+price+"GC to own this solscript</h6>"+
                     "<hr>"+
                     "<div style='width:150px; height:150px; border-radius:50%; filter:drop-shadow(1px 1px 1px #aaa) drop-shadow(-1px -1px 1px #aaa); background:#fff;'></div>"+
                     "<h4 style='color:#111; width:100%; text-align:center; padding:20px; font-family:roboto; font-weight:bold; font-size:20px;'>"+title+"</h4>"+
  "<div style='font-size:12px; padding:5px 20px 20px 10px; text-align:center;'>"+insight+"</div>"+
                     "<h3>@</h3>"+
                     "<div style='display:flex; justify-content:center; align-items:center; font-weight:bold; color:#fff; background:red; border-radius:50%; height:60px; width:60px; padding:10px; margin-bottom:20px;'><span style='font-size:26px;'>"+price+"</span><sub style='font-size:10px;'>GC</sub></div>"+
-                    "<div style='display:flex; align-items:center; justify-content:center;'><h6 id='walletBal'  style='font-size:12px;'><span id='wallet' class='material-icons' style='margin-left:10px; font-size:50px;'>&#xe850;</span>"+
+                    "<div style='display:flex; align-items:center; justify-content:center;'><h6 id='walletBal'  style='font-size:12px;'><span id='wallet' class='material-icons' style='margin-left:10px; font-size:30px;'>&#xe850;</span>"+
                     "<span style='font-size:14px;'>"+balance+"</span><sub style='font-size:8px;'>GC</sub></h6></div>";
                     
 if(balance < price){
