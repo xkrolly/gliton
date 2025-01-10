@@ -433,11 +433,11 @@ function paymentSubpage(url, title, price, balance, insight){
  "<div style='font-size:12px; padding:5px 20px 20px 10px; text-align:center;'>"+insight+"</div>"+
                     "<h3>@</h3>"+
                     "<div style='display:flex; justify-content:center; align-items:center; font-weight:bold; color:#fff; background:red; border-radius:50%; height:60px; width:60px; padding:10px; margin-bottom:20px;'><span style='font-size:26px;'>"+price+"</span><sub style='font-size:10px;'>GC</sub></div>"+
-                    "<h6 id='walletBal'  style='font-size:12px;'><span id='wallet' class='material-icons' style='margin-left:10px; font-size:50px;'>&#xe850;</span>"+
-                    "<span style='font-size:12px;'>"+balance+"</span><sub style='font-size:8px;'>GC</sub></h6>";
+                    "<div style='display:flex; align-items:center; justify-content:center;'><h6 id='walletBal'  style='font-size:12px;'><span id='wallet' class='material-icons' style='margin-left:10px; font-size:50px;'>&#xe850;</span>"+
+                    "<span style='font-size:14px;'>"+balance+"</span><sub style='font-size:8px;'>GC</sub></h6></div>";
                     
 if(balance < price){
-      subpage +=   "<a href='index.php?page=buycoin&price="+price+"' style='text-decoration:underlined; font-size:10px;'>Fund your wallet</a>";
+      subpage +=   "<br><br><a href='index.php?page=buycoin&price="+price+"' style='background:#2166f3; padding:10px; text-decoration:underlined; font-size:18px;'>Fund your wallet</a>";
 }    
       subpage +=    "<br><br><br><div style='display:flex; flex-direction:column; align-items:center; font-size:12px; width:100%;'><a href='"+url+"' "+disable+" style='width:100%;'><button "+disable+" id='payBtn' class='form-control theme' style='border-radius:10px; width:100%; padding:20px auto 20px auto;'>Proceed to pay</button></a><span style='margin:10px auto;'></span>"+
                     "<span onclick='cancelPay();' style='color:#aaa; font-size:16px; text-decoration:underlined;'>Cancel</span></div>"+
