@@ -437,7 +437,7 @@ function paymentSubpage(url, title, price, balance, insight){
                     "<span style='font-size:14px;'>"+balance+"</span><sub style='font-size:8px;'>GC</sub></h6></div>";
                     
 if(balance < price){
-      subpage +=   "<br><br><a href='index.php?page=buycoin&price="+price+"' style='background:#2166f3; padding:10px; text-decoration:underlined; font-size:18px;'>Fund your wallet</a>";
+      subpage +=   "<br><br><a href='index.php?page=buycoin&price="+price+"' style='background:#2166f3; color:#fff; border-radius:10px; padding:10px; text-decoration:underlined; font-size:18px;'>Fund your wallet</a>";
 }    
       subpage +=    "<br><br><br><div style='display:flex; flex-direction:column; align-items:center; font-size:12px; width:100%;'><a href='"+url+"' "+disable+" style='width:100%;'><button "+disable+" id='payBtn' class='form-control theme' style='border-radius:10px; width:100%; padding:20px auto 20px auto;'>Proceed to pay</button></a><span style='margin:10px auto;'></span>"+
                     "<span onclick='cancelPay();' style='color:#aaa; font-size:16px; text-decoration:underlined;'>Cancel</span></div>"+
