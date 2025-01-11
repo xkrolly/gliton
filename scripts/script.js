@@ -431,15 +431,34 @@ function paymentSubpage(url, title, price, balance, insight){
                     "<div style='width:150px; height:150px; border-radius:50%; filter:drop-shadow(1px 1px 1px #aaa) drop-shadow(-1px -1px 1px #aaa); background:#fff;'></div>"+
                     "<h4 style='color:#111; width:100%; text-align:center; padding:20px; font-family:roboto; font-weight:bold; font-size:20px;'>"+title+"</h4>"+
  "<div style='font-size:12px; padding:5px 20px 20px 10px; text-align:center;'>"+insight+"</div>"+
-                    "<h3>@</h3>"+
-                    "<div style='display:flex; justify-content:center; align-items:center; font-weight:bold; color:#fff; background:red; border-radius:50%; height:60px; width:60px; padding:10px; margin-bottom:20px;'><span style='font-size:26px;'>"+price+"</span><sub style='font-size:10px;'>GC</sub></div>"+
-                    "<div style='display:flex; align-items:center; justify-content:center;'><h6 id='walletBal'  style='font-size:12px;'><span id='wallet' class='material-icons' style='margin-left:10px; font-size:30px;'>&#xe850;</span>"+
-                    "<span style='font-size:14px;'>"+balance+"</span><sub style='font-size:8px;'>GC</sub></h6></div>";
+                    "<div style='font-size:14px; margin-top:20px;'>@</div>"+
+                    "<div style='display:flex; justify-content:center; align-items:center; font-weight:bold; color:#fff; background:gold; border-radius:50%; height:40px; width:40px; padding:10px; margin-bottom:12px;'><span style='font-size:26px;'>"+price+"</span><sub style='font-size:10px;'>GC</sub></div>"+
+                    "<div style='display:flex; flex-direction:column; align-items:center; justify-content:center;'>"+
+                    "<span style='width:5px; height:5px; border:1px solid #2166f3; border-radius:50%;'></span>"+
+                    "<span style='width:5px; height:5px; border:1px solid #2166f3; border-radius:50%;'></span>"+
+                    "<span style='width:5px; height:5px; border:1px solid #2166f3; border-radius:50%;'></span>"+
+                    "<span style='width:5px; height:5px; border:1px solid #2166f3; border-radius:50%;'></span>"+
+                    "<span style='width:5px; height:5px; border:1px solid #2166f3; border-radius:50%;'></span>"+
+                    "<span style='width:5px; height:5px; border:1px solid #2166f3; border-radius:50%;'></span>"+
+                    "<span style='width:5px; height:5px; border:1px solid #2166f3; border-radius:50%;'></span>"+
+                    "<span style='width:5px; height:5px; border:1px solid #2166f3; border-radius:50%;'></span>"+
+                    "<span style='width:5px; height:5px; border:1px solid #2166f3; border-radius:50%;'></span>"+
+                    "<span style='width:5px; height:5px; border:1px solid #2166f3; border-radius:50%;'></span>"+
+                    "<span style='width:5px; height:5px; border:1px solid #2166f3; border-radius:50%;'></span>"+
+                    "<span style='width:5px; height:5px; border:1px solid #2166f3; border-radius:50%;'></span>"+
+                    "<span style='width:5px; height:5px; border:1px solid #2166f3; border-radius:50%;'></span>"+
+                    "<span style='width:5px; height:5px; border:1px solid #2166f3; border-radius:50%;'></span>"+
+
+                        "<div id='walletBal'  style='font-size:12px; margin-top:12px;'>"+
+                            "<div style='display:flex; justify-content:center; align-items:center; width:35px; height:35px; border-radius:50%; background:green; color:#fff;'><span style='font-size:14px;'>"+balance+"</span><sub style='font-size:8px;'>GC</sub></div>"+
+                            "<span id='wallet' class='material-icons' style='font-size:18px;'>&#xe850;</span> Bal"+
+                        "</div>"+
+                    "</div>";
                     
 if(balance < price){
-      subpage +=   "<br><br><a href='index.php?page=buycoin&price="+price+"' style='background:#2166f3; color:#fff; border-radius:10px; padding:10px; text-decoration:underlined; font-size:18px;'>Fund your wallet</a>";
+      subpage +=   "<br><br><a href='index.php?page=buycoin&price="+price+"' style='width:100%;'><button "+disable+" id='payBtn' class='form-control theme' style='border-radius:10px; width:100%; padding:20px auto 20px auto; color:#fff;'>Fund your wallet</button></a>";
 }    
-      subpage +=    "<br><br><br><div style='display:flex; flex-direction:column; align-items:center; font-size:12px; width:100%;'><a href='"+url+"' "+disable+" style='width:100%;'><button "+disable+" id='payBtn' class='form-control theme' style='border-radius:10px; width:100%; padding:20px auto 20px auto;'>Proceed to pay</button></a><span style='margin:10px auto;'></span>"+
+      subpage +=    "<br><br><br><div style='display:flex; flex-direction:column; align-items:center; font-size:12px; width:100%;'><a href='"+url+"' "+disable+" style='width:100%;'><button "+disable+" id='payBtn' class='form-control theme' style='border-radius:10px; width:100%; padding:20px auto 20px auto; color:#fff;'>Proceed to pay</button></a><span style='margin:10px auto;'></span>"+
                     "<span onclick='cancelPay();' style='color:#aaa; font-size:16px; text-decoration:underlined;'>Cancel</span></div>"+
                          "<div class='ribbon-wrap'><div class='ribbon'>Special offer</div></div>"+
                
