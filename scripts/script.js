@@ -433,7 +433,7 @@ function paymentSubpage(url, title, price, balance, insight){
                     "<h4 style='color:#111; width:100%; text-align:center; padding:20px; font-family:roboto; font-weight:bold; font-size:18px;'>"+title+"</h4>"+
  "<div style='font-size:12px; padding:5px 20px 20px 10px; text-align:center;'>"+insight+"</div>"+
                     "<div style='font-size:14px;'>@</div>"+
-                    "<div style='display:flex; justify-content:center; align-items:center; font-weight:bold; color:#fff; background:gold; border-radius:50%; height:40px; width:40px; padding:10px; margin-bottom:8px;'><span style='font-size:26px;'>"+price+"</span><sub style='font-size:10px;'>GC</sub></div>"+
+                    "<div style='display:flex; justify-content:center; align-items:center; font-weight:bold; color:#fff; background:gold; border-radius:50%; height:40px; width:40px; padding:10px; margin-bottom:8px;'><span style='font-size:20px;'>"+price+"</span><sub style='font-size:10px;'>GC</sub></div>"+
                     "<div style='display:flex; flex-direction:column; align-items:center; justify-content:center;'>"+
                     "<span style='width:5px; height:5px; border:1px solid #2166f3; border-radius:50%;'></span>"+
                     "<span style='width:5px; height:5px; border:1px solid #2166f3; border-radius:50%;'></span>"+
