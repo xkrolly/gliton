@@ -427,8 +427,8 @@ function paymentSubpage(url, title, price, balance, insight){
   var subpage = " <div id='paySubpage' style='background:#fff; padding:20px; color:#000; height:100%; width:100%; position:fixed; top:0; right:0; bottom:0; border: 5px solid #2166f3; border-radius:10px;'>"+
                     "<div style='display:flex; flex-direction:column; height:100%; padding:10px; align-items:center; justify-content:space-around;'>"+
                     "<h6 style='color:#000; width:100%; text-align:center; font-size:13px;'>Pay "+price+"GC to own this solscript</h6>"+
-                    "<div style='width:150px; height:150px; border-radius:50%; filter:drop-shadow(1px 1px 1px #aaa) drop-shadow(-1px -1px 1px #aaa); background:#fff;'>"+
-                      "<span class='material-icons' style='font-size:22px; color:#222;'>&#xe80c;</span>"+
+                    "<div style='display:flex; justify-content:center; align-items:center; width:150px; height:150px; border-radius:50%; filter:drop-shadow(1px 1px 1px #aaa) drop-shadow(-1px -1px 1px #aaa); background:#fff;'>"+
+                      "<span class='material-icons' style='font-size:60px; color:#222;'>&#xe80c;</span>"+
                     "</div>"+
                     "<h4 style='color:#111; width:100%; text-align:center; padding:20px; font-family:roboto; font-weight:bold; font-size:20px;'>"+title+"</h4>"+
  "<div style='font-size:12px; padding:5px 20px 20px 10px; text-align:center;'>"+insight+"</div>"+
