@@ -423,7 +423,10 @@ function paymentSubpage(url, title, price, balance, insight){
     var price = parseInt(price)/1000;
 
     balance < price ? disable='disabled' : disable = '';
-    
+
+var widthFactor = balance/price;
+var width = widthFactor * 40;
+
   var subpage = " <div id='paySubpage' style='background:#fff; padding:20px; color:#000; height:100%; width:100%; position:fixed; top:0; right:0; bottom:0; border: 5px solid #2166f3; border-radius:10px;'>"+
                     "<div style='display:flex; flex-direction:column; height:100%; padding:10px; align-items:center; justify-content:space-around;'>"+
                     "<h6 style='color:#000; width:100%; text-align:center; font-size:13px;'>Pay "+price+"GC to own this solscript</h6><br><br>"+
@@ -444,7 +447,7 @@ function paymentSubpage(url, title, price, balance, insight){
                     "<span style='width:5px; height:5px; border:1px solid #2166f3; border-radius:50%;'></span>"+
 
                         "<div id='walletBal'  style='font-size:12px; margin-top:8px;'>"+
-                            "<div id='walletSphere' style='display:flex; justify-content:center; align-items:center; width:35px; height:35px; border-radius:50%; border:2px solid #ccc;'><span style='font-size:14px;'>"+balance+"</span><sub style='font-size:8px;'>GC</sub></div>"+
+                            "<div id='walletSphere' style='display:flex; justify-content:center; align-items:center; width:"+width+"px; height:"+width+"px; border-radius:50%; border:2px solid #ccc;'><span style='font-size:14px;'>"+balance+"</span><sub style='font-size:8px;'>GC</sub></div>"+
                             "<div id='wallet' style='display:flex; justify-content:center; align-items:center;'><span class='material-icons' style='font-size:12px;'>&#xe850;</span> Bal</div>"+
                         "</div>"+
                     "</div><br><br><br>";
