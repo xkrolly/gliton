@@ -413,7 +413,7 @@ function pageView(content){
               document.getElementById('shareContent').href = 'https://wa.me/+2347037940894?text=heading';
               //script content
             var scriptURL ="index.php?page=peepChats&pub="+pubidEnc;
-
+                insight = insight.replace('<br/>', '&&&&&');
               document.getElementById('_contentScript').setAttribute('onclick', 'paymentSubpage(\"'+scriptURL+'\", \"'+heading+'\", \"'+price+'\", \"'+balance+'\", \"'+insight+'\")');
               document.getElementById('_contentScript2').setAttribute('onclick', 'paymentSubpage(\"'+scriptURL+'\", \"'+heading+'\", \"'+price+'\", \"'+balance+'\", \"'+insight+'\")');
 
