@@ -472,10 +472,10 @@ document.getElementById('_paymentSubpage').style.display = 'block';
     }else{ 
         document.getElementById('walletBal').style.color = 'green';
         document.getElementById('fundwallet').style.color = '#ddd';
-        document.getElementById('walletSphere').style.background = 'green';
 
         document.getElementById('wallet').style.color = 'green';
         document.getElementById('payBtn').style.background = '#2166f3';
+        document.getElementById('walletSphere').style.background = 'green';
     }
     
 }
