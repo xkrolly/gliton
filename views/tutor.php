@@ -107,9 +107,11 @@ if($regCompleted == 1){
 				$cat_code = $aoiData[0]['cat_code'];
 				$expert = ucfirst($aoiData[0]['specialist']);
 				$spec = ucfirst($aoiData[0]['subcategory']);
-                $tutor_list .="<div style='display:flex; justify-content:center; width:100%; position:fixed; top:0; font-size:12px;'><span style='background:rgba(0,128,0,.7); color:#fff; padding:10px;'>Your bal: ".$myBal."Gc<br><a href='buycoin' style='color:yellow; margin-top:-2px;'>Fund your wallet</a></span></div>";
+                $tutor_list .="<div style='background:rgba(0,128,0,.7); display:flex; justify-content:center; width:100%; position:fixed; top:0; font-size:12px;'>
+                <span style='margin-right:auto;'><a href='buycoin' style='color:yellow; margin-top:-2px;'>Fund your wallet</a>
+                </span><span style='color:#fff; padding:10px; font-weight:bold;'>Your bal: ".$myBal."Gc</span><span style='margin-left:auto;'></span></div>";
 
-				$tutor_list .= "<div style='padding:25px;'><h6 style='font-size:20px; text-align:center; margin-bottom:20px; font-family:serif;'>".$expert."s</h6>";
+				$tutor_list .= "<div style='padding:25px; border:4px solid #2166f3;'><h6 style='font-size:20px; text-align:center; margin-bottom:20px; margin-top:50px; font-family:serif;'>".$expert."s</h6>";
 
 				if(count($tutorData) > 0){
 						$ln = count($tutorData) - 1;
