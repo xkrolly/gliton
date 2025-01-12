@@ -447,7 +447,7 @@ var width = widthFactor * 40;
                     "<span style='width:5px; height:5px; border:1px solid #2166f3; border-radius:50%;'></span>"+
 
                         "<div id='walletBal'  style='font-size:12px; margin-top:8px;'>"+
-                            "<div id='walletSphere' style='display:flex; justify-content:center; align-items:center; width:"+width+"px; height:"+width+"px; border-radius:50%; border:2px solid #ccc;'><span style='font-size:14px;'>"+balance+"</span><sub style='font-size:8px;'>GC</sub></div>"+
+                            "<div id='walletSphere' style='display:flex; justify-content:center; align-items:center; width:"+width+"px; height:"+width+"px; border-radius:50%; border:1px solid #000;'><span style='font-size:14px;'>"+balance+"</span><sub style='font-size:8px;'>GC</sub></div>"+
                             "<div id='wallet' style='display:flex; justify-content:center; align-items:center;'><span class='material-icons' style='font-size:12px;'>&#xe850;</span> Bal</div>"+
                         "</div>"+
                     "</div><br><br><br>";
