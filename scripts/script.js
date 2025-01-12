@@ -445,7 +445,7 @@ function paymentSubpage(url, title, price, balance, insight){
 
                         "<div id='walletBal'  style='font-size:12px; margin-top:8px;'>"+
                             "<div style='display:flex; justify-content:center; align-items:center; width:35px; height:35px; border-radius:50%; color:#fff;'><span style='font-size:14px;'>"+balance+"</span><sub style='font-size:8px;'>GC</sub></div>"+
-                            "<div style='display:flex; justify-content:center; align-items:center;'><span id='wallet' class='material-icons' style='font-size:12px; color:#222;'>&#xe850;</span> Bal</div>"+
+                            "<div id='wallet' style='display:flex; justify-content:center; align-items:center;'><span class='material-icons' style='font-size:12px; color:#222;'>&#xe850;</span> Bal</div>"+
                         "</div>"+
                     "</div><br><br><br>";
                     
