@@ -414,6 +414,8 @@ function pageView(content){
               //script content
             var scriptURL ="index.php?page=peepChats&pub="+pubidEnc;
                 insight = insight.replace('<br />', '&&&&&');
+                insight = insight.replace('<br />', '&&&&&');
+                insight = insight.replace('<br />', '&&&&&');
               document.getElementById('_contentScript').setAttribute('onclick', 'paymentSubpage(\"'+scriptURL+'\", \"'+heading+'\", \"'+price+'\", \"'+balance+'\", \"'+insight+'\")');
               document.getElementById('_contentScript2').setAttribute('onclick', 'paymentSubpage(\"'+scriptURL+'\", \"'+heading+'\", \"'+price+'\", \"'+balance+'\", \"'+insight+'\")');
 
