@@ -10,6 +10,13 @@
         	"url": "/"
     	}
     },
+
+    "splash" : {
+    	"src": "img/glitsplash.png",
+    	"sizes": "540x720",
+    	"type": "image/png"
+    },
+
 	  "orientation": "portrait",
 	  "dir": "ltr",
 	  "scope": "/",
