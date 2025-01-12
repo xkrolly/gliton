@@ -213,7 +213,10 @@ $page="
     <meta name='application-name' content='Glit'>
     <meta name='description' content='Seek professional or technical guide/advice from expert!'>
     <meta name='Homepage' content='GLit homepage'>
-    <meta name='theme-color' content='#2176f3'>
+    <meta name='theme-color' content='#2166f3'>
+    <meta name='msapplication-TileColor' content='#2166f3'>
+    <meta name='apple-mobile-web-app-capable' content='yes'>
+    <meta name='apple-mobile-web-app-status-bar-style' content='black-translucent'>
     <meta name='glit:title' content='GLit homepage'>
     <meta name='glit:description' content='Seek technical guide as urgent as possible. Get started with GLit now!'>
     <meta name='glit:creator' content='@_GLit'>
@@ -222,7 +225,8 @@ $page="
     <meta http-equiv='x-ua-compatible' content='ie=edge'>
     <link rel='canonical' href='https://glit.ng/' />
     <link rel='manifest' href='manifest.json'>
-    <link rel='apple-touch-icon' href='img/logo192.png'>
+    <link rel='apple-touch-icon' href='img/glit192.png'>
+    <link rel='icon' href='img/glit192.png'>
     <link rel='stylesheet' href='css/master.css'>
     <link rel='stylesheet' href='css/style.css'>
     $pgv->embeddedStyle
