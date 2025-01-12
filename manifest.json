@@ -1,10 +1,10 @@
 {
-	"name" : "Glit",
-	"short_name" : "Glit",
+	"short_name": "Glit",
+	"name": "Glit",
 	"start_url" : "/?source=pwa",
 	"background_color" : "#fff",
 	"theme_color" : "#2166f3",
-	"display" : "fullscreen",
+	"display" : "standalone",
   	"tab_strip": {
        "new_tab_button": {
         	"url": "/"
