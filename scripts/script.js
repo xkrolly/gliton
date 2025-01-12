@@ -469,7 +469,8 @@ document.getElementById('_paymentSubpage').style.display = 'block';
         document.getElementById('walletSphere').style.background = 'red';
 
         
-    }else{ 
+    }
+    if(balance >= price){ 
         document.getElementById('walletBal').style.color = 'green';
         document.getElementById('fundwallet').style.color = '#ddd';
 
