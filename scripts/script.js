@@ -426,6 +426,7 @@ function paymentSubpage(url, title, price, balance, insight){
 
 var widthFactor = balance/price;
 var width = widthFactor * 40;
+width > 80 ? width = 80 : width;
 
   var subpage = " <div id='paySubpage' style='background:#fff; padding:20px; color:#000; height:100%; width:100%; position:fixed; top:0; right:0; bottom:0; border: 5px solid #2166f3; border-radius:10px;'>"+
                     "<div style='display:flex; flex-direction:column; height:100%; padding:10px; align-items:center; justify-content:space-around;'>"+
