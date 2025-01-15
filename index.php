@@ -207,7 +207,6 @@ $page="
 <html xmlns='http://www.w3.org/1999/xhtml' xml:lang='en' lang='en' dir='ltr'>
   <head>
     <title>Glit: Seek professional or technical guide/advice from expert</title>
-  
     <meta charset='utf-8'>
     <meta name='refresh' content='0'>
     <meta name='application-name' content='Glit'>
