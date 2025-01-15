@@ -13,7 +13,7 @@
 
     "splash" : {
     	"src": "img/glitsplash.png",
-    	"sizes": "540x720",
+    	"sizes": "540x721",
     	"type": "image/png"
     },
 
