@@ -209,16 +209,9 @@ $page="
     <title>Glit: Seek professional or technical guide/advice from expert</title>
     <meta charset='utf-8'>
     <meta name='refresh' content='0'>
-    <meta name='application-name' content='Glit'>
     <meta name='description' content='Seek professional or technical guide/advice from expert!'>
-    <meta name='Homepage' content='GLit homepage'>
     <meta name='theme-color' content='#fff'>
     <meta name='msapplication-TileColor' content='#fff'>
-    <meta name='apple-mobile-web-app-capable' content='yes'>
-    <meta name='apple-mobile-web-app-status-bar-style' content='black-translucent'>
-    <meta name='title' content='Glit'>
-    <meta name='glit:title' content='Glit'>
-    <meta name='glit:description' content='Seek technical guide as urgent as possible. Get started with GLit now!'>
     <meta name='glit:creator' content='@_GLit'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=1, user-scalable=no'>
     <meta name='mobile-web-app-capable' content='yes'>
