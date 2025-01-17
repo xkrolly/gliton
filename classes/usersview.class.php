@@ -119,20 +119,22 @@ class UsersView extends Users {
     public function topBar($notes){
 
 	return "<div style='display:flex; align-items:center; justify-content:center; padding:8px; background:#fff; filter:drop-shadow(2px 2px 2px #ccc); position:fixed; top:0; width:100%; z-index:25;'>
-            <div style='display:flex; flex-direction:column; margin-left:20px; width:40%; margin-right:auto;' onclick='$(\"#menu\").show()'>
-              <div style='width:25px; height:2px; background:#000;'></div>
-              <div style='width:25px; height:2px; margin-top:4px; background:#000;'></div>
-              <div style='width:25px; height:2px; margin-top:4px; background:#000;'></div>
-            </div>
-            <div style='align-self:center; margin-left:auto; width:20%; justify-content:center; margin-right:auto; display:flex; color:#2166f3; font-weight:bold; font-size:20px;'> <img src='img/glit192.png' alt='gLIT logo' style='height:25px; width:25px;'>lit</div>
+            <div style='align-self:center; margin-left:20px; width:20%; justify-content:center; margin-right:auto; display:flex; color:#2166f3; font-weight:bold; font-size:20px;'> <img src='img/glit192.png' alt='gLIT logo' style='height:25px; width:25px;'>lit</div>
     
-            <div style='display:flex; justify-content:flex-end; width:40%; margin-right:20px;' onclick='$(\"nav\").slideUp();'>
+            
+            <div style='display:flex; justify-content:flex-end; width:40%; margin-left:auto; margin-right:20px;' onclick='$(\"nav\").slideUp();'>
 
               <div onclick='$(\"#searchPanel\").slideDown();' style='margin-left:20px;'><span class='material-icons' style='color:#444; font-size:20px; margin-right:2px;'>&#xe8b6;</span>
               </div>
               <div style='margin-left:20px;'><a href='index.php?page=classes'><span class='material-icons' style='color:#444; font-size:20px;'>&#xf233;</span></a></div>
               <div style='margin-left:20px;'><a href='note'><span class='material-icons' style='color:#444; font-size:20px;'>&#xe7f4;</span></a></div>
               $notes
+
+	            <div style='display:flex; flex-direction:column; margin-left:20px; width:40%; margin-right:20px;' onclick='$(\"#menu\").show()'>
+	              <div style='width:2px; height:2px; background:#000;'></div>
+	              <div style='width:2px; height:2px; margin-top:4px; background:#000;'></div>
+	              <div style='width:2px; height:2px; margin-top:4px; background:#000;'></div>
+	            </div>
             </div>
           </div>
 
@@ -155,33 +157,33 @@ class UsersView extends Users {
     return"<div style='display:flex; justify-content:space-evenly; z-index:11; filter:drop-shadow(-1px -1px 1px #eee); position:fixed; left:0; bottom:0; width:100%; background:#fff; padding-top:8px; padding-bottom:15px;'>
               <div style='display:flex; flex-direction:column; align-items:center; justify-content:center;'>
                 <a href='scrolls' style='display:flex; flex-direction:column; align-items:center; justify-content:center; color:#2166f3; font-weight:bold; text-decoration:none; font-size:12px;'>
-                  <span class='material-icons' style='filter:drop-shadow(1px 1px 1.5px #2166f3) drop-shadow(-1px -1px 1px #2166f3); color:#fff; margin-right:5px; margin-bottom:-2px; font-size:42px;'>&#xe88a;</span>
+                  <span class='material-icons' style='filter:drop-shadow(1px 1px 1.5px #2166f3) drop-shadow(-1px -1px 1px #2166f3); color:#fff; margin-right:5px; margin-bottom:-2px; font-size:22px;'>&#xe88a;</span>
                   <span>Home</span>
                 </a>
               </div>
               <div style='display:flex; flex-direction:column; align-items:center; justify-content:center;'>
                 <nav><a href='enquiry' style='display:flex; flex-direction:column; align-items:center; justify-content:center; font-weight:bold; text-decoration:none; font-size:12px;'>
-                  <span class='material-icons' style='filter:drop-shadow(1px 1px 1.5px #2166f3) drop-shadow(-1px -1px 1px #2166f3); color:#fff; margin-right:5px; font-size:40px;'>&#xe94c;</span>
+                  <span class='material-icons' style='filter:drop-shadow(1px 1px 1.5px #2166f3) drop-shadow(-1px -1px 1px #2166f3); color:#fff; margin-right:5px; font-size:20px;'>&#xe94c;</span>
                   <span>Consult</span>
                 </a></nav>
               </div>
 
               <div style='display:flex; flex-direction:column; align-items:center; justify-content:center;'>
                 <nav><a href='solscript' style='display:flex; flex-direction:column; align-items:center; justify-content:center; font-weight:bold; text-decoration:none; font-size:12px;'>
-                  <span class='material-icons' style='filter:drop-shadow(1px 1px 1.5px #2166f3) drop-shadow(-1px -1px 1px #2166f3); color:#fff; margin-right:5px; font-size:40px;'>&#xef6e;</span>
-                  <span>Create</span>
+                  <span class='material-icons' style='filter:drop-shadow(1px 1px 1.5px #2166f3) drop-shadow(-1px -1px 1px #2166f3); color:#fff; margin-right:5px; font-size:20px;'>&#xef6e;</span>
+             git init     <span>Create</span>
                 </a></nav>
               </div>
 
               <div style='display:flex; flex-direction:column; align-items:center; justify-content:center;'>
                 <nav><a href='pending' style='display:flex; flex-direction:column; align-items:center; justify-content:center; font-weight:bold; text-decoration:none; font-size:12px;'>
-                  <span class='material-icons' style='filter:drop-shadow(1px 1px 1.5px #2166f3) drop-shadow(-1px -1px 1px #2166f3); color:#fff; margin-right:5px; font-size:40px;'>&#xf1bb;</span>
+                  <span class='material-icons' style='filter:drop-shadow(1px 1px 1.5px #2166f3) drop-shadow(-1px -1px 1px #2166f3); color:#fff; margin-right:5px; font-size:20px;'>&#xf1bb;</span>
                   <span>Pending</span>
                 </a></nav>
               </div>
               <div style='display:flex; flex-direction:column; align-items:center; justify-content:center;'>
                 <nav><a href='profile' style='display:flex; flex-direction:column; align-items:center; justify-content:center; font-weight:bold; text-decoration:none; font-size:12px;'>
-                  <span class='material-icons' style='filter:drop-shadow(1px 1px 1.5px #2166f3) drop-shadow(-1px -1px 1px #2166f3); color:#fff; margin-right:5px; font-size:40px;'>&#xf02e;</span>
+                  <span class='material-icons' style='filter:drop-shadow(1px 1px 1.5px #2166f3) drop-shadow(-1px -1px 1px #2166f3); color:#fff; margin-right:5px; font-size:20px;'>&#xf02e;</span>
                   <span>Account</span>
                 </a></nav>
               </div>
