@@ -130,7 +130,7 @@ class UsersView extends Users {
               <div style='margin-left:20px;'><a href='note'><span class='material-icons' style='color:#444; font-size:20px;'>&#xe7f4;</span></a></div>
               $notes
 
-	            <div style='display:flex; flex-direction:column; margin-left:20px; width:40%; margin-right:2px;' onclick='$(\"#menu\").show()'>
+	            <div style='display:flex; flex-direction:column; margin-left:20px; width:40%; margin-right:2px;' onclick='$(\"#menus\").show()'>
 	              <div style='width:4px; height:4px; background:#000;'></div>
 	              <div style='width:4px; height:4px; margin-top:4px; background:#000;'></div>
 	              <div style='width:4px; height:4px; margin-top:4px; background:#000;'></div>
@@ -138,7 +138,7 @@ class UsersView extends Users {
             </div>
           </div>
 
-                      <div id='menu' style='display:none; z-index:11; position:fixed; right:0; top:4%; margin:20px 5px auto auto; padding-right:200px;'>
+                      <div id='menus' style='display:none; z-index:11; position:fixed; right:0; top:4%; margin:20px 5px auto auto; padding-right:200px;'>
                 <div style='display:flex; justify-content:flex-end;'>
                 <div style='border-bottom-right-radius:5px; border-bottom-left-radius:5px; background:#fff; filter:drop-shadow(-2px 2px 2px #888); font-size:16px; padding:5px 20px 10px 20px;'>
               <p style='text-align:left; margin-right:-15px; margin-bottom:-5px;' onclick='$(\"#menu\").slideUp(20);'>&times;</p>
@@ -4129,7 +4129,7 @@ $scriptPanel .="<div id='box' style='margin-bottom:1px; height:100vh; border-bot
                         </figcaption>
         				<figcaption style='font-size:14px; height:40%; z-index:10; padding:2px 0px 2px 3px; position:absolute; top:49%; right:0; background:transparent; color:#fff;'>
                             <div style='display:flex; flex-direction:column; height:100%; align-items:flex-end; justify-content:center; width:100%; z-index:1;'>
-                              <div style='display:flex; flex-direction:column; margin-left:auto; min-height:45vh; align-items:center; margin-top:0px; padding:5px; z-index:20; border-radius:20px; margin-right:5px;'>
+                              <div style='display:flex; flex-direction:column; margin-left:auto; min-height:45vh; align-items:center; margin-top:0px; padding:5px; z-index:20; border-radius:20px; margin-right:1px;'>
                                 <div id='pagecap' style='font-size:28px; margin-top:-5px; display:flex; flex-direction:row; filter:drop-shadow(1px 1px 1px #aaa); background:rgba(50, 50, 50, .1); padding:5px; '>
                                   <div style='width:4px; height:4px; background:#fff; border-radius:50%;'></div>
                                   <div style='width:4px; height:4px; background:#fff; border-radius:50%; margin-left:5px;'></div>
