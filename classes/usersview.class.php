@@ -157,33 +157,33 @@ class UsersView extends Users {
     return"<div style='display:flex; justify-content:space-evenly; z-index:11; filter:drop-shadow(-1px -1px 1px #eee); position:fixed; left:0; bottom:0; width:100%; background:#fff; padding-top:8px; padding-bottom:15px;'>
               <div style='display:flex; flex-direction:column; align-items:center; justify-content:center;'>
                 <a href='scrolls' style='display:flex; flex-direction:column; align-items:center; justify-content:center; color:#2166f3; font-weight:bold; text-decoration:none; font-size:12px;'>
-                  <span class='material-icons' style='filter:drop-shadow(1px 1px 1.5px #2166f3) drop-shadow(-1px -1px 1px #2166f3); color:#fff; margin-right:5px; margin-bottom:-2px; font-size:22px;'>&#xe88a;</span>
+                  <span class='material-icons' style='filter:drop-shadow(1px 1px 1.5px #2166f3) drop-shadow(-1px -1px 1px #2166f3); color:#fff; margin-right:5px; margin-bottom:-2px; font-size:30px;'>&#xe88a;</span>
                   <span>Home</span>
                 </a>
               </div>
               <div style='display:flex; flex-direction:column; align-items:center; justify-content:center;'>
                 <nav><a href='enquiry' style='display:flex; flex-direction:column; align-items:center; justify-content:center; font-weight:bold; text-decoration:none; font-size:12px;'>
-                  <span class='material-icons' style='filter:drop-shadow(1px 1px 1.5px #2166f3) drop-shadow(-1px -1px 1px #2166f3); color:#fff; margin-right:5px; font-size:20px;'>&#xe94c;</span>
+                  <span class='material-icons' style='filter:drop-shadow(1px 1px 1.5px #2166f3) drop-shadow(-1px -1px 1px #2166f3); color:#fff; margin-right:5px; font-size:30px;'>&#xe94c;</span>
                   <span>Consult</span>
                 </a></nav>
               </div>
 
               <div style='display:flex; flex-direction:column; align-items:center; justify-content:center;'>
                 <nav><a href='solscript' style='display:flex; flex-direction:column; align-items:center; justify-content:center; font-weight:bold; text-decoration:none; font-size:12px;'>
-                  <span class='material-icons' style='filter:drop-shadow(1px 1px 1.5px #2166f3) drop-shadow(-1px -1px 1px #2166f3); color:#fff; margin-right:5px; font-size:20px;'>&#xef6e;</span>
-             git init     <span>Create</span>
+                  <span class='material-icons' style='filter:drop-shadow(1px 1px 1.5px #2166f3) drop-shadow(-1px -1px 1px #2166f3); color:#fff; margin-right:5px; font-size:30px;'>&#xef6e;</span>
+                   <span>Create</span>
                 </a></nav>
               </div>
 
               <div style='display:flex; flex-direction:column; align-items:center; justify-content:center;'>
                 <nav><a href='pending' style='display:flex; flex-direction:column; align-items:center; justify-content:center; font-weight:bold; text-decoration:none; font-size:12px;'>
-                  <span class='material-icons' style='filter:drop-shadow(1px 1px 1.5px #2166f3) drop-shadow(-1px -1px 1px #2166f3); color:#fff; margin-right:5px; font-size:20px;'>&#xf1bb;</span>
+                  <span class='material-icons' style='filter:drop-shadow(1px 1px 1.5px #2166f3) drop-shadow(-1px -1px 1px #2166f3); color:#fff; margin-right:5px; font-size:30px;'>&#xf1bb;</span>
                   <span>Pending</span>
                 </a></nav>
               </div>
               <div style='display:flex; flex-direction:column; align-items:center; justify-content:center;'>
                 <nav><a href='profile' style='display:flex; flex-direction:column; align-items:center; justify-content:center; font-weight:bold; text-decoration:none; font-size:12px;'>
-                  <span class='material-icons' style='filter:drop-shadow(1px 1px 1.5px #2166f3) drop-shadow(-1px -1px 1px #2166f3); color:#fff; margin-right:5px; font-size:20px;'>&#xf02e;</span>
+                  <span class='material-icons' style='filter:drop-shadow(1px 1px 1.5px #2166f3) drop-shadow(-1px -1px 1px #2166f3); color:#fff; margin-right:5px; font-size:30px;'>&#xf02e;</span>
                   <span>Account</span>
                 </a></nav>
               </div>
