@@ -132,7 +132,7 @@ class UsersView extends Users {
 
   public function topBar($notes){
 
-	return "<div style='display:flex; align-items:center; justify-content:center; padding:40px 8px 8px 8px; background:#fff; filter:drop-shadow(2px 2px 2px #ccc); position:fixed; top:0; width:100%; z-index:25;'>
+	return "<div style='display:flex; align-items:center; justify-content:center; padding:20px 8px 8px 8px; background:#fff; filter:drop-shadow(2px 2px 2px #ccc); position:fixed; top:0; width:100%; z-index:25;'>
             <div style='align-self:center; margin-left:2px; width:20%; justify-content:center; margin-right:auto; display:flex; color:#2166f3; font-weight:bold; font-size:20px;'> <img src='img/glit192.png' alt='gLIT logo' style='height:25px; width:25px;'>lit</div>
     
             
