@@ -25,8 +25,11 @@ if($regCompleted == 1){
     	    //check the sharedKey
     	  $sharedK = $usersView->getSharedKey($product_ID);
     	  $sharedK_enc_cons = $usersView->enc_cons($sharedK);
-    	  $_vals = $product_ID.', '.str_replace('==', '', $buyer);
-          $purchData = $usersView->select('purchase', ' WHERE product_id = ? AND buyer = ?', $_vals);
+    	  
+        $_me = $usersView->usercode($me);
+        $__me = '%.'.$_me.'.%';
+        $_vals = $product_ID.', '.$__me;
+        $purchData = $usersView->select('purchase', ' WHERE product_id = ? AND buyer LIKE ?', $_vals);
 
       if(count($purchData) > 0){
         //////////////////////////////////
