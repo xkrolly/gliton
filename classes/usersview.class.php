@@ -19,8 +19,10 @@ class UsersView extends Users {
 	public function processes_onInternet(){
 
 	}
-
-    public function productInteraction($_prdID, $intCol, $intTotalCol){
+	public function ribbon(){
+		return "<div class='ribbon-wrap'><div class='ribbon'>Special offer</div></div>";
+	}
+  public function productInteraction($_prdID, $intCol, $intTotalCol){
 	    $data = $this->fetchUser();
 	    $me = $data[0]['profile_id'];
 	    
@@ -51,7 +53,19 @@ class UsersView extends Users {
        	return array($addInt, $newtotalIntrxs, $prdID_, $pubid);
 	}
 	
-    public function fetchAssets($user){
+  public function boughtOrNot($pid){
+    	$userData = $this->fetchUser();
+    	$user = $userData[0]['profile_id'];
+
+    	$_me = $this->usercode($user);
+  		$me = '%.'.$_me.'.%';
+  		$val = $pid.', '.$me;
+    	$rows = $this->select('purchase', ' WHERE product_ID = ? AND buyer LIKE ?', $val);
+  		count($rows) > 0 ? $status = true : $status = false;
+  	
+  	return $status;
+  }
+  public function fetchAssets($user){
     	$_me = $this->usercode($user);
   		$me = '%.'.$_me.'.%';
     	$rows = $this->select('purchase', ' WHERE buyer LIKE ?', $me);
@@ -84,7 +98,7 @@ class UsersView extends Users {
 		}
 	return $outputThumbnail;
     }
-    public function fetchFavs($user){
+  public function fetchFavs($user){
     	$me = $user;
 		$prdData = $this->select('prd_interactions', ' WHERE profile_id = ?', $me);
         $allFav = count($prdData);
@@ -113,10 +127,10 @@ class UsersView extends Users {
 	  			$outputThumbnail[] = $_videoThumbnail[0].' '.$aoi_data['folder'].' '.$_videoThumbnail[1].' '.str_replace(' ', '.', $heading);
 		    }
 		}
-	return $outputThumbnail;
-    }
+	 return $outputThumbnail;
+  }
 
-    public function topBar($notes){
+  public function topBar($notes){
 
 	return "<div style='display:flex; align-items:center; justify-content:center; padding:8px; background:#fff; filter:drop-shadow(2px 2px 2px #ccc); position:fixed; top:0; width:100%; z-index:25;'>
             <div style='align-self:center; margin-left:2px; width:20%; justify-content:center; margin-right:auto; display:flex; color:#2166f3; font-weight:bold; font-size:20px;'> <img src='img/glit192.png' alt='gLIT logo' style='height:25px; width:25px;'>lit</div>
@@ -151,7 +165,7 @@ class UsersView extends Users {
                 <a href='logout' style='font-weight:bold; text-decoration:none; font-size:14px; color:red;'>Log out</a>
               </div>
         </div></div></div>";
-    }
+  }
 
     public function bottomNavigation(){
     return"<div style='display:flex; justify-content:space-evenly; z-index:11; filter:drop-shadow(-1px -1px 1px #eee); position:fixed; left:0; bottom:0; width:100%; background:#fff; padding-top:8px; padding-bottom:15px;'>
@@ -3762,14 +3776,16 @@ public function newList($user){
 			$_que = $_med[0][$_queCol];
             
             $_mediaInUse == 3 && !file_exists('../videos/'.$_strDir.'/dec/'.$_que.'.webm') ? $this->videoDecryptor22($_que, $_strDir) : '';
-            
+      
+      $boughtOrNot = $this->boughtOrNot($pub[$ln]['published']);
+        
             if($_mediaInUse == 3){$this->videoDecryptor22($_que, 'vet');}
             
             $balance = $this->getCoinBalance();            
             $chatDur = strtotime($endDate) - strtotime($startDate);
             $timespan = "<span style='color:#fff;'>".$this->getTimeDiff($chatDur)."</span>";
             $_endDate = substr($endDate, 0, 10);
-		    $all .= ', '.$pub[$ln]['topic_id'].'__'.$pub[$ln]['heading'].'__L('.$pub_id.'.'.$pub[$ln]['tL'].'.'.$likeStatus.')L__'.$pub[$ln]['published'].'__'.$pub[$ln]['price'].'__'.$mediaInUse.'__'.$_mediaInUse.'__'.$tutorImgUrl.'__'.$_colval.'__'.$col_id.'__'.$_col_id.'__'.$ln.'__'.$strDir.'__'.$_strDir.'__'.$que.'__'.$_que.'__'.$pub_id.'__'.$recipient.'__'.$tutorID_enc_con.'__'.$likeStatus.'__'.$category_id.'__'.$catPass.'__'.$pub[$ln]['shared'].'__'.$pub[$ln]['timespan'].'__'.$pub_id_enc.'__'.nl2br($pub[$ln]['insight'].'__'.$consultancy.'__'.$username.'__'.$addVideoMedia.'__'.$addImageMedia.'__'.$addAudioMedia.'__'.$addText.'__'.$tutorID_enc0.'__F('.$pub_id.'.'.$pub[$ln]['tF'].'.'.$favStatus.')F__'.$favStatus.'__'.$_endDate.'__'.$balance);
+		    $all .= ', '.$pub[$ln]['topic_id'].'__'.$pub[$ln]['heading'].'__L('.$pub_id.'.'.$pub[$ln]['tL'].'.'.$likeStatus.')L__'.$pub[$ln]['published'].'__'.$pub[$ln]['price'].'__'.$mediaInUse.'__'.$_mediaInUse.'__'.$tutorImgUrl.'__'.$_colval.'__'.$col_id.'__'.$_col_id.'__'.$ln.'__'.$strDir.'__'.$_strDir.'__'.$que.'__'.$_que.'__'.$pub_id.'__'.$recipient.'__'.$tutorID_enc_con.'__'.$likeStatus.'__'.$category_id.'__'.$catPass.'__'.$pub[$ln]['shared'].'__'.$pub[$ln]['timespan'].'__'.$pub_id_enc.'__'.nl2br($pub[$ln]['insight'].'__'.$consultancy.'__'.$username.'__'.$addVideoMedia.'__'.$addImageMedia.'__'.$addAudioMedia.'__'.$addText.'__'.$tutorID_enc0.'__F('.$pub_id.'.'.$pub[$ln]['tF'].'.'.$favStatus.')F__'.$favStatus.'__'.$_endDate.'__'.$balance.'__'.$boughtOrNot);
 		}
 	$ln--;
 	}
