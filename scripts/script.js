@@ -430,7 +430,7 @@ var widthFactor = balance/price;
 var width = widthFactor * 40;
 width > 100 ? width = 100 : width;
 
-  var subpage = " <div id='paySubpage' style='background:#fff; padding:20px; color:#000; height:100%; width:100%; position:fixed; top:0; right:0; bottom:0; border: 5px solid #2166f3; border-radius:10px;'>"+
+  var subpage = " <div id='paySubpage' style='background:#fff; padding:20px; color:#000; height:100%; width:100%; position:fixed; top:0; right:0; bottom:0;'>"+
                     "<div style='display:flex; flex-direction:column; height:100%; padding:10px; align-items:center; justify-content:space-around;'>"+
                     "<h6 style='color:#000; width:100%; text-align:center; font-size:13px;'>Pay "+price+"GC to own this solscript</h6><br><br>"+
                     "<div style='display:flex; justify-content:center; align-items:center; width:150px; height:150px; border-radius:50%; border: 1px solid #111; filter:drop-shadow(1px 1px 1px #aaa) drop-shadow(-1px -1px 1px #aaa); background:#fff;'>"+
@@ -460,8 +460,7 @@ if(balance < price){
 }    
       subpage +=    "<div style='display:flex; flex-direction:column; align-items:center; font-size:12px; width:100%;'><a href='"+url+"' "+disable+" style='width:100%;'><button "+disable+" id='payBtn' class='form-control theme' style='border-radius:10px; width:100%; padding:20px auto 20px auto; color:#fff;'>Proceed to pay</button></a><span style='margin:10px auto;'></span>"+
                     "<span onclick='cancelPay();' style='color:#aaa; font-size:16px; text-decoration:underlined;'>Cancel</span></div>"+
-                         "<div class='ribbon-wrap'><div class='ribbon'>Special offer</div></div>"+
-               
+                 
                   "</div></div>";
 $('main').hide();
 document.getElementById('_paymentSubpage').innerHTML = subpage;
