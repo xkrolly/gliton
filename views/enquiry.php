@@ -64,7 +64,7 @@ $addSpanPadin=0;
 
 
 /////////////
-
+$rForm .= "<div style='height:200px;'></div>";
 $rForm .= $usersView->topBar($notes);        
 $rForm .= $usersView->bottomNavigation();        
         
