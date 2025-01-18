@@ -34,7 +34,7 @@ foreach($_favourites as $fav){
     
     $media == 3 ? $mediaDisplay = "<video class='flexible2' id='$eachFav[3]' style='border-radius:4px; border:1px solid #aaa; width:100%; height:104px; object-fit:cover; background:#fff;' src='videos/".$dir."/dec/".$thumbnail.".webm'></video>" : $mediaDisplay ="<img class='flexible' id='$eachFav[3]' style='border-radius:4px; border:1px solid #aaa; width:100%; height:104px; object-fit:cover; background:#fff;' src='img/".$dir."/".$thumbnail.".webp' />";
 
-    $favourites .="<div style='margin:1px; display:flex; flex-direction:column; width:24%;'>".$mediaDisplay.
+    $favourites .="<div style='margin:1px; display:flex; flex-direction:column; width:24.5%;'>".$mediaDisplay.
     "<figcation style='font-size:9px; pointer-events:none; color:#fff; text-align:center; text-shadow:.5px .5px #2166f3; width:100%;; height:104px; padding:5px; margin-top:-100px; z-index:30; display:flex; justify-content:center; align-items:center; flex-wrap:wrap; flex-direction:row;'><a style='pointer-events:auto; color:#fff;' href='index.php?page=peepChats&pub'>".$heading."</a></figcaption></div>";
 }
 $favourites .="</div>";   
@@ -54,7 +54,7 @@ foreach($_assets as $ass){
     
     $media == 3 ? $mediaDisplay = "<video class='flexible2' id='$allAss[3]' style='border-radius:4px; border:1px solid #aaa; width:100%; height:104px; object-fit:cover; background:#fff;' src='videos/".$dir."/dec/".$thumbnail.".webm'></video>" : $mediaDisplay ="<img class='flexible' id='' style='border-radius:20px; width:50px; height:50px; object-fit:cover; background:#fff;' src='img/".$dir."/".$thumbnail.".webp' />";
 
-    $asset .="<div style='margin:1px; display:flex; flex-direction:column; width:24%;'>".$mediaDisplay.
+    $asset .="<div style='margin:1px; display:flex; flex-direction:column; width:24.5%;'>".$mediaDisplay.
     "<figcation style='font-size:9px; pointer-events:none; color:#fff; text-align:center; text-shadow:.5px .5px #2166f3; width:100%; height:104px; padding:5px; margin-top:-100px; z-index:30; display:flex; justify-content:center; align-items:center; flex-wrap:wrap; flex-direction:row;'><a style='pointer-events:auto; color:#fff;' href='index.php?page=peepChats&pub'>".$heading."</a></figcaption></div>";
 }
 $asset .="</div>";   // $joinDate = $userData[0]['join_date'];  
