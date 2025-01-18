@@ -432,8 +432,8 @@ width > 100 ? width = 100 : width;
 
   var subpage = " <div id='paySubpage' style='background:#fff; padding:20px; color:#000; height:100%; width:100%; position:fixed; top:0; right:0; bottom:0;'>"+
                     "<div style='display:flex; flex-direction:column; height:100%; padding:10px; align-items:center; justify-content:space-around;'>"+
-                    "<h6 style='color:#000; width:100%; text-align:center; font-size:13px;'>Pay "+price+"GC to own this solscript</h6><br><br>"+
-                    "<div style='display:flex; justify-content:center; align-items:center; border-radius:50%; height:200px; width:200px; border-top:2px solid gold;'>"+
+                    "<div style='color:#000; width:100%; text-align:center; font-size:13px;'>Pay "+price+"GC to own this solscript</div><br><br>"+
+                    "<div style='display:flex; justify-content:center; align-items:center; border-radius:50%; height:240px; width:240px; border-top:2px solid gold;'>"+
                       "<span class='material-icons' style='font-size:120px; color:gold;'>&#xea24;</span>"+
                     "</div>"+
                     "<h4 style='color:#111; width:100%; text-align:center; padding:20px; font-family:roboto; font-weight:bold; font-size:18px;'>"+title+"</h4>"+
