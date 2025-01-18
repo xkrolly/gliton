@@ -68,7 +68,7 @@ $rForm .= $usersView->topBar($notes);
 $rForm .= $usersView->bottomNavigation();        
         
 
-$rForm .="<div style='margin-top:60px;'>
+$rForm .="<div style='margin-top:80px;'>
                   <hr>
                   <div style='width:100%; display:flex; justify-content:center; color:red;' id='typeOut'>
 <p href='' class='typewriter'>...a solution can solve a million similar future problems.
