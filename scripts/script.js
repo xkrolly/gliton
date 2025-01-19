@@ -496,6 +496,24 @@ document.getElementById('_paymentSubpage').style.display = 'block';
     }
     
 }
+function shareData(title, text, href){
+ alert('ready to share');
+  if(navigator.share){
+    document.getElementById('shareBtn').addEventListener('click', async () => {
+      try{
+        await navigator.share({
+          title: title,
+          text: text,
+          url: window.location.href,
+        });
+      } catch (error){
+        console.error('error: ', error);
+      }
+    });
+  }else{
+    console.log('web share api not supported');
+  }
+}
 
 function cancelPay(){
 document.getElementById('_paymentSubpage').innerHTML = '';
@@ -570,23 +588,7 @@ function copyToClipboard(text){
 //                });
               };
 
-function shareData(title, text, href){
-if(navigator.share){
-  document.getElementById('shareBtn').addEventListener('click', async () => {
-    try{
-      await navigator.share({
-        title: title,
-        text: text,
-        url: window.location.href,
-      });
-    } catch (error){
-      console.error('error: ', error);
-    }
-  });
-}else{
-  console.log('web share api not supported');
-}
-}
+
 function generateScrollets(){
   var genspec = 2;//$('#genspec').val();
     $.ajax({
