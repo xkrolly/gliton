@@ -459,6 +459,9 @@ if(balance < price){
       subpage +=   "<div style='width:100%;'><a href='index.php?page=buycoin&price="+price+"' style='width:100%;'><button id='fundwallet' class='form-control theme' style='border-radius:10px; width:100%; padding:20px auto 20px auto; color:#fff;'>Fund your wallet</button></a></div>";
 }    
       subpage +=    "<div style='display:flex; flex-direction:column; align-items:center; font-size:12px; width:100%;'><a href='"+url+"' "+disable+" style='width:100%;'><button "+disable+" id='payBtn' class='form-control theme' style='border-radius:10px; width:100%; padding:20px auto 20px auto; color:#fff;'>Proceed to pay</button></a><span style='margin:10px auto;'></span>"+
+                    "<span onclick='copyToClipboard(\""+url+"\");' id='clipboardCopy' style='color:#2166f3; font-size:16px; text-decoration:underlined;'>Copy link</span>"+
+
+                 
                     "<span onclick='cancelPay();' style='color:#aaa; font-size:16px; text-decoration:underlined;'>Cancel</span></div>"+
                  
                   "</div></div>";
@@ -494,6 +497,23 @@ $('main').show();
 
 }
 
+function copyToClipboard(text){
+
+ // var link = 'localhost/gliton/checkout.php?&checkoutid='+text.replace('index.php?page=peepChats&pub=', '');
+  var link = 'https://glit.ng/checkout.php?&checkoutid='+text.replace('index.php?page=peepChats&pub=', '');
+  navigator.clipboard.writeText(link).then(() => {
+    document.getElementById('clipboardCopy').style.display = 'block';
+    document.getElementById('clipboardCopy').innerHTML = 'link successfully copied';
+    document.getElementById('clipboardCopy').style.color = 'green';
+
+  }).catch((error) => {
+    var err = 'error copying to clipboard: '+error;
+    document.getElementById('clipboardCopy').style.display = 'block';
+    document.getElementById('clipboardCopy').innerHTML = err;
+    document.getElementById('clipboardCopy').style.color = 'red';
+    
+  });
+}
 /*              function shareDis(){
                 const src = $('#A-src').val();
                 fetch(src)
