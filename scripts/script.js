@@ -409,8 +409,8 @@ function pageView(content){
               document.getElementById('FavStatus').value = nFavStatus;
 
               
-              //Share
-              document.getElementById('shareContent').href = 'https://wa.me/+2347037940894?text=heading';
+              //Share shareData(title, text, href)
+              document.getElementById('shareContent').href = 'https://wa.me/+2347037940894?text= \"https://glit.ng/checkout.php?&checkoutid='+pubidEnc+'\"';
               //script content
             var scriptURL ="index.php?page=peepChats&pub="+pubidEnc;
                 insight = insight.replace('<br />', '&&&&&');
@@ -563,6 +563,23 @@ function copyToClipboard(text){
 //                });
               };
 
+function shareData(title, text, href){
+if(navigator.share){
+  document.getElementById('shareBtn').addEventListener('click', async () => {
+    try{
+      await navigator.share({
+        title: title,
+        text: text,
+        url: window.location.href,
+      });
+    } catch (error){
+      console.error('error: ', error);
+    }
+  });
+}else{
+  console.log('web share api not supported');
+}
+}
 function generateScrollets(){
   var genspec = 2;//$('#genspec').val();
     $.ajax({
