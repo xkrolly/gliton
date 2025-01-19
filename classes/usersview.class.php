@@ -1701,6 +1701,18 @@ $eachClass	.="		</div><div style='width:100%;'>
 
 	}
 
+	public function recordSharedContent($_id){
+		$_id = str_replace(' ', '+', $_id);
+    $id = $usersView->decryptor0($_id);
+
+    $pubData = $this->select('publish', ' WHERE pub_id = ?', $id);
+    $share = $pubData[0]['share'];
+    $newshare = intval($share) + 1;
+		$vals2 = $newshare.', '.$id;
+    $this->updateStmt('publish', 'share = ? WHERE pub_id = ?', $vals2);
+	}
+
+
 	public function usercode($userDigit){
 		$first = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j'];
 		$second = ['t', 's', 'r', 'q', 'p', 'o', 'n', 'm', 'l', 'k'];
