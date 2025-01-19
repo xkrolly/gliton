@@ -65,9 +65,9 @@ $mediaBtype == 2 ? $assetB = "<img src='".$urlB."' id='checkoutimgB' class='flex
             <button class='add-button hover' style='margin-left:auto; background:transparent; color:#2166f3; font-size:16px; border:0; border-left:1px solid #000;'>Install</button>
         </div></div></div>
         <div class='add-button'>
-              <div style='position:fixed; top:10px; display:flex; flex-direction:column; justify-content:center; align-items:center;'>
+              <div style='position:fixed; top:48%; display:flex; flex-direction:column; justify-content:center; align-items:center; width:100%;'>
                 <span style='font-size:10px;'>Not yet a member?</span>
-                <a href='https://glit.ng' style='text-decoration:none;'><button style='padding:10px; border-radius:10px; filter:drop-shadow(1px 1px 1px #ddd); background:#2166f3; font-size:18px; color:#fff;'>Join Glit</button></a> 
+                <a href='https://glit.ng' style='text-decoration:none;'><button style='padding:10px; border-radius:10px; filter:drop-shadow(1px 1px 1px #fff); background:#2166f3; font-size:18px; color:#fff;'>Join Glit</button></a> 
               </div>
         </div>
 
