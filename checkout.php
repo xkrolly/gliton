@@ -60,13 +60,9 @@ $mediaBtype == 2 ? $assetB = "<img src='".$urlB."' id='checkoutimgB' class='flex
 
 		</div>
 
-        <div class='add-button'><div style='width:100%; display:flex; justify-content:center;'><div style='display:flex; margin-left:auto; margin-right:auto; align-items:center; align-self:center; width:84%; border-radius:10px; background:rgba(255,255,255, .8); filter:drop-shadow(1px 1px 1px #aaa) drop-shadow(-1px -1px .5px #aaa); position:fixed; bottom:10px; padding:5px 10px 5px 10px; z-index:500;'>
-            <div style='margin-right:auto; display:flex;'><img src='img/glit192.png' alt='gLIT logo' style='height:38px; width:38px; border-radius:50%;'><span style='margin-right:20px; margin-left:6px; font-size:9px;'>Consult professionals or experts, or be a resource person and create solutions, get paid etc..</span></div>
-            <button class='add-button hover' style='margin-left:auto; background:transparent; color:#2166f3; font-size:16px; border:0; border-left:1px solid #000;'>Install</button>
-        </div></div></div>
         <div class='add-button'>
               <div style='position:fixed; top:48%; display:flex; flex-direction:column; justify-content:center; align-items:center; width:100%;'>
-                <span style='font-size:10px;'>Not yet a member?</span>
+                <span style='font-size:10px;'>Not on Glit yet?</span>
                 <a href='https://glit.ng' style='text-decoration:none;'><button style='padding:10px; border-radius:10px; filter:drop-shadow(1px 1px 1px #fff); background:#2166f3; font-size:18px; color:#fff;'>Join Glit</button></a> 
               </div>
         </div>
