@@ -410,7 +410,14 @@ function pageView(content){
 
               
               //Share shareData(title, text, href)
-              document.getElementById('shareContent').href = 'https://wa.me/+2347037940894?text= \"https://glit.ng/checkout.php?&checkoutid='+pubidEnc+'\"';
+              var url = 'https://glit.ng/checkout.php?&checkoutid='+pubidEnc;
+              var title = 'Glit Solscript';
+              var text = 'Check it out';
+//              document.getElementById('shareContent').href = 'https://wa.me/+2347037940894?text= \"https://glit.ng/checkout.php?&checkoutid='+pubidEnc+'\"';
+              document.getElementById('shareContent').setAttribute('onclick', 'shareData(\"'+title+'\", \"'+text+'\", \"'+url+'\"');
+//               = 'https://wa.me/+2347037940894?text= \"https://glit.ng/checkout.php?&checkoutid='+pubidEnc+'\"';
+
+                  shareContent
               //script content
             var scriptURL ="index.php?page=peepChats&pub="+pubidEnc;
                 insight = insight.replace('<br />', '&&&&&');
