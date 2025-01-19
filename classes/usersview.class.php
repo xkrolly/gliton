@@ -132,11 +132,11 @@ class UsersView extends Users {
 
   public function topBar($notes){
 
-	return "<div style='display:flex; align-items:center; justify-content:center; padding:20px 8px 8px 8px; background:#fff; filter:drop-shadow(2px 2px 2px #ccc); position:fixed; top:0; width:100%; z-index:25;'>
-            <div style='align-self:center; margin-left:2px; width:20%; justify-content:center; margin-right:auto; display:flex; color:#2166f3; font-weight:bold; font-size:20px;'> <img src='img/glit192.png' alt='gLIT logo' style='height:25px; width:25px;'>lit</div>
+	return "<div style='display:flex; align-items:center; padding:20px 8px 8px 8px; background:#fff; filter:drop-shadow(2px 2px 2px #ccc); position:fixed; top:0; width:100%; z-index:25;'>
+            <div style='align-self:left; margin-left:2px; justify-content:center; margin-right:auto; display:flex; color:#2166f3; font-weight:bold; font-size:20px;'> <img src='img/glit192.png' alt='gLIT logo' style='height:25px; width:25px;'>lit</div>
     
             
-            <div style='display:flex; justify-content:flex-end; width:40%; margin-left:auto; margin-right:2px;' onclick='$(\"nav\").slideUp();'>
+            <div style='display:flex; justify-content:flex-end; align-items:center; margin-left:auto; margin-right:2px;' onclick='$(\"nav\").slideUp();'>
 
               <div onclick='$(\"#searchPanel\").slideDown();' style='margin-left:20px;'><span class='material-icons' style='color:#444; font-size:20px; margin-right:2px;'>&#xe8b6;</span>
               </div>
@@ -144,7 +144,7 @@ class UsersView extends Users {
               <div style='margin-left:20px;'><a href='note'><span class='material-icons' style='color:#444; font-size:20px;'>&#xe7f4;</span></a></div>
               $notes
 
-	            <div style='display:flex; flex-direction:column; margin-left:20px; width:40%; margin-right:2px;' onclick='$(\"#menus\").show()'>
+	            <div style='display:flex; flex-direction:column; margin-left:20px; margin-right:2px;' onclick='$(\"#menus\").show()'>
 	              <div style='width:4px; height:4px; background:#000;'></div>
 	              <div style='width:4px; height:4px; margin-top:4px; background:#000;'></div>
 	              <div style='width:4px; height:4px; margin-top:4px; background:#000;'></div>
@@ -3640,7 +3640,65 @@ public function fetchLovableContent($userID){
         return array_unique($all_matchDiff_array);
     }else{ return '';}
 }
+public function getCheckout($pubid){
+	$pubData = $this->select('publish', ' WHERE pub_id = ?', $pubid);
+	$published = $pubData[0]['published'];	
+			$val = $published.', 1';
+			$chat = $this->select('solochat', ' WHERE content_id = ? AND media > ?', $val);
+      count($chat) == 0 ? $chat = $this->select('chat', ' WHERE uniq_conv = ? AND media > ?', $val) : $chat;
+		
+//			var_dump($chat);
+			$mediaInUse = $chat[0]['media'];
+			$vet_id = $chat[0]['vet_id'];
+			$agro_id = $chat[0]['agro_id'];
+			$hth_id = $chat[0]['hth_id'];
+			$guide_id = $chat[0]['guide_id'];
+			$cook_id = $chat[0]['cook_id'];
+			$startDate = $chat[0]['cdate'];
 
+   		$aoi_array = $this->aoi_cht($agro_id, $vet_id, $hth_id, $guide_id, $cook_id);
+			$topic = $aoi_array['topic'];
+			$col_id = $aoi_array['col_id'];
+			$colval = $aoi_array['colval'];
+			$queCol = $aoi_array['queCol'];
+			$strDir = $aoi_array['strDir'];
+
+			$med = $this->select($topic, ' WHERE '.$col_id.' = ?', $colval);
+			$que = $med[0][$queCol];
+			$col_val = $colval;
+  
+			$mediaInUse == 3 && !file_exists('videos/'.$strDir.'/dec/'.$que.'.webm') ? $this->videoDecryptor22($que, $strDir) : '';
+			$url = 'videos/'.$strDir.'/dec/'.$que.'.webm';
+	
+
+
+$n = count($chat) - 1;
+			$_mediaInUse = $chat[$n]['media'];
+	  	$_vet_id = $chat[$n]['vet_id'];
+			$_agro_id = $chat[$n]['agro_id'];
+			$_hth_id = $chat[$n]['hth_id'];
+			$_guide_id = $chat[$n]['guide_id'];
+			$_cook_id = $chat[$n]['cook_id'];
+			$_endDate = $chat[$n]['cdate'];
+	
+		
+   		$_aoi_array = $this->aoi_cht($_agro_id, $_vet_id, $_hth_id, $_guide_id, $_cook_id);
+			$_topic = $_aoi_array['topic'];
+			$_col_id = $_aoi_array['col_id'];
+			$_colval = $_aoi_array['colval'];
+			$_queCol = $_aoi_array['queCol'];
+			$_strDir = $_aoi_array['strDir'];
+
+			$_med = $this->select($_topic, ' WHERE '.$_col_id.' = ?', $_colval);
+			$_que = $_med[0][$_queCol];
+			  
+			$_url = 'videos/'.$_strDir.'/dec/'.$_que.'.webm';
+    	$_mediaInUse == 3 && !file_exists('videos/'.$_strDir.'/dec/'.$_que.'.webm') ? $this->videoDecryptor22($_que, $_strDir) : '';
+    
+      return array($mediaInUse, $_mediaInUse, $url, $_url);
+
+			
+}
 public function newList($user){
     
 	$userInt = $this->select('prd_interactions', ' WHERE profile_id = ?', $user);
@@ -3801,16 +3859,17 @@ return "<div style='width:100%; height:92vh; display:flex; flex-direction:column
 public function scripts(){
 	$userData = $this->fetchUser();
 
-$xpt = $userData[0]['xpt'];
+isset($_SESSION['user_id']) ? $xpt = $userData[0]['xpt'] : $xpt = 0;
 $rand = rand(6, 10);//$userData[0]['view'];
 //get new notes notification set
+if(isset($_SESSION['user_id'])){
 	$vals = '0, '.$userData[0]['profile_id'];
 	$newNotes = $this->select('xnote', ' WHERE iview = ? AND target_id = ?', $vals);
 	$n = count($newNotes);
 	$n > 0 ? 
 $allnew = "<sub style='display:flex; justify-content:center; align-items:center; margin-left:-10px; margin-top:5px; color:#fff; font-size:12px; background:#2166f3; height:16px; width:16px; border-radius:50%; font-weight:bold;'>$n</sub>"
 : $allnew = '';
-	
+	}
 	$xpt == 0 ? $url = 'enquiry' : $url = 'response';
 
 		$xpt == 1 ? $calender ="
