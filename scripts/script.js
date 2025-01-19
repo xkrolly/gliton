@@ -411,11 +411,9 @@ function pageView(content){
               
               //Share shareData(title, text, href)
               var url = 'https://glit.ng/checkout.php?&checkoutid='+pubidEnc;
-              var title = insight;//'Glit Solscript';
-              var text = heading;//'Check it out';
-//              document.getElementById('shareContent').href = 'https://wa.me/+2347037940894?text= \"https://glit.ng/checkout.php?&checkoutid='+pubidEnc+'\"';
+              var title = insight;
+              var text = heading;
               document.getElementById('shareContent').setAttribute('onclick', 'shareData(\"'+title+'\", \"'+text+'\", \"'+url+'\")');
-//               = 'https://wa.me/+2347037940894?text= \"https://glit.ng/checkout.php?&checkoutid='+pubidEnc+'\"';
 
                   shareContent
               //script content
@@ -496,9 +494,22 @@ document.getElementById('_paymentSubpage').style.display = 'block';
     }
     
 }
-function shareData(title, text, href){
+    async function shareData(title, text, href) {
+      try{
+        await navigator.share({
+          title: title,
+          text: text,
+          url: href,
+        });
+      } catch (error){
+        console.error('error: ', error);
+      }
+    };
+
+/*function shareData(title, text, href){
   if(navigator.share){
-    document.getElementById('shareContent').addEventListener('click', async () => {
+    //document.getElementById('shareContent').addEventListener('click', 
+    async () => {
       try{
         await navigator.share({
           title: title,
@@ -508,12 +519,12 @@ function shareData(title, text, href){
       } catch (error){
         console.error('error: ', error);
       }
-    });
+    };
   }else{
     console.log('web share api not supported');
   }
 }
-
+*/
 function cancelPay(){
 document.getElementById('_paymentSubpage').innerHTML = '';
 document.getElementById('_paymentSubpage').style.display = 'none';
