@@ -414,7 +414,7 @@ function pageView(content){
               var title = 'Glit Solscript';
               var text = 'Check it out';
 //              document.getElementById('shareContent').href = 'https://wa.me/+2347037940894?text= \"https://glit.ng/checkout.php?&checkoutid='+pubidEnc+'\"';
-              document.getElementById('shareContent').setAttribute('onclick', 'shareData(\"'+title+'\", \"'+text+'\", \"'+url+'\"');
+              document.getElementById('shareContent').setAttribute('onclick', 'shareData(\"'+title+'\", \"'+text+'\", \"'+url+'\")');
 //               = 'https://wa.me/+2347037940894?text= \"https://glit.ng/checkout.php?&checkoutid='+pubidEnc+'\"';
 
                   shareContent
@@ -499,13 +499,14 @@ document.getElementById('_paymentSubpage').style.display = 'block';
 function shareData(title, text, href){
  alert('ready to share');
   if(navigator.share){
-    document.getElementById('shareBtn').addEventListener('click', async () => {
+    document.getElementById('shareContent').addEventListener('click', async () => {
       try{
         await navigator.share({
           title: title,
           text: text,
           url: window.location.href,
         });
+ alert('share nwq');
       } catch (error){
         console.error('error: ', error);
       }
