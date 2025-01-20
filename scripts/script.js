@@ -505,6 +505,7 @@ function recordShare(id){
             error: function(data){
 
             }
+          });
 }
     async function shareData(title, text, href, id) {
       recordShare(id);
