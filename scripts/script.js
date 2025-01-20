@@ -495,15 +495,17 @@ document.getElementById('_paymentSubpage').style.display = 'block';
     
 }
 function recordShare(id){
+
+              var shr = document.getElementById('totalShares').innerHTML;
+              var newShr = parseInt(shr) + 1;
+              document.getElementById('totalShares').innerHTML = newShr;
+
     $.ajax({
             url: 'includes/recordShared.inc.php',
             method: 'POST',
             data: {id:id},
             dataType:'json',
             success: function(data){
-              var shr = document.getElementById('totalShares').innerHTML;
-              var newShr = parseInt(shr) + 1;
-              document.getElementById('totalShares').innerHTML = newShr;
             },
             error: function(data){
 
