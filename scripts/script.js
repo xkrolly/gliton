@@ -501,6 +501,9 @@ function recordShare(id){
             data: {id:id},
             dataType:'json',
             success: function(data){
+              var shr = document.getElementById('totalShares').innerHTML;
+              var newShr = parseInt(shr) + 1;
+              document.getElementById('totalShares').innerHTML = newShr;
             },
             error: function(data){
 
