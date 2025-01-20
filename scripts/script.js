@@ -277,7 +277,7 @@ function pageView(content){
 //                document.getElementById('totalShares').innerHTML = shared;
                 
                 function numEestimator(a){
-                //  alert(a);
+                 alert(a);
                   a.length == 4 ? y = 1 : (a.length == 5 ? y = 2 : (a.length == 6 ? y = 3 : y = 4 )); 
                   var _a = a.substr(y, 1);
                   a.length >= 4 ? 
