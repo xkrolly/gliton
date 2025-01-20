@@ -413,7 +413,7 @@ function pageView(content){
               var url = 'https://glit.ng/checkout.php?&checkoutid='+pubidEnc;
               var title = insight;
               var text = heading;
-              document.getElementById('shareContent').setAttribute('onclick', 'shareData(\"'+title+'\", \"'+text+'\", \"'+url+'\")');
+              document.getElementById('shareContent').setAttribute('onclick', 'shareData(\"'+title+'\", \"'+text+'\", \"'+url+'\", \"'+pubidEnc+'\")');
 
                   shareContent
               //script content
@@ -494,7 +494,20 @@ document.getElementById('_paymentSubpage').style.display = 'block';
     }
     
 }
-    async function shareData(title, text, href) {
+function recordShare(id){
+    $.ajax({
+            url: 'includes/recordShared.inc.php',
+            method: 'POST',
+            data: {id:id},
+            dataType:'json',
+            success: function(data){
+            },
+            error: function(data){
+
+            }
+}
+    async function shareData(title, text, href, id) {
+      recordShare(id);
       try{
         await navigator.share({
           title: title,
