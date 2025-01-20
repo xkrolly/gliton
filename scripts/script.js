@@ -274,7 +274,7 @@ function pageView(content){
                 document.getElementById('solscriptVidTotal').innerHTML = vidTotal;
                 document.getElementById('pubDate').innerHTML = pubDate;
                 
-                //document.getElementById('totalFavs').innerHTML = favs;
+                document.getElementById('totalShares').innerHTML = shared;
                 
                 function numEestimator(a){
                 //  alert(a);
