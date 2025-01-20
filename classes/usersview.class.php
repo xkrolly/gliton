@@ -1703,7 +1703,7 @@ $eachClass	.="		</div><div style='width:100%;'>
 
 	public function recordSharedContent($_id){
 		$_id = str_replace(' ', '+', $_id);
-    $id = $usersView->decryptor0($_id);
+    $id = $this->decryptor0($_id);
 
     $pubData = $this->select('publish', ' WHERE pub_id = ?', $id);
     $share = $pubData[0]['share'];
