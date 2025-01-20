@@ -274,7 +274,7 @@ function pageView(content){
                 document.getElementById('solscriptVidTotal').innerHTML = vidTotal;
                 document.getElementById('pubDate').innerHTML = pubDate;
                 
-                document.getElementById('totalShares').innerHTML = shared;
+//                document.getElementById('totalShares').innerHTML = shared;
                 
                 function numEestimator(a){
                 //  alert(a);
@@ -284,7 +284,7 @@ function pageView(content){
                   output = a.substr(0, y)+'.'+_a+'K' : output = a;
                   return output;
                 }
-                 
+                 shared === undefined ? shared = 0 : shared;
                 document.getElementById('totalShares').innerHTML = numEestimator(shared);
                 document.getElementById('timespan').innerHTML = timespan;
                 document.getElementById('timespan2').innerHTML = timespan;
