@@ -3855,7 +3855,7 @@ public function newList($user){
             $chatDur = strtotime($endDate) - strtotime($startDate);
             $timespan = "<span style='color:#fff;'>".$this->getTimeDiff($chatDur)."</span>";
             $_endDate = substr($endDate, 0, 10);
-		    $all .= ', '.$pub[$ln]['topic_id'].'__'.$pub[$ln]['heading'].'__L('.$pub_id.'.'.$pub[$ln]['tL'].'.'.$likeStatus.')L__'.$pub[$ln]['published'].'__'.$pub[$ln]['price'].'__'.$mediaInUse.'__'.$_mediaInUse.'__'.$tutorImgUrl.'__'.$_colval.'__'.$col_id.'__'.$_col_id.'__'.$ln.'__'.$strDir.'__'.$_strDir.'__'.$que.'__'.$_que.'__'.$pub_id.'__'.$recipient.'__'.$tutorID_enc_con.'__'.$likeStatus.'__'.$category_id.'__'.$catPass.'__'.$pub[$ln]['shared'].'__'.$pub[$ln]['timespan'].'__'.$pub_id_enc.'__'.nl2br($pub[$ln]['insight'].'__'.$consultancy.'__'.$username.'__'.$addVideoMedia.'__'.$addImageMedia.'__'.$addAudioMedia.'__'.$addText.'__'.$tutorID_enc0.'__F('.$pub_id.'.'.$pub[$ln]['tF'].'.'.$favStatus.')F__'.$favStatus.'__'.$_endDate.'__'.$balance.'__'.$boughtOrNot);
+		    $all .= ', '.$pub[$ln]['topic_id'].'__'.$pub[$ln]['heading'].'__L('.$pub_id.'.'.$pub[$ln]['tL'].'.'.$likeStatus.')L__'.$pub[$ln]['published'].'__'.$pub[$ln]['price'].'__'.$mediaInUse.'__'.$_mediaInUse.'__'.$tutorImgUrl.'__'.$_colval.'__'.$col_id.'__'.$_col_id.'__'.$ln.'__'.$strDir.'__'.$_strDir.'__'.$que.'__'.$_que.'__'.$pub_id.'__'.$recipient.'__'.$tutorID_enc_con.'__'.$likeStatus.'__'.$category_id.'__'.$catPass.'__'.$pub[$ln]['share'].'__'.$pub[$ln]['timespan'].'__'.$pub_id_enc.'__'.nl2br($pub[$ln]['insight'].'__'.$consultancy.'__'.$username.'__'.$addVideoMedia.'__'.$addImageMedia.'__'.$addAudioMedia.'__'.$addText.'__'.$tutorID_enc0.'__F('.$pub_id.'.'.$pub[$ln]['tF'].'.'.$favStatus.')F__'.$favStatus.'__'.$_endDate.'__'.$balance.'__'.$boughtOrNot);
 		}
 	$ln--;
 	}
@@ -4014,8 +4014,6 @@ $scriptPanel .="<div id='box' style='margin-bottom:1px; height:100vh; border-bot
                          			 		<p id='totalLikes' style='color:#fff; filter:drop-shadow(1px 1px .5px #555); font-weight:600; font-size:10px; margin-top:-12px;'>0
 				                  			</p>
 				                  		</div>
-
-
 				                  		<div id='shareContent' onclick = 'shareDis();' style='padding:0; margin-left:auto; margin-right:20px;'>
 			                  		    	 <span class='material-icons' style='font-size:24px; transform:rotateY(180deg); filter:drop-shadow(1px 1px .5px #555); color:#fff;'>&#xe15e;</span>
             		                  			<p id='totalShares' style='font-size:10px; filter:drop-shadow(1px 1px .5px #444); margin-top:-12px; color:#fff; font-weight:600;'>
