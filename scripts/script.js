@@ -284,8 +284,8 @@ function pageView(content){
                   output = a.substr(0, y)+'.'+_a+'K' : output = a;
                   return output;
                 }
-                 shared === undefined ? shared = 0 : shared;
-                document.getElementById('totalShares').innerHTML = numEestimator(shared);
+                 shared === undefined ? shared = 0 : shared = numEestimator(shared);
+                document.getElementById('totalShares').innerHTML = shared;
                 document.getElementById('timespan').innerHTML = timespan;
                 document.getElementById('timespan2').innerHTML = timespan;
 
