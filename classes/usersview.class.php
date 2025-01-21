@@ -5567,7 +5567,7 @@ $Chats .="    					             <span style='font-size:10px; color:#000; margin-
 	public function searchPanel(){
 //        <div style="text-align:center; margin-top:10px;"><span onclick=$("#searchPanel").slideUp("slow");>
 	  
-		$panel='<div class="them" id="searchPanel" style="background:transparent; border:1px solid #ccc; filter:drop-shadow(2px 2px 150px #aaa); padding:1px; position:fixed; right:0; left:0; top:7%; z-index:20; display:none;">
+		$panel='<div class="them" id="searchPanel" style="background:transparent; border:1px solid #ccc; filter:drop-shadow(2px 2px 150px #aaa); padding:1px; position:fixed; right:0; left:0; top:8%; z-index:20; display:none;">
         <form id="search_data" class="search_data">
         <div style="background:#eee; padding:10px; display:flex; align-items:center; justify-content:center;">
               <div style="border:2px solid #ddd; border-radius:20px; display:flex; justify-content:center; align-items:center;">
@@ -5588,7 +5588,7 @@ $Chats .="    					             <span style='font-size:10px; color:#000; margin-
       </div>';
 return $panel;
 	}
-	public function searchPanel2(){
+	public function searchPanellll2(){
 	  
 		$panel='<div class="them" id="searchPanel" style="background:transparent; border:1px solid #ccc; filter:drop-shadow(2px 2px 150px #aaa); padding:1px; position:fixed; right:0; left:0; top:0; z-index:20; display:none;">
 
