@@ -37,7 +37,7 @@ $addSpanPadin=0;
 $sol .= $usersView->topBar($notes);
 $sol .= $usersView->bottomNavigation();
 
-//$lm = $usersView->learnMore(6);
+$lm = $usersView->learnMore(6, 10);
 $sol .=$usersView->showModal3($lm, 'imodal', '', 'none');
 
 $sol .="<video style='z-index:10; display:none; background:#fff; height:100vh; width:100vw; object-fit:cover; position:fixed; top:0; left:0; right:0; bottom:0;' id='camera-preview' class=''>
@@ -97,9 +97,10 @@ $sol .="<video style='z-index:10; display:none; background:#fff; height:100vh; w
                                 </div>
                         </div>
                         <div class='form-group' id='textQ' style='display:none; padding:5px; margin-bottom:20px;'>
-                                <input type='text' name='title' id='textspace' class='form-control' placeholder='Your succintly descriptive title with metrics' style='font-size:14px; border-radius:20px;'/>
-                                <div style='display:flex; flex-direction:column; font-size:12px; padding-left:20px; padding-right:20px; padding-top:30px;' >
-                                      <h6 style='font-size:12px; text-align:justify;'>NOTE: Title should reflect the uniqueness of your solution approach by quantifying all or either of the following parameters in figures <span class='material-icons' style='margin-left:10px; color:#2166f3; font-size:22px;' onclick='$(\"#imodal\").slideDown(20);'>&#xe88e;</span></h6>
+                                <input type='text' name='title' id='textspace' class='form-control' placeholder='Your succint title' style='font-size:14px; border-radius:20px;'/>
+                                <div style='display:flex; flex-direction:column; font-size:12px; padding:5px 10px 5px 20px; margin-top:10px; background:#fff; border-radius:10px;' >
+                                      <div style='font-size:12px; text-align:left; font-style:italic; color:#2166f3;'>NOTE: Title should reflect the uniqueness of your solution approach by quantifying all or either of the associated parameters </div>
+                                      <div style='display:flex; width:100%;'><div style='display:flex; margin-left:auto; justify-content:center; align-items:center; height:14px; width:14px; border:2px solid deepskyblue; color:deepskyblue; border-radius:50%; font-size:10px; font-family:serif; font-style:italic; font-weight:1000;' onclick='learnmore(6);'>i</div></div>
                                 </div>
                         </div>
                     </div>
