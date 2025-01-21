@@ -131,7 +131,7 @@ $sol .="<video style='z-index:10; display:none; background:#fff; height:100vh; w
                                 </div>
                             </div>
                             <hr style=' margin-top:35px;'>
-                            <div style='width:100%; text-align:center; font-size:12px; color:red;'>Snap or videoshoot the problem</div>               
+                            <div style='width:100%; text-align:center; font-size:10px; color:#2166f3;'>Snap or videoshoot the problem</div>               
                             <div id='check_item' style='text-align:center; color:red;'></div>
                         </div>
                 </div>
@@ -152,7 +152,7 @@ $sol .="<video style='z-index:10; display:none; background:#fff; height:100vh; w
                         </div>
                     </div>
 
-                    <div style='font-size:10px; color:#2166f3; padding:10px; text-align:left; font-style:italic;'>NOTE: Ensure your CTT and CVE are accurate before you start</div>
+                    <div style='font-size:10px; color:red; padding:10px; text-align:left; font-style:italic;'>NOTE: Ensure CTT and CVE are accurate before you start</div>
                     <div class='form-group' onclick='inlineLoader(\"inLoader\");'>
                       <button type='submit' id='post_enq' class='' style='display:flex; align-items:center; justify-content:center; padding:10px; font-size:20px; width:100%; border-radius:12px;' name='create'><span>Start</span> <span id='inLoader' style='display:none;'></span></button>
                     </div>
