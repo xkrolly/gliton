@@ -277,6 +277,7 @@ function pageView(content){
 //                document.getElementById('totalShares').innerHTML = shared;
                 
                 function numEestimator(a){
+                 
                   a.length == 4 ? y = 1 : (a.length == 5 ? y = 2 : (a.length == 6 ? y = 3 : y = 4 )); 
                   var _a = a.substr(y, 1);
                   a.length >= 4 ? 
@@ -295,7 +296,7 @@ function pageView(content){
                     document.getElementById('insightBtn').style.display = 'block';
                     
                     document.getElementById('insight').style.display = 'none';
-                    document.getElementById('insight').style.background = 'rgba(0, 0, 0, .2)';
+                    document.getElementById('insight').style.background = 'rgba(0, 0, 0, .2)';//'rgba(0, 191, 255, .3)';
                     document.getElementById('insight').innerHTML = '<div style="display:flex; justify-content:center; align-items:center; flex-direction:column;"><div onclick="$(\'#insight\').slideUp(1000); $(\'#insightBtn\').show();" style="margin-top:-5px; margin-bottom:20px; width:40px; height:4px; border:1px solid #fff; background:#fff;"></div>'+insight+'</div>';
                   }else{
                     document.getElementById('insight').style.display = 'none';
