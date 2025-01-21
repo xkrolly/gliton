@@ -151,7 +151,7 @@ $sol .="<video style='z-index:10; display:none; background:#fff; height:100vh; w
                         </div>
                     </div>
 
-                    <h6 style='font-size:12px;'>NOTE: Ensure your CTT and CVe are accurate before you start</h6>
+                    <div style='font-size:10px; color:#2166f3;'>NOTE: Ensure your CTT and CVe are accurate before you start</div>
                     <div class='form-group' onclick='inlineLoader(\"inLoader\");'>
                       <button type='submit' id='post_enq' class='' style='display:flex; align-items:center; justify-content:center; padding:15px; font-size:20px; width:100%; border-radius:20px;' name='create'><span>Start</span> <span id='inLoader' style='display:none;'></span></button>
                     </div>
