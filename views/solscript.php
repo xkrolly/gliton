@@ -73,7 +73,7 @@ $sol .="<video style='z-index:10; display:none; background:#fff; height:100vh; w
                         <div class='form-group'>
                             <h5 style='font-weight:bold; display:flex; margin-left:-18px; width:100%; display:flex; justify-content:flex-start; align-items:center;'>
                                 <span style='height:45px; width:45px; display:flex; justify-content:center; align-items:center; border-radius:50%; background:#eee; margin-right:10px; font-size:25px; border:8px solid #fff;'>1</span>
-                                <span style='font-size:10px;'>Create category, topic, title<span style='color:red;'>(CTT)</span>
+                                <span style='font-size:10px;'>Create category, topic, title - <span style='color:red;'>CTT</span>
                             </h5>
                             <select class='form-control property col-sm-12' name='topic' id='topic' title='topic' onchange='showSublist()' style='height:40px; font-size:14px; margin-top:20px; border-radius:20px;'>
                                 <option value=''>Select category</option>
@@ -152,7 +152,7 @@ $sol .="<video style='z-index:10; display:none; background:#fff; height:100vh; w
                         </div>
                     </div>
 
-                    <div style='font-size:10px; color:#2166f3; padding:10px; text-align:left; font-style:italic; background:#ccc;'>NOTE: Ensure your CTT and CVE are accurate before you start</div>
+                    <div style='font-size:10px; color:#2166f3; padding:10px; text-align:left; font-style:italic;'>NOTE: Ensure your CTT and CVE are accurate before you start</div>
                     <div class='form-group' onclick='inlineLoader(\"inLoader\");'>
                       <button type='submit' id='post_enq' class='' style='display:flex; align-items:center; justify-content:center; padding:15px; font-size:20px; width:100%; border-radius:20px;' name='create'><span>Start</span> <span id='inLoader' style='display:none;'></span></button>
                     </div>
