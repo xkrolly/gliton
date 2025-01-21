@@ -137,7 +137,7 @@ $sol .="<video style='z-index:10; display:none; background:#fff; height:100vh; w
                 </div>
 
                     <div id='all_chat' style='width:100%;'></div>
-                    <div style='display:flex; flex-direction:column; justify-content:flex-end; margin-bottom:20px;'>
+                    <div style='display:flex; flex-direction:column; justify-content:flex-end; margin-bottom:10px;'>
                         <canvas id='canvas' style='background:transparent; width:100%; height:400px; z-index:11; display:none;'>
                         </canvas>
                         <div id='cancel' style='z-index:12; color:red; background:transparent; display:none; width:100%; padding:5px; margin-top:-80px;'>
@@ -152,7 +152,7 @@ $sol .="<video style='z-index:10; display:none; background:#fff; height:100vh; w
                         </div>
                     </div>
 
-                    <div style='font-size:10px; color:#2166f3; padding:10px; background:#fff;'>NOTE: Ensure your CTT and CVe are accurate before you start</div>
+                    <div style='font-size:10px; color:#2166f3; padding:10px; text-align:left; font-style:italic; background:#ccc;'>NOTE: Ensure your CTT and CVe are accurate before you start</div>
                     <div class='form-group' onclick='inlineLoader(\"inLoader\");'>
                       <button type='submit' id='post_enq' class='' style='display:flex; align-items:center; justify-content:center; padding:15px; font-size:20px; width:100%; border-radius:20px;' name='create'><span>Start</span> <span id='inLoader' style='display:none;'></span></button>
                     </div>
