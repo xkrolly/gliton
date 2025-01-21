@@ -72,7 +72,7 @@ $sol .="<video style='z-index:10; display:none; background:#fff; height:100vh; w
                     <div style='margin-top:15px; background:#eee; border-radius:90px; padding:20px; border:.5px solid #aaa;'>
                         <div class='form-group'>
                             <h5 style='font-weight:bold; display:flex; margin-left:-18px; width:100%; display:flex; justify-content:flex-start; align-items:center;'>
-                                <span style='height:45px; width:45px; display:flex; justify-content:center; align-items:center; border-radius:50%; background:#eee; margin-right:10px; font-size:25px; border:8px solid #fff;'>1</span><span style='font-size:13px;'>Create your category, topic, title<span style='color:red;'>(CTT)</span>
+                                <span style='height:45px; width:45px; display:flex; justify-content:center; align-items:center; border-radius:50%; background:#eee; margin-right:10px; font-size:25px; border:8px solid #fff;'>1</span><span style='font-size:12px;'>Create your category, topic, title<span style='color:red;'>(CTT)</span>
                             </h5>
                             <select class='form-control property col-sm-12' name='topic' id='topic' title='topic' onchange='showSublist()' style='height:40px; font-size:14px; margin-top:20px; border-radius:20px;'>
                                 <option value=''>Select category</option>
