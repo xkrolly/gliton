@@ -154,7 +154,7 @@ $sol .="<video style='z-index:10; display:none; background:#fff; height:100vh; w
 
                     <div style='font-size:10px; color:red; padding:10px; text-align:left; font-style:italic;'>NOTE: Ensure CTT and CVE are accurate before you start</div>
                     <div class='form-group' onclick='inlineLoader(\"inLoader\");'>
-                      <button type='submit' id='post_enq' class='' style='display:flex; align-items:center; justify-content:center; padding:10px; font-size:20px; width:100%; border-radius:12px;' name='create'><span>Start</span> <span id='inLoader' style='display:none;'></span></button>
+                      <button type='submit' id='post_enq' class='' style='display:flex; align-items:center; justify-content:center; padding:10px; font-size:20px; width:100%; border-radius:12px; background:#2166f3;' name='create'><span>Start</span> <span id='inLoader' style='display:none;'></span></button>
                     </div>
                 </form>
             </div>
