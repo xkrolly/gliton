@@ -136,7 +136,7 @@ class UsersView extends Users {
             <div style='align-self:left; margin-left:2px; justify-content:center; margin-right:auto; display:flex; color:#2166f3; font-weight:bold; font-size:20px;'> <img src='img/glit192.png' alt='gLIT logo' style='height:25px; width:25px;'>lit</div>
     
             
-            <div style='display:flex; justify-content:flex-end; align-items:center; margin-left:auto; margin-right:2px;' onclick='$(\"nav\").slideUp();'>
+            <div style='display:flex; justify-content:flex-end; align-items:center; margin-left:auto; margin-right:2px;'>
 
               <div onclick='$(\"#searchPanel\").slideDown();' style='margin-left:20px;'><span class='material-icons' style='color:#444; font-size:20px; margin-right:2px;'>&#xe8b6;</span>
               </div>
@@ -144,7 +144,7 @@ class UsersView extends Users {
               <div style='margin-left:20px;'><a href='note'><span class='material-icons' style='color:#444; font-size:20px;'>&#xe7f4;</span></a></div>
               $notes
 
-	            <div style='display:flex; flex-direction:column; margin-left:20px; margin-right:2px;' onclick='$(\"#menus\").show()'>
+	            <div style='display:flex; flex-direction:column; margin-left:20px; margin-right:2px;'>
 	              <div style='width:4px; height:4px; background:#000;'></div>
 	              <div style='width:4px; height:4px; margin-top:4px; background:#000;'></div>
 	              <div style='width:4px; height:4px; margin-top:4px; background:#000;'></div>
