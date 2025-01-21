@@ -5569,10 +5569,10 @@ $Chats .="    					             <span style='font-size:10px; color:#000; margin-
 	  
 		$panel='<div class="them" id="searchPanel" style="background:transparent; border:1px solid #ccc; filter:drop-shadow(2px 2px 150px #aaa); padding:1px; position:fixed; right:0; left:0; top:8%; z-index:20; display:none;">
         <form id="search_data" class="search_data">
-        <div style="background:#eee; padding:10px; display:flex; align-items:center; justify-content:center;">
-              <div style="border:2px solid #ddd; border-radius:20px; display:flex; justify-content:center; align-items:center;">
-              <button type="submit" name="submit" tabindex=3 class="" id="search_btn" style="width:9vw;  background:transparent; border:transparent; border-top-left-radius:15px; border-bottom-left-radius:15px; padding:3px;">
-                  <span class="material-icons" style="color:#fff; font-size:30px; margin-right:2px; margin-left:5px;">&#xe8b6;</span>
+        <div style="background:#fff; padding:10px; display:flex; align-items:center; justify-content:center;">
+              <div style="border:2px solid #aaa; border-radius:20px; display:flex; justify-content:center; align-items:center;">
+              <button type="submit" name="submit" tabindex=3 class="" id="search_btn" style="width:9vw;  background:transparent; border:transparent; border-top-left-radius:15px; border-bottom-left-radius:15px; padding:3px; text-align:center;">
+                  <span class="material-icons" style="color:#000; font-size:30px; margin-right:2px; margin-left:5px;">&#xe8b6;</span>
               </button>
               <input type="search" incremental name="search_input" placeholder="Search any solution..." aria-label="Search the pool of published practical solutions" style="padding-left:8px color:#fff; font-size:16px; width:70vw; border:transparent; background:transparent; border-bottom-right-radius:15px; border-top-right-radius:15px;">
 							
