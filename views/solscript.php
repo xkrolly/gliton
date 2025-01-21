@@ -73,7 +73,7 @@ $sol .="<video style='z-index:10; display:none; background:#fff; height:100vh; w
                         <div class='form-group'>
                             <h5 style='font-weight:bold; display:flex; margin-left:-18px; width:100%; display:flex; justify-content:flex-start; align-items:center;'>
                                 <span style='height:45px; width:45px; display:flex; justify-content:center; align-items:center; border-radius:50%; background:#eee; margin-right:10px; font-size:25px; border:8px solid #fff;'>1</span>
-                                <span style='font-size:11px;'>Create your category, topic, title<span style='color:red;'>(CTT)</span>
+                                <span style='font-size:11px;'>Create category, topic, title<span style='color:red;'>(CTT)</span>
                             </h5>
                             <select class='form-control property col-sm-12' name='topic' id='topic' title='topic' onchange='showSublist()' style='height:40px; font-size:14px; margin-top:20px; border-radius:20px;'>
                                 <option value=''>Select category</option>
@@ -111,7 +111,7 @@ $sol .="<video style='z-index:10; display:none; background:#fff; height:100vh; w
                             <div class='col-sm-12' style='width:100%; background:#ADD8E6; margin-top:20px;  border:.5px solid #aaa;  padding:20px; border-radius:90px;'>
                                 <h5 style='font-weight:bold; display:flex; align-items:center; width:100%; margin-left:-18px; margin-bottom:20px;'>
                                     <span style='height:45px; width:45px; display:flex; justify-content:center; align-items:center; border-radius:50%; background:#ADD8E6; margin-right:10px; border:8px solid #fff;'>2</span>
-                                    <span style='font-size:11px;'>Add Confirmatory Visual evidence<span style='color:red;'>(CVE)</span></span>
+                                    <span style='font-size:11px;'>Confirmatory Visual evidence<span style='color:red;'>(CVE)</span></span>
                                 </h5>
                                 <hr style=' margin-top:5px;'>
                                 <div class='' style='display:flex; justify-content:space-around; align-items:center;'>
