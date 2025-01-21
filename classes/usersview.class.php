@@ -144,7 +144,7 @@ class UsersView extends Users {
               <div style='margin-left:20px;'><a href='note'><span class='material-icons' style='color:#444; font-size:20px;'>&#xe7f4;</span></a></div>
               $notes
 
-	            <div style='display:flex; flex-direction:column; margin-left:20px; margin-right:2px;'>
+	            <div style='display:flex; flex-direction:column; margin-left:20px; margin-right:2px;' onclick='$(\"#menus\").show()'>
 	              <div style='width:4px; height:4px; background:#000;'></div>
 	              <div style='width:4px; height:4px; margin-top:4px; background:#000;'></div>
 	              <div style='width:4px; height:4px; margin-top:4px; background:#000;'></div>
