@@ -3904,9 +3904,9 @@ $scriptPanel = "<div style='display:flex; flex-direction:column; width:100%; hei
 			<span style='width:2px; height:14px; background:#fff; filter:drop-shadow(1px 1px 1px #666); margin-left:15px; margin-right:15px; margin-top:20px;'></span>
 
 			<div style='width:50%; display:flex; align-items:center;'>
-	    		<a href='solscript' style='font-size:16px; margin-top:20px; font-weight:bold; color:#fff; text-decoration:none; filter:drop-shadow(1px 1px 1px #666);'>Create</a>
+	    		<a href='solscript' style='font-size:16px; margin-top:20px; font-weight:bold; color:#fff; text-decoration:none; filter:drop-shadow(1px 1px .5px #444);'>Create</a>
 				
-				<span style='margin-top:2px; background:transparent; margin-left:auto;'  onclick='$(\"#searchPanel\").slideDown();' ><span class='material-icons' style='color:#fff; font-size:32px; filter:drop-shadow(1px 1px 1px #666);' onclick='$(\"nav\").hide();'>&#xe8b6;</span></span>
+				<span style='margin-top:2px; background:transparent; margin-left:auto;'  onclick='$(\"#searchPanel\").slideDown();' ><span class='material-icons' style='color:#fff; font-size:28px; filter:drop-shadow(1px 1px 1px #666);' onclick='$(\"nav\").hide();'>&#xe8b6;</span></span>
 
 				<a href='note' style='margin-top:-10px; text-decoration:none; background:transparent; margin-left:15px; margin-right:15px; display:flex;'><span class='material-icons' style='color:#fff; filter:drop-shadow(1px 1px 1px #666); font-size:22px;'>&#xe7f4;</span>$allnew</a>		
 			</div>
