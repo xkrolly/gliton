@@ -4170,7 +4170,7 @@ $scriptPanel .="<div id='box' style='margin-bottom:1px; height:100vh; border-bot
 					        	<source src='videos/vet/aaa.mp4' id='srcmediaB'/>
         					</video>
         				</div> 
-        				<figcaption style='height:160px; text-align:left; z-index:10; padding:2px; position:absolute; top:72%; left:1%; color:#fff; width:45%;'>
+        				<figcaption style='height:160px; text-align:left; z-index:10; padding:2px; position:absolute; top:72%; left:10px; color:#fff; width:45%;'>
                                 <div style='z-index:11; padding:15px 10px 15px 15px; width:100%; border-radius:10px; display:inline-flex; flex-direction:column; margin:2px; background-image:radial-gradient(rgba(255, 255, 255, 0.1), transparent);'>
                                 <div style=''><span style='font-size:22px; text-shadow:1px 1px 1px #444; color:#fff; font-weight:bold;' id='uname'>@username</span></div>
                                 <div style='margin-top:-6px; width:110px; height:2px; background:#fff; color:#fff; filter: drop-shadow(1px 1px 1px #444);'></div>
@@ -4224,16 +4224,16 @@ $scriptPanel .="<div id='box' style='margin-bottom:1px; height:100vh; border-bot
                                   <div style='width:4px; height:4px; background:#fff; border-radius:50%; margin-left:5px;'></div>
                                 </div>
                                 <div id='tutorImgLink' style='margin-top:3px;' href='index.php?page=tutor&category=category_id&categoryPass=catPass'>
-	                                <img id='tutorImg' src='' class='flexible' loading='lazy' style='height:60px; width:60px; border-radius:50%; border: 2px solid #fff; box-size:border-box; background:#fff;'>
+	                                <img id='tutorImg' src='' class='flexible' loading='lazy' style='height:50px; width:50px; border-radius:50%; border: 2px solid #fff; box-size:border-box; background:#fff;'>
     	                            <a id='tutorImgLink' style='' href='index.php?page=tutor&category=category_id&categoryPass=catPass'>
     	                              <p style='font-size:13px; filter:drop-shadow(1px 1px .5px #444); margin-top:1px; color:#fff; font-weight:600;' id='meetTutor'>Consult</p>
         	                        </a>
         	                   <div>
 
-                  				<div style='margin-top:2px;'>
+                  				<div style='margin-top:0.5px;'>
                   			       <span onclick='likeDis();' id='like' class='material-icons' style=' background:rgba(0, 0, 0, .1); padding:3px; border-radius:50%; font-size:38px; filter:drop-shadow(1px 1px .5px #444); color:#fff'>&#xe87d;</span>
 		                       
-                  					<p id='totalLikes' style='color:#fff; filter:drop-shadow(1px 1px .5px #555); font-weight:600; font-size:13px; margin-top:-6px;'>0
+                  					<p id='totalLikes' style='color:#fff; filter:drop-shadow(1px 1px .5px #555); font-weight:600; font-size:12px; margin-top:-6px;'>0
                   					</p>
                   				</div>
                   				<div style='margin-top:-16px;'>
@@ -4267,9 +4267,9 @@ $scriptPanel .="<div id='box' style='margin-bottom:1px; height:100vh; border-bot
                   					</span>
                   				</div>
                   				<div style='margin-top:-10px;'>
-                  				<span class='material-icons spinna' style=' background:rgba(0, 0, 0, .1); padding:5px; border-radius:50%; font-size:30px; filter:drop-shadow(1px 1px .5px #444); color:#fff'>&#xea5c;</span>
+                  				<span class='material-icons spinna' style=' background:rgba(0, 0, 0, .1); padding:5px; border-radius:50%; font-size:24px; filter:drop-shadow(1px 1px .5px #444); color:#fff'>&#xea5c;</span>
 		                       
-                                    <p id='timespan' style='font-size:13px; filter:drop-shadow(1px 1px .5px #444); margin-top:-2px; color:#fff; font-weight:600;'>
+                                    <p id='timespan' style='font-size:10px; filter:drop-shadow(1px 1px .5px #444); margin-top:-2px; color:#fff; font-weight:600;'>
                     						0
                     					</p>
                   				</div>
