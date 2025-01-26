@@ -5462,18 +5462,14 @@ $Chats .="    					             <span style='font-size:10px; color:#000; margin-
   		  	$chatpop == 's' ? $table = "solochat" : ($chatpop == 'd' ? $table = 'chat' : $table = 'grpchat');
   		    $chatpop == 's' ? $uniqColumn = 'content_id' : ($chatpop == 'd' ? $uniqColumn = 'uniq_conv' : $uniqColumn = 'class_id');
   		    $chatpop == 's' ? $media = '3' : $media = '2';
- var_dump("getThumbnail". $table. " INNER JOIN ".$topicTbl." USING(".$columnID.") WHERE ".$uniqColumn." = ? AND media = ? OR ".$uniqColumn);
   			$aoi_data = $this->aoi($cat);
   			$columnID = $aoi_data['cat_id'];
   			$topicTbl = $aoi_data['topic'];
   			$queCol = $aoi_data['queCol'];
 
   			$vals =  $cid.', 2, '.$cid.', 3';
-  			//var_dump($table.' '.$topicTbl.' '.$columnID.' '.$uniqColumn);
     	    $tbData = $this->select($table, " INNER JOIN ".$topicTbl." USING(".$columnID.") WHERE ".$uniqColumn." = ? AND media = ? OR ".$uniqColumn." = ? AND media = ?", $vals);
-//    		var_dump($tbData);
- var_dump('getThumbnail 22');
-
+ 
     		$thumbnail = $tbData[0][$queCol];
     		$mediaUsed = $tbData[0]['media'];
         
