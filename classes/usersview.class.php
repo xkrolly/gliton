@@ -4170,47 +4170,47 @@ $scriptPanel .="<div id='box' style='margin-bottom:1px; height:100vh; border-bot
 					        	<source src='videos/vet/aaa.mp4' id='srcmediaB'/>
         					</video>
         				</div> 
-        				<figcaption style='height:160px; text-align:left; z-index:10; padding:2px; position:absolute; top:72%; left:1px; color:#fff; width:45%;'>
+        				<figcaption style='height:160px; text-align:left; z-index:10; padding:2px; position:absolute; top:72%; left:2px; color:#fff; width:45%;'>
                                 <div style='z-index:11; padding:1px; width:100%; border-radius:10px; display:inline-flex; flex-direction:column; margin:1px; background-image:radial-gradient(rgba(255, 255, 255, 0.1), transparent);'>
-                                <div style=''><span style='font-size:22px; text-shadow:1px 1px 1px #444; color:#fff; font-weight:bold;' id='uname'>@username</span></div>
+                                <div style=''><span style='font-size:18px; text-shadow:1px 1px 1px #444; color:#fff; font-weight:bold;' id='uname'>@username</span></div>
                                 <div style='margin-top:-6px; width:110px; height:2px; background:#fff; color:#fff; filter: drop-shadow(1px 1px 1px #444);'></div>
                                 <div style='margin-top:-10px;'><span style='font-size:13px; text-shadow:1px 1px 1px #444; color:#fff; font-weight:bold;'>
                                     <span style='display:inline-flex; justify-content:flex-start; align-items:center;'>
-                                       <span class='material-icons' style='color:#fff; margin-right:2px; font-size:16px;'>&#xe1b2;</span>
+                                       <span class='material-icons' style='color:#fff; margin-right:2px; font-size:14px;'>&#xe1b2;</span>
   		                             G158 | Sol223</span>
   		                             </span>
   		                        </div>
                                 <div style='margin-top:-26px;'>
-                                        <span style='display:inline-flex; justify-content:flex-start; align-items:center; font-size:13px; font-weight:bold; text-shadow:1px 1px 1px #444; color:#fff;'>
-                                            <span class='material-icons' style='color:#fff; margin-right:2px; font-size:16px;'>&#xeb7b;</span>
+                                        <span style='display:inline-flex; justify-content:flex-start; align-items:center; font-size:13px; font-weight:600; text-shadow:1px 1px 1px #444; color:#fff;'>
+                                            <span class='material-icons' style='color:#fff; margin-right:2px; font-size:14px;'>&#xeb7b;</span>
   		                                Trial 854
 		                                </span>
 		                        </div>
 
                                 <div style='margin-top:-16px;'>
                                     <span style='font-size:12px; text-shadow:1px 1px 1px #444; color:#fff; margin-top:10px; border-radius:4px; display:flex; align-items:flex-start; justify-content:flex-start;'>
-                                        <span class='material-icons' style='color:#fff; text-shadow:1px 1px 1px #444; margin-right:2px; font-size:16px;'>&#xe410;</span><span id='solscriptImgTotal'>0</span>
-                                        <span class='material-icons' style='color:#fff; text-shadow:1px 1px 1px #444; margin-left:8px; margin-right:2px; font-size:16px;'>&#xe41b;</span><span id='solscriptVidTotal'>0</span>
-                                        <span class='material-icons' style='color:#fff; text-shadow:1px 1px 1px #444; margin-left:8px; margin-right:2px; font-size:16px;'>&#xe405;</span><span id='solscriptAudTotal'>0</span>
+                                        <span class='material-icons' style='color:#fff; text-shadow:1px 1px 1px #444; margin-right:2px; font-size:14px;'>&#xe410;</span><span id='solscriptImgTotal'>0</span>
+                                        <span class='material-icons' style='color:#fff; text-shadow:1px 1px 1px #444; margin-left:8px; margin-right:2px; font-size:14px;'>&#xe41b;</span><span id='solscriptVidTotal'>0</span>
+                                        <span class='material-icons' style='color:#fff; text-shadow:1px 1px 1px #444; margin-left:8px; margin-right:2px; font-size:14px;'>&#xe405;</span><span id='solscriptAudTotal'>0</span>
                                     </span>
                                 </div>
                                 <div style='margin-top:-12px;'>
                                     <span style='font-size:12px; text-shadow:1px 1px 1px #444; color:#fff; display:inline-flex; justify-content:flex-start; align-items:flex-end;'>
-                                            <span class='material-icons' style='color:#fff; margin-right:2px; font-size:18px;'>&#xe422;</span>
+                                            <span class='material-icons' style='color:#fff; margin-right:2px; font-size:15px;'>&#xe422;</span>
   		                                <span id='timespan2'>3min</span>
                                     </span>
                                 </div>
                                 <div style='margin-top:-24px;'>
                        
                                         <span style='display:inline-flex; justify-content:flex-start; align-items:center; font-size:13px; text-shadow:1px 1px 1px #444; color:#fff;'>
-                                            <span class='material-icons' style='color:#fff; margin-right:2px; font-size:16px;'>&#xe0c8;</span>
+                                            <span class='material-icons' style='color:#fff; margin-right:2px; font-size:14px;'>&#xe0c8;</span>
   		                                Ibadan
 		                                </span>
 		               
                                 </div> 
                                 <div style='margin-top:-22px;'>
                                     <span style='font-size:12px; text-shadow:1px 1px 1px #444; color:#fff; display:inline-flex; justify-content:flex-start; align-items:flex-end;'>
-                                        <span class='material-icons' style='color:#fff; margin-right:2px; font-size:16px;'>&#xebcc;</span>
+                                        <span class='material-icons' style='color:#fff; margin-right:2px; font-size:14px;'>&#xebcc;</span>
   		                                <span id='pubDate'>01.01.2024</span>
                                     </span>
                                 </div>
