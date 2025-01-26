@@ -63,8 +63,6 @@ $_aoi = $row[0]['aoi'];
  $_aoi_arr = explode('_', $_aoi);
 !empty($_aoi) ? $aoi = $_aoi_arr[1] : $aoi = "";
 
- var_dump('HHIII 5555');   
-
 $_profession = $usersView->generate_spec($_row[0]['profile_id'], '');
 
 !empty($_profession) ? $profession = implode(' | ', $_profession) : $profession = '';
