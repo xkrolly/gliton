@@ -4123,7 +4123,7 @@ $scriptPanel .="<div id='box' style='margin-bottom:1px; height:100vh; border-bot
 		                        <div style='margin-top:auto; margin-bottom:auto; color:rgba(255,255,255); padding:10px 20px 10px 20px; background:rgba(255, 255, 255, 0.1); min-width:100px; border-radius:5px;'>
 		                          	<div id='headingA' style='font-size:16px; text-shadow:1px 1px 1px #444;'>
 		                            </div>
-		                            <div style='font-size:12px; font-weight:500; text-decoration:underline; font-style:italic;'>
+		                            <div style='font-size:10px; font-weight:500; text-decoration:underline; font-style:italic;'>
 		                            <span onclick='paymentSubpage();' id='_contentScript' style='color:#fff; pointer-events:auto;'>View solution in script</span>
 		                            </div>
 		                        </div>
@@ -4170,7 +4170,7 @@ $scriptPanel .="<div id='box' style='margin-bottom:1px; height:100vh; border-bot
 					        	<source src='videos/vet/aaa.mp4' id='srcmediaB'/>
         					</video>
         				</div> 
-        				<figcaption style='height:160px; text-align:left; z-index:10; padding:2px; position:absolute; top:72%; left:2px; color:#fff; width:45%;'>
+        				<figcaption style='height:160px; text-align:left; z-index:10; padding:2px; position:absolute; top:72%; left:5px; color:#fff; width:45%;'>
                                 <div style='z-index:11; padding:1px; width:100%; border-radius:10px; display:inline-flex; flex-direction:column; margin:1px; background-image:radial-gradient(rgba(255, 255, 255, 0.1), transparent);'>
                                 <div style=''><span style='font-size:18px; text-shadow:1px 1px 1px #444; color:#fff; font-weight:bold;' id='uname'>@username</span></div>
                                 <div style='margin-top:-6px; width:110px; height:2px; background:#fff; color:#fff; filter: drop-shadow(1px 1px 1px #444);'></div>
