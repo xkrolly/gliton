@@ -22,15 +22,6 @@ return "<div style='padding:20px; margin-bottom:50px;'>
                         <span id='imgP'></span>
                     </div>
                 </div>
-                <hr>
-				<div class='form-group'>
-                    <div class='col-sm-12'>
-                        <label style='font-weight:bold;'>Profession</label>
-                    </div>
-                     <div class='col-sm-12' style='display:flex;'>
-                        <input type='text' class='form-control' name='profession' value='' placeholder='input your profession /expertise' />
-                     </div>
-                </div>
 
                 <hr>
                 <div class='form-group'>
