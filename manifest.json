@@ -1,6 +1,7 @@
 {
 	"short_name": "Glit",
 	"name": "Glit",
+	"title": "Glit",
 	"start_url" : "/?source=pwa",
 	"background_color" : "#fff",
 	"theme_color" : "#fff",
