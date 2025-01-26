@@ -4224,7 +4224,7 @@ $scriptPanel .="<div id='box' style='margin-bottom:1px; height:100vh; border-bot
                                   <div style='width:4px; height:4px; background:#fff; border-radius:50%; margin-left:5px;'></div>
                                 </div>
                                 <div id='tutorImgLink' style='margin-top:3px;' href='index.php?page=tutor&category=category_id&categoryPass=catPass'>
-	                                <img id='tutorImg' src='' class='flexible' loading='lazy' style='height:50px; width:50px; border-radius:50%; border: 2px solid #fff; box-size:border-box; background:#fff;'>
+	                                <img id='tutorImg' src='' class='flexible' loading='lazy' style='height:58px; width:58px; border-radius:50%; border: 2px solid #fff; box-size:border-box; background:#fff;'>
     	                            <a id='tutorImgLink' style='' href='index.php?page=tutor&category=category_id&categoryPass=catPass'>
     	                              <p style='font-size:13px; filter:drop-shadow(1px 1px .5px #444); margin-top:1px; color:#fff; font-weight:600;' id='meetTutor'>Consult</p>
         	                        </a>
