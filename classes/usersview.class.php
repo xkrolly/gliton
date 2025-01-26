@@ -4121,7 +4121,7 @@ $scriptPanel .="<div id='box' style='margin-bottom:1px; height:100vh; border-bot
 	                      <figcaption id='caption1colval' style='z-index:10; position:absolute; margin-top:auto; left:0; width:100%; height:100%; font-size:12px; display:flex; flex-direction:column; justify-content:center; align-items:center; pointer-events:none;'>
 	                        <div style='display:flex; margin-top:auto; margin-bottom:auto; flex-direction:column; justify-content:center; align-items:center;'>
 		                        <div style='margin-top:auto; margin-bottom:auto; color:rgba(255,255,255); padding:10px 20px 10px 20px; background:rgba(255, 255, 255, 0.1); min-width:100px; border-radius:5px;'>
-		                          	<div id='headingA' style='font-size:18px; text-shadow:2px 2px 2px #444;'>
+		                          	<div id='headingA' style='font-size:16px; text-shadow:1px 1px 1px #444;'>
 		                            </div>
 		                            <div style='font-size:12px; font-weight:500; text-decoration:underline; font-style:italic;'>
 		                            <span onclick='paymentSubpage();' id='_contentScript' style='color:#fff; pointer-events:auto;'>View solution in script</span>
