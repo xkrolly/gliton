@@ -4217,7 +4217,7 @@ $scriptPanel .="<div id='box' style='margin-bottom:1px; height:100vh; border-bot
                         </figcaption>
         				<figcaption style='font-size:14px; height:40%; z-index:10; padding:2px 0px 2px 3px; position:absolute; top:49%; right:0; background:transparent; color:#fff;'>
                             <div style='display:flex; flex-direction:column; height:100%; align-items:flex-end; justify-content:center; width:100%; z-index:1;'>
-                              <div style='display:flex; flex-direction:column; margin-left:auto; min-height:45vh; align-items:center; margin-top:0px; padding:5px; z-index:20; border-radius:20px; margin-right:1px;'>
+                              <div style='display:flex; flex-direction:column; margin-left:auto; min-height:45vh; align-items:center; margin-top:0px; padding:5px 1px 5px 5px; z-index:20; border-radius:20px; margin-right:0;'>
                                 <div id='pagecap' style='font-size:28px; margin-top:-5px; display:flex; flex-direction:row; filter:drop-shadow(1px 1px 1px #aaa); background:rgba(50, 50, 50, .1); padding:5px; '>
                                   <div style='width:4px; height:4px; background:#fff; border-radius:50%;'></div>
                                   <div style='width:4px; height:4px; background:#fff; border-radius:50%; margin-left:5px;'></div>
