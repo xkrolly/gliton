@@ -100,17 +100,20 @@ class UsersView extends Users {
     }
   public function fetchFavs($user){
     	$me = $user;
+var_dump('expression');
 		$prdData = $this->select('prd_interactions', ' WHERE profile_id = ?', $me);
         $allFav = count($prdData);
 
 		$videoThumbnail = array();
         $outputThumbnail = array();    
+var_dump('expression 22');
 		
 		if($allFav > 0){
 
         	$favs = $prdData[0]['favs'];
         	$_favsArray = explode('.', $favs);
     		$favsArray = array_slice($_favsArray, 1, -1, true);
+var_dump('expression 333');
 
 		    foreach($favsArray as $favContent){
 
@@ -119,6 +122,8 @@ class UsersView extends Users {
 				$chatpop = $data[0]['chatpop'];
 				$heading = $data[0]['heading'];
 				$topic = $data[0]['topic_id'];
+				var_dump('repeat');
+
 				$_videoThumbnail = $this->getThumbnail($topic, $chatpop, $data[0]['published']); 
 	  			$videoThumbnail[] = $_videoThumbnail[0];
 	  			$media[] = $_videoThumbnail[1];
