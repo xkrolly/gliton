@@ -3,6 +3,7 @@
  $usersView = new usersView();
 
  $_row = $usersView->fetchUser();
+ var_dump('HHIII 111');   
 
 $_sess = $_row[0]['purchasedSession'];
 $sess = $usersView->dec_cons($_sess);
@@ -18,12 +19,14 @@ $user == $_row[0]['profile_id'] ? $editable = TRUE : $editable = FALSE;
     /*$totalBalInNaira = $usersView->dec_cons($userData[0]['asset']) * 100;
     $totalBalInUSD = $totalBalInNaira / 850;
     $totalBalInPDS = $totalBalInNaira / 1000;*/
-    
+ var_dump('HHIII 2222');   
     $row = $usersView->fetchProfile($user);
 
 //check $favourites
 $_favourites = $usersView->fetchFavs($_row[0]['profile_id']);
 $favourites = "<div style='display:flex; flex-wrap:wrap; flex-direction:row; height:100%; padding-bottom:12px; overflow-y:scroll;'>";
+ var_dump('HHIII 333');   
+
 foreach($_favourites as $fav){
     $eachFav = explode(' ', $fav);
     
@@ -38,6 +41,7 @@ foreach($_favourites as $fav){
     "<figcation style='font-size:9px; pointer-events:none; color:#fff; text-align:center; text-shadow:.5px .5px #2166f3; width:100%;; height:104px; padding:5px; margin-top:-100px; z-index:30; display:flex; justify-content:center; align-items:center; flex-wrap:wrap; flex-direction:row;'><a style='pointer-events:auto; color:#fff;' href='index.php?page=peepChats&pub'>".$heading."</a></figcaption></div>";
 }
 $favourites .="</div>";   
+ var_dump('HHIII 4444');   
 
 //check purchased assets
 $_assets = $usersView->fetchAssets($_row[0]['profile_id']);
@@ -63,6 +67,8 @@ $ln =$usersView->decryptor0($row[0]['lastname']);
 $_aoi = $row[0]['aoi'];
  $_aoi_arr = explode('_', $_aoi);
 !empty($_aoi) ? $aoi = $_aoi_arr[1] : $aoi = "";
+
+ var_dump('HHIII 5555');   
 
 $_profession = $usersView->generate_spec($_row[0]['profile_id'], '');
 
