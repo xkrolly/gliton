@@ -122,7 +122,7 @@ var_dump('expression 333');
 				$chatpop = $data[0]['chatpop'];
 				$heading = $data[0]['heading'];
 				$topic = $data[0]['topic_id'];
-				var_dump('repeat');
+				var_dump($chatpop.' :repeat: '.$favContent);
 
 				$_videoThumbnail = $this->getThumbnail($topic, $chatpop, $data[0]['published']); 
 	  			$videoThumbnail[] = $_videoThumbnail[0];
