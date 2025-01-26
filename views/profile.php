@@ -24,6 +24,8 @@ $user == $_row[0]['profile_id'] ? $editable = TRUE : $editable = FALSE;
 
 //check $favourites
 $_favourites = $usersView->fetchFavs($_row[0]['profile_id']);
+var_dump('HII 2222BBB: '.$_favourites);
+
 $favourites = "<div style='display:flex; flex-wrap:wrap; flex-direction:row; height:100%; padding-bottom:12px; overflow-y:scroll;'>";
  var_dump('HHIII 333');   
 
