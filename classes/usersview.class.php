@@ -4231,7 +4231,7 @@ $scriptPanel .="<div id='box' style='margin-bottom:1px; height:100vh; border-bot
         	                   <div>
 
                   				<div style='margin-top:0.5px;'>
-                  			       <span onclick='likeDis();' id='like' class='material-icons' style=' background:rgba(0, 0, 0, .1); padding:3px; border-radius:50%; font-size:38px; filter:drop-shadow(1px 1px .5px #444); color:#fff'>&#xe87d;</span>
+                  			       <span onclick='likeDis();' id='like' class='material-icons' style='padding:3px; border-radius:50%; font-size:38px; filter:drop-shadow(1px 1px .5px #444); color:#fff'>&#xe87d;</span>
 		                       
                   					<p id='totalLikes' style='color:#fff; filter:drop-shadow(1px 1px .5px #555); font-weight:600; font-size:12px; margin-top:-6px;'>0
                   					</p>
@@ -4239,7 +4239,7 @@ $scriptPanel .="<div id='box' style='margin-bottom:1px; height:100vh; border-bot
                   				<div style='margin-top:-16px;'>
                   					<div id='shareContent' onclick = 'shareDis();'>
                   				
-                  				  <span class='material-icons' style='font-size:38px; transform:rotateY(180deg); filter:drop-shadow(1px 1px .5px #555); color:#fff; background:rgba(50, 50, 50, .1); padding:2px; border-radius:50%;'>&#xe15e;</span>
+                  				  <span class='material-icons' style='font-size:38px; transform:rotateY(180deg); filter:drop-shadow(1px 1px .5px #555); color:#fff; padding:2px; border-radius:50%;'>&#xe15e;</span>
 		                       
                   						<p id='totalShares' style='font-size:13px; filter:drop-shadow(1px 1px .5px #444); margin-top:-8px; color:#fff; font-weight:600;'>
                   							0
@@ -4249,7 +4249,7 @@ $scriptPanel .="<div id='box' style='margin-bottom:1px; height:100vh; border-bot
                   				<div style='margin-top:-10px;'>
                   					<div id='' onclick = 'saveFav();'>
                   				
-                  				  <span id='favIcon' class='material-icons' style='font-size:32px; filter:drop-shadow(1px 1px .5px #555); color:#fff; background:rgba(50, 50, 50, .1); padding:2px; border-radius:50%;'>&#xe866;</span>
+                  				  <span id='favIcon' class='material-icons' style='font-size:32px; filter:drop-shadow(1px 1px .5px #555); color:#fff; padding:2px; border-radius:50%;'>&#xe866;</span>
 		                       
                   						<p id='totalFavs' style='font-size:13px; filter:drop-shadow(1px 1px .5px #444); margin-top:-6px; color:#fff; font-weight:600;'>
                   							0
@@ -4259,7 +4259,7 @@ $scriptPanel .="<div id='box' style='margin-bottom:1px; height:100vh; border-bot
 
                   				<div style='margin-top:-10px;'>
                   					<span onclick='paymentSubpage();' id='_contentScript2' style=''>
-                  		        		<span class='material-icons' style=' background:rgba(0, 0, 0, .1); padding:5px; border-radius:50%; font-size:30px; filter:drop-shadow(1px 1px .5px #444); color:#fff'>&#xef6e;</span>
+                  		        		<span class='material-icons' style='padding:5px; border-radius:50%; font-size:30px; filter:drop-shadow(1px 1px .5px #444); color:#fff'>&#xef6e;</span>
 		                       	
                     					<p style='font-size:13px; filter:drop-shadow(1px 1px .5px #444); margin-top:-4px; color:#fff; font-weight:600;'>
                     						Script
@@ -4267,7 +4267,7 @@ $scriptPanel .="<div id='box' style='margin-bottom:1px; height:100vh; border-bot
                   					</span>
                   				</div>
                   				<div style='margin-top:-10px;'>
-                  				<span class='material-icons spinna' style=' background:rgba(0, 0, 0, .1); padding:5px; border-radius:50%; font-size:24px; filter:drop-shadow(1px 1px .5px #444); color:#fff'>&#xea5c;</span>
+                  				<span class='material-icons spinna' style='padding:5px; border-radius:50%; font-size:24px; filter:drop-shadow(1px 1px .5px #444); color:#fff'>&#xea5c;</span>
 		                       
                                     <p id='timespan' style='font-size:10px; filter:drop-shadow(1px 1px .5px #444); margin-top:-2px; color:#fff; font-weight:600;'>
                     						0
