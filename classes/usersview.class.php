@@ -5464,7 +5464,7 @@ $Chats .="    					             <span style='font-size:10px; color:#000; margin-
   		  	$chatpop == 's' ? $table = "solochat" : ($chatpop == 'd' ? $table = 'chat' : $table = 'grpchat');
   		    $chatpop == 's' ? $uniqColumn = 'content_id' : ($chatpop == 'd' ? $uniqColumn = 'uniq_conv' : $uniqColumn = 'class_id');
   		    $chatpop == 's' ? $media = '3' : $media = '2';
- var_dump('getThumbnail');
+ var_dump("getThumbnail". $table. " INNER JOIN ".$topicTbl." USING(".$columnID.") WHERE ".$uniqColumn." = ? AND media = ? OR ".$uniqColumn);
   			$aoi_data = $this->aoi($cat);
   			$columnID = $aoi_data['cat_id'];
   			$topicTbl = $aoi_data['topic'];
