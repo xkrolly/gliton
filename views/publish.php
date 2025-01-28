@@ -1,7 +1,7 @@
 <?php
 if(isset($_POST['publish'])){
 
-  include('../includes/autoloader.inc.php');
+  include('includes/autoloader.inc.php');
   $usersContr = new usersContr();
   $usersView = new usersView();
 
@@ -311,12 +311,30 @@ $aoiLn = count($aoi_data2) - 1;
                     $keyWords .="</div>
                   </div>
                   */
-$keyWords.="<div class='form-group'>
+$keyWords.=" <div class='form-group' style='margin-top:20px;'>
+                 <label style='color:#fff; background:deepskyblue; padding:5px; font-weight:bold; font-size:18px;'>Publish type:
+                <span class='material-icons' style='margin-left:10px; color:#2166f3; font-size:22px;' onclick='$(\"#imodal2\").slideDown(20);'>&#xe88e;</span></label>
+                  <div class='form-contro' style='display:flex; justify-content:space-around; padding:10px; width:100%;'>
+                    <label style='display:flex; flex-direction:column; width:48%; background:#eee; border-radius:10px; border:2px solid #ddd; padding:10px;'>
+                      <label style='font-size:14px; width:100%;'><input type='radio' checked class='' name='authorization' value='0' style='margin-right:10px;'/>Public release</label>
+                      <div style='font-size:10px; width:100%; margin-right:1%;'>The product become available and accessible online through search or scroll page of this app immediately it is published using this publish type.</div>
+                    </label>
+                     <label style='display:flex; flex-direction:column; width:48%; background:#eee; border-radius:10px; border:2px solid #ddd; padding:10px; margin-left:auto'>
+                 
+                  <label style='font-size:14px; width:100%;'><input type='radio' class='' name='authorization' value='".$catid."' style='margin-right:10px;'/>Prelaunch crowfunding</label>
+                      <div style='font-size:10px; width:100%; margin-left:1%;'>Choose a launching fund target to be collectively raised before making it accessible to the public. learn more.</div>
+                    </label>
+
+                  </div>
+
+            </div>
+            <div class='form-group'>
                  <label style='color:#fff; background:deepskyblue; padding:5px; font-weight:bold; font-size:18px;'>Add Price tag</label>
            
                   <input type='number' class='form-control' name='price' placeholder='Price per copy' required style='font-size:12px; margin-bottom:-6px;'>
                   <i style='color:#555; font-size:10px;'>25% to be claimed by Glit</i>
             </div>
+            
              <div class='form-group' style='margin-top:20px;'>
                  <label style='color:#fff; background:deepskyblue; padding:5px; font-weight:bold; font-size:18px;'>Accessible to:
                 <span class='material-icons' style='margin-left:10px; color:#2166f3; font-size:22px;' onclick='$(\"#imodal2\").slideDown(20);'>&#xe88e;</span></label>
@@ -354,7 +372,6 @@ $keyWords.="<div class='form-group'>
                 <input type='hidden' name='timespan' value='".$timespan."'>
                 <input type='hidden' id='sk' name='sk' value=''>
                 <input type='hidden' id='pubtype' name='pubtype' value='".$ab."'>
-
                 <input type='hidden' id='chatpop' name='chatpop' value='".$chatpop."'>
                 <script>
                   var rid = localStorage.getItem('rid_enc_cons');
@@ -366,9 +383,10 @@ $keyWords.="<div class='form-group'>
                         $('#chat_pop').val(chatpop); */
                 </script>
             </div>
-            <div style='font-size:10px; background:yellow; color:red; margin-left:20px; padding:5px 5px 2px 5px; text-align:left;'>NOTE: Ensure relevant Keyphrases, succint insight, accurate CVE(confirmatory visual evidence) before you publish</div>
+            
+            <div style='font-size:10px; background:#fff; border:1px solid #eee; color:#2166f3; margin-left:20px; padding:5px 5px 2px 5px; text-align:left;'>NOTE: Ensure relevant Keyphrases, succint insight, accurate CVE(confirmatory visual evidence) before you publish or launch</div>
+             </div>
              </div> 
-      
             </form>";
       
   }
