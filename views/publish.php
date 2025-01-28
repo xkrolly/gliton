@@ -384,7 +384,7 @@ $keyWords.=" <div class='form-group' style='margin-top:20px;'>
                 </script>
             </div>
             
-            <div style='font-size:10px; background:#fff; border:1px solid #eee; color:#2166f3; margin-left:20px; padding:5px 5px 2px 5px; text-align:left;'>NOTE: Ensure relevant Keyphrases, succint insight, accurate CVE(confirmatory visual evidence) before you publish or launch</div>
+            <div style='font-size:10px; background:#fff; border:1px solid #eee; color:#2166f3; margin-left:20px; padding:10px; text-align:left;'>NOTE: Ensure relevant Keyphrases, succint insight, accurate CVE(confirmatory visual evidence) before you publish or launch</div>
              </div>
              </div> 
             </form>";
