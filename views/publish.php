@@ -347,12 +347,12 @@ $keyWords.="
                           </div>
                         </div>                            
                       </label>
-                      <label id='fundtarget' style='display:none; font-size:16px; width:100%; background:#0f0; padding:10px 20px; margin-top:-3px;'>
+                      <label id='fundtarget' style='display:none; font-size:16px; width:100%; background:#0f0; padding:10px; margin-top:-3px;'>
                         <div class='form-group' style='width:100%; display:flex; flex-direction:column; justify-content:center; align-items:center;'>
                               <label style='font-size:10px; font-weight:bold;'>Choose Crowdfunding target</label>
-                              <div style='width:100%; font-size:10px;'> 0 <input type='range' min='0' max='1000000' value='' id='range' oninput='document.getElementById(\"nprice\").innerHTML=this.value'> 1,000,000 </div>
+                              <div style='width:100%; font-size:10px;'> 0 <input type='range' min='0' max='1000000' step='1000' value='' id='range' oninput='document.getElementById(\"nprice\").innerHTML=this.value'> 1,000,000 </div>
                         </div>
-                        <div id='nprice'></div>
+                        <div id='nprice' style='font-size:16px; width:100%; text-align:center; color:#fff;'></div>
                       </label>
 
 
@@ -362,7 +362,7 @@ $keyWords.="
              <div class='form-group' style='margin-top:20px;'>
                  <label style='color:#fff; background:deepskyblue; padding:5px; font-weight:bold; font-size:18px;'>Accessible to:
                 <span class='material-icons' style='margin-left:10px; color:#2166f3; font-size:22px;' onclick='$(\"#imodal2\").slideDown(20);'>&#xe88e;</span></label>
-                  <div class='form-control' style='display:flex; justify-content:space-around; padding:10px;'>
+                  <div class='form-control' style='display:flex; justify-content:space-around; align-items:center; padding:10px;'>
                   <label style='font-size:12px;'><input type='radio' checked class='' name='authorization' value='0' style='margin-right:10px;'/>Everyone</label>
                   <label style='font-size:12px;'><input type='radio' class='' name='authorization' value='".$catid."' style='margin-right:10px;'/>".ucfirst($specialist)."s only</label>
                   </div>
