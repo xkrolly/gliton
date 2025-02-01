@@ -341,8 +341,8 @@ $keyWords.="
                         </div>
                         <div style='display:flex; flex-direction:column;'>
                           <div style='font-weight:bold; font-size:18px; margin-bottom:6px;'>Prelaunch Crowdfunding</div>
-                          <div style='font-size:14px; width:100%; margin-right:1%;'>Solscript not accessible until either of the following is reached: Your chosen <span style='text-decoration:underline;'>launch fund target</span> contributed through early adopters acquisition at discounted commitment/presale price or 90days of launch.
-
+                          <div style='font-size:14px; width:100%; margin-right:1%;'>Solscript not accessible until either of the following is reached: Your chosen <span style='text-decoration:underline;'>launch fund target</span> or 90days of launch.
+				<a href='#'>learn more</a>
                           </div>
                         </div>                            
                       </label>
