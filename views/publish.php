@@ -350,9 +350,9 @@ $keyWords.="
                       <label id='fundtarget' style='display:none; font-size:16px; width:100%; background:#0f0; padding:10px; margin-top:-3px;'>
                         <div class='form-group' style='width:100%; display:flex; flex-direction:column; justify-content:center; align-items:center;'>
                               <label style='font-size:10px; font-weight:bold;'>Choose Crowdfunding target</label>
-                              <div style='width:100%; font-size:10px; text-align:center;'> 0 <input type='range' min='0' max='1000000' step='1000' value='' id='range' oninput='document.getElementById(\"nprice\").innerHTML=this.value'> 1000GC </div>
+                              <div style='width:100%; font-size:10px; text-align:center;'> 0 <input type='range' min='0' max='1000000' step='1000' value='' id='range' oninput='document.getElementById(\"nprice\").innerHTML=\"#\"+this.value'> 1000GC </div>
                         </div>
-                        <div style='font-size:16px; width:100%; margin-top:-5px; text-align:center; color:yellow; font-weight:bold;'>#<span id='nprice'></span></div>
+                        <div style='font-size:16px; width:100%; margin-top:-10px; text-align:center; color:yellow; font-weight:bold;'><span id='nprice'></span></div>
                       </label>
 
 
