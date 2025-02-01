@@ -327,7 +327,7 @@ $keyWords.="<div class='form-group' style='margin-top:20px;'>
                           </div>
                         </div>
                       </label>
-                      <label style='font-size:16px; width:100%; display:flex; justify-content:center; align-items:center; background:#eee; padding:20px; margin-top:20px;'>
+                      <label style='font-size:16px; width:100%; display:flex; justify-content:center; align-items:center; background:#eee; padding:20px; margin-top:7px;'>
                         <div style='margin-right:20px;' onclick='$(\"#fundtarget\").show();'>
                           <input type='radio' class='' name='pubtype' value='".$catid."' style='width:20px; height:20px;' id='checked' checked />
                         </div>
@@ -338,7 +338,7 @@ $keyWords.="<div class='form-group' style='margin-top:20px;'>
                           </div>
                         </div>                            
                       </label>
-                      <label id='fundtarget' style='display:none; font-size:16px; width:100%; background:#0f0; padding:10px 20px; margin-top:-2px;'>
+                      <label id='fundtarget' style='display:none; font-size:16px; width:100%; background:#0f0; padding:10px 20px; margin-top:-3px;'>
                         <div class='form-group' style='width:100%; display:flex; flex-direction:column; justify-content:center; align-items:center;'>
                               <label style='font-size:16px; font-weight:bold;'>Choose your crowdfunding target</label>
                               <div style=''> 0 <input type='range' min='0' max='1000000' value='' id='range' onclick='$(\"#nprice\").innerHTML=\"hij\"'> 1,000,000 </div>
