@@ -322,7 +322,7 @@ $keyWords.="<div class='form-group' style='margin-top:20px;'>
                         </div>
                         <div style='display:flex; flex-direction:column;'>
                           <div style='font-weight:bold; font-size:18px; margin-bottom:6px;'>Direct Public Release</div>
-                          <div style='font-size:14px; width:100%; margin-right:1%;'>This solscript becomes available and accessible online through search or scroll page of this app immediately you publish it.
+                          <div style='font-size:14px; width:100%; margin-right:1%;'>This solscript becomes available and accessible online through search and scrollpage of this app immediately you publish it.
 
                           </div>
                         </div>
@@ -333,7 +333,7 @@ $keyWords.="<div class='form-group' style='margin-top:20px;'>
                         </div>
                         <div style='display:flex; flex-direction:column;'>
                           <div style='font-weight:bold; font-size:18px; margin-bottom:6px;'>Prelaunch Crowdfunding</div>
-                          <div style='font-size:14px; width:100%; margin-right:1%;'>This solscript becomes available on scrollpage but the content not accessible until after your chosen <span style='text-decoration:underline;'>launch fund target</span> is reached by contributions at discounted price from presale buyers.
+                          <div style='font-size:14px; width:100%; margin-right:1%;'>This solscript becomes available through search and scrollpage but the content not accessible until after your chosen <span style='text-decoration:underline;'>launch fund target</span> is reached by contributions at discounted price from presale buyers.
 
                           </div>
                         </div>                            
