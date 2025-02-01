@@ -228,8 +228,8 @@ $keyWords.="<div class='error-text'></div>
                   <input type='text' style='width:49%;' name='k4' placeholder='keyword/phrase 4' required>
                 </div>
                 <div>
-                  <input type='text' style='width:49%;' name='k5' placeholder='keyword 5' required>
-                  <input type='text' style='width:49%;' name='k6' placeholder='keyword 6' required>
+                  <input type='text' style='width:49%;' name='k5' placeholder='keyword/phrase 5' required>
+                  <input type='text' style='width:49%;' name='k6' placeholder='keyword/phrase 6' required>
                 </div>
             </div>
             <div class='form-group'>
@@ -244,7 +244,7 @@ $keyWords.="<div class='error-text'></div>
                    1) Material items used  
                    2) Immaterial items
                    3) Total duration  
-                   4) Product efficacy/procedure efficiency
+                   4) Product/procedure efficiency
                    5) Expectations/End results' class='form-control' cols='6' rows='6' required style='font-size:12px; padding:5px;' value=''></textarea>
               </div>
             </div>";
@@ -349,8 +349,8 @@ $keyWords.="
                       </label>
                       <label id='fundtarget' style='display:none; font-size:16px; width:100%; background:#0f0; padding:10px 20px; margin-top:-3px;'>
                         <div class='form-group' style='width:100%; display:flex; flex-direction:column; justify-content:center; align-items:center;'>
-                              <label style='font-size:14px; font-weight:bold;'>Choose Crowdfunding target</label>
-                              <div style=''> 0 <input type='range' min='0' max='1000000' value='' id='range' onclick='$(\"#nprice\").innerHTML=\"hij\"'> 1,000,000 </div>
+                              <label style='font-size:10px; font-weight:bold;'>Choose Crowdfunding target</label>
+                              <div style='width:100%; font-size:10px;'> 0 <input type='range' min='0' max='1000000' value='' id='range' oninput='document.getElementById(\"nprice\").innerHTML=this.value'> 1,000,000 </div>
                         </div>
                         <div id='nprice'></div>
                       </label>
