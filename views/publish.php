@@ -311,7 +311,15 @@ $aoiLn = count($aoi_data2) - 1;
                     $keyWords .="</div>
                   </div>
                   */
-$keyWords.="<div class='form-group' style='margin-top:20px;'>
+$keyWords.="
+	    <div class='form-group'>
+                 <label style='color:#fff; background:deepskyblue; padding:5px; font-weight:bold; font-size:18px;'>Add Price tag</label>
+           
+                  <input type='number' class='form-control' name='price' placeholder='Price per copy' required style='font-size:12px; margin-bottom:-6px;'>
+                  <i style='color:#555; font-size:10px;'>25% to be claimed by Glit</i>
+            </div>
+
+	    <div class='form-group' style='margin-top:20px;'>
                  <label style='color:#fff; background:deepskyblue; padding:5px; font-weight:bold; font-size:18px;'>Publish type:
                 <span class='material-icons' style='margin-left:10px; color:#2166f3; font-size:22px;' onclick='$(\"#imodal2\").slideDown(20);'>&#xe88e;</span></label>
 
@@ -322,7 +330,7 @@ $keyWords.="<div class='form-group' style='margin-top:20px;'>
                         </div>
                         <div style='display:flex; flex-direction:column;'>
                           <div style='font-weight:bold; font-size:18px; margin-bottom:6px;'>Direct Public Release</div>
-                          <div style='font-size:14px; width:100%; margin-right:1%;'>This solscript becomes available and accessible online through search and scrollpage of this app immediately you publish it.
+                          <div style='font-size:14px; width:100%; margin-right:1%;'>This solscript becomes available and accessible online through search and scrollpage of this app at your chosen price immediately you publish it.
 
                           </div>
                         </div>
@@ -348,12 +356,6 @@ $keyWords.="<div class='form-group' style='margin-top:20px;'>
 
 
                   </div>
-            </div>
-	    <div class='form-group'>
-                 <label style='color:#fff; background:deepskyblue; padding:5px; font-weight:bold; font-size:18px;'>Add Price tag</label>
-           
-                  <input type='number' class='form-control' name='price' placeholder='Price per copy' required style='font-size:12px; margin-bottom:-6px;'>
-                  <i style='color:#555; font-size:10px;'>25% to be claimed by Glit</i>
             </div>
             
              <div class='form-group' style='margin-top:20px;'>
