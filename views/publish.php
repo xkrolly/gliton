@@ -311,24 +311,45 @@ $aoiLn = count($aoi_data2) - 1;
                     $keyWords .="</div>
                   </div>
                   */
-$keyWords.=" <div class='form-group' style='margin-top:20px;'>
+$keyWords.="<div class='form-group' style='margin-top:20px;'>
                  <label style='color:#fff; background:deepskyblue; padding:5px; font-weight:bold; font-size:18px;'>Publish type:
                 <span class='material-icons' style='margin-left:10px; color:#2166f3; font-size:22px;' onclick='$(\"#imodal2\").slideDown(20);'>&#xe88e;</span></label>
-                  <div class='form-contro' style='display:flex; justify-content:space-around; padding:10px; width:100%;'>
-                    <label style='display:flex; flex-direction:column; width:48%; background:#eee; border-radius:10px; border:2px solid #ddd; padding:10px;'>
-                      <label style='font-size:14px; width:100%;'><input type='radio' checked class='' name='authorization' value='0' style='margin-right:10px;'/>Public release</label>
-                      <div style='font-size:10px; width:100%; margin-right:1%;'>The product become available and accessible online through search or scroll page of this app immediately it is published using this publish type.</div>
-                    </label>
-                     <label style='display:flex; flex-direction:column; width:48%; background:#eee; border-radius:10px; border:2px solid #ddd; padding:10px; margin-left:auto'>
-                 
-                  <label style='font-size:14px; width:100%;'><input type='radio' class='' name='authorization' value='".$catid."' style='margin-right:10px;'/>Prelaunch crowfunding</label>
-                      <div style='font-size:10px; width:100%; margin-left:1%;'>Choose a launching fund target to be collectively raised before making it accessible to the public. learn more.</div>
-                    </label>
+
+                  <div style='display:flex; flex-direction:column; margin-right:auto; padding:10px; width:100%;'>
+                      <label style='font-size:16px; width:100%; display:flex; justify-content:center; align-items:center; background:#eee; padding:20px;'>
+                        <div style='margin-right:20px;'>
+                          <input type='radio' class='' name='pubtype' value='0' style='width:20px; height:20px;' id='checked' checked />
+                        </div>
+                        <div style='display:flex; flex-direction:column;'>
+                          <div style='font-weight:bold; font-size:18px; margin-bottom:6px;'>Direct Public Release</div>
+                          <div style='font-size:14px; width:100%; margin-right:1%;'>Your solscript becomes available and accessible online through search or scroll page of this app immediately you publish it.
+
+                          </div>
+                        </div>
+                      </label>
+                      <label style='font-size:16px; width:100%; display:flex; justify-content:center; align-items:center; background:#eee; padding:20px; margin-top:20px;'>
+                        <div style='margin-right:20px;' onclick='$(\"#fundtarget\").show();'>
+                          <input type='radio' class='' name='pubtype' value='".$catid."' style='width:20px; height:20px;' id='checked' checked />
+                        </div>
+                        <div style='display:flex; flex-direction:column;'>
+                          <div style='font-weight:bold; font-size:18px; margin-bottom:6px;'>Prelaunch Crowdfunding</div>
+                          <div style='font-size:14px; width:100%; margin-right:1%;'>Your solscript scrollpage becomes available but the content not accessible until after your chosen <span style='text-decoration:underlined;'>launching fund target</span> is reached by contributions from individual buyers.
+
+                          </div>
+                        </div>                            
+                      </label>
+                      <label id='fundtarget' style='display:none; font-size:16px; width:100%; background:#0f0; padding:10px 20px; margin-top:-2px;'>
+                        <div class='form-group' style='width:100%; display:flex; flex-direction:column; justify-content:center; align-items:center;'>
+                              <label style='font-size:16px; font-weight:bold;'>Choose your crowdfunding target</label>
+                              <div style=''> 0 <input type='range' min='0' max='1000000' value='' id='range' onclick='$(\"#nprice\").innerHTML=\"hij\"'> 1,000,000 </div>
+                        </div>
+                        <div id='nprice'></div>
+                      </label>
+
 
                   </div>
-
             </div>
-            <div class='form-group'>
+	    <div class='form-group'>
                  <label style='color:#fff; background:deepskyblue; padding:5px; font-weight:bold; font-size:18px;'>Add Price tag</label>
            
                   <input type='number' class='form-control' name='price' placeholder='Price per copy' required style='font-size:12px; margin-bottom:-6px;'>
