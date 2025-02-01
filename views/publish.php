@@ -333,7 +333,7 @@ $keyWords.="<div class='form-group' style='margin-top:20px;'>
                         </div>
                         <div style='display:flex; flex-direction:column;'>
                           <div style='font-weight:bold; font-size:18px; margin-bottom:6px;'>Prelaunch Crowdfunding</div>
-                          <div style='font-size:14px; width:100%; margin-right:1%;'>This solscript becomes available through search and scrollpage but the content not accessible until after your chosen <span style='text-decoration:underline;'>launch fund target</span> is reached by contributions at discounted price from presale buyers.
+                          <div style='font-size:14px; width:100%; margin-right:1%;'>This solscript becomes available through search and scrollpage but the content not accessible until either of the following is reached, your chosen <span style='text-decoration:underline;'>launch fund target</span> through early adopters acquisition at discounted commitment/presale price or 90days of launch.
 
                           </div>
                         </div>                            
