@@ -352,7 +352,7 @@ $keyWords.="
                               <label style='font-size:10px; font-weight:bold;'>Choose Crowdfunding target</label>
                               <div style='width:100%; font-size:10px; text-align:center;'> 0 <input type='range' min='0' max='1000000' step='1000' value='' id='range' oninput='document.getElementById(\"nprice\").innerHTML=this.value'> 1,000,000 </div>
                         </div>
-                        <div id='nprice' style='font-size:16px; width:100%; text-align:center; color:yellow; font-weight:bold;'></div>
+                        <div id='nprice' style='font-size:16px; width:100%; margin-top:-5px; text-align:center; color:yellow; font-weight:bold;'></div>
                       </label>
 
 
