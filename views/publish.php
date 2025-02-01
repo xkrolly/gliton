@@ -316,13 +316,13 @@ $keyWords.="<div class='form-group' style='margin-top:20px;'>
                 <span class='material-icons' style='margin-left:10px; color:#2166f3; font-size:22px;' onclick='$(\"#imodal2\").slideDown(20);'>&#xe88e;</span></label>
 
                   <div style='display:flex; flex-direction:column; margin-right:auto; padding:10px; width:100%;'>
-                      <label style='font-size:16px; width:100%; display:flex; justify-content:center; align-items:center; background:#eee; padding:20px;'>
+                      <label onclick='$(\"#fundtarget\").hide();' style='font-size:16px; width:100%; display:flex; justify-content:center; align-items:center; background:#eee; padding:20px;'>
                         <div style='margin-right:20px;'>
                           <input type='radio' class='' name='pubtype' value='0' style='width:20px; height:20px;' id='checked' checked />
                         </div>
                         <div style='display:flex; flex-direction:column;'>
                           <div style='font-weight:bold; font-size:18px; margin-bottom:6px;'>Direct Public Release</div>
-                          <div style='font-size:14px; width:100%; margin-right:1%;'>Your solscript becomes available and accessible online through search or scroll page of this app immediately you publish it.
+                          <div style='font-size:14px; width:100%; margin-right:1%;'>This solscript becomes available and accessible online through search or scroll page of this app immediately you publish it.
 
                           </div>
                         </div>
@@ -333,7 +333,7 @@ $keyWords.="<div class='form-group' style='margin-top:20px;'>
                         </div>
                         <div style='display:flex; flex-direction:column;'>
                           <div style='font-weight:bold; font-size:18px; margin-bottom:6px;'>Prelaunch Crowdfunding</div>
-                          <div style='font-size:14px; width:100%; margin-right:1%;'>Your solscript becomes available on scrollpage but the content not accessible until after your chosen <span style='text-decoration:underline;'>launching fund target</span> is reached by contributions at discounted price from presale buyers.
+                          <div style='font-size:14px; width:100%; margin-right:1%;'>This solscript becomes available on scrollpage but the content not accessible until after your chosen <span style='text-decoration:underline;'>launch fund target</span> is reached by contributions at discounted price from presale buyers.
 
                           </div>
                         </div>                            
