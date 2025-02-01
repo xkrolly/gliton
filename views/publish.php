@@ -218,14 +218,14 @@ $keyWords.="<div class='error-text'></div>
               </div>
             </div>
             <div class='form-group'>
-                <label style='color:#fff; background:deepskyblue; padding:5px; font-weight:bold; font-size:18px;'>6 Search Index keywords/phrases</label>
+                <label style='color:#fff; background:deepskyblue; padding:5px; font-weight:bold; font-size:18px;'>6 Search Index keywords</label>
                 <div>
-                  <input type='text' style='width:49%;' name='k1' placeholder='keyword 1' required>
-                  <input type='text' style='width:49%;' name='k2' placeholder='keyword 2' required>
+                  <input type='text' style='width:49%;' name='k1' placeholder='keyword/phrase 1' required>
+                  <input type='text' style='width:49%;' name='k2' placeholder='keyword/phrase 2' required>
                 </div>
                 <div>
-                  <input type='text' style='width:49%;' name='k3' placeholder='keyword 3' required>
-                  <input type='text' style='width:49%;' name='k4' placeholder='keyword 4' required>
+                  <input type='text' style='width:49%;' name='k3' placeholder='keyword/phrase 3' required>
+                  <input type='text' style='width:49%;' name='k4' placeholder='keyword/phrase 4' required>
                 </div>
                 <div>
                   <input type='text' style='width:49%;' name='k5' placeholder='keyword 5' required>
@@ -342,14 +342,14 @@ $keyWords.="
                         <div style='display:flex; flex-direction:column;'>
                           <div style='font-weight:bold; font-size:16px; margin-bottom:6px;'>Prelaunch Crowdfunding</div>
                           <div style='font-size:12px; width:100%; margin-right:1%;'>Solscript not accessible until either of the following is reached: Your chosen <span style='text-decoration:underline;'>launch fund target</span> or 90days after launch.
-				<span style='color:#2166f3;' onclick='$(\"#lauchtypeDesc\").show();'>learn more</span>
+				<br><span style='color:#2166f3;' onclick='$(\"#lauchtypeDesc\").show();'>learn more</span>
     				<div style='display:none;' id='lauchtypeDesc'>Launch fund target is contributed through early adopters acquisition at discounted commitment/presale price(50% discount).</div>
                           </div>
                         </div>                            
                       </label>
                       <label id='fundtarget' style='display:none; font-size:16px; width:100%; background:#0f0; padding:10px 20px; margin-top:-3px;'>
                         <div class='form-group' style='width:100%; display:flex; flex-direction:column; justify-content:center; align-items:center;'>
-                              <label style='font-size:16px; font-weight:bold;'>Choose your crowdfunding target</label>
+                              <label style='font-size:14px; font-weight:bold;'>Choose Crowdfunding target</label>
                               <div style=''> 0 <input type='range' min='0' max='1000000' value='' id='range' onclick='$(\"#nprice\").innerHTML=\"hij\"'> 1,000,000 </div>
                         </div>
                         <div id='nprice'></div>
