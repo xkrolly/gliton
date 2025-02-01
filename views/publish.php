@@ -218,7 +218,7 @@ $keyWords.="<div class='error-text'></div>
               </div>
             </div>
             <div class='form-group'>
-                <label style='color:#fff; background:deepskyblue; padding:5px; font-weight:bold; font-size:18px;'>6 Index keywords or phrases</label>
+                <label style='color:#fff; background:deepskyblue; padding:5px; font-weight:bold; font-size:18px;'>6 Search Index keywords/phrases</label>
                 <div>
                   <input type='text' style='width:49%;' name='k1' placeholder='keyword 1' required>
                   <input type='text' style='width:49%;' name='k2' placeholder='keyword 2' required>
