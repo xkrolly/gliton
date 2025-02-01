@@ -342,7 +342,7 @@ $keyWords.="
                         <div style='display:flex; flex-direction:column;'>
                           <div style='font-weight:bold; font-size:16px; margin-bottom:6px;'>Prelaunch Crowdfunding</div>
                           <div style='font-size:12px; width:100%; margin-right:1%;'>Solscript not accessible until either of the following is reached: Your chosen <span style='text-decoration:underline;'>launch fund target</span> or 90days after launch.
-				<p style='color:#2166f3;' onclick='$(\"#lauchtypeDesc\").show();'>learn more</p>
+				<span style='color:#2166f3;' onclick='$(\"#lauchtypeDesc\").show();'>learn more</span>
     				<div style='display:none;' id='lauchtypeDesc'>Launch fund target is contributed through early adopters acquisition at discounted commitment/presale price(50% discount).</div>
                           </div>
                         </div>                            
