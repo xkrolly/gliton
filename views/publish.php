@@ -329,8 +329,8 @@ $keyWords.="
                           <input type='radio' class='' name='pubtype' value='0' style='width:20px; height:20px;' id='checked' checked />
                         </div>
                         <div style='display:flex; flex-direction:column;'>
-                          <div style='font-weight:bold; font-size:18px; margin-bottom:6px;'>Direct Public Release</div>
-                          <div style='font-size:14px; width:100%; margin-right:1%;'>This solscript becomes available and accessible online through search and scrollpage of this app at your chosen price immediately you publish it.
+                          <div style='font-weight:bold; font-size:16px; margin-bottom:6px;'>Direct Public Release</div>
+                          <div style='font-size:12px; width:100%; margin-right:1%;'>This solscript becomes available and accessible online through search and scrollpage of this app at your chosen price immediately you publish it.
 
                           </div>
                         </div>
@@ -340,9 +340,10 @@ $keyWords.="
                           <input type='radio' class='' name='pubtype' value='".$catid."' style='width:20px; height:20px;' id='checked' checked />
                         </div>
                         <div style='display:flex; flex-direction:column;'>
-                          <div style='font-weight:bold; font-size:18px; margin-bottom:6px;'>Prelaunch Crowdfunding</div>
-                          <div style='font-size:14px; width:100%; margin-right:1%;'>Solscript not accessible until either of the following is reached: Your chosen <span style='text-decoration:underline;'>launch fund target</span> or 90days of launch.
-				<a href='#'>learn more</a>
+                          <div style='font-weight:bold; font-size:16px; margin-bottom:6px;'>Prelaunch Crowdfunding</div>
+                          <div style='font-size:12px; width:100%; margin-right:1%;'>Solscript not accessible until either of the following is reached: Your chosen <span style='text-decoration:underline;'>launch fund target</span> or 90days after launch.
+				<a href='#' onclick='$(\"#lauchtypeDesc\").show();'>learn more</a>
+    				<div style='display:none;' id='lauchtypeDesc'>Launch fund target is contributed through early adopters acquisition at discounted commitment/presale price(50% discount).</div>
                           </div>
                         </div>                            
                       </label>
