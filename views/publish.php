@@ -207,7 +207,7 @@ if($chatpop == 's'){
         <input type='hidden' name='encmsg' id='encmsg' value=''>";
   }
 $keyWords.="<div class='error-text'></div>
-            <h4 style=' text-align:center; font-weight:1000; margin-bottom:-5px; font-size:28px;'>Publish Your SolScript</h4>     
+            <h4 style=' text-align:center; font-weight:1000; margin-bottom:-5px; font-size:25px;'>Publish Your SolScript</h4>     
             <div style='width:100%; text-align:center;'><i style='font-size:10px; color:#555;'>(Earn massively. Let the whole world pay for your secret sauce!)</i></div><br>     
             <div class='form-group'>
               <div>
@@ -352,7 +352,7 @@ $keyWords.="
                               <label style='font-size:10px; font-weight:bold;'>Choose Crowdfunding target</label>
                               <div style='width:100%; font-size:10px; text-align:center;'> 0 <input type='range' min='0' max='1000000' step='1000' value='' id='range' oninput='document.getElementById(\"nprice\").innerHTML=this.value'> 1000GC </div>
                         </div>
-                        <div>#<span id='nprice' style='font-size:16px; width:100%; margin-top:-5px; text-align:center; color:yellow; font-weight:bold;'></span></div>
+                        <div style='font-size:16px; width:100%; margin-top:-5px; text-align:center; color:yellow; font-weight:bold;'>#<span id='nprice'></span></div>
                       </label>
 
 
