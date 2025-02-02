@@ -331,12 +331,11 @@ $keyWords.="
                         <div style='display:flex; flex-direction:column;' onclick='$(\"#solPrice\").show();' >
                           <div style='font-weight:bold; font-size:16px; margin-bottom:6px;'>Direct Public Release</div>
                           <div style='font-size:12px; width:100%; margin-right:1%;'>This solscript becomes available and accessible online through search and scrollpage of this app at your chosen price immediately you publish it.
-
                           </div>
                         </div>
-                <input type='number' id='solPrice' class='form-control' name='price' placeholder='Price per copy' required style='font-size:12px; margin-bottom:-6px;'>
-                  <i style='color:#555; font-size:10px;'>25% to be claimed by Glit</i>
-           
+	                <div><input type='number' id='solPrice' class='form-control' name='price' placeholder='Price per copy' required style='display:none; font-size:12px; margin-bottom:-6px;'>
+	                  <i style='color:#555; font-size:10px;'>25% to be claimed by Glit</i>
+	          	</div> 
 		      </label>
                       <label style='font-size:16px; width:100%; display:flex; justify-content:center; align-items:center; background:#eee; padding:20px; margin-top:7px;'>
                         <div style='margin-right:20px;' onclick='$(\"#fundtarget\").show();'>
