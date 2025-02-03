@@ -99,15 +99,15 @@ $usersView->informFoloas($xpt, $pub_id);
     $usersContr->delete('approval', ' WHERE uniqconvID = ?', $publink);
   }
   
-  	echo "<div style='display:flex; height:100vh; width:100vw; justify-content:center; align-items:center;'>
-				<div style='font-size:38px; width:70%; text-align:center; font-family:serif;'>
-								<span class='material-icons' style='color:#2166f3; font-size:60px;'>&#xe86c;</span>
-				<h3>Cheers!!!</h3>
-					<p style='font-family:serif;'>
-					Your Glit solution has been successfuly submited for publication. Kindly wait while it is reviewed and approved by the admin. It will offer for sale at #".$price." only. Thanks.</p>
+    echo "<div style='display:flex; height:100vh; width:100vw; justify-content:center; align-items:center;'>
+        <div style='font-size:38px; width:70%; text-align:center; font-family:serif;'>
+                <span class='material-icons' style='color:#2166f3; font-size:60px;'>&#xe86c;</span>
+        <h3>Cheers!!!</h3>
+          <p style='font-family:serif;'>
+          Your Glit solution has been successfuly submited for publication. Kindly wait while it is reviewed and approved by the admin. It will offer for sale at #".$price." only. Thanks.</p>
                     <p><a href='../index.php'>&lt&lt;Back</a></p>
-				</div>
-			</div>";
+        </div>
+      </div>";
 
   //prevent posting flag and chat on going back
   $_POST['flag'] = '';
@@ -176,12 +176,12 @@ $usersView->informFoloas($xpt, $pub_id);
 
         }
 
-		$rid='0';
-		$chid='';
-		$lck='0';
-		$uploadURL ='views/solo_vid_upload.php';
-		$addVideoFrame = 0;
-		$addSpanPadin = 0;
+    $rid='0';
+    $chid='';
+    $lck='0';
+    $uploadURL ='views/solo_vid_upload.php';
+    $addVideoFrame = 0;
+    $addSpanPadin = 0;
         $height='500px';
         $contentID_enc = $_uniqconv_id;
         $catid = $catid;
@@ -312,57 +312,54 @@ $aoiLn = count($aoi_data2) - 1;
                   </div>
                   */
 $keyWords.="
-	    <div class='form-group'>
-                 <label style='color:#fff; background:deepskyblue; padding:5px; font-weight:bold; font-size:18px;'>Add Price tag</label>
-           
-                  <input type='number' class='form-control' name='price' placeholder='Price per copy' required style='font-size:12px; margin-bottom:-6px;'>
-                  <i style='color:#555; font-size:10px;'>25% to be claimed by Glit</i>
-            </div>
-
-	    <div class='form-group' style='margin-top:20px;'>
+      <div class='form-group' style='margin-top:20px;'>
                  <label style='color:#fff; background:deepskyblue; padding:5px; font-weight:bold; font-size:18px;'>Publish type:
                 <span class='material-icons' style='margin-left:10px; color:#2166f3; font-size:22px;' onclick='$(\"#imodal2\").slideDown(20);'>&#xe88e;</span></label>
 
                   <div style='display:flex; flex-direction:column; margin-right:auto; padding:10px; width:100%;'>
-                      <label onclick='$(\"#fundtarget\").hide();' style='font-size:16px; width:100%; display:flex; justify-content:center; align-items:center; background:#eee; padding:20px;'>
+                    <label onclick='$(\"#fundtarget\").hide();' style='font-size:16px; width:100%; display:flex; justify-content:center; align-items:center; background:#eee; padding:20px;'>
                         <div style='margin-right:20px;'>
                           <input type='radio' class='' name='pubtype' value='0' style='width:20px; height:20px;' id='checked' checked />
                         </div>
+                      <div style='display:flex; flex-direction:column;'>
+                        <div style='display:flex;'>  
+                     
                         <div style='display:flex; flex-direction:column;' onclick='$(\"#solPrice\").show();' >
                           <div style='font-weight:bold; font-size:16px; margin-bottom:6px;'>Direct Public Release</div>
                           <div style='font-size:12px; width:100%; margin-right:1%;'>This solscript becomes available and accessible online through search and scrollpage of this app at your chosen price immediately you publish it.
                           </div>
                         </div>
-	                <div><input type='number' id='solPrice' class='form-control' name='price' placeholder='Price per copy' required style='display:none; font-size:12px; margin-bottom:-6px;'>
-	                  <i style='color:#555; font-size:10px;'>25% to be claimed by Glit</i>
-	          	</div> 
-		      </label>
-                      <label style='font-size:16px; width:100%; display:flex; justify-content:center; align-items:center; background:#eee; padding:20px; margin-top:7px;'>
-                        <div style='margin-right:20px;' onclick='$(\"#fundtarget\").show();'>
+                        </div>
+                        <div id='solPrice' class='fundtarget' style='display:none; margin-top:10px;'><input type='number' class='form-control' name='price' placeholder='Input a Price per copy' required style='font-size:12px; margin-bottom:-6px;'>
+                          <i style='color:#555; font-size:10px;'>25% to be claimed by Glit</i>
+                        </div>
+                      </div> 
+                    </label>
+                      <label onclick='$(\"#prelaunchTarget\").show();' style='font-size:16px; width:100%; display:flex; justify-content:center; align-items:center; background:#eee; padding:20px; margin-top:7px;'>
+                        <div style='margin-right:20px;' onclick='$(\".fundtarget\").hide();'>
                           <input type='radio' class='' name='pubtype' value='".$catid."' style='width:20px; height:20px;' />
                         </div>
                         <div style='display:flex; flex-direction:column;'>
                           <div style='font-weight:bold; font-size:16px; margin-bottom:6px;'>Prelaunch Crowdfunding</div>
-                          <div style='font-size:12px; width:100%; margin-right:1%;'>Solscript not accessible until either of the following is reached: Your chosen <span style='text-decoration:underline;'>launch fund target</span> or 90days after launch.
-				<br><span style='color:#2166f3;' onclick='$(\"#lauchtypeDesc\").show();'>learn more</span>
-    				<div style='display:none;' id='lauchtypeDesc'>Launch fund target is contributed through early adopters acquisition at discounted commitment/presale price(50% discount).</div>
+                          <div style='font-size:12px; width:100%; margin-right:1%;'>Solscript is accessible only when either the <span style='text-decoration:underline;'>launch fund target</span> or 90days is reached after launch<span style='color:#2166f3;' onclick='$(\"#lauchtypeDesc\").show();'>....</span>
+            <div style='display:none;' id='lauchtypeDesc'>Launch fund target is contributed through early adopters purchase at a presale price(50% discount).</div>
                           </div>
                         </div>                            
                       </label>
-                      <label id='fundtarget' style='display:none; font-size:16px; width:100%; background:#0f0; padding:10px; margin-top:-3px;'>
+                      <label id='prelaunchTarget' class='fundtarget' style='display:none; font-size:16px; width:100%; background:#fff; filter:drop-shadow(1px 1px 1px #aaa); padding:10px; margin-top:-3px;'>
                         <div class='form-group' style='width:100%; display:flex; flex-direction:column; justify-content:center; align-items:center;'>
-                              <label style='font-size:10px; font-weight:bold;'>Choose Crowdfunding target</label>
-                              <div style='width:100%; font-size:10px; text-align:center;'> 0 <input type='range' min='0' max='1000000' step='1000' value='' id='range' oninput='document.getElementById(\"nprice\").innerHTML=\"#\"+this.value'> 1000GC </div>
+                              <label style='font-size:12px; font-weight:bold;'>Choose Crowdfunding Target</label>
+                              <div style='width:100%; font-size:10px; text-align:center;'> 0 <input type='range' min='0' max='1000000' step='10000' value='' id='range' oninput='document.getElementById(\"nprice\").innerHTML=\"#\"+this.value'> 1000GC </div>
                         </div>
-                        <div style='font-size:16px; width:100%; margin-top:-10px; text-align:center; color:yellow; font-weight:bold;'><span id='nprice'></span></div>
+                        <div style='font-size:16px; width:100%; margin-top:-10px; text-align:center; color:green; font-weight:bold;'><span id='nprice'></span></div>
                       </label>
-		      <label style='font-size:16px; width:100%; display:flex; justify-content:center; align-items:center; background:#eee; padding:20px; margin-top:20px;'>
-                        <div style='margin-right:20px;' onclick='$(\"#fundtarget\").show();'>
+          <label onclick='$(\".fundtarget\").hide();' style='font-size:16px; width:100%; display:flex; justify-content:center; align-items:center; background:#eee; padding:20px; margin-top:10px;'>
+                        <div style='margin-right:20px;'>
                           <input type='radio' class='' name='pubtype' value='' style='width:20px; height:20px;'/>
                         </div>
                         <div style='display:flex; flex-direction:column;'>
-                          <div style='font-weight:bold; font-size:18px; margin-bottom:6px;'>Charitable Trust</div>
-                          <div style='font-size:14px; width:100%; margin-right:1%;'>Your solscript is made accessible free of charge to Glit community. Any user can access its content free of charge via scrollpage and/or by search.
+                          <div style='font-weight:bold; font-size:18px; margin-bottom:6px;'>Charitable Cause</div>
+                          <div style='font-size:14px; width:100%; margin-right:1%;'>Your solscript is made accessible free of charge to Glit community. Any user or Glite can access, distribute and own its content free of charge via scrollpage and/or by search.
                           </div>
                         </div>                            
                       </label>
@@ -374,31 +371,31 @@ $keyWords.="
              <div class='form-group' style='margin-top:20px;'>
                  <label style='color:#fff; background:deepskyblue; padding:5px; font-weight:bold; font-size:18px;'>Accessible to:
                 <span class='material-icons' style='margin-left:10px; color:#2166f3; font-size:22px;' onclick='$(\"#imodal2\").slideDown(20);'>&#xe88e;</span></label>
-                  <div class='form-control' style='display:flex; justify-content:space-around; align-items:center; padding:10px;'>
-                  <label style='font-size:12px;'><input type='radio' checked class='' name='authorization' value='0' style='margin-right:10px;'/>Everyone</label>
-                  <label style='font-size:12px;'><input type='radio' class='' name='authorization' value='".$catid."' style='margin-right:10px;'/>".ucfirst($specialist)."s only</label>
+                  <div class='form-control' style='display:flex; justify-content:space-around; align-items:center; padding:5px;'>
+                  <label style='font-size:12px; display:flex; justify-content:center; align-items:center;'><input type='radio' checked class='' name='authorization' value='0' style='margin-right:10px;'/>Everyone</label>
+                  <label style='font-size:12px; display:flex; justify-content:center; align-items:center;'><input type='radio' class='' name='authorization' value='".$catid."' style='margin-right:10px;'/>".ucfirst($specialist)."s only</label>
                   </div>
 
             </div>
-      	<div style='display:flex; flex-direction:column; justify-content:flex-end; margin-bottom:30px;'>
+        <div style='display:flex; flex-direction:column; justify-content:flex-end; margin-bottom:30px;'>
 
 
-		<canvas id='canvas' style='background:transparent; width:100%; height:400px; z-index:11; display:none;'>
-		</canvas>
-		<div id='cancel' style='z-index:12; color:red; background:transparent; display:none; width:100%; padding:5px; margin-top:-80px;'>
-			<div style='display:flex; justify-content:space-around;'>
-					<div onclick='cancelUpload();' style='display:flex; justify-content:center; align-items:center; border-radius:50%; height:50px; width:50px; background:#fff;'>
+    <canvas id='canvas' style='background:transparent; width:100%; height:400px; z-index:11; display:none;'>
+    </canvas>
+    <div id='cancel' style='z-index:12; color:red; background:transparent; display:none; width:100%; padding:5px; margin-top:-80px;'>
+      <div style='display:flex; justify-content:space-around;'>
+          <div onclick='cancelUpload();' style='display:flex; justify-content:center; align-items:center; border-radius:50%; height:50px; width:50px; background:#fff;'>
                         <span class='material-icons' style='color:red; font-size:30px;'>&#xe5c9;</span>
                         
-					</div>
-					<div id='proceed' onclick='proceedUpload();' style='display:flex; justify-content:center; align-items:center; background:#fff; border:5px solid 2166f3; border-radius:50%; height:50px; width:50px; margin-left:auto;'>
-					<span class='material-icons' style='color:#2166f3; font-size:30px;'>&#xe86c;</span>
+          </div>
+          <div id='proceed' onclick='proceedUpload();' style='display:flex; justify-content:center; align-items:center; background:#fff; border:5px solid 2166f3; border-radius:50%; height:50px; width:50px; margin-left:auto;'>
+          <span class='material-icons' style='color:#2166f3; font-size:30px;'>&#xe86c;</span>
                         
-					</div>
-	   	</div>
-		</div>
+          </div>
+      </div>
+    </div>
 
-	</div>";
+  </div>";
 
 
   $keyWords.="<div style='display:flex; justify-content:space-between; margin-top:-20px;'>
@@ -413,7 +410,7 @@ $keyWords.="
                   var rid = localStorage.getItem('rid_enc_cons');
                   var shrd = localStorage.getItem('shrd'+ rid);
                   $('#sk').val(shrd);
-          /*            	var rK = localStorage.getItem('rK');
+          /*              var rK = localStorage.getItem('rK');
                          var shrd = localStorage.getItem('shrd'+rK);
                         var chatpop = $('#chatpop').val();
                         $('#chat_pop').val(chatpop); */
