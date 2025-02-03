@@ -347,9 +347,9 @@ $keyWords.="
 
                           <label class='prelaunchTarget fundtarget' style='display:none; font-size:14px; width:100%; background:#fff; padding:5px; margin-top:10px; border-radius:10px;'>
                             <div class='form-group' style='width:100%; display:flex; flex-direction:column; justify-content:center; align-items:center;'>
-                                  <label style='font-size:12px; font-weight:bold;'>Choose Crowdfunding Target</label>
+                                  <label style='font-size:12px; font-weight:bold; margin-top:10px;'>Choose Crowdfunding Target</label>
                                   <input style='width:100%;' type='range' min='0' max='1000000' step='10000' value='' id='range' oninput='document.getElementById(\"nprice\").innerHTML=\"#\"+this.value'>
-                            <div style='font-size:16px; width:100%; margin-top:-10px; text-align:center; color:green; font-weight:bold;'><span id='nprice'></span></div>
+                            <div style='font-size:16px; width:100%; margin-top:-5px; text-align:center; color:green; font-weight:bold;'><span id='nprice'></span></div>
                             </div>
                           </label>
 
