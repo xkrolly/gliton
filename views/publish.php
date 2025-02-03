@@ -316,57 +316,65 @@ $keyWords.="
                  <label style='color:#fff; background:deepskyblue; padding:5px; font-weight:bold; font-size:18px;'>Publish type:
                 <span class='material-icons' style='margin-left:10px; color:#2166f3; font-size:22px;' onclick='$(\"#imodal2\").slideDown(20);'>&#xe88e;</span></label>
 
-                  <div style='display:flex; flex-direction:column; margin-right:auto; padding:10px; width:100%;'>
-                    <label onclick='$(\"#fundtarget\").hide();' style='font-size:16px; width:100%; display:flex; justify-content:center; align-items:center; background:#eee; padding:20px;'>
-                        <div style='margin-right:20px;'>
-                          <input type='radio' class='' name='pubtype' value='0' style='width:20px; height:20px;' id='checked' checked />
-                        </div>
+                  
+                <div style='display:flex; flex-direction:column; margin-right:auto; padding:10px; width:100%;'>
+                  <label onclick='$(\".solPrice\").show();' style='font-size:16px; width:100%; display:flex; justify-content:flex-start; align-items:center; background:#eee; padding:20px;'>
+                      <div style='margin-right:20px;'>
+                          <input type='radio' class='' name='pubtype' value='0' style='width:20px; height:20px;' id='checked' checked  onclick='$(\".pubtype\").hide();'/>
+                      </div>
                       <div style='display:flex; flex-direction:column;'>
-                        <div style='display:flex;'>  
-                     
-                        <div style='display:flex; flex-direction:column;' onclick='$(\"#solPrice\").show();' >
-                          <div style='font-weight:bold; font-size:16px; margin-bottom:6px;'>Direct Public Release</div>
-                          <div style='font-size:12px; width:100%; margin-right:1%;'>This solscript becomes available and accessible online through search and scrollpage of this app at your chosen price immediately you publish it.
-                          </div>
+                        <div style='font-weight:bold; font-size:16px; margin-bottom:6px;'>Direct Public Release</div>
+                        <div class='solPrice pubtype' style='display:none; font-size:12px; width:100%; margin-right:1%;'>
+                          This solscript becomes available and accessible online through search and scrollpage of this app at your chosen price immediately you publish it.
+                            <div style='margin-top:10px; text-align:center; width:100%; display:flex; justify-content:center;'>
+                              <div style='width:100%; text-align:left;'>
+                                <input type='number' class='form-control' name='price' placeholder='Input a Price per copy' required style='font-size:12px; width:100%; margin-bottom:-1px;'>
+                                <i style='color:#555; font-size:10px;'>25% to be claimed by Glit</i>
+                              </div>
+                            </div>
                         </div>
-                        </div>
-                        <div id='solPrice' class='fundtarget' style='display:none; margin-top:10px;'><input type='number' class='form-control' name='price' placeholder='Input a Price per copy' required style='font-size:12px; margin-bottom:-6px;'>
-                          <i style='color:#555; font-size:10px;'>25% to be claimed by Glit</i>
-                        </div>
-                      </div> 
-                    </label>
-                      <label onclick='$(\"#prelaunchTarget\").show();' style='font-size:16px; width:100%; display:flex; justify-content:center; align-items:center; background:#eee; padding:20px; margin-top:7px;'>
-                        <div style='margin-right:20px;' onclick='$(\".fundtarget\").hide();'>
-                          <input type='radio' class='' name='pubtype' value='".$catid."' style='width:20px; height:20px;' />
-                        </div>
-                        <div style='display:flex; flex-direction:column;'>
-                          <div style='font-weight:bold; font-size:16px; margin-bottom:6px;'>Prelaunch Crowdfunding</div>
-                          <div style='font-size:12px; width:100%; margin-right:1%;'>Solscript is accessible only when either the <span style='text-decoration:underline;'>launch fund target</span> or 90days is reached after launch<span style='color:#2166f3;' onclick='$(\"#lauchtypeDesc\").show();'>....</span>
-            <div style='display:none;' id='lauchtypeDesc'>Launch fund target is contributed through early adopters purchase at a presale price(50% discount).</div>
-                          </div>
-                        </div>                            
-                      </label>
-                      <label id='prelaunchTarget' class='fundtarget' style='display:none; font-size:16px; width:100%; background:#fff; filter:drop-shadow(1px 1px 1px #aaa); padding:10px; margin-top:-3px;'>
-                        <div class='form-group' style='width:100%; display:flex; flex-direction:column; justify-content:center; align-items:center;'>
-                              <label style='font-size:12px; font-weight:bold;'>Choose Crowdfunding Target</label>
-                              <div style='width:100%; font-size:10px; text-align:center;'> 0 <input type='range' min='0' max='1000000' step='10000' value='' id='range' oninput='document.getElementById(\"nprice\").innerHTML=\"#\"+this.value'> 1000GC </div>
-                        </div>
-                        <div style='font-size:16px; width:100%; margin-top:-10px; text-align:center; color:green; font-weight:bold;'><span id='nprice'></span></div>
-                      </label>
-          <label onclick='$(\".fundtarget\").hide();' style='font-size:16px; width:100%; display:flex; justify-content:center; align-items:center; background:#eee; padding:20px; margin-top:10px;'>
-                        <div style='margin-right:20px;'>
-                          <input type='radio' class='' name='pubtype' value='' style='width:20px; height:20px;'/>
-                        </div>
-                        <div style='display:flex; flex-direction:column;'>
-                          <div style='font-weight:bold; font-size:18px; margin-bottom:6px;'>Charitable Cause</div>
-                          <div style='font-size:14px; width:100%; margin-right:1%;'>Your solscript is made accessible free of charge to Glit community. Any user or Glite can access, distribute and own its content free of charge via scrollpage and/or by search.
-                          </div>
-                        </div>                            
-                      </label>
-                   
+                      </div>
+                  </label>
+                  <label onclick='$(\".fundtarget\").show();' style='font-size:16px; width:100%; display:flex; justify-content:flex-start; align-items:center; background:#eee; padding:20px;'>
+                      <div style='margin-right:20px;'>
+                          <input type='radio' class='' name='pubtype' value='0' style='width:20px; height:20px;' id='checked' checked  onclick='$(\".pubtype\").hide();'/>
+                      </div>
+                      <div style='display:flex; flex-direction:column;'>
+                        <div style='font-weight:bold; font-size:16px; margin-bottom:6px;'>Prelaunch Crowdfunding</div>
+                        <div class='fundtarget pubtype' style='display:none; font-size:12px; width:100%; margin-right:1%;'>
+            
+                        Solscript is accessible only when either the <span style='text-decoration:underline;'>launch fund target</span> or 90days is reached after launch. Launch fund target is contributed through early adopters purchase at a presale price(50% discount).
 
-                  </div>
-            </div>
+                          <label class='prelaunchTarget fundtarget' style='display:none; font-size:14px; width:100%; background:#fff; filter:drop-shadow(1px 1px 1px #aaa); padding:10px; margin-top:10px;'>
+                            <div class='form-group' style='width:100%; display:flex; flex-direction:column; justify-content:center; align-items:center;'>
+                                  <label style='font-size:12px; font-weight:bold;'>Choose Crowdfunding Target</label>
+                                  <div style='width:100%; font-size:10px; text-align:center;'> 0 <input type='range' min='0' max='1000000' step='10000' value='' id='range' oninput='document.getElementById(\"nprice\").innerHTML=\"#\"+this.value'> 1000GC </div>
+                            </div>
+                            <div style='font-size:16px; width:100%; margin-top:-10px; text-align:center; color:green; font-weight:bold;'><span id='nprice'></span></div>
+                          </label>
+
+
+                        </div>
+                      </div>
+                  </label>
+                  <label onclick='$(\"#charity\").show();' style='font-size:16px; width:100%; display:flex; justify-content:flex-start; align-items:center; background:#eee; padding:20px; margin-top:5px;'>
+                        <div style='margin-right:20px;'>
+                          <input type='radio' class='' name='pubtype' value='' style='width:20px; height:20px;' onclick='$(\".pubtype\").hide();'/>
+                        </div>
+                        <div style='display:flex; flex-direction:column;'>
+                          <div style='font-weight:bold; font-size:16px; margin-bottom:6px;'>Charitable Cause</div>
+                          <div id='charity' class='pubtype' style='display:none; font-size:12px; width:100%; margin-right:1%;'>Your solscript is made accessible free of charge to Glit community. Any user or Glite can access, distribute and own its content free of charge via scrollpage and/or by search.
+                          </div>
+                        </div>                            
+                  </label>
+          
+
+                </div>
+
+
+
+
+
             
              <div class='form-group' style='margin-top:20px;'>
                  <label style='color:#fff; background:deepskyblue; padding:5px; font-weight:bold; font-size:18px;'>Accessible to:
