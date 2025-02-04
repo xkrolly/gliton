@@ -323,7 +323,7 @@ $keyWords.="
                           <input type='radio' class='' name='pubtype' value='0' style='width:20px; height:20px;' id='checked' checked  onclick='$(\".pubtype\").hide();'/>
                       </div>
                       <div style='display:flex; flex-direction:column;'>
-                        <div style='font-weight:bold; font-size:12px; margin-bottom:6px;'>Direct Public Release</div>
+                        <div style='font-weight:bold; font-size:14px; margin-bottom:6px;'>Direct Public Release</div>
                         <div class='solPrice pubtype' style='display:none; font-size:12px; width:100%; margin-right:1%;'>
                           This solscript becomes available and accessible online through search and scrollpage of this app at your chosen price immediately you publish it.
                             <div style='margin-top:10px; text-align:center; width:100%; display:flex; justify-content:center;'>
