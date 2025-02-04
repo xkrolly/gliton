@@ -929,7 +929,8 @@ return $heading;
 		$soloChats = $this->fetchsolochat($contentID_enc);
 		//var_dump($soloChats);
 		$ln = count($soloChats) - 1;
-		$chats = '';
+			$title = $soloChats[$ln]['title'];
+		$chats = "";
         $ndata = $this->fetchUser();
         $this_user = $ndata[0]['profile_id'];
 		while($ln >= 0){
@@ -941,7 +942,6 @@ return $heading;
 			$content_id = $soloChats[$ln]['cid'];
 			$lock = $soloChats[$ln]['locked'];
 			$flag = $soloChats[$ln]['flag'];
-			$title = $soloChats[$ln]['title'];
 			$scrolletDate = $soloChats[$ln]['sol_date'];
 
 			!empty($soloChats[$ln]['insight']) ? $scrollet_insight = $soloChats[$ln]['insight'] : $scrollet_insight = "Insight about this scrollet appears here. Click here to edit and add concise, meaningful and descriptive insight to buttress this scrollet.";
@@ -970,11 +970,14 @@ return $heading;
             			
             			 </script>"));
 			//if($flag != 0){
-				$chats.="<div style='display:flex; position:fixed; width:100%; top:0; left:0; background:rgba(0,0,0,0.3); z-index:20;'>
+				/*
+<div style='display:flex; position:fixed; width:100%; top:0; left:0; background:rgba(0,0,0,0.3); z-index:20;'>
 				  			<span style=' font-weight:bold; font-size:18px; text-align:center; color:#fff; width:100%;'>$title</span>
-							<div onclick='$(\"#modal\").slideDown();' style='color:#fff; margin-left:auto; margin-left:-10px;'><span class='material-icons' style='color:#fff; font-size:30px;'>&#xe5d4;</span>
+								<div onclick='$(\"#modal\").slideDown();' style='color:#fff; margin-left:auto; margin-left:-10px;'><span class='material-icons' style='color:#fff; font-size:30px;'>&#xe5d4;</span>
         					</div>
 						</div>
+				*/
+			/*	$chats.="
 				  
 				  		<div id='modal' class='menulist' style='display:none; z-index:5421; position:fixed; top:25px; right:5px;'>
 				  			<div style='display:flex; justify-content:flex-end;'>
@@ -991,7 +994,7 @@ return $heading;
 								</div>
 							</div>
 						</div>";
-
+*/
 			//}else{
 if($flag==0){
 			$chats .= "<div class='each-section newchat' style='display:flex; justify-content:center; font-size:16px; margin-bottom:0px;' id='".$chat_id."b'>
@@ -2800,7 +2803,7 @@ public function usercode3($userDigit){
 //		$daysTotal = intval($dateDiff/$_24Hrs);
 		($dateDiff/$_24Hrs) - intval($dateDiff/$_24Hrs) > 0 ? $daysTotal = intval($dateDiff/$_24Hrs) + 1 : $daysTotal = intval($dateDiff/$_24Hrs);
 		$daysTotal < 10 ? $daysTotal = '0'.$daysTotal : $daysTotal;
-		$daysInStr =  'DAY '.$daysTotal.' | '.$vidDate; 
+		$daysInStr =  'DAY '.$daysTotal;//.' | '.$vidDate; 
 		return $daysInStr;//$daysInStr.date('M d, Y', $vidDate);//.'=='.$vidDate.'///'.$startDayBegins;
     }
 	
@@ -4306,6 +4309,7 @@ $scriptPanel .= $this->searchPanel();
 
 	return $scriptPanel;
 }
+
 
 public function solscripts(){
 	 //INNER JOIN agrovet USING (agro_id) INNER JOIN Health USING (hth_id)
