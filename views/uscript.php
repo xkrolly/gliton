@@ -201,22 +201,22 @@ $timeOfDay = $usersView->estDate($startDate, $soloData[0]['cdate']);
 			$_cat_enc = $usersView->encryptor0($catid);
 
 			$chatPage .= "<div style='display:flex; position:fixed; width:100%; top:0; left:0; background:rgba(0,0,0,0.3); z-index:20;'>
-				  			<span style=' font-weight:bold; font-size:18px; text-align:center; color:#fff; width:100%;'>$title</span>
+				  			<span style=' font-weight:bold; font-size:14px; text-align:center; color:#fff; width:100%;'>$title</span>
 								<div onclick='$(\"#modal\").slideDown();' style='color:#fff; margin-left:auto; margin-left:-10px;'><span class='material-icons' style='color:#fff; font-size:30px;'>&#xe5d4;</span>
         					</div>
 						</div>
 				  
-				  		<div id='modal' class='menulist' style='display:none; z-index:5421; position:fixed; top:50px; right:5px;'>
+				  		<div id='modal' class='menulist' style='display:none; z-index:5421; position:fixed; top:40px; right:5px;'>
 				  			<div style='display:flex; justify-content:flex-end;'>
 				  				<div style='border-bottom-right-radius:5px; border-bottom-left-radius:5px; background:#fff; filter:drop-shadow(-1px 1px 1px #888); padding:5px 12px 12px 22px;'>
 									<p style='margin:-5px -8px 1px -14px; text-align:left; font-size:24px;' onclick='$(\"#modal\").slideUp(20);'>&times;</p>
-									<p style='margin-bottom:4px; margin-left:-4px; padding: 4px 2px 10px 2px; border-bottom:1px solid #ccc;'>
+									<p style='margin-bottom:4px; margin-left:-4px; padding: 6px 2px; border-bottom:1px solid #ccc;'>
 										<a style='font-size:14px; color:#000;' href=''>Add people</a>
 									</p>
-					    			<p style='margin-bottom:4px; margin-left:-4px; padding: 10px 2px 10px 2px; border-bottom:1px solid #ccc; font-size:14px;' id='close".$contentID_enc."' onclick='$(\"#dialog\").slideDown(20);'>
+					    			<p style='margin-bottom:4px; margin-left:-4px; padding: 6px 2px; border-bottom:1px solid #ccc; font-size:14px;' id='close".$contentID_enc."' onclick='$(\"#dialog\").slideDown(20);'>
 					    				<a href='pending' style='color:#000;'>Pend project</a>
 					    			</p>
-									<p style='margin-bottom:4px; margin-left:-4px; padding: 10px 2px 10px 2px;'>
+									<p style='margin-bottom:4px; margin-left:-4px; padding: 6px 2px;'>
 										<a style='text-decoration:none; color:green; font-weight:bold; font-size:14px;' href='index.php?page=publish&val=$contentID_enc&ab=$soloPublish&cat=$_cat_enc&ttl=$title'>Publish script</a>
 									</p>
 								
