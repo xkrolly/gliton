@@ -51,8 +51,8 @@ $pendingData = $usersView->fetchPending();
 $n = count($pendingData) - 1;
 $pend = $usersView->topBar($notes);
 $pend .=$usersView->bottomNavigation();
-$pend .="<div style='width:100%; height:100%; display:flex; justify-content:center; flex-direction:column; align-items:center; margin-top:50px; margin-bottom:100px; padding:20px;'>
-			<h5>Pending projects</h5>
+$pend .="<div style='width:100%; height:100%; display:flex; justify-content:center; flex-direction:column; align-items:center; margin:50px; margin-bottom:100px; padding:50px;'>
+			<h6>Pending projects</h6>
 			<div class='scrollet enquiry-form'>";
 
 	$mediaType = 1;
