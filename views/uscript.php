@@ -208,16 +208,16 @@ $timeOfDay = $usersView->estDate($startDate, $soloData[0]['cdate']);
 				  
 				  		<div id='modal' class='menulist' style='display:none; z-index:5421; position:fixed; top:50px; right:5px;'>
 				  			<div style='display:flex; justify-content:flex-end;'>
-				  				<div style='border-bottom-right-radius:5px; border-bottom-left-radius:5px; background:#fff; filter:drop-shadow(-1px 1px 1px #888); padding:10px 10px 20px 35px; font-size:16px;'>
-									<p style='margin:-5px -8px 5px -14px; text-align:left; font-size:24px;' onclick='$(\"#modal\").slideUp(20);'>&times;</p>
-									<p style='margin-bottom:4px; margin-left:-4px; padding: 10px 20px 10px 2px; border-bottom:1px solid #ccc;'>
-										<a style='font-size:16px; color:#000;' href=''>Add more people</a>
+				  				<div style='border-bottom-right-radius:5px; border-bottom-left-radius:5px; background:#fff; filter:drop-shadow(-1px 1px 1px #888); padding:5px 12px 12px 22px;'>
+									<p style='margin:-5px -8px 1px -14px; text-align:left; font-size:24px;' onclick='$(\"#modal\").slideUp(20);'>&times;</p>
+									<p style='margin-bottom:4px; margin-left:-4px; padding: 4px 2px 10px 2px; border-bottom:1px solid #ccc;'>
+										<a style='font-size:14px; color:#000;' href=''>Add people</a>
 									</p>
-					    			<p style='margin-bottom:4px; margin-left:-4px; padding: 10px 20px 15px 2px; border-bottom:1px solid #ccc; font-size:16px;' id='close".$contentID_enc."' onclick='$(\"#dialog\").slideDown(20);'>
-					    				<a href='pending' style='color:#000;'>Pend this project</a>
+					    			<p style='margin-bottom:4px; margin-left:-4px; padding: 10px 2px 10px 2px; border-bottom:1px solid #ccc; font-size:14px;' id='close".$contentID_enc."' onclick='$(\"#dialog\").slideDown(20);'>
+					    				<a href='pending' style='color:#000;'>Pend project</a>
 					    			</p>
-									<p style='margin-bottom:4px; margin-left:-4px; padding: 10px 20px 10px 2px;'>
-										<a style='text-decoration:none; color:green; font-weight:bold; font-size:16px;' href='index.php?page=publish&val=$contentID_enc&ab=$soloPublish&cat=$_cat_enc&ttl=$title'>Publish Solscript</a>
+									<p style='margin-bottom:4px; margin-left:-4px; padding: 10px 2px 10px 2px;'>
+										<a style='text-decoration:none; color:green; font-weight:bold; font-size:14px;' href='index.php?page=publish&val=$contentID_enc&ab=$soloPublish&cat=$_cat_enc&ttl=$title'>Publish script</a>
 									</p>
 								
 			
