@@ -323,7 +323,7 @@ $keyWords.="
                           <input type='radio' class='' name='pubtype' value='0' style='width:20px; height:20px;' id='checked' checked  onclick='$(\".pubtype\").hide();'/>
                       </div>
                       <div style='display:flex; flex-direction:column;'>
-                        <div style='font-weight:bold; font-size:14px; margin-bottom:6px;'>Direct Public Release</div>
+                        <div style='font-weight:bold; font-size:12px; margin-bottom:6px;'>Direct Public Release</div>
                         <div class='solPrice pubtype' style='display:none; font-size:12px; width:100%; margin-right:1%;'>
                           This solscript becomes available and accessible online through search and scrollpage of this app at your chosen price immediately you publish it.
                             <div style='margin-top:10px; text-align:center; width:100%; display:flex; justify-content:center;'>
@@ -335,12 +335,12 @@ $keyWords.="
                         </div>
                       </div>
                   </label>
-                  <label onclick='$(\".fundtarget\").show();' style='font-size:14px; width:100%; display:flex; justify-content:flex-start; align-items:center; background:#eee; padding:10px;'>
+                  <label onclick='$(\".fundtarget\").show();' style='font-size:12px; width:100%; display:flex; justify-content:flex-start; align-items:center; background:#eee; padding:10px;'>
                       <div style='margin-right:20px;'>
-                          <input type='radio' class='' name='pubtype' value='0' style='width:20px; height:20px;' id='checked' checked  onclick='$(\".pubtype\").hide();'/>
+                          <input type='radio' class='' name='pubtype' value='0' style='width:14px; height:14px;' id='checked' checked  onclick='$(\".pubtype\").hide();'/>
                       </div>
                       <div style='display:flex; flex-direction:column;'>
-                        <div style='font-weight:bold; font-size:16px; margin-bottom:6px;'>Prelaunch Crowdfunding</div>
+                        <div style='font-weight:bold; font-size:14px; margin-bottom:6px;'>Prelaunch Crowdfunding</div>
                         <div class='fundtarget pubtype' style='display:none; font-size:12px; width:100%; margin-right:1%;'>
             
                         Solscript is accessible only when either the <span style='text-decoration:underline;'>launch fund target</span> or 90days is reached after launch. Launch fund target is contributed through early adopters purchase at a presale price(50% discount).
@@ -357,12 +357,12 @@ $keyWords.="
                         </div>
                       </div>
                   </label>
-                  <label onclick='$(\"#charity\").show();' style='font-size:14px; width:100%; display:flex; justify-content:flex-start; align-items:center; background:#eee; padding:10px; margin-top:5px;'>
+                  <label onclick='$(\"#charity\").show();' style='font-size:12px; width:100%; display:flex; justify-content:flex-start; align-items:center; background:#eee; padding:10px; margin-top:5px;'>
                         <div style='margin-right:20px;'>
-                          <input type='radio' class='' name='pubtype' value='' style='width:20px; height:20px;' onclick='$(\".pubtype\").hide();'/>
+                          <input type='radio' class='' name='pubtype' value='' style='width:14px; height:14px;' onclick='$(\".pubtype\").hide();'/>
                         </div>
                         <div style='display:flex; flex-direction:column;'>
-                          <div style='font-weight:bold; font-size:16px; margin-bottom:6px;'>Charitable Cause</div>
+                          <div style='font-weight:bold; font-size:14px; margin-bottom:6px;'>Charitable Cause</div>
                           <div id='charity' class='pubtype' style='display:none; font-size:12px; width:100%; margin-right:1%;'>Your solscript is made accessible free of charge to Glit community. Any user or Glite can access, distribute and own its content free of charge via scrollpage and/or by search.
                           </div>
                         </div>                            
