@@ -1767,7 +1767,7 @@ input, button{
 
   .enquiry-form{
      filter: drop-shadow(1px 1px 1px #ccc);
-     max-width: 450px; width: 100%; border-radius:16px; 
+     max-width: 400px; width: 100%; border-radius:16px; 
   /*box-shadow: 0 0 128px 0 rgba(0,0,0,0.1), 0 32px 64px -48px rgba(0,0,0,0.5);*/ 
      padding:30px 40px 30px 40px;
   }
@@ -1957,7 +1957,7 @@ input, button{
 }
 
   .enquiry-form{
-    max-width: 450px; width: 100%; border-radius:16px; 
+    max-width: 320px; width: 100%; border-radius:16px; 
  /* box-shadow: 0 0 128px 0 rgba(0,0,0,0.1), 0 32px 64px -48px rgba(0,0,0,0.5);*/
     padding:20px 30px 20px 30px;
     margin:20px;
