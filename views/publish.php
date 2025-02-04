@@ -320,7 +320,7 @@ $keyWords.="
                 <div style='display:flex; flex-direction:column; margin-right:auto; padding:10px; width:100%;'>
                   <label onclick='$(\".solPrice\").show();' style='font-size:16px; width:100%; display:flex; justify-content:flex-start; align-items:center; background:#eee; padding:10px;'>
                       <div style='margin-right:20px;'>
-                          <input type='radio' class='' name='pubtype' value='0' style='width:20px; height:20px;' id='checked' checked  onclick='$(\".pubtype\").hide();'/>
+                          <input type='radio' class='' name='pubtype' value='0' style='width:14px; height:14px;' id='checked' checked  onclick='$(\".pubtype\").hide();'/>
                       </div>
                       <div style='display:flex; flex-direction:column;'>
                         <div style='font-weight:bold; font-size:14px; margin-bottom:6px;'>Direct Public Release</div>
@@ -337,7 +337,7 @@ $keyWords.="
                   </label>
                   <label onclick='$(\".fundtarget\").show();' style='font-size:12px; width:100%; display:flex; justify-content:flex-start; align-items:center; background:#eee; padding:10px;'>
                       <div style='margin-right:20px;'>
-                          <input type='radio' class='' name='pubtype' value='0' style='width:14px; height:14px;' id='checked' checked  onclick='$(\".pubtype\").hide();'/>
+                          <input type='radio' class='' name='pubtype' value='0' style='width:14px; height:14px;' id='checked' onclick='$(\".pubtype\").hide();'/>
                       </div>
                       <div style='display:flex; flex-direction:column;'>
                         <div style='font-weight:bold; font-size:14px; margin-bottom:6px;'>Prelaunch Crowdfunding</div>
