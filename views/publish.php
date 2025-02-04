@@ -325,10 +325,10 @@ $keyWords.="
                       <div style='display:flex; flex-direction:column;'>
                         <div style='font-weight:bold; font-size:14px; margin-bottom:6px;'>Direct Public Release</div>
                         <div class='solPrice pubtype' style='display:none; font-size:12px; width:100%; margin-right:1%;'>
-                          This solscript becomes available and accessible online through search and scrollpage of this app at your chosen price immediately you publish it.
+                          This solscript becomes available and accessible online through search and scrollpage of this app at your proposed price immediately you publish it.
                             <div style='margin-top:10px; text-align:center; width:100%; display:flex; justify-content:center;'>
                               <div style='width:100%; text-align:left;'>
-                                <input type='number' class='form-control' name='price' placeholder='Input a Price per copy' required style='font-size:12px; width:100%; margin-bottom:-1px;'>
+                                <input type='number' class='form-control' name='price' placeholder='Input your price per copy' required style='font-size:12px; width:100%; margin-bottom:-1px;'>
                                 <i style='color:#555; font-size:10px;'>25% to be claimed by Glit</i>
                               </div>
                             </div>
@@ -346,9 +346,9 @@ $keyWords.="
                         Solscript is accessible only when either the <span style='text-decoration:underline;'>launch fund target</span> or 90days is reached after launch. Launch fund target is contributed through early adopters purchase at a presale price(50% discount).
 
                           <label class='prelaunchTarget fundtarget' style='display:none; font-size:14px; width:100%; background:#fff; padding:5px; margin-top:10px; border-radius:10px;'>
-                            <div class='form-group' style='width:100%; display:flex; flex-direction:column; justify-content:center; align-items:center; padding:2px 20px;'>
+                            <div class='form-group' style='width:100%; display:flex; flex-direction:column; justify-content:center; align-items:center; padding:2px;'>
                                   <label style='font-size:12px; font-weight:bold; margin-top:10px;'>Choose Crowdfunding Target</label>
-                                  <input style='width:100%;' type='range' min='0' max='1000000' step='10000' value='' id='range' oninput='document.getElementById(\"nprice\").innerHTML=\"#\"+this.value'>
+                                  <div style='width:100%; padding:0 20px;'><input style='width:100%;' type='range' min='0' max='1000000' step='10000' value='' id='range' oninput='document.getElementById(\"nprice\").innerHTML=\"#\"+this.value'></div>
                             <div style='font-size:16px; width:100%; margin-top:-5px; text-align:center; color:green; font-weight:bold;'><span id='nprice'></span></div>
                             </div>
                           </label>
