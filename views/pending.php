@@ -51,7 +51,7 @@ $pendingData = $usersView->fetchPending();
 $n = count($pendingData) - 1;
 $pend = $usersView->topBar($notes);
 $pend .=$usersView->bottomNavigation();
-$pend .="<div style='width:100%; height:100%; display:flex; justify-content:center; flex-direction:column; align-items:center; margin:50px; margin-bottom:100px; padding:50px;'>
+$pend .="<div style='width:100%; height:100%; display:flex; justify-content:center; flex-direction:column; align-items:center; margin:50px 10px 100px 10px; padding:50px;'>
 			<h6>Pending projects</h6>
 			<div class='scrollet enquiry-form'>";
 
@@ -66,8 +66,8 @@ $pendingData[$n]['projectType'] == 1 ? $fa = 'e7fd' : ($pendingData[$n]['project
 
 	$pend .="
 				<div style='width:100%; display:flex; border:1px solid #fff; border-radius:10px; filter:drop-shadow(.5px .5px .5px #aaa) drop-shadow(-.5px -.5px .5px #aaa); background:#fff; padding:10px; justify-content:space-around; align-items:center; margin:10px;'>
-					<div style='width:20%; padding:10px;'><span class='material-icons' style='font-size:20px; color:#bbb; filter:drop-shadow(1px 1px 1px #000);'>&#x".$fa.";</span></div>
-					<div style='display:flex; flex-direction:column; width:60%;'>
+					<div style='width:15%; padding:10px;'><span class='material-icons' style='font-size:20px; color:#bbb; filter:drop-shadow(1px 1px 1px #000);'>&#x".$fa.";</span></div>
+					<div style='display:flex; flex-direction:column;'>
 						<div class='truncate'>".$pendingData[$n]['projectTitle']."</div>
 						<div style='display:flex; font-size:10px; font-style:italic;'>
 							<span style='margin-right:10px;'>started: ".date('m-d H:i', strtotime($pendingData[$n]['startDate']))."</span>
