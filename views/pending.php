@@ -65,7 +65,7 @@ $pendingData[$n]['projectType'] == 1 ? $fa = 'e7fd' : ($pendingData[$n]['project
     $pending = $usersView->enc_cons($catid.'_pending');
 
 	$pend .="
-				<div style='width:100%; display:flex; border:1px solid #fff; border-radius:10px; filter:drop-shadow(.5px .5px .5px #aaa) drop-shadow(-.5px -.5px .5px #aaa); background:#fff; padding:10px; justify-content:space-around; align-items:center; margin-bottom:10px;'>
+				<div style='width:100%; display:flex; border:1px solid #fff; border-radius:10px; filter:drop-shadow(.5px .5px .5px #aaa) drop-shadow(-.5px -.5px .5px #aaa); background:#fff; padding:10px; justify-content:space-around; align-items:center; margin:10px;'>
 					<div style='width:20%; padding:10px;'><span class='material-icons' style='font-size:20px; color:#bbb; filter:drop-shadow(1px 1px 1px #000);'>&#x".$fa.";</span></div>
 					<div style='display:flex; flex-direction:column; width:60%;'>
 						<div class='truncate'>".$pendingData[$n]['projectTitle']."</div>
