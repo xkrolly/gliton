@@ -1,9 +1,13 @@
 <?php
 if(isset($_POST['publish'])){
 
-  include('includes/autoloader.inc.php');
+  include('../includes/autoloader.inc.php');
   $usersContr = new usersContr();
   $usersView = new usersView();
+
+  $publish_mode = $_POST['pubmode'];
+  $publish_mode == 1 ? $price = 1.1 * intval($_POST['price']) : ($publish_mode == 2 ? $price = $_POST['launchfund'] : $price = 0);
+
 
   $publink = $_POST['publink'];
   $caption = $_POST['caption'];
@@ -12,30 +16,6 @@ if(isset($_POST['publish'])){
   $insight = $_POST['insight'];
   $insight = str_replace('  ', '\n', $insight);
   
-/*  if(isset($_POST['mediaproof']) && isset($_POST['mediaType']) ){
-      $mediaproof = $_POST['mediaproof'];
-      $mediaType = $_POST['mediaType'];
-      $cat_id = $_POST['cat_id'];
-
-      $array = $usersView->aoi($cat_id);
-      $qCol = $array['queCol'];
-      $q_user_id = $array['user'];
-      $colid = $array['cat_id'];
-      $catTable = $array['topic'];
-      $userData = $usersView->fetchUser();
-      $me = $userData[0]['profile_id'];
-
-      $vals = array($qCol=>$mediaproof, $q_user_id=>$me);
-      $usersContr->insert($catTable, $vals);
-
-      $valu = $mediaproof.', '.$me;
-      $checkData = $usersView->select($catTable, ' WHERE '.$qCol.'=? AND '.$q_user_id.'=?', $valu);
-      $colVal = $checkData[0][$colid];
-      $vals2 = array('content_id'=>$publink, 'category_id'=>$cat_id, 'media'=>$mediaType, 'scriptor_id'=>$me, $colid=>$colVal);
-      $usersContr->insert('solochat', $vals2);
-
-  }*/
-//  $shrdKeyEnc = $usersView->encryptor0($shrdKey);
 
   $searchkeys = $_POST['k1']." ".$_POST['k2']." ".$_POST['k3']." ".$_POST['k4']." ".$_POST['k5']." ".$_POST['k6'];
   $authorization = $_POST['authorization'];
@@ -44,7 +24,6 @@ if(isset($_POST['publish'])){
 
   $checkPub = $usersView->select('publish', ' WHERE published = ? AND heading=? AND searchKeys = ?', $pubVal);
 
-  $price='';
   
   if(count($checkPub) == 0){
   $rsP = ''; //rsP = resource Person
@@ -55,12 +34,12 @@ if(isset($_POST['publish'])){
   $rsP_enc = $usersView->enc_cons($rsP);
   
   $topic_id = $_POST['cat_id']; 
-  $price .=$_POST['price'];
+//  $price .=$_POST['price']; price should be taken from publisher's input price
   $chatpop = $_POST['chatpop'];
   $pubtype = $_POST['pubtype'];
   $insight = $usersView->paragrafin($insight);
 
-  $val = array('published' => $publink, 'auth'=>$authorization, 'topic_id'=>$topic_id, 'chatpop'=>$chatpop, 'price'=>$price, 'rsP'=>$rsP_enc, 'heading'=>$caption, 'searchKeys'=>$searchkeys, 'insight'=>$insight, 'timespan'=>$timespan);
+  $val = array('published' => $publink, 'pubmode'=>$publish_mode, 'auth'=>$authorization, 'topic_id'=>$topic_id, 'chatpop'=>$chatpop, 'price'=>$price, 'rsP'=>$rsP_enc, 'heading'=>$caption, 'searchKeys'=>$searchkeys, 'insight'=>$insight, 'timespan'=>$timespan);
   
     $usersContr->insert('publish', $val);
     $_POST['publish'] = '';
@@ -296,21 +275,7 @@ $keyWords.="<div id='all_chat'></div>";
 $aoi_data = $usersView->select('aoi', ' WHERE aoi_id = ?', $catid);
 $specialist = $aoi_data[0]['specialist'];
 
-/*
-$aoi_data2 = $usersView->select('aoi', ' WHERE cat_code = ?', $broad_cat);
-$aoiLn = count($aoi_data2) - 1;
 
-                  <div style='display:none' id='specialists'>
-                    <div style='display:flex; flex-direction:column;'>
-                        <h6>Select from below</h6>";
-          while($aoiLn >= 0){
-                $keyWords.="<label><input type='checkbox' name='spec' value='".$aoi_data2[$aoiLn]['aoi_id']."'> ".$aoi_data2[$aoiLn]['specialist']."</label>";
-                
-                $aoiLn--;
-          }
-                    $keyWords .="</div>
-                  </div>
-                  */
 $keyWords.="
       <div class='form-group' style='margin-top:20px;'>
                  <label style='color:#fff; background:deepskyblue; padding:5px; font-weight:bold; font-size:18px;'>Publish type:
@@ -320,7 +285,7 @@ $keyWords.="
                 <div style='display:flex; flex-direction:column; margin-right:auto; padding:10px; width:100%;'>
                   <label onclick='$(\".solPrice\").show();' style='font-size:16px; width:100%; display:flex; justify-content:flex-start; align-items:center; background:#eee; padding:10px;'>
                       <div style='margin-right:20px;'>
-                          <input type='radio' class='' name='pubtype' value='0' style='width:14px; height:14px;' id='checked' checked  onclick='$(\".pubtype\").hide();'/>
+                          <input type='radio' class='' name='pubmode' value='1' style='width:14px; height:14px;' id='checked' checked  onclick='$(\".pubtype\").hide();'/>
                       </div>
                       <div style='display:flex; flex-direction:column;'>
                         <div style='font-weight:bold; font-size:14px; margin-bottom:6px;'>Direct Public Release</div>
@@ -328,8 +293,8 @@ $keyWords.="
                           This solscript becomes available and accessible online through search and scrollpage of this app at your proposed price immediately you publish it.
                             <div style='margin-top:10px; text-align:center; width:100%; display:flex; justify-content:center;'>
                               <div style='width:100%; text-align:left;'>
-                                <input type='number' class='form-control' name='price' placeholder='Input your price per copy' required style='font-size:12px; width:100%; margin-bottom:-1px;'>
-                                <i style='color:#555; font-size:10px;'>25% to be claimed by Glit</i>
+                                <input type='number' class='form-control' name='price' placeholder='Input your price per copy' style='font-size:12px; width:100%; margin-bottom:-1px;'>
+                                <i style='color:#555; font-size:10px;'>10% Glit charges will be added</i>
                               </div>
                             </div>
                         </div>
@@ -337,7 +302,7 @@ $keyWords.="
                   </label>
                   <label onclick='$(\".fundtarget\").show();' style='font-size:12px; width:100%; display:flex; justify-content:flex-start; align-items:center; background:#eee; padding:10px;'>
                       <div style='margin-right:20px;'>
-                          <input type='radio' class='' name='pubtype' value='0' style='width:14px; height:14px;' id='checked' onclick='$(\".pubtype\").hide();'/>
+                          <input type='radio' class='' name='pubmode' value='2' style='width:14px; height:14px;' id='checked' onclick='$(\".pubtype\").hide();'/>
                       </div>
                       <div style='display:flex; flex-direction:column;'>
                         <div style='font-weight:bold; font-size:14px; margin-bottom:6px;'>Prelaunch Crowdfunding</div>
@@ -348,7 +313,8 @@ $keyWords.="
                           <label class='prelaunchTarget fundtarget' style='display:none; font-size:14px; width:100%; background:#fff; padding:5px; margin-top:10px; border-radius:10px;'>
                             <div class='form-group' style='width:100%; display:flex; flex-direction:column; justify-content:center; align-items:center; padding:2px;'>
                                   <label style='font-size:12px; font-weight:bold; margin-top:10px;'>Choose Crowdfunding Target</label>
-                                  <div style='width:100%; padding:0 20px;'><input style='width:100%;' type='range' min='0' max='1000000' step='10000' value='' id='range' oninput='document.getElementById(\"nprice\").innerHTML=\"#\"+this.value'></div>
+                                  <div style='width:100%; padding:0 20px;'>
+  <input style='width:100%;' name='launchfund' type='range' min='0' max='1000000' step='10000' value='' id='range' oninput='document.getElementById(\"nprice\").innerHTML=\"#\"+this.value'></div>
                             <div style='font-size:16px; width:100%; margin-top:-5px; text-align:center; color:green; font-weight:bold;'><span id='nprice'></span></div>
                             </div>
                           </label>
@@ -359,7 +325,7 @@ $keyWords.="
                   </label>
                   <label onclick='$(\"#charity\").show();' style='font-size:12px; width:100%; display:flex; justify-content:flex-start; align-items:center; background:#eee; padding:10px; margin-top:5px;'>
                         <div style='margin-right:20px;'>
-                          <input type='radio' class='' name='pubtype' value='' style='width:14px; height:14px;' onclick='$(\".pubtype\").hide();'/>
+                          <input type='radio' class='' name='pubmode' value='3' style='width:14px; height:14px;' onclick='$(\".pubtype\").hide();'/>
                         </div>
                         <div style='display:flex; flex-direction:column;'>
                           <div style='font-weight:bold; font-size:14px; margin-bottom:6px;'>Charitable Cause</div>
@@ -367,15 +333,9 @@ $keyWords.="
                           </div>
                         </div>                            
                   </label>
-          
 
                 </div>
 
-
-
-
-
-            
              <div class='form-group' style='margin-top:20px;'>
                  <label style='color:#fff; background:deepskyblue; padding:5px; font-weight:bold; font-size:18px;'>Accessible to:
                 <span class='material-icons' style='margin-left:10px; color:#2166f3; font-size:22px;' onclick='$(\"#imodal2\").slideDown(20);'>&#xe88e;</span></label>
