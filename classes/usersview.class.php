@@ -3848,7 +3848,7 @@ public function newList($user){
 			$pub[$ln]['chatpop'] == 'm' ? $recipient = 0 :
 			$recipient = $this->encryptor0($pub_array[1]);
 			//$convid = $this->encryptor0($pub_array[2]);
-			$pub_id_enc = $this->encryptor0($pub[$ln]['pub_id']);
+			$pub_id_enc = $this->num_AlphaA($pub[$ln]['pub_id']);
 			$pub_id = $pub[$ln]['pub_id'];
 
 			
