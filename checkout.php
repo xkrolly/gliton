@@ -8,7 +8,7 @@ $usersView = new usersView();
 if(isset($_GET['checkoutid'])){
 	$checkoutID = str_replace(' ', '+', $_GET['checkoutid']);
 
-    $checkoutID = $usersView->decryptor0($checkoutID);
+    $checkoutID = $usersView->alphaA_Num($checkoutID);
 
 $data = $usersView->getCheckout($checkoutID);
 //var_dump($data);
