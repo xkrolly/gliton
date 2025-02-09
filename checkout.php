@@ -4,7 +4,6 @@ include_once 'includes/autoloader.inc.php';
 $usersContr = new usersContr();
 $usersView = new usersView();
 
-
 if(isset($_GET['checkoutid'])){
 	$checkoutID = str_replace(' ', '+', $_GET['checkoutid']);
 
@@ -61,10 +60,10 @@ $mediaBtype == 2 ? $assetB = "<img src='".$urlB."' id='checkoutimgB' class='flex
 		</div>
 
               <div style='position:fixed; top:70%; display:flex; flex-direction:column; justify-content:center; align-items:center; width:100%;'>
-                <span style='font-size:10px;'>Not on Glit yet?</span>
+                <div style='background:rgba(255, 255, 255, .3); padding:10px; border-radius:10px;'><span style='font-size:10px;'>Not on Glit yet?</span>
                 <a href='https://glit.ng' style='text-decoration:none;'><button style='padding:8px; border-radius:8px; filter:drop-shadow(1px 1px 1px #fff); background:#fff; font-size:16px; color:#2166f3;'>Join Glit</button></a> 
                 <span style='font-size:10px;'>Access lots of similar contents free!</span>
-
+		</div>
               </div>
 
 	  </article>
