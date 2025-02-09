@@ -59,7 +59,7 @@ $mediaBtype == 2 ? $assetB = "<img src='".$urlB."' id='checkoutimgB' class='flex
 
 		</div>
 
-              <div style='position:fixed; bottom:0; display:flex; flex-direction:column; justify-content:center; align-items:center; width:100%; color:#2166f3;'>
+              <div style='position:fixed; bottom:0; display:flex; flex-direction:column; justify-content:center; align-items:center; width:100%; padding: 6px 30px 6px 30px;'>
                 <div style='background:rgba(255, 255, 255, .7); padding:10px; border-radius:10px; display:flex; flex-direction:column; justify-content:center; align-items:center;'><span style='font-size:18px; margin-bottom:3px; font-weight:bold;'>Not on Glit yet?</span>
 		<span style='font-size:9px;'>There are lots a solutions built on Glit already. You can as well benefit from this by simply signing up to access lots more for free.</span>
 		<a href='https://glit.ng' style='text-decoration:none;'><button style='padding:5px; border-radius:4px; border:.5px solid #2166f3; filter:drop-shadow(1px 1px 1px #fff); background:#fff; font-size:12px; color:#2166f3;'>Join Glit</button></a> 
