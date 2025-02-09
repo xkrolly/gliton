@@ -59,9 +59,9 @@ $mediaBtype == 2 ? $assetB = "<img src='".$urlB."' id='checkoutimgB' class='flex
 
 		</div>
 
-              <div style='position:fixed; bottom:0; display:flex; flex-direction:column; justify-content:center; align-items:center; width:100%; padding: 6px 30px 6px 30px;'>
-                <div style='background:rgba(255, 255, 255, .6); padding:10px; border-radius:10px; display:flex; flex-direction:column; justify-content:center; align-items:center;'><span style='font-size:18px; margin-bottom:1px; font-weight:bold; color:#555;'>Not on Glit yet?</span>
-		<span style='font-size:9px; margin:8px 10px 8px 10px; '>There are lots a solutions built on Glit already. You can as well benefit from this by simply signing up to access lots more for free.</span>
+              <div style='position:fixed; bottom:0; display:flex; flex-direction:column; justify-content:center; align-items:center; width:100%; padding: 6px 30px 6px 30px; color:deepskyblue;'>
+                <div style='background:rgba(255, 255, 255, .6); padding:10px; border-radius:10px; display:flex; flex-direction:column; justify-content:center; align-items:center;'><span style='font-size:18px; margin-bottom:1px; font-weight:bold;'>Not on Glit yet?</span>
+		<span style='font-size:9px; margin:8px 10px 5px 10px; '>There are lots of solutions on Agriculture, Nutrition, Health etc built on Glit. You can as well benefit from this by simply signing up to access lots more for free.</span>
 		<a href='https://glit.ng' style='text-decoration:none;'><button style='padding:6px; border-radius:6px; border:.5px solid #2166f3; filter:drop-shadow(1px 1px 1px #fff); background:#fff; font-size:13px; color:#2166f3;'>Join Glit</button></a> 
 		</div>
               </div>
