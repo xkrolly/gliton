@@ -22,7 +22,77 @@ class UsersView extends Users {
 	public function ribbon(){
 		return "<div class='ribbon-wrap'><div class='ribbon'>Special offer</div></div>";
 	}
-  public function productInteraction($_prdID, $intCol, $intTotalCol){
+	public function alphaA_Num($code){
+
+		$alphas = ['j', 'i', 'h', 'g', 'f', 'e', 'd', 'c', 'b', 'a', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'k', 'l', 'm', 'n', 'o', 'p'];
+
+		$digit = str_split($code);
+		$len = count($digit);
+		$n = 0;
+		$nlen = $len - 1;
+		$output = array();
+
+		while($n <= $nlen){
+			
+    			$position = array_search($digit[$n], $alphas, false);
+			strlen($position) > 1 ? $output[] = substr($position, -1) : $output[] = $position;
+
+		 $n++;	
+		}		
+				$output = implode('', $output);
+		$output = intval($output) * 1;
+		return $output;
+	}
+	public function num_AlphaA($_digit){
+    
+		$first = ['j', 'i', 'h', 'g', 'f', 'e', 'd', 'c', 'b', 'a'];
+		$second = ['q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+		$third = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'];
+		$fourth = ['K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T'];
+
+		$fifth = ['U', 'V', 'W', 'X', 'Y', 'Z', 'k', 'l', 'm', 'n', 'o', 'p'];
+		
+		$digit = str_split($_digit);
+		$len = count($digit);
+		$len < 7 ? $digit = str_split('00000'.$_digit) : $digit = str_split($_digit);
+		$len = count($digit);
+
+		$n = 0;
+		$nlen = $len - 1;
+		$output = array();
+
+		while($n <= $nlen){
+			 $num =	rand(0, 5);
+
+			 switch ($num) {
+			 	case 1 :
+			 		$option = $first;
+			 		break;
+			 	case 2 :
+			 		$option = $second;
+			 		break;
+			 	case 3 :
+			 		$option = $third;
+			 		break;
+			 	case 4 :
+			 		$option = $fourth;
+			 		break;
+			 	
+			 	default:
+			 		$option = $fifth;
+			 		break;
+			 }
+
+     		$output[] = $option[intval($digit[$n])];
+			
+		 $n++;
+		}
+
+		$output = implode('', $output);
+		return $output;
+
+	}
+  	public function productInteraction($_prdID, $intCol, $intTotalCol){
 	    $data = $this->fetchUser();
 	    $me = $data[0]['profile_id'];
 	    
