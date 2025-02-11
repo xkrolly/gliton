@@ -107,11 +107,11 @@ if($regCompleted == 1){
 				$cat_code = $aoiData[0]['cat_code'];
 				$expert = ucfirst($aoiData[0]['specialist']);
 				$spec = ucfirst($aoiData[0]['subcategory']);
-                $tutor_list .="<div style='background:rgba(0,128,0,.7); display:flex; justify-content:center; width:100%; position:fixed; top:0; font-size:12px;'>
-                <span style='margin-right:auto;'><a href='buycoin' style='color:yellow; margin-top:-2px;'>Fund your wallet</a>
-                </span><span style='color:#fff; padding:10px; font-weight:bold;'>Your bal: ".$myBal."Gc</span><span style='margin-left:auto;'></span></div>";
+                $tutor_list .="<div style='background:deepskyblue; display:flex; justify-content:center; width:100%; position:fixed; top:0; font-size:12px;'>
+                <span style='margin-right:auto; padding:10px; font-weight:bold;'><a href='buycoin' style='color:#2166f3;'>Fund wallet</a>
+                </span><span style='color:#fff; padding:10px; font-weight:bold; margin-left:auto;'>".$myBal."Gc</span></div>";
 
-				$tutor_list .= "<div style='padding:25px; border:4px solid #2166f3;'><h6 style='font-size:20px; text-align:center; margin-bottom:20px; margin-top:50px; font-family:serif;'>".$expert."s</h6>";
+				$tutor_list .= "<div style='padding:25px;'><h6 style='font-size:18px; text-align:center; margin-bottom:20px; margin-top:50px; font-family:serif;'>".$expert."s</h6>";
 
 				if(count($tutorData) > 0){
 						$ln = count($tutorData) - 1;
@@ -127,7 +127,7 @@ if($regCompleted == 1){
 			        $xpt_consult_fee = $tutorData[$ln]['cFee'];
 
 			        $_tutor_specs = $usersView->generate_spec($xpt_id, '');
-			        $imgUrl_tutor = $usersView->generate_DP($xpt_id, '80px', '');
+			        $imgUrl_tutor = $usersView->generate_DP($xpt_id, '70px', '');
 			        $tutor_specs = implode(' | ', $_tutor_specs);
 
 			        $firstname = $usersView->decryptor0($fn);
@@ -216,13 +216,13 @@ if($regCompleted == 1){
             	    </script>
 							
 					<input type='hidden' name='recipient_id' id='recipient_id' value='".$recipient_enc0."'>
-					<div style='display:flex; width:100%; border-radius:10px; padding:6px; margin-top:20px; align-items:center;'>
+						<div style='display:flex; margin-top:30px; '><span style='font-weight:bold; font-size:16px;' class='tutorName'>".$fullname."</span>$checkMark</div>
+					<div style='display:flex; width:100%; border-radius:10px; padding:6px; align-items:center;'>
 					    <div style='display:flex; flex-direction:column; width:55%;'>
-					        <span style='display:flex; justify-content:flex-start; align-items:center;'><span class='tutorName'>".$fullname."</span>$checkMark</span>
 					        <span class='tutorSkill'>".$expert."</span>
 					        <span class='tutorSpec' style='font-style:normal; font-family:serif;'>".$tutor_specs."</span>
 					    </div>
-					    <div style='font-size:12px; display:flex; justify-content:center; align-items:center; margin-left:20px; width:40px; height:40px; background:gold; filter:drop-shadow(1px 1px 1px #aaa); border-radius:50%; color:#fff;'>
+					    <div style='font-size:12px; display:flex; justify-content:center; align-items:center; margin-left:20px; width:32px; height:32px; background:gold; filter:drop-shadow(1px 1px 1px #aaa); border-radius:50%; color:#fff; margin-right:10px;'>
 					        ".$xpt_consult_fee."Gc
 					    </div>
 					    
@@ -256,7 +256,7 @@ if($regCompleted == 1){
 
 									  </div>
 								    <div style='display:flex; width:100%; color:#888; border-radius:10px; margin-top:5px; font-size:9px; padding:6px 6px 0 6px;'>
-										  	<span class='light-theme2' style='display:flex; align-items:center; justify-content:center; width:45%; border:2px solid #2166f3; padding:5px 25px 5px 25px; border-radius:8px; margin-right:auto; background:transparent;'>View publications</span>
+										  	<span class='light-theme2' style='display:flex; align-items:center; justify-content:center; width:45%; border:2px solid #2166f3; padding:5px 10px 5px 10px; border-radius:8px; margin-right:auto; background:transparent;'>View publications</span>
 										  	$btn
 
 									</div>
