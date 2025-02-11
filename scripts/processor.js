@@ -341,20 +341,20 @@ $('#upgrade_data').on('submit', function(event){
 function fixappo(n, cat, a){
     //alert('My Appointment fixed at '+n);
     a == 'viewinurl' ? urlPrefix = '../' : urlPrefix='';
+    alert('ready to fix');
     $.ajax({
             url: urlPrefix+'includes/fixappo.inc.php',
             method: 'POST',
             data: {appofix:n, cat:cat},
             dataType:'json',
             success: function(data){
+                alert('YESSS');
                 data.resp == 1? resp = 'Appointment fixed successfully' : (data.resp== 2 ? resp='This period has just been taken few moment ago! Pick another.' : resp='');
                 document.querySelector('#apporesp').innerHTML = resp;
+    alert(data.resp);
+    alert('appo'+data.appo);
                 if(data.resp == 1){
                     document.getElementById('appo'+data.appo).setAttribute("disabled", '');
-                    document.getElementById('appo'+data.appo).style.background = '#eee';
-                    document.getElementById('appo'+data.appo).style.border = '1px solid #eee';
-                    document.getElementById('appo'+data.appo).style.color = '#fff';
-
                 }else{
                 document.querySelector('#apporesp').style.background = 'yellow';
                 document.querySelector('#apporesp').style.color = 'red';
@@ -364,6 +364,7 @@ function fixappo(n, cat, a){
                 document.querySelector('#apporesp').style.display = 'inline';
             },
             error: function(data){
+                alert('NOOO');
                 document.querySelector('#apporesp').innerHTML = 'Appointment fixing failed!!!';
             }
             
@@ -763,6 +764,7 @@ $('#search_data').on('submit', function(event){
         processData: false,
         success: function(data){
 
+            var wordinput =data.wordinput;
             var total =data.total;
             var heading =data.heading;
             var sender = data.sender;
@@ -776,11 +778,28 @@ $('#search_data').on('submit', function(event){
             var thumbnail = data.thumbnail;
             var thumbnail_Dir = data.thumbnail_Dir;
             var media = data.media;
-         
+
+            document.getElementById('glitsearch').innerHTML = "<div style='width:100%; margin-top:80px; display:flex; justify-content:center; font-style:italic; font-weight:800; color:#fff; display:flex; align-items:flex-end;'><span style='color:#2166f3; margin-right:6px; font-size:25px;'>Glit</span><span style='text-shadow:.5px .5px #666; font-size:22px;'> search</span></div>";
+
             var page = '<div style="position:fixed; top:0; bottom:0; left:0; overflow:auto; display:flex; justify-content:flex-start; align-items:flex-start; content-visibility:auto; z-index:18; background:#fff; width:100vw; padding:30px;">';
              page += '<div style="background:#fff; margin-top:50px; width:100%; text-align:right;"><div style="text-align:right; margin-right:10px; margin-bottom:-5px;">';
              page +="<div style='width:100%; display:flex; justify-content:center; align-items:center;'><h5 style='text-align:center; width:100%;'>Search results</h5><a href=''><span class='material-icons' style='margin-left:auto; align-self:center; font-size:18px; color:#444;'>&#xe5c9;</span></a></div></div>";
              
+        page +='<div class="them" style="background:transparent; padding:1px; margin-top:120px;">'+
+
+        '<form id="search_data" class="search_data">'+
+        '<div style="background:#fff; padding:10px; display:flex; align-items:center; justify-content:center;">'+
+              '<div style="border:2px solid #aaa; border-radius:20px; display:flex; justify-content:center; align-items:center;">'+
+              '<button type="submit" name="submit" tabindex=3 class="" id="search_btn" style="width:9vw;  background:transparent; border:transparent; border-top-left-radius:15px; border-bottom-left-radius:15px; padding:3px; text-align:center;">'+
+                  '<span class="material-icons" style="color:#000; font-size:30px; margin-right:2px; margin-left:5px;">&#xe8b6;</span>'+
+              '</button>'+
+              '<input type="search" value="'+wordinput+'" incremental name="search_input" placeholder="Search any solution..." aria-label="Search the pool of published practical solutions" style="padding-left:8px color:#fff; font-size:16px; width:70vw; border:transparent; background:transparent; border-bottom-right-radius:15px; border-top-right-radius:15px;">'+
+                            
+           '</div>'+
+          '</div>'+
+        '</form>'+
+        '</div>';
+
             if(total < 1){
               page += "<br><br><br><div style='color:red; font-size:16px; text-align:center;'>No match found !!</div>";
             }else{
