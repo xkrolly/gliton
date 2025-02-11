@@ -779,7 +779,8 @@ $('#search_data').on('submit', function(event){
             var thumbnail_Dir = data.thumbnail_Dir;
             var media = data.media;
 
-            document.getElementById('glitsearch').innerHTML = "<div style='width:100%; margin-top:80px; display:flex; justify-content:center; font-style:italic; font-weight:800; color:#fff; display:flex; align-items:flex-end;'><span style='color:#2166f3; margin-right:6px; font-size:25px;'>Glit</span><span style='text-shadow:.5px .5px #666; font-size:22px;'> search</span></div>";
+            document.getElementById('glitsearch').style.display = 'block';
+	    document.getElementById('glitsearch').innerHTML = "<div style='width:100%; margin-top:80px; display:flex; justify-content:center; font-style:italic; font-weight:800; color:#fff; display:flex; align-items:flex-end;'><span style='color:#2166f3; margin-right:6px; font-size:25px;'>Glit</span><span style='text-shadow:.5px .5px #666; font-size:22px;'> search</span></div>";
 
             var page = '<div style="position:fixed; top:0; bottom:0; left:0; overflow:auto; display:flex; justify-content:flex-start; align-items:flex-start; content-visibility:auto; z-index:18; background:#fff; width:100vw; padding:30px;">';
              page += '<div style="background:#fff; margin-top:50px; width:100%; text-align:right;"><div style="text-align:right; margin-right:10px; margin-bottom:-5px;">';
