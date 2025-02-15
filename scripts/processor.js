@@ -1,4 +1,4 @@
-			$('#GlitCdata').on('submit', function(event){
+            $('#GlitCdata').on('submit', function(event){
                 event.preventDefault();
          
             $.ajax({
@@ -781,11 +781,12 @@ $('#search_data').on('submit', function(event){
 
             document.getElementById('searchPanel').style.background = '#fff';
             document.getElementById('searchPanel').style.padding = '10px';
-	    document.getElementById('glitsearch').style.display = 'block';
-	    document.getElementById('glitsearch').innerHTML = "<div style='width:100%; margin-top:50px; display:flex; justify-content:center; font-style:italic; font-weight:800; color:#fff; display:flex; align-items:flex-end;'><span style='color:#2166f3; margin-right:6px; font-size:25px;'>Glit search</span></div>";
+        document.getElementById('glitsearch').style.display = 'block';
+
+        document.getElementById('glitsearch').innerHTML = "<div onclick=$('#searchPanel').slideUp('slow'); style='width:100%; display:flex; justify-content:flex-end; align-items:center;'><a href='' style='color:red;'><span class='material-icons' style='margin-left:auto; align-self:center; font-size:18px; color:#444;'>&#xe5c9;</span></a></div>"+
+        "<div style='width:100%; margin-top:10px; display:flex; justify-content:center; font-style:italic; font-weight:800; color:#fff; display:flex; align-items:flex-end;'><span style='color:#fff; margin-right:6px; font-size:25px; text-shadow:.5px .5px #333;'>Glit search</span></div>";
             var page = '<div style="position:fixed; top:0; bottom:0; left:0; overflow:auto; display:flex; justify-content:flex-start; align-items:flex-start; content-visibility:auto; z-index:18; background:#fff; width:100vw; padding:30px;">';
-             page += '<div style="background:#fff; margin-top:200px; width:100%; text-align:right;"><div style="text-align:right; margin-right:10px; margin-bottom:-5px;">';
- //            page +="<div style='width:100%; display:flex; justify-content:center; align-items:center;'><h5 style='text-align:center; width:100%;'>Search results</h5><a href=''><span class='material-icons' style='margin-left:auto; align-self:center; font-size:18px; color:#444;'>&#xe5c9;</span></a></div></div>";
+             page += '<div style="background:#fff; margin-top:220px; width:100%; text-align:right;"><div style="text-align:right; margin-right:10px; margin-bottom:-5px;">';
              
       
             if(total < 1){
@@ -1026,28 +1027,28 @@ function proceedWithUpload(cid, cat_t, que){
       });
     var dateForID = Date.now();
 
-    					       output +=" <figcaption id='ins"+dateForID+"' style='font-size:14px; height:100%; position:absolute; top:0; left:0; display:none; justify-content:center; align-items:center; width:100%;'>"+
-    					            	"<div style='display:flex; flex-direction:column; z-index:10; width:100%; color:#fff; text-shadow:1px 1px #222; height:500px;'>"+
-    					            		"<div style='border-top-right-radius:20px; border-top-left-radius:20px; padding:20px; width:100%; margin-top:auto; padding-bottom:50px; text-align:justify;  background:rgba(255, 255, 255, .05);'>"+
-																"<div onclick='$(\"#ins"+dateForID+"\").slideUp(1000);' style='display:flex; justify-content:center; margin:0 auto 20px auto;'>"+
-																	"<div onclick='$(\"#ins"+dateForID+"\").slideUp(1000);' style='height:4px; width:30px; background:#fff; border:1px solid #fff; border-radius:20px;'>"+
-																	"</div>"+
-																"</div>"+
-				    					            "<div id='cntted"+dateForID+"' contenteditable='true' onclick='clearContent(\"cntted"+dateForID+"\");' style='width:100%;'>Add a concise and descriptive insight to this scrollet."+
-				    					            "</div>"+
-				    					            "<p style='text-align:center; margin:25px auto 5px auto;'><span style='color:yellow;' onclick='addContent(\"cntted"+dateForID+"\");'>Add</span></p>"+
-    					            	  "</div>"+
-    					           		"</div>"+
-    					          	"</figcaption></div>";
+                               output +=" <figcaption id='ins"+dateForID+"' style='font-size:14px; height:100%; position:absolute; top:0; left:0; display:none; justify-content:center; align-items:center; width:100%;'>"+
+                                        "<div style='display:flex; flex-direction:column; z-index:10; width:100%; color:#fff; text-shadow:1px 1px #222; height:500px;'>"+
+                                            "<div style='border-top-right-radius:20px; border-top-left-radius:20px; padding:20px; width:100%; margin-top:auto; padding-bottom:50px; text-align:justify;  background:rgba(255, 255, 255, .05);'>"+
+                                                                "<div onclick='$(\"#ins"+dateForID+"\").slideUp(1000);' style='display:flex; justify-content:center; margin:0 auto 20px auto;'>"+
+                                                                    "<div onclick='$(\"#ins"+dateForID+"\").slideUp(1000);' style='height:4px; width:30px; background:#fff; border:1px solid #fff; border-radius:20px;'>"+
+                                                                    "</div>"+
+                                                                "</div>"+
+                                                    "<div id='cntted"+dateForID+"' contenteditable='true' onclick='clearContent(\"cntted"+dateForID+"\");' style='width:100%;'>Add a concise and descriptive insight to this scrollet."+
+                                                    "</div>"+
+                                                    "<p style='text-align:center; margin:25px auto 5px auto;'><span style='color:yellow;' onclick='addContent(\"cntted"+dateForID+"\");'>Add</span></p>"+
+                                          "</div>"+
+                                        "</div>"+
+                                    "</figcaption></div>";
 
 output +="<div style='display:flex; align-items:center; justify-content:center; padding-bottom:-5px;'>"+
-    					             "<div style='font-size:10px; color:#000; margin-left:5px;'>"+dateNow+"</div>";
+                                     "<div style='font-size:10px; color:#000; margin-left:5px;'>"+dateNow+"</div>";
 
-    					       if(mediaType == 2 || mediaType == 3){
-    					           output +="<span style='font-size:14px; margin-left:auto; margin-right:10px;' onclick='$(\"#ins"+dateForID+"\").slideDown();' class='material-icons'>&#xe8fe;</span>";
-								}
-    					        output +="</div>";
-    					        
+                               if(mediaType == 2 || mediaType == 3){
+                                   output +="<span style='font-size:14px; margin-left:auto; margin-right:10px;' onclick='$(\"#ins"+dateForID+"\").slideDown();' class='material-icons'>&#xe8fe;</span>";
+                                }
+                                output +="</div>";
+                                
       document.getElementById('all_chat').appendChild(div);
 //      var node = document.createTextNode(output);
 document.getElementById('chatmsg').innerHTML = output;
