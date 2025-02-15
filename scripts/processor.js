@@ -784,22 +784,19 @@ $('#search_data').on('submit', function(event){
         document.getElementById('glitsearch').style.display = 'block';
 
         document.getElementById('glitsearch').innerHTML = "<div style='width:100%; display:flex; justify-content:flex-end; align-items:center;'><a href='' style='color:red;'><span class='material-icons' onclick=$('#searchPanel').slideUp('slow'); style='margin-left:auto; align-self:center; font-size:18px; color:#444;'>&#xe5c9;</span></a></div>"+
-        "<div style='width:100%; margin-top:-10px; display:flex; justify-content:center; font-style:italic; font-weight:800; color:#fff; display:flex; align-items:flex-end;'><span style='color:#fff; margin-right:6px; font-size:25px; text-shadow:.5px .5px #333;'>Glit search</span></div>";
+        "<div style='width:100%; margin-top:-15px; display:flex; justify-content:center; font-style:italic; font-weight:800; color:#fff; display:flex; align-items:flex-end;'><span style='color:#fff; margin-right:6px; font-size:25px; text-shadow:.5px .5px #333;'>Glit search</span></div>";
             var page = '<div style="position:fixed; top:0; bottom:0; left:0; overflow:auto; display:flex; justify-content:flex-start; align-items:flex-start; content-visibility:auto; z-index:18; background:#fff; width:100vw; padding:30px;">';
-             page += '<div style="background:#fff; margin-top:190px; width:100%; text-align:right;"><div style="text-align:right; margin-right:10px; margin-bottom:-5px;">';
+             page += '<div style="background:#fff; margin-top:180px; width:100%; text-align:right;"><div style="text-align:right; margin-right:10px; margin-bottom:-5px;">';
              
-      
             if(total < 1){
               page += "<br><br><br><div style='color:red; font-size:16px; text-align:center;'>No match found !!</div>";
             }else{
-
                     page +="<div style='display:flex; flex-wrap:wrap; flex-direction:row;'>";
                 while(total > 0){
                     var mediaDisplay = '';
-                    media[total - 1] == 3 ? mediaDisplay += "<video autoplay class='flexible2' id='"+pub_id[total - 1]+"' style='border-radius:5px; width:80px; height:100px; object-fit:cover; background:red;' src='videos/"+thumbnail_Dir[total - 1]+"/dec/"+thumbnail[total - 1]+".webm'></video>" : mediaDisplay +="<img class='flexible' id='"+pub_id[total - 1]+"' style='border-radius:20px; width:100px; height:100px; object-fit:cover; background:red;' src='img/"+thumbnail_Dir[total - 1]+"/"+thumbnail[total - 1]+".webp' />";                   
+                    media[total - 1] == 3 ? mediaDisplay += "<video autoplay class='flexible2' id='"+pub_id[total - 1]+"' style='border-radius:5px; width:80px; height:100px; object-fit:cover; background:#000;' src='videos/"+thumbnail_Dir[total - 1]+"/dec/"+thumbnail[total - 1]+".webm'></video>" : mediaDisplay +="<img class='flexible' id='"+pub_id[total - 1]+"' style='border-radius:20px; width:100px; height:100px; object-fit:cover; background:red;' src='img/"+thumbnail_Dir[total - 1]+"/"+thumbnail[total - 1]+".webp' />";                   
                         page +="<div style='margin:10px 3px 30px 3px; display:flex; flex-direction:column;'>"+mediaDisplay+
                         "<figcation style='font-size:9px; pointer-events:none; color:#fff; text-align:center; text-shadow:.5px .5px #2166f3; width:80px; height:100px; padding:5px; margin-top:-100px; z-index:30; display:flex; justify-content:center; align-items:center;'><a style='pointer-events:auto; color:#fff;' href='index.php?page=peepChats&pub="+pub_id[total - 1]+"&published="+published[total - 1]+"&convid="+conv_id[total - 1]+"&s="+sender[total - 1]+"&r="+recipient[total - 1]+"'>"+heading[total-1]+"</a></figcaption></div>";
-
                   total--;
                 }
             }
