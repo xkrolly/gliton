@@ -5654,7 +5654,7 @@ $Chats .="    					             <span style='font-size:10px; color:#000; margin-
               <button type="submit" name="submit" tabindex=3 class="" id="search_btn" style="width:9vw;  background:transparent; border:transparent; border-top-left-radius:15px; border-bottom-left-radius:15px; padding:3px; text-align:center;">
                   <span class="material-icons" style="color:#000; font-size:30px; margin-right:2px; margin-left:5px;">&#xe8b6;</span>
               </button>
-              <input type="search" id="searchInput" incremental name="search_input" placeholder="Search any solution..." aria-label="Search the pool of published practical solutions" style="padding-left:8px color:#fff; font-size:16px; width:70vw; border:transparent; background:#fff; border-bottom-right-radius:15px; border-top-right-radius:15px;">
+              <input type="search" id="searchInput" incremental name="search_input" placeholder="Search any solution..." aria-label="Search the pool of published practical solutions" style="padding-left:8px color:#fff; font-size:16px; width:70vw; border:#fff; background:#fff; border-bottom-right-radius:15px; border-top-right-radius:15px;">
 							
 							<div style="text-align:center; margin-right:10px;" onclick="document.getElementById(\'searchInput\').value=\'\';"> x </div>
            </div>
