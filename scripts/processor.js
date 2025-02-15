@@ -791,7 +791,7 @@ $('#search_data').on('submit', function(event){
             if(total < 1){
               page += "<br><br><br><div style='color:red; font-size:16px; text-align:center;'>No match found !!</div>";
             }else{
-                    page +="<div style='display:flex; flex-wrap:wrap; flex-direction:row;'>";
+                    page +="<div style='display:flex; flex-wrap:wrap; flex-direction:row; margin-left:-10px;'>";
                 while(total > 0){
                     var mediaDisplay = '';
                     media[total - 1] == 3 ? mediaDisplay += "<video autoplay class='flexible2' id='"+pub_id[total - 1]+"' style='border-radius:5px; width:80px; height:100px; object-fit:cover; background:#000;' src='videos/"+thumbnail_Dir[total - 1]+"/dec/"+thumbnail[total - 1]+".webm'></video>" : mediaDisplay +="<img class='flexible' id='"+pub_id[total - 1]+"' style='border-radius:20px; width:100px; height:100px; object-fit:cover; background:red;' src='img/"+thumbnail_Dir[total - 1]+"/"+thumbnail[total - 1]+".webp' />";                   
