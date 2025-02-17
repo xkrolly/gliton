@@ -1655,7 +1655,7 @@ $eachClass	.="		</div><div style='width:100%;'>
     
 		//update gcoin server. $trxnAmnt -ve for coin purchase and +ve for solscript purchase
 		$vals = $cum_spent_coin.', '.$cum_wallet_bal.', '.$total_purchased_coin.', 1';
-		$proceedToBuyNewCoin == false ? $this->update2Stmt('Gcoin', 'cum_spent_coin = ?, cum_wallet_bal = ?, total_purchased_coin = ? WHERE gcoin_id = ?', $vals) : header('Location: buycoin');
+		$youAreOutaCoin == false ? $this->update2Stmt('Gcoin', 'cum_spent_coin = ?, cum_wallet_bal = ?, total_purchased_coin = ? WHERE gcoin_id = ?', $vals) : header('Location: buycoin');
 
         !empty($redirectURL) ? header('Location:'.$redirectURL) : $newBalance;
         
