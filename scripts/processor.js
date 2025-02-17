@@ -339,20 +339,15 @@ $('#upgrade_data').on('submit', function(event){
 
 
 function fixappo(n, cat, a){
-    //alert('My Appointment fixed at '+n);
     a == 'viewinurl' ? urlPrefix = '../' : urlPrefix='';
-    alert('ready to fix');
     $.ajax({
             url: urlPrefix+'includes/fixappo.inc.php',
             method: 'POST',
             data: {appofix:n, cat:cat},
             dataType:'json',
             success: function(data){
-                alert('YESSS');
                 data.resp == 1? resp = 'Appointment fixed successfully' : (data.resp== 2 ? resp='This period has just been taken few moment ago! Pick another.' : resp='');
                 document.querySelector('#apporesp').innerHTML = resp;
-    alert(data.resp);
-    alert('appo'+data.appo);
                 if(data.resp == 1){
                     document.getElementById('appo'+data.appo).setAttribute("disabled", '');
                 }else{
@@ -364,7 +359,6 @@ function fixappo(n, cat, a){
                 document.querySelector('#apporesp').style.display = 'inline';
             },
             error: function(data){
-                alert('NOOO');
                 document.querySelector('#apporesp').innerHTML = 'Appointment fixing failed!!!';
             }
             
