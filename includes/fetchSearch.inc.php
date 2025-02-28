@@ -2,9 +2,9 @@
 include('autoloader.inc.php');
   
 	$usersView = new usersView();
-	$searchInput = $usersView->sanitise($_POST['search_input']);
+	$_searchInput = $_POST['search_input'];
+	$searchInput = $usersView->sanitise($_searchInput);
 	$rows = $usersView->getPubchat($searchInput);
-//	var_dump($rows);
     $total = count($rows);
 
 	$sender = array();
@@ -79,5 +79,5 @@ include('autoloader.inc.php');
     	}
 	}
 
-echo json_encode(array("pub_id"=>$pub_id, "price"=>$price, "xpt"=>$xpt, "media"=>$media, "thumbnail"=>$videoThumbnail, "thumbnail_Dir"=>$thumbnail_Dir, "published"=>$published_enc, "sender"=>$sender, "recipient" => $recipient, "conv_id"=>$conv_id, "heading"=>$heading, "total"=>$total));	
+echo json_encode(array("pub_id"=>$pub_id, "price"=>$price, "xpt"=>$xpt, "media"=>$media, "thumbnail"=>$videoThumbnail, "thumbnail_Dir"=>$thumbnail_Dir, "published"=>$published_enc, "sender"=>$sender, "recipient" => $recipient, "conv_id"=>$conv_id, "heading"=>$heading, "total"=>$total, "wordinput"=>$_searchInput));	
 
