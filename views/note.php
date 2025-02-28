@@ -69,7 +69,10 @@ if($regCompleted == 1){
     	$notePg .= "<div>You have successfully purchased a session to consult an expert on <i style='text-decoration:underline; color:#2166f3;'>".$topic."</i>.</div>";
     }
     elseif($type == 9 ){ 
-    	$notePg .= "<div><strong>".$senderName."</strong> is currently chatting you  on <i style='text-decoration:underline; color:#2166f3;'>$topic</i> and expecting your response. Kindly respond to their chat to render professional solution to their ordeal without delay. Thanks.</div>";
+    	$notePg .= "<div><strong>".$senderName."</strong> is currently chatting you  on <i style='text-decoration:underline; color:#2166f3;'>$topic</i> and expecting your response. Kindly respond to their chat to render professional solution to their challenges without delay. Thanks.</div>";
+    }
+    elseif($type == 11 ){ 
+        $notePg .= "<div><strong>".$senderName."</strong> is currently chatting you  on <i style='text-decoration:underline; color:#2166f3;'>$topic</i> and expecting your response. Kindly respond to get your problem solved. Thanks.</div>";
     }
     elseif($type == 10 ){ 
         if(!empty($pubid)){
@@ -79,7 +82,7 @@ if($regCompleted == 1){
     	$catID = $prodData[0]['topic_id'];
         $published = $prodData[0]['published'];
     
-    	$notePg .= "<div>You successfully purchased <i>".$msg."</i> solscript <span class='material-icons' style='color:#2166f3; margin-right:2px; font-size:20px;'>&#xef6e;</span>. 
+    	$notePg .= "<div>You successfully purchased <i>".$msg."</i> solscript <span class='material-icons' style='color:#2166f3; margin-right:2px; font-size:20px;'>&#xef6e;</span> 
     	<a href='index.php?page=download&catid=".$catID."&scriptid=".$published."&chat=".$chatpop."' style='font-size:14px;'>Click here to download</a></div>";
     
         }
