@@ -1,95 +1,74 @@
 <?php
 $chatPage ='';
-$_SESSION['TUTOR_ACCESS'] = FALSE;
 
 include('../includes/autoloader.inc.php');
 
 	$usersContr = new usersContr();
 	$usersView = new usersView();
-	$usersView->chat_session();
+	//$usersView->chat_session();
 
-if( !isset($_SESSION['user_id']) ){
+$_SESSION['SET_FLAG'] = FALSE;
+
+if( !isset($_SESSION['user_id']) || !isset($_POST['category']) ){
 	header('location: ../index.php');
 }
-if(!isset($_POST['category']) ){
-	header('location: ../index.php');
- }
-!empty($_POST['category']) ? $_cat = $_POST['category'] : $_cat = $_GET['catid'];
 
-$recipient_enc_cons = '';
+$userData = $usersView->fetchUser();
+$me = $userData[0]['profile_id'];
+$myXpatStatus = $userData[0]['xpt'];
+$engager = $userData[0]['engager'];
 
-if( !defined('tutortochat') || !defined('stdtochat') || !defined('resume')) {
-	//CHECK WETHER TO RESUME PREVIOUS CHAT
-	$_uniqconv_id_enc = '';
-	isset($_GET['cid']) ? $_uniqconv_id_enc = str_replace(' ', '+', $_GET['cid']) : $_uniqconv_id_enc ='';
-	isset($_GET['catid']) ? $_catid_dec = $usersView->decryptor0(str_replace(' ', '+', $_GET['catid'])) : $_catid_dec ='';
+$tutorID = $usersView->AlphaA_num($_POST['tt']);
+//$tutorID == $me ? $engager = $engager : $engager = $tutorID;
 
-	isset($_GET['cid']) ? $_SESSION['category'] = $_catid_dec : $_SESSION['category'] = $_POST['category'];
-		//END OF RESUME CHAT CODE
+//Below update for students only
+if($tutorID != $me){
+	//update my tutor profile about me
+	$updVals = '1, '.$me.', '.$tutorID;
+	$usersContr->update('profile', 'engaged = ?, engager = ? WHERE profile_id = ?', $updVals);
 
-	!isset($_GET['cid']) ? $que = $usersView->sanitise($_POST['que']) : $que = '';
-	//to prevent submit btn from posting a response to empty que 
-	!isset($_GET['cid']) ? $haltResponse = $_POST['haltResponse'] : $haltResponse = '0';
+	//update student profile wt new converse_id, sessnEnd & engagement detail
+	$updVals = '1, '.$tutorID.', 0, '.$me;
+	$usersContr->update('profile', 'engaged = ?, engager = ?, tmp_aud = ? WHERE profile_id = ?', $updVals);
+}
+//FETCH USER DATA again for the engager
+$userData = $usersView->fetchUser();
 
-		if($haltResponse !='1'){
-			isset($_POST['cat_code']) ? $cat_code = $_POST['cat_code'] : $cat_code = ''; 
-			
-			!empty($_POST['category']) ? $_cat = $_POST['category'] : $_cat = $_GET['catid'];
+isset($_POST['cid']) ? $recipient_id = $usersView->decryptor0($_POST['recipient_id']) : $recipient_id = $userData[0]['engager'];
 
-			isset($_GET['cid']) ? $_cat = $_catid_dec : $_cat = $_cat;
+$mediaUsed = $userData[0]['tmp_aud'];
 
-                $aoi_array = $usersView->aoi($_cat);
-            	$queCol = $aoi_array['queCol'];
-				$user_id_col = $aoi_array['user'];
-				$cat_id = $aoi_array['cat_id'];
-				$cat_tbl = $aoi_array['topic'];
-				$expert = $aoi_array['expert'];
-            
-			//only set converse ID to session if not resuming chat, else grab the converse ID already set
-			if(isset($_GET['cid'])){
+!empty($mediaUsed) ? $que = $mediaUsed : $que = $_POST['que'];
+!empty($mediaUsed) ? $media = 1 : $media = 0;
 
-				$uniqconv_id_code = $usersView->dec_cons($_uniqconv_id_enc);
-				$uniqconv_array = explode("_", $uniqconv_id_code);
-				$tutor = $uniqconv_array[0];
-		      $learner = $uniqconv_array[1];
-			   $_SESSION['converse_id_resume'] = $uniqconv_array[2];
-		  	}
+$_cat = $_POST['category'];
+$que = $_POST['que'];
 
-		  	$userData = $usersView->fetchUser();
-			$user_id = $userData[0]['profile_id'];
-			
-			$_paidSession = $userData[0]['purchasedSession'];
-			$paidSession = $usersView->decryptor2($_paidSession);
-			$new_paidSession = $paidSession - 1;
+//fetch tutor DATA
+$tutorData = $usersView->fetchProfile($tutorID);
+$xpertConsultFee = $tutorData[0]['cFee'];
 
-			isset($_GET['cid']) ? $_SESSION['converse_id'] = $_SESSION['converse_id_resume'] : $_SESSION['converse_id'] = $userData[0]['converse_id'];
+//get category detail of the chat
+$catData = $usersView->select('aoi', ' WHERE aoi_id = ?', $_cat);
+$categName = $catData[0]['category'];
 
-			//is que format audio/video/txt?
-			$mediaUsed = $userData[0]['tmp_aud'];
-			!empty($mediaUsed) ? $que = $mediaUsed : $que;
-			!empty($mediaUsed) ? $media = 1 : $media = 0;
 
-			//get category detail of the chat
-			$catData = $usersView->select('aoi', ' WHERE aoi_id = ?', $_cat);
-			$cat = $catData[0]['category'];
-			$aoi_id = $_cat; //catData[0]['aoi_id'];
+$_SESSION['alreadygetUniqConv'] == TRUE ? $_uniqconv_id_enc = $userData[0]['currConverse'] : $_uniqconv_id_enc = $usersView->getUniqConv($tutorID, $me);
 
-			//get recipient(tutor/stdnt)
-			isset($_GET['cid']) ? $rID = $_GET['rid'] : $rID = $_POST['recipient_id'];
+$_SESSION['alreadygetUniqConv'] = TRUE;
 
-			$recipient_id = $usersView->decryptor0(str_replace(' ', '+', $rID));
-			
-			//get user sub + other peculiar info
-			$sub = $userData[0]['purchasedSession'];
-			$xpat = $userData[0]['xpt'];
-			$engaged = $userData[0]['engaged'];
-			$engagerList = $userData[0]['engager_list'];
-			$tutorQuota = $userData[0]['tutorQuota'];
-		
-			$prevSession_exhaust_time = strtotime($userData[0]['session_end']) - time();
+isset($_POST['cid']) ? $_uniqconv_id_enc = $_POST['cid'] : $_uniqconv_id_enc;
+$_SESSION['converse_id'] = $_uniqconv_id_enc;
 
-			//check if u have not been paired already
-			$chatPage .="<html><head>
+$aoi_array = $usersView->aoi($_cat);
+$queCol = $aoi_array['queCol'];
+$user_id_col = $aoi_array['user'];
+$catid_col = $aoi_array['cat_id'];
+$cat_tbl = $aoi_array['topic'];
+$expertDesc = $aoi_array['expert'];
+
+
+$chatPage .="<html><head>
 			    <meta http-equiv='Content-Type' content='text/html' charset='utf-8'>
 			    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
 			    <meta http-equiv='x-ua-compatible' content='ie=edge'>
@@ -99,216 +78,133 @@ if( !defined('tutortochat') || !defined('stdtochat') || !defined('resume')) {
 			    <link rel='stylesheet' href='../css/style.css' />
 				<link rel='stylesheet' href='https://fonts.googleapis.com/icon?family=Material+Icons' />";
 
-			//post que to the column it belongs
-				if( $xpat == 0 && (!empty($_POST['category']) || !empty($_catid_dec))){
-    				//check if the same category paid for is being used
-					$tutor_Quota='';
-					if(!empty($tutorQuota)){
-						$_tutorQuota = $usersView->dec_cons($tutorQuota);
-						$_tutor_Quota = explode('/==', $_tutorQuota);
+if( $myXpatStatus == 0){
+//AT session END, take lock amnt from client, delete sess from sess_man
+    $vals = array($queCol => $que, $user_id_col => $me);
+    $usersContr->insert($categName, $vals);
 
-						$tutor_Quota .=$_tutor_Quota[1];
-						$cat_quota = $_tutor_Quota[0];
+	//get the cat_id value that indexed the que
+	$valu = $me.', '.$que; $catId_val = '';
+	$catData = $usersView->select($categName, ' WHERE '.$user_id_col.' = ? AND '.$queCol.' = ?', $valu);
+	$catId_val = $catData[0][$catid_col];
 
-
-		    	          $usersView->dec_cons($_POST['categoryPass']) === 'TRUE' ? $pass=true : $usersView->categoryPass($_POST['category']);
-
-			          $coinCheck = $usersView->select('coin', ' WHERE coin_id = ?', $recipient_id);
-		          	
-			          	count($coinCheck) > 0 ? $coinTotal = $coinCheck[0]['Gcoin'] + intval($tutor_Quota) : $coinTotal = intval($tutor_Quota);
-			          	$coinVals = $coinTotal.', '.$recipient_id;
-			          	$values = array('Gcoin'=>$coinTotal, 'coin_id'=>$recipient_id);
-			          	count($coinCheck) > 0 ? $usersContr->update('coin', 'Gcoin = ? WHERE coin_id = ?', $coinVals) : $usersContr->insert('coin', $values);
-				   }
-					$_SESSION['tutor'] = $recipient_id;
-					$_SESSION['learner'] = $user_id;
-	                
-  			    //update newly generated pub to DB if any.		
-				//check if the que not already exist
-					$_checkVal = $que.', '.$user_id;
-					$queExist = $usersView->select($cat, ' WHERE '.$queCol.' = ? AND '.$user_id_col.' = ?', $_checkVal);
-
-				//post student chat to category table
-				    if(!isset($_GET['cid'])){
-					    $vals = array($queCol => $que, $user_id_col => $user_id);
-					    $usersContr->insert($cat, $vals);
-					}
-  		     			
-     			//get the cat_id value that indexed the que
-				   	$valu = $user_id.', '.$que; $catId_val = '';
-					$catIdData = $usersView->select($cat, ' WHERE '.$user_id_col.' = ? AND '.$queCol.' = ?', $valu);
-					$catId_val .= $catIdData[0][$cat_id];
-
-				//update student profile wt new converse_id, sessnEnd & engagement detail
-					$converse_id = $_SESSION['converse_id'];
-					$sess_dur = $usersView::session_duration;
-					$session_end = date('Y-m-d H:i:s', (time()+intval($sess_dur)));//30mins session at a go
-				    $_SESSION['new_sess'] == TRUE ? $sess_col = 'session_end = ?, ' : $sess_col = '';
-				    $_SESSION['new_sess'] == TRUE ? $sess_val = $session_end.', ' : $sess_val = '';
-					$_SESSION['new_sess'] == TRUE ? $tutorQuotaQuery = 'tutorQuota = ?, ' : $tutorQuotaQuery = '';
-					$_SESSION['new_sess'] == TRUE ? $tutorQuotaVal = ', ' : $tutorQuotaVal = '';
+	//check if flag not already exist & post student flag to chat table
+	$checkVal = $_cat.', '.$me.', '.$tutorID.', '.$_uniqconv_id_enc;
+	$flagExist = $usersView->select('chat', ' WHERE flag = ? AND sender_id = ? AND recipient_id = ? AND uniq_conv = ?', $checkVal);
 					
-					$_SESSION['new_sess'] == TRUE ? $paidSessionQuery = 'purchasedSession = ?, ' : $paidSessionQuery = '';
-					$_SESSION['new_sess'] == TRUE ? $new_paidSessionVal = $_SESSION['nPaidSess'].', ' : $new_paidSessionVal = '';
+
+//if(!empty($_POST['flag']) && $_SESSION['SET_FLAG'] == TRUE){
 
 
-				    $updVals = $tutorQuotaVal.'1, '.$recipient_id.', '.$new_paidSessionVal.$sess_val.'0, '.$user_id;
+	if( (count($flagExist) == 0  || $flagExist[0]['close']>0 ) && $_SESSION['ISSET_FLAG'] == FALSE ){ 
+		//message tutor that a stuident is ready;
+		$usersView->msgUser($me, $recipient_id, '9', '_'.$_cat.'_', '', '');
 
-					$usersContr->update('profile', $tutorQuotaQuery.'engaged = ?, engager = ?, '.$paidSessionQuery.$sess_col.'tmp_aud = ? WHERE profile_id = ?', $updVals);
-            	//post tutor share of d client payment to tutor acct
-					$tutorData = $usersView->select('skyman_user', ' WHERE user_id = ?', $recipient_id);
-
-					count($tutorData) > 0 ? $_tutorAsset = $usersView->dec_cons($tutorData[0]['asset']) : $_tutorAsset = '0';
-					$tutorAsset = intval($_tutorAsset);
-
-					if($_SESSION['new_sess'] == TRUE){
-						//post tutor payment to their acct
-						$_tutorAssetNew = intval($tutorAsset) + $usersView->changeToCoin( intval($tutor_Quota) );
-//						var_dump('NEW ASSET GAINED BY TUTOR: '.$_tutorAssetNew);
-
-						$tutorAssetNew = $usersView->enc_cons($_tutorAssetNew);
-
-
-						$asset_val = $tutorAssetNew.', '.$recipient_id;
-						$usersContr->update('skyman_user', 'asset = ? WHERE user_id = ?', $asset_val);
-	                   	$_SESSION['new_sess'] = FALSE;
-					}
-
-                   	$_SESSION['new_sess'] = FALSE;
-					$_SESSION['nPaidSess'] ='';
-
-				//update tutor profile with learner n converse id
-					$updVals = '1, '.$user_id.', 0, '.$converse_id.', '.$recipient_id;
-					$usersContr->update('profile', 'engaged = ?, engager = ?, tmp_aud = ?, converse_id = ? WHERE profile_id = ?', $updVals);
-
-				//check if flag not already exist
-					$checkVal = $aoi_id.', '.$user_id.', '.$recipient_id.', '.$converse_id;
-					$flagExist = $usersView->select('chat', ' WHERE flag = ? AND sender_id = ? AND recipient_id = ? AND conv_id = ?', $checkVal);
-					
-				//post student flag to chat table
-					if( (count($flagExist) == 0  || $flagExist[0]['close']>0 ) && !isset($_GET['cid'])){ 
-						//message tutor that a stuident is ready;
-						$usersView->msgUser($user_id, $recipient_id, '9', '_'.$_cat.'_', '', '');
-
-	    			//update converse_id
-					 	$new_converse_id = $converse_id + 1;
-					 	$_SESSION['converse_id'] = $new_converse_id;
-						$viewer = '-'.$user_id.'-';
-							
-			            $uniqConv_enc = $usersView->getUniqConv($_SESSION['tutor'], $_SESSION['learner'], $new_converse_id, 'duo');
-			
-						if(!empty($_POST['flag']) && $_SESSION['SET_FLAG'] == TRUE){
-
-						    $chat_vals = array($cat_id=>$catId_val, 'flag'=>$aoi_id, 'category_id'=>$aoi_id, 'conv_id'=>$new_converse_id, 'uniq_conv'=>$uniqConv_enc, 'note'=>'1', 'view'=>$viewer, 'sender_id'=> $user_id, 'recipient_id'=>$recipient_id);
-							$usersContr->insert('chat', $chat_vals);
-            					
-			   	 			$updVals = $new_converse_id.', '.$user_id;
-			   				$usersContr->update('profile', 'converse_id = ? WHERE profile_id = ?', $updVals);
-
-				      	    $updVals2 = $new_converse_id.', '.$recipient_id;
-			    			$usersContr->update('profile', 'converse_id = ? WHERE profile_id = ?', $updVals2);
-							
-                            $_POST['flag'] = '';
-                            $_SESSION['SET_FLAG'] = FALSE;
-						};
-					}
-
-				//check if chat not already exist
-					$checkVal = $catId_val.', '.$que.', '.$user_id.', '.$recipient_id.', 0';
-					$chatExist = $usersView->select('chat', ' INNER JOIN '.$cat_tbl.' USING ('.$cat_id.') WHERE '.$cat_id.' = ? AND '.$queCol.' = ? AND sender_id = ? AND recipient_id = ? AND flag = ?', $checkVal);
-						
-				//post student chat to chat table
-					if(count($chatExist) == 0){ 
-
-						$viewer = '-'.$user_id.'-';
-						
-	                    $uniqConv_enc = $usersView->getUniqConv($_SESSION['tutor'], $_SESSION['learner'], $_SESSION['converse_id'], 'duo');
-									
-						$chat_vals2= array($cat_id=>$catId_val, 'conv_id'=>$_SESSION['converse_id'], 'uniq_conv'=>$uniqConv_enc, 'category_id'=>$_cat, 'cat_grp'=>$cat_code, 'note'=>'1', 'view'=>$viewer, 'sender_id'=> $user_id, 'recipient_id'=>$recipient_id);
-								$usersContr->insert('chat', $chat_vals2);
-						$que = '';
-								
+	    $chat_vals = array($catid_col=>$catId_val, 'flag'=>$_cat, 'category_id'=>$_cat, 'uniq_conv'=>$_uniqconv_id_enc, 'note'=>'1', 'view'=>$tutorID, 'sender_id'=> $me, 'recipient_id'=>$recipient_id);
+		$usersContr->insert('chat', $chat_vals);
 		
+		//set flag to empty
+		$_POST['flag'] = '';
+		
+		$_SESSION['ISSET_FLAG'] = TRUE;
 
-						if($_SESSION['insertToScd'] == TRUE){
-                    
-            		    //get shrdk to scd db
-               				$cData = $usersView->select('scd', ' WHERE uniq_conv = ?', $uniqConv_enc);
-                    
-                        //delete row with empty sc
-                    		$usersContr->delete('scd', ' WHERE sc=?', '');	
-                    		$sk_enc = $usersView->encryptor2($_POST['sk']);
-                    
-                    		$data = array('sc'=>$sk_enc, 'uniq_conv'=>$uniqConv_enc);
-                    		count($cData) == 0 ? $usersContr->insert('scd', $data) : $donothing='';
-                    		$_SESSION['insertToScd'] = FALSE;
-                    
-                    	}
+	}
+	//check if chat not already exist
+		$checkVal = $catId_val.', '.$que.', '.$me.', '.$recipient_id.', 0';
+		$chatExist = $usersView->select('chat', ' INNER JOIN '.$cat_tbl.' USING ('.$catid_col.') WHERE '.$catid_col.' = ? AND '.$queCol.' = ? AND sender_id = ? AND recipient_id = ? AND flag = ?', $checkVal);
+						
+	//post student chat to chat table
+	if( count($chatExist) == 0 && $_SESSION['ISSET_CHAT'] == FALSE ){ 
 
-                        $_SESSION['SET_CHAT'] = FALSE;
-                        $_POST['chat'] = '';
-    				}
+		$viewer = '-'.$me.'-';
+	    //$_uniqconv_id_enc = $usersView->getUniqConv($tutorID, $me);
 
-          
-			}
+		$chat_vals2= array($catid_col=>$catId_val, 'uniq_conv'=>$_uniqconv_id_enc, 'category_id'=>$_cat, 'cat_grp'=>$_POST['cat_code'], 'note'=>'1', 'view'=>$viewer, 'sender_id'=> $me, 'recipient_id'=>$recipient_id);
+		$usersContr->insert('chat', $chat_vals2);
+
+		//SET current converse uniqCode for tutor and client
+		$vals = $_uniqconv_id_enc.', '.$tutorID;
+		$usersContr->update('profile', 'currConverse = ? WHERE profile_id = ?', $vals);
+
+		$vals2 = $_uniqconv_id_enc.', '.$me;
+		$usersContr->update('profile', 'currConverse = ? WHERE profile_id = ?', $vals2);
+
+		//Add sharedKey to db
+		if($_SESSION['insertToScd'] == TRUE){
+                    
+  		    //get shrdk to sharedkey db
+			$cData = $usersView->select2('sharedkey', ' WHERE ucid = ?', $_uniqconv_id_enc);
+                    
+            //delete row with empty sk
+            $usersContr->delete2('sharedkey', ' WHERE sk=?', '');	
+            $sk_enc = $usersView->encryptor2($_POST['sk']);
+ 
+            $data = array('sk'=>$sk_enc, 'ucid'=>$_uniqconv_id_enc);
+            count($cData) == 0 ? $usersContr->insert2('sharedkey', $data) : $donothing='';
+        	$_SESSION['insertToScd'] = FALSE;
+        }
+
+		$_SESSION['ISSET_CHAT'] = TRUE;
+	}
+}
+
+elseif( $myXpatStatus == 1){
+
+	$tutorData = $usersView->fetchUser();
+	$client = $tutorData[0]['engager'];
+	$tutorID = $tutorData[0]['profile_id'];
+	//$_uniqconv_id_enc = $tutorData[0]['currConverse'];
+
+	//AT session END, take lock amnt from client, delete sess from sess_man
+    $vals = array($queCol => $que, $user_id_col => $me);
+    $usersContr->insert($categName, $vals);
+
+	//get the cat_id value that indexed the que
+	$valu = $me.', '.$que;
+	$catData = $usersView->select($categName, ' WHERE '.$user_id_col.' = ? AND '.$queCol.' = ?', $valu);
+	$catId_val = $catData[0][$catid_col];
+
+	//check if chat not already exist
+	$checkVal = $catId_val.', '.$tutorID.', '.$client.', '.$_uniqconv_id_enc;
+	$chatExist = $usersView->select('chat', ' WHERE '.$catid_col.' = ? AND sender_id = ? AND recipient_id = ? AND uniq_conv = ?', $checkVal);
+
+	//post tutor chat to chat table
+	if( count($chatExist) == 0 && $_SESSION['ISSET_CHAT'] == FALSE ){ 
+
+		$viewer = '-'.$tutorID.'-';
+		$chat_vals2= array($catid_col=>$catId_val, 'uniq_conv'=>$_uniqconv_id_enc, 'category_id'=>$_cat, 'cat_grp'=>$_POST['cat_code'], 'note'=>'1', 'view'=>$viewer, 'sender_id'=> $tutorID, 'recipient_id'=>$client);
+		$usersContr->insert('chat', $chat_vals2);
+
+		$_SESSION['ISSET_CHAT'] = TRUE;
+	}
+
+	//add the chat to pending
+	$title = $que;
+	$projectID = $_uniqconv_id_enc;
+	$mediaType = 0;
+	$owner = $tutorID;
+	$contributors = $client;
+	$projectType = '2 ';
+
+	$usersView->addToPending($_cat, $title, $projectID, $mediaType, $owner, $contributors, $projectType);
+}
+
+
 			
-			elseif( $xpat == 1 && $_SESSION['SET_CHAT'] == TRUE){   
-				$_SESSION['learner'] = $recipient_id;
-				$_SESSION['tutor'] = $user_id;
-				$viewer = '-'.$user_id.'-';
-			    $uniqConv_enc = $usersView->getUniqConv($_SESSION['tutor'], $_SESSION['learner'], $_SESSION['converse_id'], 'duo');
-				
-			//post tutor chat to category table
-				$vals = array($queCol => $que, $user_id_col => $user_id);
-				$usersContr->insert($cat, $vals);
-				
-			//get the cat_id value that indexed the que
-				$valu = $user_id.', '.$que;
-				$catIdData = $usersView->select($cat, ' WHERE '.$user_id_col.' = ? AND '.$queCol.' = ?', $valu);
-				$catId_val= $catIdData[0][$cat_id];
+$tutorData = $usersView->fetchProfile($tutorID);
+$client = $tutorData[0]['engager'];
 
-			//post tutor chat to chat table by checking first
-				$checkVal = $catId_val.', '.$que.', '.$user_id.', '.$recipient_id;
-				$chatExist = $usersView->select('chat', ' INNER JOIN '.$cat_tbl.' USING ('.$cat_id.') WHERE '.$cat_id.' = ? AND '.$queCol.' = ? AND sender_id = ? AND recipient_id = ?', $checkVal);
-					
-				if(count($chatExist) == 0 && !empty($_POST['category']) ){ 
-					$chat_vals2 = array($cat_id => $catId_val, 'category_id'=>$_cat, 'cat_grp'=>$cat_code, 'view'=>$viewer, 'media'=>$media, 'sender_id'=> $user_id, 'recipient_id'=>$recipient_id, 'conv_id'=>$_SESSION['converse_id'], 'uniq_conv'=>$uniqConv_enc);
+$recipient_enc_cons = $usersView->enc_cons($recipient_id);
 
-					$usersContr->insert('chat', $chat_vals2);
+$currentTime = time();
 
-					//add the chat to pending
-						$catid = $_POST['category'];
-						$title = '';
-						$projectID = $uniqConv_enc;
-						$mediaType = 0;
-						$owner = $user_id;
-						$contributors = $recipient_id;
-						$projectType = '2 ';
+$vals = $tutorID.', '.$client.', '.$currentTime.', '.$currentTime;
+//var_dump($vals);
+$sessData = $usersView->select('sess_manager', ' WHERE tutor = ? AND client = ? AND sess_start < ? AND sess_end > ?', $vals);
+count($sessData) > 0 ? $rem_sess_time = intval($sessData[0]['sess_end']) - intval($currentTime) : $rem_sess_time = 6000;
+$shdki = '';
 
-					    $usersView->addToPending($catid, $title, $projectID, $mediaType, $owner, $contributors, $projectType);
-
-           		}
-			
-			    $_SESSION['SET_CHAT'] = FALSE;
-			}
-
-			//CHECK THE CHAT_ID BELOW around line 130, WANNA USE IT FOR PROMPT POSTING OF AUDIO MSG TO CHAT PAGE
-			$data = $usersView->fetchUser();
-			$recipient_id = $data[0]['engager'];
-			$recipient_enc_cons .= $usersView->enc_cons($recipient_id);
-
-			$me = $data[0]['profile_id'];
-			$engagerList = $data[0]['engager_list'];
-			$xpat = $data[0]['xpt'];
-
-			$sess_ends = strtotime($data[0]['session_end']);
-		    $rem_sess_time = intval($sess_ends) - time();
-			date_default_timezone_set('Africa/Lagos');
-
-			$currentTime = date('H:i', time()-3420);
-			$shdki = '';
-
-			$chatPage .= "
+	$chatPage .= "
 				<script src='../scripts/jquery-3.6.0.min.js'></script>
 					
 				<script type='text/javascript' src='../scripts/crypto-js.js'></script>
@@ -324,7 +220,6 @@ if( !defined('tutortochat') || !defined('stdtochat') || !defined('resume')) {
 
 			      function getDecrypted(msg, chid, cat){
 			        var sh = localStorage.getItem('shrd'+'$recipient_enc_cons');
-//alert(sh);
 			        var xy = sym_decrypt(msg, sh);
 			        document.getElementById(chid).innerHTML = xy;
 					localStorage.setItem('dir'+chid, cat+'/'+msg);
@@ -346,14 +241,13 @@ if( !defined('tutortochat') || !defined('stdtochat') || !defined('resume')) {
 			<div id='response' style='display:none; z-index:80; font-size:16px; font-family:roboto; border-radius:5px; text-align:center; padding:5px; color:#fff; background-color:#2176f3;'></div>";
 
 			//get the resuming cid to pass across
-			isset($_GET['cid']) ? $resumingCID = $_SESSION['converse_id'] : $resumingCID = 0;//-1; 
-			isset($_GET['cid']) ? $cidLimit = FALSE : $cidLimit = TRUE;
-			
-			$c_id = $_SESSION['converse_id'];
-		
+/*			$resumingCID
+			isset($_GET['cid']) || isset($_POST['cid']) ? $resumingCID = _uniqconv_id_enc$_SESSION['converse_id'] : $resumingCID = 0;//-1; 
+			isset($_GET['cid']) || isset($_POST['cid']) ? $cidLimit = FALSE : $cidLimit = TRUE;
+*/			  
 			$chatPage .= "<form method='post' role='form' id='enquiry_data' enctype='multipart/form-data'>
 			<input type='hidden' id='sdk' name='sdk'/>
-			<input type='hidden' name='recipient_id' id='recipient_id' value='".$rID."'>
+			<input type='hidden' name='recipient_id' id='recipient_id' value='".$recipient_id."'>
 
 			 <input type='hidden' name='loginAudio' id='loginAudio' value='0'>
 			<input type='hidden' name='rem_time' id='rem_time' value='$rem_sess_time'>
@@ -361,47 +255,48 @@ if( !defined('tutortochat') || !defined('stdtochat') || !defined('resume')) {
 			<input type='hidden' name='rcid' id='rcid' value='$_uniqconv_id_enc'>
 			<input type='hidden' name='category' id='category' value='$_cat'>
 			<input type='hidden' name='cat' id='cat' value='$cat_tbl'>
-			<input type='hidden' name='cid' id='cid' value='$c_id'>
+			<input type='hidden' name='cid' id='cid' value='$_uniqconv_id_enc'>
 	        <input type='hidden' name='msgReply' id='msgReply' value=''>
 			<input type='hidden' name='quote' id='quote' value=''>
 			<input type='hidden' name='guid' id='guid' value='$me'>
 			<input type='hidden' name='chatpop' id='chatpop' value='duo'>
 			<input type='hidden' name='mediaUsed' id='mediaUsed' value='0'>";
 
-			if($xpat == 1 ){
+			if($myXpatStatus == 1 ){
 	       		$chatPage .="<input type='hidden' name='lock' id='lock' value=''>";
 			}
 
-			$chatPage .= "<div style='padding-bottom:100px;'><div id='all_chat' style='min-height:60vh; margin-bottom:100px; scroll-snap-type:x mandatory;'>".$usersView->chatPg($recipient_id, $resumingCID, $_cat, '', $cidLimit)."</div></div><br>";
+
+			$chatPage .= "<div style='padding-bottom:100px;'><div id='all_chat' style='min-height:60vh; margin-bottom:100px; scroll-snap-type:x mandatory;'>".$usersView->chatPg($recipient_id, $_uniqconv_id_enc, $_cat, '')."</div></div><br>";
 	
-			$secondClt = '1';
+			/*$secondClt = '1';
 			$_engagerList = substr($engagerList, 1, -1);
 
 			$each_recipient = explode('-', $_engagerList);
 			
 			$recip_num = count($each_recipient);
-			$others_num = $recip_num - 1;
+			$others_num = $recip_num - 1;*/
 
-			if( $recip_num > 1 && $xpat == '1'){
+/*			if( $recip_num > 1 && $xpat == '1'){
 				$chatPage .="<div style='display:flex; justify-content:center; align-items:center; filter:drop-shadow(1px 1px 1px #ccc); width:30px; position:fixed; bottom:80px; right:.1%; border-top-left-radius:35%; border-bottom-left-radius:35%; background:#fff; height:30px;'><span style='width:15px; height:15px; background:#2166f3; color:#fff; display:flex; justify-content:center; align-items:center; font-size:10px; border-radius:50%;'>$others_num</span>
 						<span class='material-icons'>&#xe5d4;</span>
 					</div>";
 			}
-
-			if($xpat == '0'){
+*/
+			if($myXpatStatus == 0){
 
 				$chatPage .="<span style='display:none;' id='countdownSpan'><div style='display:flex; justify-content:center; align-items:center; filter:drop-shadow(1px 1px 1px #ccc); width:40px; position:fixed; bottom:80px; right:.1%; border-top-left-radius:35%; border-bottom-left-radius:35%; background:#fff; height:40px;'><span style='width:25px; height:25px; background:red; color:#fff; display:flex; justify-content:center; align-items:center; font-size:16px; border-radius:50%;' id='session_elapse'></span>
 					<span class='material-icons'>&#xe5d4;</span>
 				</div></span>";
 			}
 		
-			$xpat == 1? $recipient = 'client' : $recipient = $expert;
+			$myXpatStatus == 1? $recipient = 'client' : $recipient = $expertDesc;
 						$chatPage .= "<div style='position:fixed; bottom:12%; right:7%; z-index:20; border-radius:50%;' id='chatLock'></div>"; 
 			
-			$chatPage .= "<div style='display:none; position:fixed; bottom:10%; margin-left:10px; justify-content:center; width:80%; border-top-left-radius:10px;  border-top-right-radius:10px; background:#ddd; padding:5px 10px 5px 10px; z-index:2; font-size:16px;' id='replyPanel' onclick='removePanel()'></div>
+			$chatPage .= "<span style='position:fixed; bottom:6.5%; display:none; margin-left:10px; justify-content:center; width:80%; border-top-left-radius:10px;  border-top-right-radius:10px; background:rgba(0,0,0,.2); padding:5px 10px 5px 10px; z-index:2; font-size:16px;' id='replyPanel' onclick='removePanel();'></span>
 			
-			            <div style='display:flex; justify-content:center; width:100%; padding:0 10px 0 10px; z-index:2;' id='chatInputShell'>
-			        
+			            <div style='align-items:flex-end; justify-content:flex-end; display:flex; justify-content:center; width:100%; padding:0 10px 0 10px; z-index:2;' id='chatInputShell'>
+			<span style='display:none; margin-left:10px; justify-content:center; width:80%; border-top-left-radius:10px;  border-top-right-radius:10px; background:#ddd; padding:5px 10px 5px 10px; z-index:2; font-size:16px;' id='replyPanel' onclick='removePanel();'></span>        
 							<div style='display:flex; align-items:center; justify-content:center; background:#fff; border:1px solid #ccc; border-radius:10px; filter:drop-shadow(1px 1px 1px #333);' class='chatInput'>
 								<textarea value='' oninput='changeSubBtnId()' name='enquiry' id='enquiry' class='form-control' style='width:70%; font-size:16px; height:40px; max-height:200px; padding:8px; border:0px;' placeholder='Chat with a ".$recipient."...'></textarea>
 								<div style='display:flex; justify-content:space-around; width:25%; align-items:center;'>
@@ -421,16 +316,16 @@ if( !defined('tutortochat') || !defined('stdtochat') || !defined('resume')) {
 							</button>
 						</div>
 						</form>";
-		}else{
+		/*}else{
 		    //else for haltResponse
 			$chatPage .="<div style='display:flex; font-size:55px; align-items:center; justify-content:center; height:100vh; width:100vw;'>No current task available</div>";
-		}
+		}*/
 
-	}else{
+/*	}else{
 	
 	$chatPage.='<div>Sorry, an error occured!</div>';
 }
-
+*/
 $chatPage .="
                     	<script src='../scripts/script.js'></script>
 						<script src='../scripts/login.js'></script>
