@@ -1,4 +1,10 @@
 <?php
+define('ALLOW_ACCESS', true);
+
+$_SESSION['SET_FLAG'] = TRUE;
+$_SESSION['SET_CHAT'] = TRUE;
+$_SESSION['new_sess'] = TRUE;
+
 
 
 $usersContr = new usersContr();
@@ -11,6 +17,10 @@ $fn = $userData[0]['firstname'];
 $ln = $userData[0]['lastname'];
 $pn = $userData[0]['contact'];
 $categPass = $usersView->enc_cons('FALSE');
+
+        //check user coin balance
+        $coinData = $usersView->select('coin', ' WHERE owner_id = ?', $uid);
+        $myBal = $coinData[0]['Gcoin'];
 
 $xpt = $userData[0]['xpt'];
 $regCompleted = $userData[0]['regCompleted'];
@@ -46,47 +56,98 @@ $user_id_enc = $usersView->enc_cons($uid);
 
 $pendingData = $usersView->fetchPending();
 
-
+//var_dump($pendingData);
 
 $n = count($pendingData) - 1;
 $pend = $usersView->topBar($notes);
-$pend .=$usersView->bottomNavigation();
-$pend .="<div style='width:100%; height:100%; display:flex; justify-content:center; flex-direction:column; align-items:center; margin:50px 10px 100px 10px; padding:50px;'>
-			<h6>Pending projects</h6>
+$pend .=$usersView->bottomNavigation('Q');
+$pend .="<div style='width:100%; height:100%; display:flex; justify-content:center; flex-direction:column; align-items:center; margin-top:50px; margin-bottom:100px; padding:20px;'>
+<div style='background:deepskyblue; display:flex; justify-content:center; width:100%; position:fixed; top:0; font-size:12px;'>
+                <span style='margin-right:auto; padding:10px; font-weight:bold;'><a href='buycoin' style='color:#2166f3;'>Fund wallet</a>
+                </span><span style='color:#fff; padding:10px; font-weight:bold; margin-left:auto;'>".$myBal."Gc </span></div>
+
+			<h5>Pending projects</h5>
 			<div class='scrollet enquiry-form'>";
 
 	$mediaType = 1;
 if($n < 0){$pend .="<div style='width:100%; display:flex; justify-content:center;'><div style='font-size:12px;'>Hoops! no pending project.</div></div>";}
 while($n >= 0){
 $pendingData[$n]['projectType'] == 1 ? $fa = 'e7fd' : ($pendingData[$n]['projectType'] == 2 ? $fa = '38d3' : $fa = 'f233');		
+$pendingData[$n]['projectType'] == 1 ? $contentUrl = 'uscript' : ($pendingData[$n]['projectType'] == 2 ? $contentUrl = 'views/chat.php' : $contentUrl = 'views/grpchat.php');		
 	$catid = $pendingData[$n]['projectCat'];
 	$title = $pendingData[$n]['projectTitle'];
 	$projectID = $pendingData[$n]['projectID'];
-    $pending = $usersView->enc_cons($catid.'_pending');
+	$projectType = $pendingData[$n]['projectType'];
+	$tutor = $pendingData[$n]['owner']; 
+	$tutor_numAlpha = $usersView->num_AlphaA($tutor);
+  $contributor = $pendingData[$n]['contributor'];
+	
+	$tutor != $uid ? $recipi_id = $tutor : $recipi_id = str_replace('.', '', $contributor);
+
+	$aoiData = $usersView->select('aoi', ' WHERE aoi_id = ?', $catid);
+	$cat_code = $aoiData[0]['cat_code'];
+				
+
+	//get client or tutor rpub
+  $recipi = $usersView->select('skyman_user', ' WHERE user_id = ? ORDER BY online DESC', $recipi_id);
+	if(count($recipi) > 0){
+	$online = $recipi[0]['online'];
+	$rPub = $recipi[0]['pub'];
+	$xpid = $recipi_id;
+	$recipi_id_enc0 = $usersView->encryptor0($recipi_id);
+ 
+
+  $pending = $usersView->enc_cons($catid.'_pending');
 
 	$pend .="
-				<div style='width:100%; display:flex; border:1px solid #fff; border-radius:10px; filter:drop-shadow(.5px .5px .5px #aaa) drop-shadow(-.5px -.5px .5px #aaa); background:#fff; padding:10px; justify-content:space-around; align-items:center; margin:10px;'>
-					<div style='width:15%; padding:10px;'><span class='material-icons' style='font-size:20px; color:#bbb; filter:drop-shadow(1px 1px 1px #000);'>&#x".$fa.";</span></div>
-					<div style='display:flex; flex-direction:column; width:55%;'>
-						<div class='truncate' style='font-size:14px;'>".$pendingData[$n]['projectTitle']."</div>
+				<div style='width:100%; display:flex; border:1px solid #fff; border-radius:10px; filter:drop-shadow(.5px .5px .5px #aaa) drop-shadow(-.5px -.5px .5px #aaa); background:#fff; padding:10px; justify-content:space-around; align-items:center; margin-bottom:10px;'>
+					<div style='width:20%; padding:10px;'><span class='material-icons' style='font-size:20px; color:#bbb; filter:drop-shadow(1px 1px 1px #000);'>&#x".$fa.";</span></div>
+					<div style='display:flex; flex-direction:column; width:60%;'>
+						<div class='truncate'>".$pendingData[$n]['projectTitle']."</div>
 						<div style='display:flex; font-size:10px; font-style:italic;'>
 							<span style='margin-right:10px;'>started: ".date('m-d H:i', strtotime($pendingData[$n]['startDate']))."</span>
 							<span>update: ".date('m-d H:i', strtotime($pendingData[$n]['newupdate']))."</span>
 						</div>
 					</div>
-					<div style='text-align:right;'><form action='uscript' method='post'>
+					<div style='width:20%; text-align:right;'><form action='$contentUrl' method='post'>
 							<input type='submit' value='Resume' style='color:deepskyblue; border:0; background:transparent; font-size:14px;'/>
 							<input type='hidden' name='category' value='$catid' />
 							<input type='hidden' name='title' value='$title' />
 							<input type='hidden' name='pending' value='$pending' />
 							<input type='hidden' name='mediaType' value='$mediaType' />
 							<input type='hidden' name='cid' value='$projectID' />
+							<input type='hidden' name='que' value='$title' />
+							<input type='hidden' name='cat_code' value='$cat_code' />
+							<input type='hidden' name='tt' value='$tutor_numAlpha' />
+							<input type='hidden' name='recipient_id' value='$recipi_id_enc0' />
+
+   		        <input type='hidden' name='chat' value='1'>  
+   		        <input type='hidden' name='flag' value='1'>
+   		        <input type='hidden' name='categoryPass' value='catPass'>
+
+ 
+    		        <input type='hidden' name='haltResponse' value='0'>  
+
+							<input type='hidden' name='projectType' value='$projectType' />
 						</form>
+						<script>
+		      		
+		    					var enc_pwd = localStorage.getItem('encP'); 
+		              var pwd_enc_pk = localStorage.getItem('prv');
+		              pwd_enc_pk === null ? window.location.href = 'logout' : '';
+
+					    		var shrd = gen_shared(pwd_enc_pk, enc_pwd, '$rPub');
+					    		document.getElementById('sk' + '$xpid').value = shrd;
+		              localStorage.setItem('shrd'+'$xpid', shrd);
+		              document.getElementById('loader').style.display = 'none';
+		            
+            	    </script>
+					
 					</div>
 				</div>";
+			}
 	$n--;
 }
-//if( isset($_POST['category']) && !empty($_POST['title']) && !empty($_POST['mediaType'])){
 
 $pend .=   "</div>
 		</div>";
