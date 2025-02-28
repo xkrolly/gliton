@@ -7,18 +7,13 @@ $usersView = new usersView();
 $qcat ='';
 $que = '';
 $categPass = $usersView->enc_cons('TRUE');
-
 if(isset($_GET['rid'])){
     $_rid = $_GET['rid'];
     $qcat .= $_GET['qid'];
     $que .= $_GET['q'];
-    
+
     $rid = $usersView->dec_cons($_rid);
     $vals = array('profile_id'=>$rid);
-    /*$rData = $usersView->select('appointment', ' WHERE profile_id = ?', $rid);
-    if(count($rData) == 0){
-        $usersContr->insert('appointment', $vals);
-    }*/
     $rData = $usersView->select('appointment', ' WHERE profile_id = ?', $rid);
     $freetime2 = $rData[0]['freetime'];
 
@@ -59,9 +54,10 @@ if(isset($_GET['rid'])){
         if(!empty($time)){
             $period = substr($time, 1, 2);
             $meriTime='';
-            if($period > 12){
+
+            if($period > 11){
                 $period = $period - 12;
-                $meriTime .= $period.'pm';
+                $period== 0 ? $meriTime .='noon' : $meriTime .= $period.'pm';
             }else{ 
             $period > 9 ? $period = substr($period, 0, 2) : $period = substr($period, 1, 1);
             
@@ -96,7 +92,12 @@ if(isset($_GET['rid'])){
 
         }
     }
+
+    date_default_timezone_set('Africa/Lagos');
+
     $today = intval(date('w', time())) + 1;
+     $_currHr = str_replace(' ', '', date('h A'));
+    $currHr = strtolower(ltrim($_currHr, '0'));
 
     $weekDay = 1;
     $today == $weekDay ? $dayCss = "color:red; font-weight:bold;" : $dayCss = "";
@@ -104,8 +105,8 @@ if(isset($_GET['rid'])){
     $S = count($sunday)-1;
     $S >= 0 ? $sun = "<div style='display:flex; width:100%; margin-bottom:15px;'><div style='font-size:16px; align-self:flex-start; justify-content:flex-start; width:15%; $dayCss'>Sun </div><div style='display:flex; flex-wrap:wrap; width:85%;'>" : $sun='';
     while($S >= 0){
-        
-     $sun .= "<button class='hover' style='font-size:12px; border-radius:4px; padding:3px; margin:3px;' id='appo1$sunday[$S]' onClick='fixappo(\"1$sunday[$S]_$rid\", $qcat);'>".$sunday[$S]."</button>";
+
+     $today == $weekDay && $sunday[$S] == $currHr && date('i') > 38 ? $sun .="" : $sun .= "<button class='hover' style='font-size:12px; border-radius:4px; padding:3px; margin:3px;' id='appo1$sunday[$S]' onClick='fixappo(\"1$sunday[$S]_$rid\", $qcat, \"\");'>".$sunday[$S]."</button>";
     
         $S--;
     }
@@ -117,7 +118,7 @@ if(isset($_GET['rid'])){
     $M >= 0 ? $mon = "<div style='display:flex; width:100%; margin-bottom:15px;'><div style='font-size:16px; align-self:flex-start; justify-content:flex-start; width:15%; $dayCss'>Mon </div><div style='display:flex; flex-wrap:wrap; width:85%;'>" : $mon ='';
     while($M >= 0){
         
-     $mon .= "<button class='hover' style='font-size:12px; border-radius:4px; padding:3px; margin:3px;' id='appo2$monday[$M]' onClick='fixappo(\"2$monday[$M]_$rid\", $qcat);'>".$monday[$M]."</button>";
+     $today == $weekDay && $monday[$M] == $currHr && date('i') > 38 ? $mon .="" : $mon .= "<button class='hover' style='font-size:12px; border-radius:4px; padding:3px; margin:3px;' id='appo2$monday[$M]' onClick='fixappo(\"2$monday[$M]_$rid\", $qcat, \"\");'>".$monday[$M]."</button>";
     
         $M--;
     }
@@ -129,7 +130,7 @@ if(isset($_GET['rid'])){
     $T >= 0 ? $tue = "<div style='display:flex; width:100%; margin-bottom:15px;'><div style='font-size:16px; align-self:flex-start; justify-content:flex-start; width:15%; $dayCss'>Tue </div><div style='display:flex; flex-wrap:wrap; width:85%;'>" : $tue = '';
     while($T >= 0){
         
-     $tue .= "<button class='hover' style='font-size:12px; border-radius:4px; padding:3px; margin:3px;' id='appo3$tuesday[$T]' onClick='fixappo(\"3$tuesday[$T]_$rid\", $qcat);'>".$tuesday[$T]."</button>";
+     $today == $weekDay && $tuesday[$T] == $currHr && date('i') > 38 ? $tue .="" : $tue .= "<button class='hover' style='font-size:12px; border-radius:4px; padding:3px; margin:3px;' id='appo3$tuesday[$T]' onClick='fixappo(\"3$tuesday[$T]_$rid\", $qcat, \"\");'>".$tuesday[$T]."</button>";
     
         $T--;
     }
@@ -141,7 +142,7 @@ if(isset($_GET['rid'])){
     $W >= 0 ? $wed = "<div style='display:flex; width:100%; margin-bottom:15px;'><div style='font-size:16px; align-self:flex-start; justify-content:flex-start; width:15%; $dayCss'>Wed </div><div style='display:flex; flex-wrap:wrap; width:85%;'>" : $wed='';
     while($W >= 0){
         
-     $wed .= "<button class='hover' style='font-size:12px; border-radius:4px; padding:3px; margin:3px;' id='appo4$wednesday[$W]' onClick='fixappo(\"4$wednesday[$W]_$rid\", $qcat);'>".$wednesday[$W]."</button>";
+     $today == $weekDay && $wednesday[$W] == $currHr && date('i') > 38 ? $wed .="" : $wed .= "<button class='hover' style='font-size:12px; border-radius:4px; padding:3px; margin:3px;' id='appo4$wednesday[$W]' onClick='fixappo(\"4$wednesday[$W]_$rid\", $qcat, \"\");'>".$wednesday[$W]."</button>";
     
         $W--;
     }
@@ -154,7 +155,7 @@ if(isset($_GET['rid'])){
 
     while($t >= 0){
         
-     $thu .= "<button class='hover' style='font-size:12px; border-radius:4px; padding:3px; margin:3px;' id='appo5$thursday[$t]' onClick='fixappo(\"5$thursday[$t]_$rid\", $qcat);'>".$thursday[$t]."</button>";
+     $today == $weekDay && $thursday[$t] == $currHr && date('i') > 38 ? $thu .="" : $thu .= "<button class='hover' style='font-size:12px; border-radius:4px; padding:3px; margin:3px;' id='appo5$thursday[$t]' onClick='fixappo(\"5$thursday[$t]_$rid\", $qcat, \"\");'>".$thursday[$t]."</button>";
     
         $t--;
     }
@@ -166,8 +167,7 @@ if(isset($_GET['rid'])){
     $F = count($friday)-1;
     $F >= 0 ? $fri = "<div style='display:flex; width:100%; margin-bottom:15px;'><div style='font-size:16px; align-self:flex-start; justify-content:flex-start; width:15%; $dayCss'>Fri </div><div style='display:flex; flex-wrap:wrap; width:85%;'>" : $fri= '';
     while($F >= 0){
-        
-     $fri .= "<button class='hover' style='font-size:12px; border-radius:4px; padding:3px; margin:3px;' id='appo6$friday[$F]' onClick='fixappo(\"6$friday[$F]_$rid\", $qcat);'>".$friday[$F]."</button>";
+     $today == $weekDay && $friday[$F] == $currHr && date('i') > 38 ? $fri .="" : $fri .= "<button class='hover' style='font-size:12px; border-radius:4px; padding:3px; margin:3px;' id='appo6$friday[$F]' onClick='fixappo(\"6$friday[$F]_$rid\", $qcat, \"\");'>".$friday[$F]."</button>";
     
         $F--;
     }
@@ -177,9 +177,10 @@ if(isset($_GET['rid'])){
     $today == $weekDay ? $dayCss = "color:red; font-weight:bold;" : $dayCss = "";
     $s = count($saturday) - 1;
     $s >= 0 ? $sat = "<div style='display:flex; width:100%; margin-bottom:15px;'><div style='font-size:16px; align-self:flex-start; justify-content:flex-start; width:15%; $dayCss'>Sat </div><div style='display:flex; flex-wrap:wrap; width:85%;'>" : $sat = '';
+
     while($s >= 0){
-        
-     $sat .= "<button class='hover' style='font-size:12px; border-radius:4px; padding:3px; margin:3px;' id='appo7$saturday[$s]' onClick='fixappo(\"7$saturday[$s]_$rid\", $qcat);'>".$saturday[$s]."</button>";
+
+     $today == $weekDay && $saturday[$s] == $currHr && date('i') > 38 ? $sat .="" : $sat .="<button class='hover' style='font-size:12px; border-radius:4px; padding:3px; margin:3px;' id='appo7$saturday[$s]' onClick='fixappo(\"7$saturday[$s]_$rid\", $qcat, \"\");'>".$saturday[$s]."</button>";
     
         $s--;
     }
