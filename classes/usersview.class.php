@@ -170,7 +170,8 @@ class UsersView extends Users {
         </div></div></div>";
   }
 
-    public function bottomNavigation(){
+    public function bottomNavigation($x){
+    	$x == 'Q' ? $anchor = 'enquiry' : $anchor = 'response';
     return"<div style='display:flex; justify-content:space-evenly; z-index:11; filter:drop-shadow(-1px -1px 1px #eee); position:fixed; left:0; bottom:0; width:100%; background:#fff; padding-top:8px; padding-bottom:15px;'>
               <div style='display:flex; flex-direction:column; align-items:center; justify-content:center;'>
                 <a href='scrolls' style='display:flex; flex-direction:column; align-items:center; justify-content:center; color:#2166f3; font-weight:bold; text-decoration:none; font-size:12px;'>
@@ -179,7 +180,7 @@ class UsersView extends Users {
                 </a>
               </div>
               <div style='display:flex; flex-direction:column; align-items:center; justify-content:center;'>
-                <nav><a href='enquiry' style='display:flex; flex-direction:column; align-items:center; justify-content:center; font-weight:bold; text-decoration:none; font-size:12px;'>
+                <nav><a href='$anchor' style='display:flex; flex-direction:column; align-items:center; justify-content:center; font-weight:bold; text-decoration:none; font-size:12px;'>
                   <span class='material-icons' style='filter:drop-shadow(1px 1px 1.5px #2166f3) drop-shadow(-1px -1px 1px #2166f3); color:#fff; margin-right:5px; font-size:30px; margin-bottom:6px;'>&#xe94c;</span>
                   <span>Consult</span>
                 </a></nav>
@@ -890,9 +891,10 @@ return $heading;
 	public function fetchPending(){
     	$userData = $this->fetchUser();
     	$me = $userData[0]['profile_id'];
-    	$_me = $this->usercode($me); 
+    	$_me = $me;//$this->usercode($me); 
     	
     	$vals = $me.', %.'.$_me.'.%';
+    	
     	$pendingData = $this->select('pending', ' WHERE owner = ? or contributor LIKE ?', $vals);
     	return $pendingData;
     }
@@ -902,7 +904,7 @@ return $heading;
     	$vals = $projectID;
     	$pendingData = $this->select('pending', ' WHERE projectID = ?', $vals);
       	
-      	!empty($pendingData[0]['contributor']) ? $contributors = $pendingData[0]['contributor'].$contributors.'.' : '.'.$contributors.'.';
+      	!empty($pendingData[0]['contributor']) ? $contributors = $pendingData[0]['contributor'].$contributors.'.' : $contributors ='.'.$contributors.'.';
 
     	$vals = array('projectCat'=>$catid, 'projectTitle'=>$title, 'projectID'=>$projectID, 'contributor'=>$contributors, 'projectType'=>$projectType, 'owner'=>$owner);
     	count($pendingData) == 0 ? $this->insert2Db('pending', $vals) : '';
@@ -1546,7 +1548,7 @@ $eachClass	.="		</div><div style='width:100%;'>
 
 	}
 
-	public function compareBills($cat_quota, $category ){
+	/*public function compareBills($cat_quota, $category ){
 		$oldApplied = $this->select('aoi', ' WHERE aoi_id = ?', $cat_quota);
 		$newApplied = $this->select('aoi', ' WHERE aoi_id = ?', $category);
 		$chargesDiff = intval($oldApplied[0]['charges']) - intval($newApplied[0]['charges']);
@@ -1560,7 +1562,7 @@ $eachClass	.="		</div><div style='width:100%;'>
 		$link = 'index.php?page=changecateg&more='.$_chargesDiff.'&old='.$oldCat.'&new='.$newCat.'&ncat='.$ncat_id;
 		header('Location: '.$link);
 
-	}
+	}*/
 	public function getSharedKey($uc){
 		$shrd_data = $this->select2('sharedkey', ' WHERE ucid = ?', $uc);
 		return $this->dec_cons($shrd_data[0]['sk']);
@@ -1621,6 +1623,37 @@ $eachClass	.="		</div><div style='width:100%;'>
 	    $coinBal = $coinData[0]['Gcoin'];
 	    return $coinBal;
 	}
+	public function manageConsultSession($tutor, $client, $appoStartDate, $appoEndDate, $cost){
+        $insval = array('tutor'=>$tutor, 'client'=>$client, 'cost'=>$cost, 'sess_start'=>$appoStartDate, 'sess_end'=>$appoEndDate);
+        $this->insert2Db('sess_manager', $insval);
+	}
+  public function chat_session(){
+
+	    if(isset($_SESSION['chat-timeout'])){
+	        $diff=time() - intval($_SESSION['chat-timeout']);
+			       var_dump('DIFF: '.$diff);
+	        if($diff>18000000){
+	        	session_destroy();
+	    	    header("location:../index.php");
+	        	exit();
+	        }
+        }
+		$_SESSION['chat-timeout']=time();
+  }
+
+	public function lockClientFeeForFutureTrnx($xpertConsultFee, $lockedCodeNew, $client){
+
+		$coinData = $this->select('coin', ' WHERE owner_id = ?', $client);
+		$Gcoin = $coinData[0]['Gcoin'] - intval($xpertConsultFee);
+//		$locked = $coinData[0]['locked'] + intval($xpertConsultFee);
+			$lockedCode = $this->dec_cons($coinData[0]['locked'])." ".$this->dec_cons($lockedCodeNew);
+			$lockedCode_enc = $this->enc_cons($lockedCode);
+	
+		$vals2 = $Gcoin.', '.$lockedCode_enc.', '.$client;
+
+		$this->updateStmt('coin', 'Gcoin = ?, locked = ? WHERE owner_id = ?', $vals2);
+
+	}
 	public function coin_TRNX($trxnAmnt, $trxnType, $buyer, $redirectURL){
 		$trxnAmnt = $this->changeToCoin($trxnAmnt);
 		$trxnType == 'coin4value' ? $_trxnAmnt = $trxnAmnt * -1 : ($trxnType == 'cash4coin' ? $_trxnAmnt = $trxnAmnt : '');  
@@ -1657,6 +1690,8 @@ $eachClass	.="		</div><div style='width:100%;'>
 		$vals = $cum_spent_coin.', '.$cum_wallet_bal.', '.$total_purchased_coin.', 1';
 		$youAreOutaCoin == false ? $this->update2Stmt('Gcoin', 'cum_spent_coin = ?, cum_wallet_bal = ?, total_purchased_coin = ? WHERE gcoin_id = ?', $vals) : header('Location: buycoin');
 
+//		$proceedToBuyNewCoin == false ? $this->update2Stmt('Gcoin', 'cum_spent_coin = ?, cum_wallet_bal = ?, total_purchased_coin = ? WHERE gcoin_id = ?', $vals) : header('Location: buycoin');
+
         !empty($redirectURL) ? header('Location:'.$redirectURL) : $newBalance;
         
         return $newBalance;
@@ -1664,7 +1699,7 @@ $eachClass	.="		</div><div style='width:100%;'>
 
 	}
 
-	public function categoryPass($_cat){
+	/*public function categoryPass($_cat){
 			$userData = $this->fetchUser();
 			$tutorQuota = $userData[0]['tutorQuota'];
 				
@@ -1675,7 +1710,7 @@ $eachClass	.="		</div><div style='width:100%;'>
 				$cat_quota = $_tutor_Quota[0];
 				$cat_quota == $_cat ? '' : $this->compareBills($cat_quota, $_cat);
 			}
-	}
+	}*/
 
 	public function share_SessionPayment($admin, $buyer, $cat_id){
 			$cat_id_dec = $this->dec_cons($cat_id);
@@ -2088,6 +2123,7 @@ $output = intval($output) * 1;
     public function flutterPay($amount, $redirectURL){
 		$userData = $this->fetchUser();
 	    $me = $userData[0]['profile_id'];
+	    $cat = '0';
 		$uniqid = $this->getUniqId($cat, $me);
 		$email = $this->dec_cons($userData[0]['email']);
 		$contact = $this->decryptor0($userData[0]['contact']);
@@ -2766,22 +2802,9 @@ $output = intval($output) * 1;
 		$_SESSION['timeout']=time();
 
    	}
-   	
-   	public function chat_session(){
 
-	    if(isset($_SESSION['chat-timeout'])){
-	        $diff=time()-$_SESSION['chat-timeout'];
-			       
-	        if($diff>1800){
-	        	session_destroy();
-	    	    header("location:../index.php");
-	        	exit();
-	        }
-        }
-		$_SESSION['chat-timeout']=time();
-   	}
    
-   	public function addScript( $src ){
+ 	public function addScript( $src ){
 		$this->scriptElements .= "<script src='$src'></script>";
 	}
 	public function addCSS( $href ){
@@ -3154,14 +3177,23 @@ $n++;
         $initial=strtoupper(substr($fn, 0,1).'.'.substr($ln, 0,1));
         return $initial;
     }
-    public function getUniqConv($tutor, $learner, $converse_id, $chatpop){
-        	
+    public function getUniqConv2($tutor, $learner, $converse_id, $chatpop){
+
+			  	
   	 		$chatpop == 'multiple' ? 
    			$uniqConverse = $converse_id :
    			$uniqConverse = $tutor.'_'.$learner.'_'.$converse_id;
     		
     		$_uniqconv_enc = $this->enc_cons($uniqConverse);
+        
+        $_SESSION['alreadygetUniqConv'] = TRUE;
             return $_uniqconv_enc;
+    }
+    public function getUniqConv($tutor, $learner){
+        	
+   			$uniqConverse = $tutor.'_'.$learner.'_'.time();
+    		$_uniqconv_enc = $this->enc_cons($uniqConverse);
+        return $_uniqconv_enc;
     }
     public function savelocally($uniq_conv, $cat){
         return $this->savelocal($uniq_conv, $cat);
@@ -3510,7 +3542,7 @@ public function removeChars($str){
 						$str = str_ireplace('+', '', $str);
 return $str;				
 }
-public function postChat2DB($lectureID, $que, $_cat, $msgReply, $mediaUsed, $chatLock, $rcid, $upload_name, $upload_tmp, $i, $chatpop){
+public function post_Chat2DB($lectureID, $que, $_cat, $msgReply, $mediaUsed, $chatLock, $rcid, $upload_name, $upload_tmp, $i, $chatpop){
 
 		//get class_id
 	$lectureID = str_replace(' ', '+', $lectureID);
@@ -3615,6 +3647,102 @@ public function postChat2DB($lectureID, $que, $_cat, $msgReply, $mediaUsed, $cha
 		    $data = array('locked'=>$chatLock, 'class_id'=>$class_id, 'conv_pop'=>$conv_pop, 'conv_id'=>$converse_id, 'replyto'=>$msgReply, 'uniq_conv'=>$_uniqconv_enc, $cat_id=>$cat_val, 'sender_id'=>$user_id, 'recipient_id'=>$recipient_id, 'media'=>$media_val, 'category_id' => $_cat);
 			
 			if(!empty($converse_id) && !empty($_uniqconv_enc) && (!empty($userData[0]['tmp_aud']) || !empty($que) || !empty($upload_tmp) )){
+			    $this->insert2Db('chat', $data);
+			}
+			
+			//remove tmp_aud if available
+			   $vals = ' , '.$user_id;
+			   $this->updateStmt('profile', 'tmp_aud = ? WHERE profile_id = ?', $vals);
+		}
+
+		$userData[0]['tmp_aud']=''; 
+		$que=''; 
+		$_FILES['upload']['tmp_name']='';
+	}
+	
+return $_cat;
+}
+public function postChat2DB($_uniqconv_enc, $que, $_cat, $msgReply, $mediaUsed, $chatLock, $upload_name, $upload_tmp, $i, $chatpop){
+
+	$catData = $this->select('aoi', ' WHERE aoi_id = ?', $_cat);
+	$table = $catData[0]['category'];
+	$catId_val = '';
+
+ 	$aoi_array = $this->aoi($_cat);
+	$queCol = $aoi_array['queCol'];
+	$user_id_col = $aoi_array['user'];
+	$cat_id = $aoi_array['cat_id'];
+	$cat_tbl = $aoi_array['topic'];
+	$folder = $aoi_array['folder'];
+	$expert = $aoi_array['expert'];
+	$brd_category = $aoi_array['brd_cat'];
+	            
+    $userData = $this->fetchUser();
+    $user_id = $userData[0]['profile_id'];
+    $recipient_id = $userData[0]['engager'];
+	        
+	//save dis sdk for future need
+	$this_user_xpt = $userData[0]['xpt'];
+
+	//check if thisuser is a tutor
+	$this_user_xpt == 1 ? $tutor = $user_id : $tutor = $recipient_id;
+	$this_user_xpt == 1 ? $learner = $recipient_id : $learner = $user_id;
+
+	$media_val='';
+	$reformedQUE = '';
+
+	switch (true) {
+			case $mediaUsed == 3:
+				 $media_val .= $mediaUsed;
+				break;
+
+			case $mediaUsed == 2:
+			 	  $media_val .= $mediaUsed;
+				 	$multiple_imgUpload_arr = array();
+
+						while($i >=0 ){
+
+					    $file_tmp_name = $upload_tmp[$i];
+							$_file_name = $this->removeChars($que).$i;
+							$file_name = $_file_name.'.webp';
+
+							$multiple_imgUpload_arr[] = $_file_name;
+							$destination_URL = '../img/'.$folder;
+							$this->imgProcessor($file_name, $file_tmp_name, $destination_URL);
+						 
+						  $i--;
+						}
+						$que = implode('/==', $multiple_imgUpload_arr);
+
+	  		break;
+	                
+	    case $mediaUsed == 1:
+		      $media_val .= $mediaUsed;
+	      break;
+	                    
+			case $mediaUsed == 0:
+				 $media_val .= $mediaUsed;
+				break;
+		
+	}			
+
+	if(!empty($que)){
+    $que_arr = explode('/==', $que);
+
+		foreach($que_arr as $que){
+ 				$mediaUsed == 0 ? $que : $que = $this->removeChars($que);
+							   
+		    $data = array($queCol=>$que, $user_id_col => $user_id);
+		    !empty($que) ? $this->insert2Db($table, $data) : '';
+
+		    $val = $que.', '.$user_id;
+		    $catvalData = $this->select($table, ' WHERE '.$queCol.' = ? AND '.$user_id_col.' = ?', $val);
+		    $cat_val = $catvalData[0][$cat_id];
+			
+			$chatpop == 'duo' ? $conv_pop = '1' : $conv_pop = '2';
+		    $data = array('locked'=>$chatLock, 'replyto'=>$msgReply, 'uniq_conv'=>$_uniqconv_enc, $cat_id=>$cat_val, 'sender_id'=>$user_id, 'recipient_id'=>$recipient_id, 'media'=>$media_val, 'category_id' => $_cat);
+			
+			if(!empty($_uniqconv_enc) && (!empty($userData[0]['tmp_aud']) || !empty($que) || !empty($upload_tmp) )){
 			    $this->insert2Db('chat', $data);
 			}
 			
@@ -5083,9 +5211,10 @@ $neededCoinForConsult = intval($consultCharge) - intval($myBal);
     return $output;
 }
 
-public function chatPg($recipient_id, $resumingCID, $aoiCurrent, $empty, $cidLimit){
+public function chatPg($recipient_id, $resumingCID, $aoiCurrent, $empty){
 	
-		$allChats = $this->fetchChats($recipient_id, $resumingCID, false, $aoiCurrent, $cidLimit);
+
+		$allChats = $this->fetchChats($recipient_id, $resumingCID, false, $aoiCurrent);
 		$ln = count($allChats)-1;
 		$Chats = "<div>";
 		$userData = $this->fetchUser();
@@ -5093,6 +5222,7 @@ public function chatPg($recipient_id, $resumingCID, $aoiCurrent, $empty, $cidLim
 		$engager = $userData[0]['engager'];
 	    $expt = $userData[0]['xpt'];
 		$this_user_aoi = $userData[0]['aoi'];
+		$uniqConverse_enc = $userData[0]['currConverse'];
 		
 		//check if thisuser is a tutor  str_contains()
 	    strpos($this_user_aoi, $aoiCurrent) !== false && $expt == 1 ? $action_btn = 'Approve script' : $action_btn = 'Publish script';
@@ -5197,7 +5327,7 @@ public function chatPg($recipient_id, $resumingCID, $aoiCurrent, $empty, $cidLim
 			//generate encryptd uniq converseID wt sender, recipient, conv_id
 			$converse_id = $allChats[$ln]['conv_id'];
 			
-			$uniqConverse_enc =  $this->getUniqConv($tutor, $learner, $converse_id, 'duo');
+			//$uniqConverse_enc = $this->getUniqConv($tutor, $learner, $converse_id, 'duo');
 			$audioUrl =$que;
 
         //	$flag > 0 ? $Chats .= "</div><div id='chats".$converse_id."'>" : $Chats .="";
@@ -5225,7 +5355,6 @@ public function chatPg($recipient_id, $resumingCID, $aoiCurrent, $empty, $cidLim
             			 
             	$sql = "SELECT * from skyman_user WHERE user_id = $recipient_id";
 				$stmt = $this->connect()->query($sql);
-			
 				$u_rw = $stmt->fetch();
 				$recipient_name = $this->decryptor0($u_rw['username']);
 
@@ -5260,7 +5389,7 @@ public function chatPg($recipient_id, $resumingCID, $aoiCurrent, $empty, $cidLim
                      $chatpop = 'd';
                     
                 	$Chats .= $this->showModal2($content, 'dialog'.$chat_id, '', 'none');
-    				$Chats .="<div class='each-sectio' style='display:flex; width:100%; align-items:center; justify-content:space-between; margin-top:0px; margin-bottom:20px; background:rgba(0, 0, 0, .6); padding:3px; color:#fff; font-size:14px; position:fixed; top:0.2px; left:0px; z-index:100;'>
+    				$Chats .="<div class='each-sectio' style='display:flex; width:100%; align-items:center; justify-content:space-between; margin-top:0px; margin-bottom:20px; background:rgba(0, 0, 0, .3); padding:3px; color:#fff; font-size:14px; position:fixed; top:0.2px; left:0px; z-index:100;'>
     					
             					<div style='display:flex;'>
             						<a href='../index.php?page=profile&pid=$recipient_id_enc' style='color:#000; text-decoration:none;'>".$imageView."</a>
@@ -5547,7 +5676,6 @@ $Chats .="    					             <span style='font-size:10px; color:#000; margin-
 
   			$vals =  $cid.', 2, '.$cid.', 3';
     	    $tbData = $this->select($table, " INNER JOIN ".$topicTbl." USING(".$columnID.") WHERE ".$uniqColumn." = ? AND media = ? OR ".$uniqColumn." = ? AND media = ?", $vals);
- 
     		$thumbnail = $tbData[0][$queCol];
     		$mediaUsed = $tbData[0]['media'];
         
@@ -5570,24 +5698,10 @@ $Chats .="    					             <span style='font-size:10px; color:#000; margin-
 
 		$where_list=array();
 		$whereVal=array();
-/*
-        function suffixNounRemove($word){
-    	    $list = 'ments ships s er tion ion ment ship hood age ery ry ism';
-    		$search_word = explode(' ', $list);
-    	
-    	    foreach($search_word as $suffix){
-    	        if(substr($word, -strlen($suffix)) === $suffix){
-    	            $nword = substr($word, 0, -strlen($suffix));
-      	            return $nword;
-    	        }
-    	    }
-
-        }
-        */
         
         function suffixNounRemove($word){
     	    $list = 'ments ships ers ments ships hoods ages isms tions ions s er tion ion ment ship hood age ery ry ism';
-    		$search_word = explode(' ', $list);
+      		$search_word = explode(' ', $list);
     	    foreach($search_word as $suffix){
     	        if(substr($word, -strlen($suffix)) === $suffix){
     	            $nword = substr($word, 0, -strlen($suffix));
@@ -5651,10 +5765,10 @@ $Chats .="    					             <span style='font-size:10px; color:#000; margin-
         <div style="background:#fff; padding:10px; display:flex; align-items:center; justify-content:center;">
 
               <div style="border:2px solid #aaa; border-radius:20px; display:flex; justify-content:center; align-items:center;">
-              <button type="submit" name="submit" tabindex=3 class="" id="search_btn" style="width:9vw;  background:#fff; border:transparent; border-top-left-radius:15px; border-bottom-left-radius:15px; padding:3px 8px 3px 3px; text-align:center;">
-                  <span class="material-icons" style="color:#000; font-size:25px; margin-right:2px; margin-left:5px;">&#xe8b6;</span>
+              <button type="submit" name="submit" tabindex=3 class="" id="search_btn" style="width:9vw;  background:transparent; border:transparent; border-top-left-radius:15px; border-bottom-left-radius:15px; padding:3px; text-align:center;">
+                  <span class="material-icons" style="color:#000; font-size:30px; margin-right:2px; margin-left:5px;">&#xe8b6;</span>
               </button>
-              <input type="search" id="searchInput" incremental name="search_input" placeholder="Search any solution..." aria-label="Search the pool of published practical solutions" style="padding-left:8px color:#fff; font-size:16px; width:70vw; border:#fff; background:#fff;">
+              <input type="search" id="searchInput" incremental name="search_input" placeholder="Search any solution..." aria-label="Search the pool of published practical solutions" style="padding-left:8px color:#fff; font-size:16px; width:70vw; border:transparent; background:#fff; border-bottom-right-radius:15px; border-top-right-radius:15px;">
 							
 							<div style="text-align:center; margin-right:10px;" onclick="document.getElementById(\'searchInput\').value=\'\';"> x </div>
            </div>
