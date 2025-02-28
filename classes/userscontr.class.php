@@ -18,6 +18,9 @@ class UsersContr extends Users {
 	public function delete($tableName, $valSpace, $vals){
 		return $this->deleteStmt($tableName, $valSpace, $vals);
 	}
+	public function delete2($tableName, $valSpace, $vals){
+		return $this->deleteStmt2($tableName, $valSpace, $vals);
+	}
 
 	public function insert($tableName, $data){
 		return $this->insert2Db($tableName, $data);
