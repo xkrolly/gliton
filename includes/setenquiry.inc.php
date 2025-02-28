@@ -2,9 +2,9 @@
 include('autoloader.inc.php');
 	$usersContr = new usersContr();
 	$usersView = new usersView();
-//	$usersView->checkSubscription($_cat);
-	
-	!empty($_POST['category']) ? $_cat = $_POST['category'] : $_cat = $_POST['categoryg'];
+		
+	if(!empty($_POST['category']) ){ 
+	$_cat = $_POST['category'];
 
 	$msgReply = $_POST['msgReply'];
 	$mediaUsed = $_POST['mediaUsed'];
@@ -19,7 +19,8 @@ include('autoloader.inc.php');
 
 	//set new conversation id for learner
 	isset($_FILES['upload']['name']) ? $i = count($_FILES['upload']['name']) - 1 : $i=0;
-//	$upload_tmp_arr = $_FILES['upload']['tmp_name'];
-	$output = $usersView->postChat2DB($cid, $que, $_cat, $msgReply, $mediaUsed, $chatLock, $rcid, $upload_name, $upload_tmp, $i, $chatpop);
+
+	$output = $usersView->postChat2DB($cid, $que, $_cat, $msgReply, $mediaUsed, $chatLock, $upload_name, $upload_tmp, $i, $chatpop);
 
 	echo json_encode(array("n" => $i));
+}
