@@ -170,8 +170,10 @@ class UsersView extends Users {
         </div></div></div>";
   }
 
-    public function bottomNavigation($x){
-    	$x == 'Q' ? $anchor = 'enquiry' : $anchor = 'response';
+    public function bottomNavigation(){
+    	$userData = $this->fetchUser();
+    	$xpt = $userData[0]['xpt'];	
+    	$xpt == '1' ? $anchor = 'response' : $anchor = 'enquiry';
     return"<div style='display:flex; justify-content:space-evenly; z-index:11; filter:drop-shadow(-1px -1px 1px #eee); position:fixed; left:0; bottom:0; width:100%; background:#fff; padding-top:8px; padding-bottom:15px;'>
               <div style='display:flex; flex-direction:column; align-items:center; justify-content:center;'>
                 <a href='scrolls' style='display:flex; flex-direction:column; align-items:center; justify-content:center; color:#2166f3; font-weight:bold; text-decoration:none; font-size:12px;'>
