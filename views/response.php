@@ -4,15 +4,17 @@
 	//(1)get the que, //
 	//get the stdnt
 	$_SESSION['insertToScd'] = FALSE;
-    $_SESSION['SET_CHAT'] = TRUE;
+    $_SESSION['ISSET_CHAT'] = FALSE;
 //set empty global variable for date
 $_SESSION['newDate'] = '';
 
 	$userData = $usersView->fetchUser();
 	$recipient_id = $userData[0]['engager'];
-    $conv_id = $userData[0]['converse_id'];
+    $uniq_conv = $userData[0]['currConverse'];
+    $_SESSION['alreadygetUniqConv'] = TRUE;
 
 	$user_id = $userData[0]['profile_id'];
+	$me = $userData[0]['profile_id'];
 	//unset the past fixed appo
 	$usersView->unsetAppo($user_id);
 
@@ -24,8 +26,8 @@ $_SESSION['newDate'] = '';
 	$n > 0 ? $allnew = "<span style='margin-left:-5px; color:#fff; height:16px; width:16px; background:red; padding:1px; border-radius:50%; font-weight:bold; font-size:8px;'>".$n."</span>" : $allnew = '';
 	
 	//get the que id from chat table
-	$allVals = $recipient_id.', '.$user_id.', 0, '.$conv_id;
-	$cData = $usersView->select('chat', ' WHERE sender_id = ? AND recipient_id = ? AND flag > ? AND conv_id = ? ORDER BY chat_id DESC', $allVals);
+	$allVals = $recipient_id.', '.$user_id.', 0, '.$uniq_conv;
+	$cData = $usersView->select('chat', ' WHERE sender_id = ? AND recipient_id = ? AND flag > ? AND uniq_conv = ? ORDER BY chat_id DESC', $allVals);
 	
 	/*	$allVals = $recipient_id.', '.$user_id;
 	$cData = $usersView->select('chat', ' WHERE sender_id = ? AND recipient_id = ? ORDER BY chat_id DESC', $allVals);*/
@@ -112,9 +114,12 @@ $recipient_enc_cons = $usersView->enc_cons($recipient_id);
 	$clientDP = $usersView->generate_DP(2, '65px', '');
 	$tutorDP = $usersView->generate_DP($user_id, '65px', '');
 	$chat_flag2 ='';
+	$cat_code = '';
     if($flag > 0 ){
     	$aoi_rw = $usersView->select('aoi', ' WHERE aoi_id = ?', $flag);
 		$chat_flag2 .= $aoi_rw[0]['subcategory'];	
+		$cat_code .= $aoi_rw[0]['cat_code'];
+
 	}
 
 	$appo_data = $usersView->select('appointment', ' WHERE profile_id = ?', $user_id);
@@ -143,23 +148,16 @@ $recipient_enc_cons = $usersView->enc_cons($recipient_id);
 	}
 $fixedStr = implode(', ', $fixed);
 /*	strlen($allFixed) > 4 ? $allFixed : '';*/
-
+$me_nAlpha = $usersView->num_alphaA($me);
 
 //	$allFree = $freetime;
 //			<div style='border:1px solid #222; padding:4px; height:30px width:30px; display:flex; justify-content:center; border-radius:50%;' id='this' onClick='$(\"#this\").hide()'><span class='material-icons material-symbols-outlined' style='font-size:18px; color:red;'>&#xe7f7;</span></div>
 
 $media == '1' ? $que = "<audio controls style='height:25px; width:65vw;'><source src='sounds/".$chatType."/".$que.".webm'/></audio>" : $que;
 $rForm ="<div style='display:flex; padding:10px; font-size:14px; background:#fff; filter:drop-shadow(2px 2px 2px #bbb); position:fixed; top:0; right:0;left:0; z-index:2; align-items:center; width:100%; justify-content:center;'>
+			<div style='width:30%; align-items:center; justify-content:flex-start; margin-right:auto; display:flex; color:#2166f3; font-weight:bold; font-size:20px;'>	<img src='img/glit192.png' alt='gLIT logo' style='height:25px; width:25px;'>lit</div>
 			
-			<div style='margin-left:20px; width:35%; margin-right:auto;' onclick='$(\"#menu\").show()'>
-				<div style='width:25px; height:2px; background:#000;'></div>
-				<div style='width:25px; height:2px; margin-top:4px; background:#000;'></div>
-				<div style='width:25px; height:2px; margin-top:4px; background:#000;'></div>
-			</div>
-			
-			<div style='width:30%; align-items:center; justify-content:center; margin-left:auto; margin-right:auto; display:flex; color:#2166f3; font-weight:bold; font-size:20px;'>	<img src='img/glit192.png' alt='gLIT logo' style='height:25px; width:25px;'>lit</div>
-			
-        	<div style='width:35%; margin-left:auto; display:flex; justify-content:flex-end; align-items:center; margin-right:20px;'>
+        	<div style='width:35%; margin-left:auto; display:flex; justify-content:flex-end; align-items:center; margin-right:10px;'>
 	            <div onclick='$(\"#searchPanel\").slideDown(\"slow\");' style='margin:-8px 18px auto auto;'>
 	            	<span class='material-icons' style='color:#555; font-size:25px;'>&#xe8b6;</span>
  	            </div>
@@ -221,6 +219,14 @@ $rForm ="<div style='display:flex; padding:10px; font-size:14px; background:#fff
 
         </div>
 		
+
+   			<div style='margin-left:10px;' onclick='$(\"#menu\").show()'>
+				<div style='width:3px; height:3px; background:#000;'></div>
+				<div style='width:3px; height:3px; margin-top:4px; background:#000;'></div>
+				<div style='width:3px; height:3px; margin-top:4px; background:#000;'></div>
+			</div>
+
+
 	</div>
 	<div id='menu' style='position:fixed; top:8%; left:0; display:none; z-index:2; background:#fff; filter:drop-shadow(1px 1px 1px #ccc); padding:10px;'>
 	    <div style='display:flex; flex-direction:column; justify-content:center; align-items:flex-start; padding:10px; padding-left:20px;'>
@@ -256,6 +262,8 @@ $rForm ="<div style='display:flex; padding:10px; font-size:14px; background:#fff
             <form method='POST' action='views/chat.php' class='rptFm' role='form' style='display:flex; align-items:center; justify-content:center; border-radius:20px; padding:10px; padding-bottom:20px; width:90%; background:#fff; margin:10px; margin-bottom:200px; filter:drop-shadow(2px 2px 2px #ccc);'>
               
 			    <input type='hidden' name='subcategory' value='Nil'>
+			    <input type='hidden' name='tt' value='$me_nAlpha'>
+			    <input type='hidden' name='cat_code' value='$cat_code'>
 			    <input type='hidden' name='category' id='category' value='$category'>
                 <input type='hidden' name='colval' id='colval' value='$colval'>
                 <input type='hidden' name='col_id' id='col_id' value='$col_id'>
@@ -308,6 +316,9 @@ $rForm ="<div style='display:flex; padding:10px; font-size:14px; background:#fff
                      localStorage.setItem('uploadID', 0);
                 	  	var enc_pwd = localStorage.getItem('encP');
 			  		var pwd_enc_pK = localStorage.getItem('prv'); 
+		              
+		              pwd_enc_pK === null ? window.location.href = 'logout' : '';
+
 					var shrd = gen_shared(pwd_enc_pK, enc_pwd, '$r_pub');
 			  		localStorage.setItem('shrd'+'$recipient_enc_cons', shrd);
    	    		    var decQ = sym_decrypt('$que', shrd);
@@ -557,7 +568,7 @@ setInterval(function(){
 </div>
 ";
 $rForm.=$usersView->searchPanel();
-$rForm.=$usersView->bottomNavigation();
+$rForm.=$usersView->bottomNavigation('A');
       
 define('tutortochat', 'chatNow');
 define('stdtochat', 'chatReady');
