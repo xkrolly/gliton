@@ -682,7 +682,8 @@
        }
     }
     
-	protected function fetchChats($recipient_id, $resumingCID, $hxList, $aoiCurrent, $limitToOneConverse){
+	protected function fetchChats($recipient_id, $resumingCID, $hxList, $aoiCurrent){
+
 		$userData = $this->userId();
 		$user = $userData[0]['profile_id'];
 		$_recipient_id = '-'.$recipient_id.'-';
@@ -694,34 +695,20 @@
 	    $tutorP = $this->userProfile($tutor);
         $tutorConvId = $tutorP[0]['converse_id'];
         
-			$_both = '-'.$user.$_recipient_id;
-			$check2 = "UPDATE chat SET view='$_both' WHERE sender_id = '$recipient_id' AND view='$_recipient_id'";
-			$this->connect()->query($check2);
+		$_both = '-'.$user.$_recipient_id;
+		$check2 = "UPDATE chat SET view='$_both' WHERE sender_id = '$recipient_id' AND view='$_recipient_id'";
+		$this->connect()->query($check2);
 			
-			
-			$resumingCID > 0 ? $subSQL = " AND conv_id = '$resumingCID' " : $subSQL = " AND conv_id = '$tutorConvId' ";
-	   
-	   //conv_id = (SELECT MAX(conv_id) FROM chat) AND";
-//check to knw which to pick
-//$hxList == true ? $showOnlyNewChats = '' : $showOnlyNewChats = ' AND close = 0';
-/*			($resumingCID > 0 && $hxList == true) ? $oWHERE ="chat.sender_id = '$user' AND flag > 0 OR conv_id = '$learnerConvId' AND chat.recipient_id = '$user' AND flag > 0 ORDER BY conv_id DESC, chat_id DESC" : $oWHERE = chat.sender_id = '$user' AND chat.recipient_id = '$recipient_id'".$subSQL." OR conv_id = '$learnerConvId' AND chat.sender_id = '$recipient_id' AND chat.recipient_id = '$user'".$subSQL." ORDER BY conv_id DESC, chat_id DESC";
 
-    $sql="SELECT * FROM chat INNER JOIN agro USING (agro_id) INNER JOIN veterinary USING (vet_id) INNER JOIN health USING (hth_id) INNER JOIN guidance USING (guide_id) WHERE conv_id = '$learnerConvId' AND ".$oWHERE;
-
-*/
-
-            // $limitToOneConverse == true ? $limitToCid =  "conv_id = '$learnerConvId' AND " : $limitToCid = "";
-                      /*  $limitToOneConverse == true ? $subSQL = $subSQL : $subSQL = "";*/
-            
-			($resumingCID > 0 && $hxList == true) ? $oWHERE ="chat.sender_id = '$user' AND flag > 0 OR chat.recipient_id = '$user' AND flag > 0 ORDER BY conv_id DESC, chat_id DESC" : $oWHERE ="chat.sender_id = '$user' AND chat.recipient_id = '$recipient_id'".$subSQL." OR chat.sender_id = '$recipient_id' AND chat.recipient_id = '$user'".$subSQL." ORDER BY conv_id DESC, chat_id DESC";
+			$oWHERE ="uniq_conv = '$resumingCID' AND chat.sender_id = '$user' AND chat.recipient_id = '$recipient_id' OR uniq_conv = '$resumingCID' AND chat.sender_id = '$recipient_id' AND chat.recipient_id = '$user' ORDER BY chat_id DESC";
 
     $sql="SELECT * FROM chat INNER JOIN agro USING (agro_id) INNER JOIN veterinary USING (vet_id) INNER JOIN health USING (hth_id) INNER JOIN guidance USING (guide_id) INNER JOIN cooking USING (cook_id) WHERE ".$oWHERE;
 
 		$stmt = $this->connect()->query($sql);
 		$chatsArray=array();
 		$sender = '';
-		while($row1 = $stmt->fetch()){
-	//	var_dump($row1);
+
+		while( $row1 = $stmt->fetch() ){
 		    
      	     $array = $this->_aoi_cht($row1['agro_id'], $row1['vet_id'], $row1['hth_id'], $row1['guide_id'], $row1['cook_id']);
 			 $_que = $array['queCol'];
