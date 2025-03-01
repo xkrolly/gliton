@@ -10,7 +10,8 @@ if($regCompleted == 1){
     
         if(isset($_GET['pub'])){
           //$_GET['solo'] == $usersView->encryptor0('solo');
-          $pub_id = $usersView->decryptor0( str_replace(' ', '+', $_GET['pub']) );
+        //  $pub_id = $usersView->decryptor0( str_replace(' ', '+', $_GET['pub']) );
+          $pub_id = $usersView->alphaA_Num($_GET['pub']);
     
           //get the pub_id
           $pub_data = $usersView->select('publish', ' WHERE pub_id = ?', $pub_id);
