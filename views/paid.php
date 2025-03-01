@@ -125,7 +125,7 @@ if(!empty($_GET['link'])){
 				<h3>Awesome!!! </h3>
 							<div style='font-family:serif;'>Your purchase of <span style='font-style:italic; font-family:serif;'>".$heading."</span> 
 								<span class='material-icons' style='color:#2166f3; font-size:20px;'>&#xe873;</span>
-                <span style='font-style:italic; font-family:serif;'>solscript</span> was successful. Your new Glitcoin balance is $coinBal. You can now freely access it through search and/or scrolls. Thanks.</div>
+                <span style='font-style:italic; font-family:serif;'>solscript</span> was successful. You can now freely access it through search and/or scrolls. Thanks. <p style='font-style:italic;'>Your new Glitcoin balance is <strong>$coinBal</strong>.</p></div>
 					<div style='display:flex; justify-content:center; align-items:center; margin:20px auto -8px auto;'>
 						<a href='index.php?page=download&catid=$catID&scriptid=$_published&chat=$chatpop' style='font-size:14px;'>Download</a> 
 							<div style='height:15px; width:1px; background:#000; margin-left:20px; margin-right:20px;'></div>
