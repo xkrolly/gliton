@@ -1,8 +1,6 @@
 <?php
 	$usersContr = new usersContr();
 	$usersView = new usersView();
-	//(1)get the que, //
-	//get the stdnt
 	$_SESSION['insertToScd'] = FALSE;
     $_SESSION['ISSET_CHAT'] = FALSE;
 //set empty global variable for date
@@ -568,7 +566,7 @@ setInterval(function(){
 </div>
 ";
 $rForm.=$usersView->searchPanel();
-$rForm.=$usersView->bottomNavigation('A');
+$rForm.=$usersView->bottomNavigation();
       
 define('tutortochat', 'chatNow');
 define('stdtochat', 'chatReady');
