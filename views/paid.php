@@ -123,14 +123,14 @@ if(!empty($_GET['link'])){
         			<span class='material-icons' style='color:#0f0; font-size:60px;'>&#xe86c;</span>
                 </div>
 				<h3>Awesome!!! </h3>
-							<div style='font-family:serif;'>Your purchase of <span style='font-style:italic; text-decoration:underlined; font-family:serif;'>".$heading."</span> 
+							<div style='font-family:serif;'>Your purchase of <span style='font-style:italic; text-decoration:underline; font-family:serif;'>".$heading."</span> 
                 <span style='font-style:italic; font-family:serif;'>solscript</span> was successful. You can now freely access it through search and/or scrolls. Thanks. <p style='font-style:italic; color:red; margin-top:10px; font-size:13px;'>Your new Glitcoin balance is <strong>$coinBal</strong>.</p></div>
 					<div style='display:flex; justify-content:center; align-items:center; margin:20px auto -8px auto;'>
 						<a href='index.php?page=download&catid=$catID&scriptid=$_published&chat=$chatpop' style='font-style:italic; color:deepskyblue; font-size:14px;'>Download</a> 
 							<div style='height:15px; width:1px; background:#000; margin-left:20px; margin-right:20px;'></div>
 						<a href='index.php?page=peepChats&s=$tutor&r=$student&pub=$pubid' style='font-style:italic; color:deepskyblue; font-size:14px;'>View</a>
 					</div>
-					<div style='width:100%; display:flex; justify-content:center; align-items:center; margin-top:15px; font-size:12px;'><a href='index.php?page=trial&pubid=$pubid&catid=$catID' style='color:#fff; padding:10px; margin-right:10px; text-decoration:none; border-radius:10px; background:deepskyblue; border:.5px solid #666;' class='hover'>Trial #1 available - 50% discount</a>".$usersView->learnMore(5, 12)."</div>
+					<div style='width:100%; display:flex; justify-content:center; align-items:center; margin-top:15px; font-size:12px;'><a href='index.php?page=trial&pubid=$pubid&catid=$catID' style='color:#fff; padding:10px; margin-right:10px; text-decoration:underline; border-radius:10px;' class='hover'>Trial #1 available - 50% discount</a>".$usersView->learnMore(5, 12)."</div>
 
 				</div>
 			</div>";
