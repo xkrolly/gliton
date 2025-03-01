@@ -2305,6 +2305,10 @@ $output = intval($output) * 1;
 		//$userPay->pay($price, $email, $redirect_Link);
 	}
 
+	public function coinBalance($me){
+ 		$cData = $this->select('coin', ' WHERE owner_id = ?', $me);
+ 		return $cData[0]['Gcoin'];
+	}
 
 	public function checkPurchase($product_ID){
 			//is it bought already???
