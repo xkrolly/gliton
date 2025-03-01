@@ -130,7 +130,7 @@ if(!empty($_GET['link'])){
 							<div style='height:15px; width:1px; background:#000; margin-left:20px; margin-right:20px;'></div>
 						<a href='index.php?page=peepChats&s=$tutor&r=$student&pub=$pubid' style='font-style:italic; color:deepskyblue; font-size:14px;'>View</a>
 					</div>
-					<div style='width:100%; display:flex; justify-content:center; align-items:center; margin-top:15px; font-size:12px;'><a href='index.php?page=trial&pubid=$pubid&catid=$catID' style='color:#fff; padding:10px; margin-right:10px; text-decoration:underline; border-radius:10px;' class='hover'>Trial #1 available - 50% discount</a>".$usersView->learnMore(5, 12)."</div>
+					<div style='width:100%; display:flex; justify-content:center; align-items:center; margin-top:15px; font-size:12px;'><a href='index.php?page=trial&pubid=$pubid&catid=$catID' style='color:#000; padding:10px; margin-right:10px; text-decoration:underline; border-radius:10px;' class='hover'>Trial #1 available - 50% discount</a>".$usersView->learnMore(5, 12)."</div>
 
 				</div>
 			</div>";
