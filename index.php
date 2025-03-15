@@ -14,7 +14,8 @@ $pgv->content='';
     $pgv->addScript('scripts/key.js');
     $pgv->addCSS('https://fonts.googleapis.com/icon?family=Material+Icons');
   
-if(isset($_SESSION['user_id']) || isset($_GET['autolog'])){
+//if(isset($_SESSION['user_id']) || isset($_GET['autolog'])){
+if(isset($_SESSION['user_id']) && intval($_SESSION['user_id']) < 3){
   $pgv->addScript('scripts/bot.js');
   $pgv->addScript('scripts/recorder.js');
   $pgv->addScript('scripts/recorder2.js');
