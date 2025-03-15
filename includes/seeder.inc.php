@@ -48,7 +48,7 @@ if(isset($_POST['problem'])){
 
 }
 if(isset($_POST['procedure'])){
-	var_dump('expression----------');
+//	var_dump('expression----------');
 	$insight = $_POST['insight'];
 	$sdID = $_POST['project'];
 //	$shrdKey = $_POST['sk'];
