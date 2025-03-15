@@ -8,8 +8,13 @@ if(isset($_POST['publish'])){
   $publish_mode = $_POST['pubmode'];
   $publish_mode == 1 ? $price = 1.1 * intval($_POST['price']) : ($publish_mode == 2 ? $price = $_POST['launchfund'] : $price = 0);
 
-
-  $publink = $_POST['publink'];
+  $projectID = '';
+  if(isset($_POST['project'])){
+    $sdID = $_POST['project'];
+    $sdData = $usersView->select('seeder', ' WHERE sd_id = ?', $sdID);
+    $projectID .= $sdData[0]['content_id'];
+  }
+  !empty($projectID) ? $publink = $projectID : $publink = $_POST['publink'];
   $caption = $_POST['caption'];
   $shrdKey = $_POST['sk'];
   $timespan = $_POST['timespan'];
@@ -19,7 +24,15 @@ if(isset($_POST['publish'])){
 
   $searchkeys = $_POST['k1']." ".$_POST['k2']." ".$_POST['k3']." ".$_POST['k4']." ".$_POST['k5']." ".$_POST['k6'];
   $authorization = $_POST['authorization'];
+
+  $topic_id = $_POST['cat_id']; 
+  $chatpop = $_POST['chatpop'];
+  $pubtype = $_POST['pubtype'];
   
+  $usersView->publish($publink, $caption, $searchkeys, $topic_id, $chatpop, $publish_mode, $authorization, $price, $timespan, $shrdKey);
+
+/*
+
   $pubVal = $publink.', '.$caption.', '.$searchkeys;
 
   $checkPub = $usersView->select('publish', ' WHERE published = ? AND heading=? AND searchKeys = ?', $pubVal);
@@ -76,7 +89,7 @@ $usersView->informFoloas($xpt, $pub_id);
   
   //d//elete approval
     $usersContr->delete('approval', ' WHERE uniqconvID = ?', $publink);
-  }
+  }*/
   
     echo "<div style='display:flex; height:100vh; width:100vw; justify-content:center; align-items:center;'>
         <div style='font-size:38px; width:70%; text-align:center; font-family:serif;'>
