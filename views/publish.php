@@ -1,7 +1,7 @@
 <?php
 if(isset($_POST['publish'])){
 
-  include('../includes/autoloader.inc.php');
+  include('../includes/autoloader.inc.php'); 
   $usersContr = new usersContr();
   $usersView = new usersView();
 
