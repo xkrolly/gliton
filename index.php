@@ -16,7 +16,7 @@ $pgv->content='';
   
 //if(isset($_SESSION['user_id']) || isset($_GET['autolog'])){
 //var_dump($_SESSION['user_id']);
-if(isset($_SESSION['user_id']) && intval($_SESSION['user_id']) < 3){
+if(isset($_SESSION['user_id']) && intval($_SESSION['user_id']) < 3 && 2===3){
   $pgv->addScript('scripts/bot.js');
   $pgv->addScript('scripts/recorder.js');
   $pgv->addScript('scripts/recorder2.js');
