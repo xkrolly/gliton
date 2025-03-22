@@ -170,7 +170,65 @@ class UsersView extends Users {
         </div></div></div>";
   }
 
-    public function bottomNavigation(){
+  public function publish($publink, $caption, $searchkeys, $topic_id, $chatpop, $publish_mode, $authorization, $price, $timespan, $shrdKey){
+
+  $pubVal = $publink.', '.$caption.', '.$searchkeys;
+  $checkPub = $this->select('publish', ' WHERE published = ? AND heading=? AND searchKeys = ?', $pubVal);
+  
+  if(count($checkPub) == 0){
+	  $rsP = ''; //rsP = resource Person
+	  $dec_publink = $this->dec_cons($publink);
+	  $publink_array = explode('_', $dec_publink);
+	  //getting resource person
+	  $rsP = $publink_array[0]; 
+	  $rsP_enc = $this->enc_cons($rsP);
+	  
+	  $insight = $this->paragrafin($caption);
+
+	  $seederData = $this->select('seeder', ' WHERE content_id = ?', $publink);
+	  $topic = $seederData[0]['topic'];
+
+	  $val = array('published' => $publink, 'pubmode'=>$publish_mode, 'auth'=>$authorization, 'topic_id'=>$topic_id, 'chatpop'=>$chatpop, 'price'=>$price, 'rsP'=>$rsP_enc, 'heading'=>$topic, 'searchKeys'=>$searchkeys, 'insight'=>$insight, 'timespan'=>$timespan);
+	  
+	  $this->insert2Db('publish', $val);
+	  
+	  //delete if pending file
+	  $valu = $publink;
+	  $this->deleteStmt('pending', ' WHERE projectID = ?', $valu);
+
+	  //update resource person profile about their new publicatn
+	  $rsp_data = $this->select('publish', ' WHERE rsP = ?', $rsP_enc);
+	  $allPub = count($rsp_data);
+	  $valus = $allPub.', '.$rsP;
+	  $this->updateStmt('profile', 'works = ? WHERE profile_id = ?', $valus);
+
+		//inform foloas of the rsp about their new publicatn
+		$vall = $publink.', '.$topic.', '.$searchkeys;
+		$_data = $this->select('publish', ' WHERE published = ? AND heading = ? AND searchKeys = ?', $vall);
+		$pub_id = $_data[0]['pub_id'];
+
+		$userData = $this->fetchUser();
+		$me = $userData[0]['profile_id'];
+//		$this->decryptor0($pubtype) == 'soloPublish' 
+		$publish_mode == 's' ? $xpt = $me : $xpt=$rsP;
+		$this->informFoloas($xpt, $pub_id);
+
+	  //store the shrdk into external shk database for dual chat
+	  if($publish_mode == 'd'){
+	    $_uniqconv_id = $publink;
+	    $shrdKey_enc = $this->enc_cons($shrdKey);
+
+	    $data = $this->select2('sharedkey', ' WHERE ucid = ?', $_uniqconv_id);
+
+	    $val = array('ucid' => $_uniqconv_id, 'sk'=>$shrdKey_enc);
+	  
+	    count($data) == 0 ? $this->insert2SHK('sharedkey', $val) : '';
+	  }
+	     //d//elete approval
+	    $this->deleteStmt('approval', ' WHERE uniqconvID = ?', $publink);
+  }
+}
+public function bottomNavigation(){
     	$userData = $this->fetchUser();
     	$xpt = $userData[0]['xpt'];	
     	$xpt == '1' ? $anchor = 'response' : $anchor = 'enquiry';
@@ -795,7 +853,7 @@ return $heading;
 			mkdir($dir, 0777, true);
 		}
 
-//		file_put_contents($dir.'enc_'.basename($video), $encrypted_content);
+//		file_put_contents($dir.'enc_'.basename($video), 													$encrypted_content);
 		file_put_contents($dir.$vidName, $encrypted_content);
 		file_put_contents($dir.'iv.txt', $iv);
 		file_put_contents($dir.'key.txt', $key);
@@ -839,23 +897,24 @@ return $heading;
 	public function videoDecryptor22($tmp_video_enc, $cat_folder){
 		$storage_dir = '../videos/'.$cat_folder.'/';
 		$file_name = $tmp_video_enc;
-		$file_path = $storage_dir.$file_name;
+		$file_path = $storage_dir.$file_name.'.webm';
 
-		if(file_exists($file_path)){
+		//if(file_exists($file_path)){
+		//	var_dump('file exist');
 			$enc_video_file = file_get_contents($file_path);
 
 			//get filename frm db
-			$mediaData = $this->select2('mediastorage', ' WHERE file = ?', $tmp_video_enc);
+			$mediaData = $this->select2('mediastorage', ' WHERE file = ?', $tmp_video_enc.'.webm');
 
 			$iv = $mediaData[0]['iv'];
 			$key = $mediaData[0]['pw'];
-
+//var_dump($iv.' :videnc: '.$tmp_video_enc);
 			$method = "AES-256-CBC";
 			$dec_video_file = openssl_decrypt($enc_video_file, $method, $key, 0, $iv);
 	
 		   	file_put_contents('../videos/'.$cat_folder.'/dec/'.$file_name.'.webm', $dec_video_file);
 			return 'videos/'.$cat_folder.'/dec/'.$file_name;
-	   }
+	   //}else{var_dump($file_path);}
 	}
 	public function checkClassTime($chatAudience, $class_date){
 		return $this->checkClassDate($chatAudience, $class_date);
@@ -865,7 +924,7 @@ return $heading;
 		$data = $this->select('classes', ' WHERE lecture_id = ?', $lectureID);
 		return $this->dec_cons($data[0]['topic_desc']);
 	}
-	public function postSoloChat($cat, $que, $media, $contentID_enc){
+	public function postSoloChat($cat, $que, $thumbnail, $media, $contentID_enc, $insight, $datetime){
 
 	    $aoi_array = $this->aoi($cat);
        	$queCol = $aoi_array['queCol'];
@@ -877,18 +936,38 @@ return $heading;
 
 		$userData = $this->fetchUser();
 		$me = $userData[0]['profile_id'];
-  		$vals = array($queCol=>$que, $user_id_col=>$me);
-		$this->insert2Db($cat_tbl, $vals);
-        
-        //send to the right folder from temp dir
-        if($media == 3 ){rename('videos/temp/'.$que, 'videos/'.$folder.'/'.$que);}
 
+		//prevent double posting
+		$catVal = $que.', '.$user_id_col;
+		$checkerData = $this->select($cat_tbl, ' WHERE '.$queCol.'=? AND '.$user_id_col.'=?', $catVal);
+
+		if(count($checkerData)==0){
+  		$vals = array($queCol=>$que, $user_id_col=>$me);
+		  $this->insert2Db($cat_tbl, $vals);
+     }
+        //send to the right folder from temp dir
+/*        if($media == 3 ){
+        	rename('../videos/temp/'.$que, '../videos/'.$folder.'/'.$que);
+        }
+*/
 		$valu = $que.', '.$me;
 		$data = $this->select($cat_tbl, ' WHERE '.$queCol.'= ? AND '.$user_id_col.'= ?', $valu);
-		$colVal = $data[0][$cat_id]; 
+			$colVal = $data[0][$cat_id]; 
 
-		$val2 = array('scriptor_id'=>$me, 'content_id'=>$contentID_enc, 'media'=>$media, $cat_id=>$colVal, 'category_id'=>$cat);
-		$this->insert2Db('solochat', $val2);
+
+//prevent Double posting
+			$checkerVal = $me.', '.$contentID_enc.', '.$media.', '.$colVal.', '.$thumbnail.', '.$cat;
+
+			$checkerData2 = $this->select('solochat', ' WHERE scriptor_id = ? AND content_id = ? AND media = ? AND '.$cat_id.' = ? AND thumbnail = ? AND category_id = ?', $checkerVal);
+
+		if(count($checkerData2) == 0){
+			!empty($datetime) ? 
+			$val2 = array('scriptor_id'=>$me, 'content_id'=>$contentID_enc, 'media'=>$media, $cat_id=>$colVal, 'thumbnail'=>$thumbnail, 'category_id'=>$cat, 'cdate'=>$datetime, 'insight'=>$insight) :
+			$val2 = array('scriptor_id'=>$me, 'content_id'=>$contentID_enc, 'media'=>$media, $cat_id=>$colVal, 'thumbnail'=>$thumbnail, 'category_id'=>$cat);
+
+
+			$this->insert2Db('solochat', $val2);
+		}
 	}
 	public function fetchPending(){
     	$userData = $this->fetchUser();
@@ -1565,6 +1644,11 @@ $eachClass	.="		</div><div style='width:100%;'>
 		header('Location: '.$link);
 
 	}*/
+	public function generateSoloSharedKey($cat){
+		$userData = $this->fetchUser();
+		$me = $userData[0]['profile_id'];
+    return $me.$cat.time();
+  }
 	public function getSharedKey($uc){
 		$shrd_data = $this->select2('sharedkey', ' WHERE ucid = ?', $uc);
 		return $this->dec_cons($shrd_data[0]['sk']);
@@ -1825,7 +1909,10 @@ public function usercode3($userDigit){
 		return $output;
 
 	}
-
+ public function coinBalance($me){
+ 	$cData = $this->select('coin', ' WHERE owner_id = ?', $me);
+ 	return $cData[0]['Gcoin'];
+ }
 	public function alphaA_Num($code){
 
 		$alphas = ['j', 'i', 'h', 'g', 'f', 'e', 'd', 'c', 'b', 'a', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'k', 'l', 'm', 'n', 'o', 'p'];
@@ -2274,8 +2361,8 @@ $output = intval($output) * 1;
 
 		$myData = $this->fetchUser();
 		$_buyer = $myData[0]['profile_id'];
-		$buy_er = $this->enc_cons($_buyer);		
-		$buyer = str_replace('==', '', $buy_er);
+		$buyer = $this->num_AlphaA($_buyer);		
+		//$buyer = str_replace('==', '', $buy_er);
 		
 		//get the sharedKey
 		$_product_ID = str_replace(' ', '+', $product_ID);
@@ -2305,10 +2392,6 @@ $output = intval($output) * 1;
 		//$userPay->pay($price, $email, $redirect_Link);
 	}
 
-	public function coinBalance($me){
- 		$cData = $this->select('coin', ' WHERE owner_id = ?', $me);
- 		return $cData[0]['Gcoin'];
-	}
 
 	public function checkPurchase($product_ID){
 			//is it bought already???
@@ -2660,16 +2743,17 @@ $output = intval($output) * 1;
 	public function imgProcessor($file_name, $file_tmp_name, $destination_URL){
 		$maxDimW= 1000;
 		$maxDimH=800;
-			 $check=getimagesize($file_tmp_name);
+  			$check=getimagesize($file_tmp_name);
 			  $imageFileType = strtolower(pathinfo($file_name, PATHINFO_EXTENSION));
-     	   $reqResp="";
+     	  $reqResp="";
      	   if($check!== false){
-                // Allow certain file formats
+        // Allow certain file formats
 	            if($imageFileType == "jpg" || $imageFileType == "png"  || $imageFileType == "webp" || $imageFileType == "jpeg" || $imageFileType == "gif" ){
-
+     	  
 	            	  $target = $destination_URL.'/'.$file_name;
 	     
 	                if (move_uploaded_file($file_tmp_name, $target)){
+
 	                  return true;
 	                }else{return false;}
 	            }
@@ -3935,8 +4019,8 @@ public function newList($user){
     $matchDiff_array = $this->fetchLovableContent($user);
 
 	$query = '';
-
-	if(!empty($matchDiff_array) && count($matchDiff_array) >= 5){ 
+  //var_dump($matchDiff_array);
+/*	if(!empty($matchDiff_array) && count($matchDiff_array) >= 5){ 
     	    
     	$matchDiff_str = implode(", ", $matchDiff_array);
     	foreach($matchDiff_array as $match){
@@ -3945,8 +4029,8 @@ public function newList($user){
 	    $pub = $this->select('publish', " WHERE pub_id IN ($query)", $matchDiff_str);
 	}else{
 	        $pub = $this->select('publish', " WHERE pub_id > ?", 0);
-	}
-//	        $pub = $this->select('publish', " WHERE pub_id > ?", 0);
+	}*/
+	        $pub = $this->select('publish', " WHERE pub_id > ? ORDER BY pub_id DESC", 0);
 	$ln = count($pub) - 1;
 	$all = '';
 	$que = '';
@@ -4008,6 +4092,7 @@ public function newList($user){
 			$cook_id = $chat[0]['cook_id'];
 			$startDate = $chat[0]['cdate'];
 			$mediaInUse = $chat[0]['media'];
+			$thumb = $chat[0]['thumbnail'];
 			empty($mediaInUse) ? $mediaInUse =0 : $mediaInUse; 
             
             $_addVideoMedia = array();
@@ -4035,9 +4120,11 @@ public function newList($user){
 			$med = $this->select($topic, ' WHERE '.$col_id.' = ?', $colval);
 			$que = $med[0][$queCol];
 			$col_val = $colval;
-            $mediaInUse == 3 && !file_exists('../videos/'.$strDir.'/dec/'.$que.'.webm') ? $this->videoDecryptor($que, $strDir) : '';
+            $mediaInUse == 3 && !file_exists('../videos/'.$strDir.'/dec/'.$que.'.webm') ? $this->videoDecryptor22($que, $strDir) : '';
 
-            if($mediaInUse == 3){$this->videoDecryptor22($que, 'vet');}
+//     $mediaInUse == 3 && !file_exists('../videos/'.$strDir.'/dec/'.$que.'.webm') ? var_dump('POST') : var_dump('NOpost');
+//$this->videoDecryptor22($que, $strDir);
+            //if($mediaInUse == 3){$this->videoDecryptor22($que, 'vet');}
 
 	//ENDING MEDIA
 			$_vet_id = $chat[$n]['vet_id'];
@@ -4047,6 +4134,7 @@ public function newList($user){
 			$_cook_id = $chat[$n]['cook_id'];
 			$_mediaInUse = $chat[$n]['media'];
 			$endDate = $chat[$n]['cdate'];
+			$thumb2 = $chat[$n]['thumbnail'];
 
 			$_aoi_array = $this->aoi_cht($_agro_id, $_vet_id, $_hth_id, $_guide_id, $_cook_id);
 			$_topic = $_aoi_array['topic'];
@@ -4059,17 +4147,19 @@ public function newList($user){
 			$_med = $this->select($_topic, ' WHERE '.$_col_id.' = ?', $_colval);
 			$_que = $_med[0][$_queCol];
             
+            $xxx = $this->videoDecryptor22($_que, $_strDir);
+            //var_dump($_que.'()'.$_strDir.' '.$xxx);
             $_mediaInUse == 3 && !file_exists('../videos/'.$_strDir.'/dec/'.$_que.'.webm') ? $this->videoDecryptor22($_que, $_strDir) : '';
       
       $boughtOrNot = $this->boughtOrNot($pub[$ln]['published']);
         
-            if($_mediaInUse == 3){$this->videoDecryptor22($_que, 'vet');}
+            //if($_mediaInUse == 3){$this->videoDecryptor22($_que, 'vet');}
             
             $balance = $this->getCoinBalance();            
             $chatDur = strtotime($endDate) - strtotime($startDate);
             $timespan = "<span style='color:#fff;'>".$this->getTimeDiff($chatDur)."</span>";
             $_endDate = substr($endDate, 0, 10);
-		    $all .= ', '.$pub[$ln]['topic_id'].'__'.$pub[$ln]['heading'].'__L('.$pub_id.'.'.$pub[$ln]['tL'].'.'.$likeStatus.')L__'.$pub[$ln]['published'].'__'.$pub[$ln]['price'].'__'.$mediaInUse.'__'.$_mediaInUse.'__'.$tutorImgUrl.'__'.$_colval.'__'.$col_id.'__'.$_col_id.'__'.$ln.'__'.$strDir.'__'.$_strDir.'__'.$que.'__'.$_que.'__'.$pub_id.'__'.$recipient.'__'.$tutorID_enc_con.'__'.$likeStatus.'__'.$category_id.'__'.$catPass.'__'.$pub[$ln]['share'].'__'.$pub[$ln]['timespan'].'__'.$pub_id_enc.'__'.nl2br(str_replace(', ', '~ ', $pub[$ln]['insight'])).'__'.$consultancy.'__'.$username.'__'.$addVideoMedia.'__'.$addImageMedia.'__'.$addAudioMedia.'__'.$addText.'__'.$tutorID_enc0.'__F('.$pub_id.'.'.$pub[$ln]['tF'].'.'.$favStatus.')F__'.$favStatus.'__'.$_endDate.'__'.$balance.'__'.$boughtOrNot;
+		    $all .= ', '.$pub[$ln]['topic_id'].'__'.$pub[$ln]['heading'].'__L('.$pub_id.'.'.$pub[$ln]['tL'].'.'.$likeStatus.')L__'.$pub[$ln]['published'].'__'.$pub[$ln]['price'].'__'.$mediaInUse.'__'.$_mediaInUse.'__'.$tutorImgUrl.'__'.$_colval.'__'.$col_id.'__'.$_col_id.'__'.$ln.'__'.$strDir.'__'.$_strDir.'__'.$que.'__'.$_que.'__'.$pub_id.'__'.$recipient.'__'.$tutorID_enc_con.'__'.$likeStatus.'__'.$category_id.'__'.$catPass.'__'.$pub[$ln]['share'].'__'.$pub[$ln]['timespan'].'__'.$pub_id_enc.'__'.nl2br(str_replace(', ', '~ ', $pub[$ln]['insight'])).'__'.$consultancy.'__'.$username.'__'.$addVideoMedia.'__'.$addImageMedia.'__'.$addAudioMedia.'__'.$addText.'__'.$tutorID_enc0.'__F('.$pub_id.'.'.$pub[$ln]['tF'].'.'.$favStatus.')F__'.$favStatus.'__'.$_endDate.'__'.$balance.'__'.$boughtOrNot.'__'.$thumb.'__'.$thumb2;
 		}
 	$ln--;
 	}
