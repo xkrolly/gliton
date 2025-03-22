@@ -261,8 +261,13 @@ function pageView(content){
               var favStatus = content[34];
               var pubDate = content[35];
               var balance = content[36];
+              var thumb = content[38];
+              var thumb2 = content[39];
+              
+              var posterA = strDir+'/thumb/'+que+'t';
+              var posterB = strDir2+'/thumb/'+que2+'t';
 
-              var srcA = strDir+'/dec/'+que;
+	      var srcA = strDir+'/dec/'+que;
               var srcB = strDir2+'/dec/'+que2;
               var srcImgA = strDir+'/'+que;
               var srcImgB = strDir2+'/'+que2;
@@ -314,6 +319,7 @@ function pageView(content){
 
                   document.getElementById('mediaA').style.display = 'block';
                   document.getElementById('mediaA').src = 'videos/'+srcA+'.webm';
+                  if(thumb != ''){document.getElementById('mediaA').setAttribute('poster', 'videos/'+posterA+'.webp');}
                   document.getElementById('imgA').style.display = 'none';
                   document.getElementById('wordingsA').style.display = 'none';
                   $('.flexible2').stop();
@@ -346,6 +352,7 @@ function pageView(content){
               else if(media2 == 3){
                   document.getElementById('mediaB').style.display = 'block';
                   document.getElementById('mediaB').src = 'videos/'+srcB+'.webm';
+                  if(thumb2 != ''){document.getElementById('mediaB').setAttribute('poster', 'videos/'+posterB+'.webp');}
                   document.getElementById('imgB').style.display = 'none';
            //THREE
                   media != 3 ? document.getElementById('mediaB').play() : 
