@@ -1,4 +1,75 @@
-            $('#GlitCdata').on('submit', function(event){
+$('#seeder_pData').on('submit', function(event){
+                event.preventDefault();
+         
+            $.ajax({
+                url: 'includes/seeder.inc.php',
+                method: 'post',
+                data: new FormData(this),
+                dataType:'json',
+                contentType: false,
+                cache: false,
+                processData: false,
+                success: function(data){
+                    var cat = data.cat;
+                    var que = data.que;
+                    alert(que+' = SEEDER SUCCESS = '+cat);
+                },
+                error: function(data){
+
+                }
+              });
+            
+});
+
+$('#seed_stages').on('submit', function(event){
+                event.preventDefault();
+         
+            $.ajax({
+                url: 'includes/seeder.inc.php',
+                method: 'post',
+                data: new FormData(this),
+                dataType:'json',
+                contentType: false,
+                cache: false,
+                processData: false,
+                success: function(data){
+                    var cat = data.cat;
+                    var que = data.que;
+                    alert(que+' = SEEDER SUCCESS = '+cat);
+                },
+                error: function(data){
+
+                }
+              });
+            
+});
+
+$('#publish_data').on('submit', function(event){
+                event.preventDefault();
+         
+            $.ajax({
+                url: 'includes/seeder.inc.php',
+                method: 'post',
+                data: new FormData(this),
+                dataType:'json',
+                contentType: false,
+                cache: false,
+                processData: false,
+                success: function(data){
+                    var cat = data.cat;
+                    var que = data.que;
+                    alert(que+' = SEEDER SUCCESS = '+cat);
+                },
+                error: function(data){
+
+                }
+              });
+            
+});
+
+
+
+$('#GlitCdata').on('submit', function(event){
                 event.preventDefault();
          
             $.ajax({
