@@ -1,8 +1,7 @@
 $('#seeder_pData').on('submit', function(event){
                 event.preventDefault();
-alert('inready');         
             $.ajax({
-                url: ../includes/seeder.inc.php',
+                url: includes/seeder.inc.php',
                 method: 'post',
                 data: new FormData(this),
                 dataType:'json',
