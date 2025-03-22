@@ -12,7 +12,7 @@ $('#seeder_pData').on('submit', function(event){
                 success: function(data){
                     var cat = data.cat;
                     var que = data.que;
-                    alert(que+' = SEEDER SUCCESS = '+cat);
+                    alert('SEEDER SUCCESS');
                 },
                 error: function(data){
 
@@ -35,7 +35,7 @@ $('#seed_stages').on('submit', function(event){
                 success: function(data){
                     var cat = data.cat;
                     var que = data.que;
-                    alert(que+' = SEEDER SUCCESS = '+cat);
+                    alert('SUCCESSFUL');
                 },
                 error: function(data){
 
@@ -58,7 +58,6 @@ $('#publish_data').on('submit', function(event){
                 success: function(data){
                     var cat = data.cat;
                     var que = data.que;
-                    alert(que+' = SEEDER SUCCESS = '+cat);
                 },
                 error: function(data){
 
