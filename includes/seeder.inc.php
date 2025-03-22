@@ -143,8 +143,16 @@ if(isset($_POST['publishSeed'])){
   
     $publish_mode = $_POST['pubmode'];
     $publish_mode == 1 ? $price = 1.1 * intval($_POST['price']) : ($publish_mode == 2 ? $price = $_POST['launchfund'] : $price = 0);
-    $timespan = 1111111;
-    $shrdKey = $usersView->generateSoloSharedKey($topic_id);
+
+      //get solscript timespan
+          $data = $usersView->select('solochat', ' WHERE content_id = ?', $contentID_enc);
+          $startDate = $data[0]['cdate'];
+          $n = count($data) - 1;
+          $endDate = $data[$n]['cdate'];
+          $_timespan = strtotime($endDate) - strtotime($startDate);
+          $timespan = $usersView->getTimeDiff($_timespan)
+
+		  $shrdKey = $usersView->generateSoloSharedKey($topic_id);
 
 	$usersView->publish($contentID_enc, $caption, $searchkeys, $topic_id, $chatpop, $publish_mode, $authorization, $price, $timespan, $shrdKey);
 
