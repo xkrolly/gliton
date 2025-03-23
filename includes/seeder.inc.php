@@ -5,15 +5,18 @@ include('autoloader.inc.php');
 	$usersView = new usersView();
 
 if(isset($_POST['problem'])){
+	var_dump('one');
 	$topic = $_POST['topic'];
 	$insight = $_POST['insight'];
-
+var_dump('one2');
+	
 	$cat = $_POST['category'];
 	$datetime = $_POST['date'].' '.$_POST['time'];
 
 	    $aoi_array = $usersView->aoi($cat);
 		$folder = $aoi_array['folder'];
-
+var_dump('one3');
+	
 	$userData = $usersView->fetchUser();
 	$me = $userData[0]['profile_id'];
 
@@ -26,12 +29,14 @@ if(isset($_POST['problem'])){
 	$destination_URL = '../videos/'.$folder.'/thumb';
 
 	$usersView->imgProcessor($thumbnail, $thumbnail1_tmp, $destination_URL);
+	var_dump('one4');
 	
 	/////generate contentID
 	$contentID = $me.'_0_'.$cat.'_'.time();
 	$contentID_enc =  $usersView->enc_cons($contentID);
 
-
+var_dump('one5');
+	
 	//if it is seeder, fill seeder tbl
 	$val3 = array('topic'=>$topic, 'cat'=>$cat, 'content_id'=>$contentID_enc);
 	$usersContr->insert('seeder', $val3);
