@@ -280,7 +280,8 @@ if($imp == 'TRUE'){$page .="<div id='impostor_note' style='position:fixed; top:0
                   <a href='resetpw.php' style='background:#fff; color:deepskyblue; padding:12px; border-radius:30px; filter:drop-shadow(1px 1px 1px #555);'>Change Password</a>
                 </div>
               </div>
-            </div>";}
+            </div>";
+}
       $page.=  $pgv->content
      
       ."</article>
