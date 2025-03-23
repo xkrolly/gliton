@@ -57,6 +57,7 @@ $('#publish_data').on('submit', function(event){
                 success: function(data){
                     var cat = data.cat;
                     var que = data.que;
+                    alert('SUCCESSFUL2');
                 },
                 error: function(data){
 
