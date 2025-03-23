@@ -1,7 +1,7 @@
 $('#seeder_pData').on('submit', function(event){
-  alert('i am in');
+ // alert('i am in');
                 event.preventDefault();
-    alert('i am in 2');
+    //alert('i am in 2');
 
             $.ajax({
                 url: 'includes/seeder.inc.php',
