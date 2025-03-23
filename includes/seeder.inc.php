@@ -1,6 +1,6 @@
 <?php
-
-include('autoloader.inc.php');
+var_dump('WHAT is happeneing');
+/*include('autoloader.inc.php');
 
 	$usersContr = new usersContr();
 	$usersView = new usersView();
@@ -70,11 +70,11 @@ if(isset($_POST['procedure'])){
 	$que = time();
 	$img = $que.'.webp';
 
-/*	if( isset($_FILES['img']['name'])){
-		$img_tmp = $_FILES['img']['tmp_name'];
-		$destination_URL = '../img/'.$folder;
-		$usersView->imgProcessor($img, $img_tmp, $destination_URL);
-	}*/
+//	if( isset($_FILES['img']['name'])){
+//		$img_tmp = $_FILES['img']['tmp_name'];
+//		$destination_URL = '../img/'.$folder;
+//		$usersView->imgProcessor($img, $img_tmp, $destination_URL);
+//	}
 	$userData = $usersView->fetchUser();
 	$me = $userData[0]['profile_id'];
 
@@ -163,4 +163,4 @@ if(isset($_POST['publishSeed'])){
 
 	echo json_encode(array("cat"=>$topic_id, "que"=>$que));	
 
-}
+}*/
