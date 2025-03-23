@@ -1,15 +1,12 @@
 <?php
-var_dump('oneA');
 
 include('autoloader.inc.php');
 
 	$usersContr = new usersContr();
 	$usersView = new usersView();
-var_dump('one1');
 	
 if(isset($_POST['problem'])){
-	var_dump('one');
-	$topic = $_POST['topic'];
+	$topic = 'NONONO';//$_POST['topic'];
 	$insight = $_POST['insight'];
 var_dump('one2');
 	
