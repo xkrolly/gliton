@@ -3,7 +3,8 @@ include('autoloader.inc.php');
 
 	$usersContr = new usersContr();
 	$usersView = new usersView();
-
+var_dump('one1');
+	
 if(isset($_POST['problem'])){
 	var_dump('one');
 	$topic = $_POST['topic'];
