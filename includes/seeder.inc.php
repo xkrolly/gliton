@@ -1,4 +1,6 @@
 <?php
+var_dump('oneA');
+
 include('autoloader.inc.php');
 
 	$usersContr = new usersContr();
