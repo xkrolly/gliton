@@ -149,7 +149,7 @@ if(isset($_POST['publishSeed'])){
           $n = count($data) - 1;
           $endDate = $data[$n]['cdate'];
           $_timespan = strtotime($endDate) - strtotime($startDate);
-          $timespan = $usersView->getTimeDiff($_timespan)
+          $timespan = $usersView->getTimeDiff($_timespan);
 
 		  $shrdKey = $usersView->generateSoloSharedKey($topic_id);
 
