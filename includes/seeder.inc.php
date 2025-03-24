@@ -159,4 +159,4 @@ if(isset($_POST['publishSeed'])){
 
 	echo json_encode(array("cat"=>$topic_id, "que"=>$que));	
 
-}inc
+}
