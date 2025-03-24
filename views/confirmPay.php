@@ -4,7 +4,7 @@ $usersContr = new usersContr();
 $usersView = new usersView();
 
 /*
-$lectureid = $usersView->decryptor0($_GET['lectureid']);
+$lecture:qid = $usersView->decryptor0($_GET['lectureid']);
 $lectureid = str_replace(' ', '+', $lectureid);
 $lectureID_enc_cons = $usersView->enc_cons($lectureid);
 */
