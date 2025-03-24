@@ -4,9 +4,9 @@ include('autoloader.inc.php');
 
 	$usersContr = new usersContr();
 	$usersView = new usersView();
-	var_dump('2344');
+	//var_dump('2344');
 if(isset($_POST['problem'])){
-var_dump('topic title');
+//var_dump('topic title');
 	$topic = $_POST['textspace'];
 	$insight = $_POST['insight'];
 	
