@@ -117,7 +117,7 @@ $rForm ="
 				   								<input type='hidden' name='problem' value='problem'>
 
 				                <div class='form-group' style='margin-top:25px;'>
-				                    <div class='col-sm-12 center'>
+				                    <div class='col-sm-12 center' onclick='inlineLoader(\"inLoader\");'>
 
 				                            <button type='submit' disabled name='problem' class='col-sm-12 btn btn-default em hover2 theme' id='post_enq' style='display:flex; align-items:center; justify-content:center; padding:8px 15px 8px 15px; font-size:16px; border:2px solid #2186f3; border-radius:30px;'><span>Post problem</span><span id='inLoader' style='display:none;'></span></button>
 				                    </div>
