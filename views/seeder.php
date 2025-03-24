@@ -1,4 +1,4 @@
-<?php
+ <?php
 	$usersContr = new usersContr();
 	$usersView = new usersView();
 
