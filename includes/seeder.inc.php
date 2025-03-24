@@ -4,9 +4,9 @@ include('autoloader.inc.php');
 
 	$usersContr = new usersContr();
 	$usersView = new usersView();
-	
+	var_dump('2344');
 if(isset($_POST['problem'])){
-//var_dump('topic title');
+var_dump('topic title');
 	$topic = $_POST['textspace'];
 	$insight = $_POST['insight'];
 	
@@ -135,8 +135,6 @@ if(isset($_POST['publishSeed'])){
 	$videoName = str_replace('.webm', '', $videoName);
 
 	$usersView->postSoloChat($topic_id, $videoName, $videoName.'t', $media, $contentID_enc, $caption, $datetime);
-
-
 
     $searchkeys = $_POST['k1']." ".$_POST['k2']." ".$_POST['k3']." ".$_POST['k4']." ".$_POST['k5']." ".$_POST['k6'];
     $_POST['authorization'] == 1 ? $authorization = $_POST['authority'] : $authorization = '0';
