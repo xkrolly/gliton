@@ -6,7 +6,8 @@ include('autoloader.inc.php');
 	$usersView = new usersView();
 	
 if(isset($_POST['problem'])){
-	$topic = $_POST['topic'];
+var_dump('topic title');
+	$topic = $_POST['title'];
 	$insight = $_POST['insight'];
 	
 	$cat = $_POST['category'];
