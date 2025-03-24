@@ -71,8 +71,8 @@ $rForm ="
 				              </div>
 				               	<div style='display: flex; justify-content: center;  margin-bottom: 20px;'>
 									<label>Topic</label>
-									<input type='text' name='topic' id='topic' />
-									<input type='text' name='textspace' id='textspace' disabled/>
+									<input type='text' name='textspace' id='textspace' />
+									
 
 								</div>
 										<div style='display: flex; justify-content: center;  margin-bottom: 20px;'>
