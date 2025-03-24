@@ -6,7 +6,7 @@ include('autoloader.inc.php');
 	$usersView = new usersView();
 	
 if(isset($_POST['problem'])){
-var_dump('topic title');
+//var_dump('topic title');
 	$topic = $_POST['textspace'];
 	$insight = $_POST['insight'];
 	
@@ -159,4 +159,4 @@ if(isset($_POST['publishSeed'])){
 
 	echo json_encode(array("cat"=>$topic_id, "que"=>$que));	
 
-}*/
+}inc
