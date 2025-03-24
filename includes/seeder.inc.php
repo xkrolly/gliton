@@ -7,7 +7,7 @@ include('autoloader.inc.php');
 	
 if(isset($_POST['problem'])){
 var_dump('topic title');
-	$topic = $_POST['title'];
+	$topic = $_POST['textspace'];
 	$insight = $_POST['insight'];
 	
 	$cat = $_POST['category'];
