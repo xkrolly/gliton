@@ -31,7 +31,7 @@ $m = count($sd_data) - 1;
 
 $rForm ="
 	            <div style='display:flex; flex-direction:column; padding:20px; padding-bottom:100px; background:#eee; min-height:100vh;'>
-			        	<form style='width:100%; padding:20px; border-radius:20px; background:#fff;' method='post' id='seeder_pData'>
+			        	<form enctype='multipart/form-data' style='width:100%; padding:20px; border-radius:20px; background:#fff;' method='post' id='seeder_pData'>
 					
 
 						    <h4 style='text-align:center; font-weight:1000;'>Problem CVE</h4>
@@ -127,7 +127,7 @@ $rForm ="
 
 						</form>
 				
-			        	<form style='width:100%; margin-top:20px; background:#fff; padding:20px; border-radius:20px;' method='post' id='seed_stages' >
+			        	<form enctype='multipart/form-data' style='width:100%; margin-top:20px; background:#fff; padding:20px; border-radius:20px;' method='post' id='seed_stages' >
 						    <h4 style='text-align:center; font-weight:1000;'>Procedures</h4>
 								<div style='display: flex; justify-content: center;  margin-bottom: 20px;'>
 									<label>Pick project</label>
@@ -165,7 +165,7 @@ $rForm ="
 								<input type='submit' name='procedure' value='Add stage'/>
 						</form>
 
-				        <form style='width:100%; margin-top:20px; background:#fff; padding:20px; border-radius:20px;' method='post' id='publish_data'>
+				        <form enctype='multipart/form-data' style='width:100%; margin-top:20px; background:#fff; padding:20px; border-radius:20px;' method='post' id='publish_data'>
 							    <h4 style='text-align:center; font-weight:1000;'>Solution CVE</h4>
 								<div style='display: flex; justify-content: center;  margin-bottom: 20px;'>
 									<label>Pick project</label>
