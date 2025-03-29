@@ -69,19 +69,19 @@ $sol .="<video style='z-index:10; display:none; background:#fff; height:100vh; w
                     </header>
                     <div style='text-align:right; margin-bottom:30px; font-size:11px;'>Scripting product application(s)</div>
                
-                    <div style='margin-top:15px; border-radius:90px; padding:20px; border:.5px solid #aaa;'>
+                    <div style='margin-top:15px; padding:10px; border:.5px solid #aaa;'>
                         <div class='form-group'>
                             <h5 style='font-weight:bold; display:flex; margin-left:-18px; width:100%; display:flex; justify-content:flex-start; align-items:center;'>
                                 <span style='font-size:10px;'>Create product CTT</span>
                             </h5>
-                            <select class='form-control property col-sm-12' name='topic' id='topic' title='topic' onchange='showSublist()' style='height:40px; font-size:14px; margin-top:20px; border-radius:20px;'>
+                            <select class='form-control property col-sm-12' name='topic' id='topic' title='topic' onchange='showSublist()' style='height:40px; font-size:14px; margin-top:20px; border-radius:20px; background:#fff;'>
                                 <option value=''>Select category</option>
                                 <option value='a'>Agro/ Farming</option>
                                 <option value='b'>Veterinary</option>
                                 <option value='e'>Nutrition/Diet</option>
                             </select>
                             <div id='subList-panel' style='margin-bottom:10px;'>
-                                <div class='cat-list-panel' style='background:#eee;'>
+                                <div class='cat-list-panel' style=''>
                                     <div style='display:flex; width:100%;'><input type='hidden' name='categoryval' id='categoryval'>
                                         <p class='list-ring'>
                                             <label><input type='radio' name='category' class='category' value='1'>&nbsp;&nbsp;Agrochemicals</label>
