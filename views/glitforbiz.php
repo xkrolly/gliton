@@ -71,7 +71,7 @@ $sol .="<video style='z-index:10; display:none; background:#fff; height:100vh; w
                
                     <div style='margin-top:15px; padding:10px;'>
                         <div class='form-group'>
-                            <h5 style='font-weight:bold; display:flex; margin-left:-18px; width:100%; display:flex; justify-content:flex-start; align-items:center;'>
+                            <h5 style='font-weight:bold; display:flex; width:100%; display:flex; justify-content:flex-start; align-items:center;'>
                                 <span style='font-size:10px;'>Create product CTT</span>
                             </h5>
                             <select class='form-control property col-sm-12' name='topic' id='topic' title='topic' onchange='showSublist()' style='height:40px; font-size:14px; margin-top:20px; border-radius:20px; background:#fff;'>
@@ -108,10 +108,9 @@ $sol .="<video style='z-index:10; display:none; background:#fff; height:100vh; w
                     
                         <div class='form-group' style=''>
                             <div class='col-sm-12' style='width:100%; margin-top:20px; padding:10px;'>
-                                <h5 style='font-weight:bold; display:flex; align-items:center; width:100%; margin-left:-18px; margin-bottom:20px;'>
+                                <h5 style='font-weight:bold; display:flex; align-items:center; width:100%; margin-bottom:20px;'>
                                     <span style='font-size:10px;'>Problem Confirmatory Visual evidence</span>
                                 </h5>
-                                <hr style=' margin-top:5px;'>
                                 <div class='' style='display:flex; justify-content:space-around; align-items:center;'>
                                     <div onclick='useCamera();'>
                                         <span>
@@ -128,8 +127,6 @@ $sol .="<video style='z-index:10; display:none; background:#fff; height:100vh; w
                                     <div style='font-size:10px;'>Video proof</div>
                                 </div>
                             </div>
-                            <hr style=' margin-top:35px;'>
-                            <div style='width:100%; text-align:center; font-size:10px; color:#2166f3;'>Snap or videoshoot the problem</div>               
                             <div id='check_item' style='text-align:center; color:red;'></div>
                         </div>
                 </div>
