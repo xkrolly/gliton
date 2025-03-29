@@ -65,15 +65,14 @@ $sol .="<video style='z-index:10; display:none; background:#fff; height:100vh; w
                     <input type='hidden' name='category' id='category' class='category' value=''/>
 
                     <header class='header1' style='border-bottom: 1px solid red; padding-bottom:7px; display:flex;'>
-                        <div style='margin-right:auto; font-size:22px; color:green;'>Create new</div>
+                        <div style='margin-right:auto; font-size:22px; color:green;'>Create product Solscript</div>
                     </header>
-                    <div style='text-align:right; margin-bottom:30px; font-size:11px;'>Creating practicable solution contents</div>
+                    <div style='text-align:right; margin-bottom:30px; font-size:11px;'>Scripting product application(s)</div>
                
-                    <div style='margin-top:15px; background:#eee; border-radius:90px; padding:20px; border:.5px solid #aaa;'>
+                    <div style='margin-top:15px; border-radius:90px; padding:20px; border:.5px solid #aaa;'>
                         <div class='form-group'>
                             <h5 style='font-weight:bold; display:flex; margin-left:-18px; width:100%; display:flex; justify-content:flex-start; align-items:center;'>
-                                <span style='height:45px; width:45px; display:flex; justify-content:center; align-items:center; border-radius:50%; background:#eee; margin-right:10px; font-size:25px; border:8px solid #fff;'>1</span>
-                                <span style='font-size:10px;'>Create category, topic, title - <span style='color:red;'>CTT</span>
+                                <span style='font-size:10px;'>Create product CTT</span>
                             </h5>
                             <select class='form-control property col-sm-12' name='topic' id='topic' title='topic' onchange='showSublist()' style='height:40px; font-size:14px; margin-top:20px; border-radius:20px;'>
                                 <option value=''>Select category</option>
@@ -98,9 +97,9 @@ $sol .="<video style='z-index:10; display:none; background:#fff; height:100vh; w
                                 </div>
                         </div>
                         <div class='form-group' id='textQ' style='display:none; padding:5px; margin-bottom:20px;'>
-                                <input type='text' name='title' id='textspace' class='form-control' placeholder='Your succint title' style='font-size:14px; border-radius:20px;'/>
+                                <input type='text' name='title' id='textspace' class='form-control' placeholder='Title for the product application' style='font-size:14px; border-radius:20px;'/>
                                 <div style='display:flex; flex-direction:column; font-size:12px; padding:5px 10px 5px 20px; margin-top:10px; background:#fff; border-radius:10px;' >
-                                      <div style='font-size:10px; text-align:left; font-style:italic; color:#2166f3;'>NOTE: Title should reflect the uniqueness of your solution approach by quantifying all or either of the associated parameters </div>
+                                      <div style='font-size:10px; text-align:left; font-style:italic; color:#2166f3;'>NOTE: Title should reflect only the problem the product is solving in your use case</div>
                                       <div style='display:flex; width:100%;'><div style='display:flex; margin-left:auto; justify-content:center; align-items:center; height:14px; width:14px; border:1px solid #2166f3; color:#2166f3; border-radius:50%; font-size:10px; font-family:serif; font-style:italic; font-weight:1000;' onclick='learnmore(6);'>i</div></div>
                                 </div>
                         </div>
@@ -108,10 +107,9 @@ $sol .="<video style='z-index:10; display:none; background:#fff; height:100vh; w
                     </div>
                     
                         <div class='form-group' style=''>
-                            <div class='col-sm-12' style='width:100%; background:#ADD8E6; margin-top:20px;  border:.5px solid #aaa;  padding:20px; border-radius:90px;'>
+                            <div class='col-sm-12' style='width:100%; margin-top:20px;  border:.5px solid #aaa;  padding:10px; border-radius:20px;'>
                                 <h5 style='font-weight:bold; display:flex; align-items:center; width:100%; margin-left:-18px; margin-bottom:20px;'>
-                                    <span style='height:45px; width:45px; display:flex; justify-content:center; align-items:center; border-radius:50%; background:#ADD8E6; margin-right:10px; border:8px solid #fff;'>2</span>
-                                    <span style='font-size:10px;'>Confirmatory Visual evidence - <span style='color:red;'>CVE</span></span>
+                                    <span style='font-size:10px;'>Problem Confirmatory Visual evidence</span>
                                 </h5>
                                 <hr style=' margin-top:5px;'>
                                 <div class='' style='display:flex; justify-content:space-around; align-items:center;'>
