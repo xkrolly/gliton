@@ -69,7 +69,7 @@ $sol .="<video style='z-index:10; display:none; background:#fff; height:100vh; w
                     </header>
                     <div style='text-align:right; margin-bottom:30px; font-size:11px;'>Scripting product application(s)</div>
                
-                    <div style='margin-top:15px; padding:10px; border:.5px solid #aaa;'>
+                    <div style='margin-top:15px; padding:10px;'>
                         <div class='form-group'>
                             <h5 style='font-weight:bold; display:flex; margin-left:-18px; width:100%; display:flex; justify-content:flex-start; align-items:center;'>
                                 <span style='font-size:10px;'>Create product CTT</span>
@@ -107,7 +107,7 @@ $sol .="<video style='z-index:10; display:none; background:#fff; height:100vh; w
                     </div>
                     
                         <div class='form-group' style=''>
-                            <div class='col-sm-12' style='width:100%; margin-top:20px;  border:.5px solid #aaa;  padding:10px; border-radius:20px;'>
+                            <div class='col-sm-12' style='width:100%; margin-top:20px; padding:10px;'>
                                 <h5 style='font-weight:bold; display:flex; align-items:center; width:100%; margin-left:-18px; margin-bottom:20px;'>
                                     <span style='font-size:10px;'>Problem Confirmatory Visual evidence</span>
                                 </h5>
