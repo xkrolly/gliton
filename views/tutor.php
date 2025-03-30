@@ -101,7 +101,7 @@ $locked != '' ? $myBalSpan = "<span style='color:#fff; padding:10px; font-weight
                 <span style='margin-right:auto; padding:10px; font-weight:bold;'><a href='buycoin' style='color:#2166f3;'>Fund wallet</a>
                 </span>$myBalSpan</div>";
 
-				$tutor_list .= "<div style='padding:5px;'><h6 style='font-size:18px; text-align:center; margin-bottom:10px; margin-top:40px; font-family:serif;'>".$expert."s</h6>";
+				$tutor_list .= "<div style='padding:5px;'><h6 style='font-size:28px; text-align:center; margin-bottom:10px; margin-top:60px; font-family:roboto; color:#2166f3; font-weight:1000;'>".$expert."s</h6>";
 
 				if(count($tutorData) > 0){
 						$ln = count($tutorData) - 1;
@@ -177,8 +177,7 @@ $locked != '' ? $myBalSpan = "<span style='color:#fff; padding:10px; font-weight
 				    $btn = "<div id='chatup".$xpt_id."' style='display:flex; align-items:center; justify-content:center; width:45%; border:2px solid $bg; border-radius:8px;' class='$theme hover2'><a href='$href' $disable style='text-decoration:none; padding:2px; width:100%; text-align:center; color:#fff;' class='light-them'>Fix appointment</a></div>";
       				    count($appoCheck) > 0 ? $hideOdas = 'block' : $hideOdas = 'none';
 				    count($appoCheck2) == 0 ? $hideOdas = 'block' : $hideOdas;
-        
-					$tutor_list .="<div style='display:$hideOdas; background:#cbf6ff; border:1px solid deepskyblue; border-radius:35px; padding:0 10px 20px 10px; margin-bottom:20px;'><form method='post' action='views/chat.php' >
+      				$tutor_list .="<div style='display:$hideOdas; background:#cbf6ff; border:1px solid deepskyblue; border-radius:25px; padding:0 10px 20px 10px; margin:10px;'><form method='post' action='views/chat.php' >
   					<input type='hidden' name='u_type' value='1'>
     	            <input type='hidden' name='loginAudio' id='loginAudio' value='1'>
     	            <input type='hidden' name='que' class='que' id='que".$xpt_id."' value=''>
