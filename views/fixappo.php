@@ -186,9 +186,9 @@ if(isset($_GET['rid'])){
     }
         count($saturday) > 0 ? $sat .="</div></div>" : '';
 
-    $output .="<div style='display:flex; flex-direction:column; align-items:center; padding:0 20px 20px 20px; background:#fff; min-height:99vh;'>
-    <h5 style='position:fixed; top:0; font-size:18px; color:#2166f3; background:#fff; font-style:roboto; padding:5px;'>Fix appointment with ".$fullname."</h5>
-    <h6 style='margin:20px auto 20px auto; font-size:13px;'>Select from their free time below</h6><p style='color:red; font-style:italic; font-family:serif; font-size:10px; margin-top:-20px;'>Note: Each appointment last 30mins max.</p>";
+    $output .="<div style='display:flex; flex-direction:column; align-items:center; padding:20px 20px 20px 20px; background:#fff; min-height:99vh;'>
+    <h5 style='position:fixed; top:0; font-size:18px; color:#2166f3; background:#fff; font-style:roboto; padding:10px;'>Fix appointment with ".$fullname."</h5>
+    <h6 style='margin:40px auto 20px auto; font-size:13px;'>Select from their free time below</h6><p style='color:red; font-style:italic; font-family:serif; font-size:10px; margin-top:-20px;'>Note: Each appointment last 30mins max.</p>";
    $output .= "<div style='text-align:center; margin-bottom:50px;' class='chatInput'>".$sun.$mon.$tue.$wed.$thu.$fri.$sat."</div>";
    
     $output .="    <div style='position:fixed; bottom:2px; width:100%; background:#fff; padding:5px;'>
