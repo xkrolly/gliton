@@ -101,7 +101,7 @@ $locked != '' ? $myBalSpan = "<span style='color:#fff; padding:10px; font-weight
                 <span style='margin-right:auto; padding:10px; font-weight:bold;'><a href='buycoin' style='color:#2166f3;'>Fund wallet</a>
                 </span>$myBalSpan</div>";
 
-				$tutor_list .= "<div style='padding:25px;'><h6 style='font-size:18px; text-align:center; margin-bottom:10px; margin-top:40px; font-family:serif;'>".$expert."s</h6>";
+				$tutor_list .= "<div style='padding:5px;'><h6 style='font-size:18px; text-align:center; margin-bottom:10px; margin-top:40px; font-family:serif;'>".$expert."s</h6>";
 
 				if(count($tutorData) > 0){
 						$ln = count($tutorData) - 1;
@@ -130,7 +130,7 @@ $locked != '' ? $myBalSpan = "<span style='color:#fff; padding:10px; font-weight
 		        $ttid = $usersView->num_AlphaA($xpt_id);
 		        $xpid = $usersView->enc_cons($xpt_id);
 		        $_xpid = str_replace('==', '', $xpid);
-    		    $recipient_enc0 = $usersView->encryptor0($tutorData[$ln]['profile_id']);
+    		        $recipient_enc0 = $usersView->encryptor0($tutorData[$ln]['profile_id']);
 
 				//unset appointmnets
      				$usersView->unsetAppo($xpt_id);
@@ -175,10 +175,10 @@ $locked != '' ? $myBalSpan = "<span style='color:#fff; padding:10px; font-weight
 				    count($appoCheck) > 0 ?	
 				    $btn = "<button type='$btnAction' id='chatup".$xpt_id."' $disable class='$theme hover' onclick='enc_que(\"$que\", \"$xpid\", \"$xpt_id\");' style='display:flex; align-items:center; justify-content:center; padding:2px; width:45%; border:2px solid $bg; border-radius:8px;'>Chat up</button>" : 
 				    $btn = "<div id='chatup".$xpt_id."' style='display:flex; align-items:center; justify-content:center; width:45%; border:2px solid $bg; border-radius:8px;' class='$theme hover2'><a href='$href' $disable style='text-decoration:none; padding:2px; width:100%; text-align:center; color:#fff;' class='light-them'>Fix appointment</a></div>";
-					count($appoCheck) > 0 ? $hideOdas = 'block' : $hideOdas = 'none';
+      				    count($appoCheck) > 0 ? $hideOdas = 'block' : $hideOdas = 'none';
 				    count($appoCheck2) == 0 ? $hideOdas = 'block' : $hideOdas;
         
-					$tutor_list .="<form method='post' action='views/chat.php' style='display:$hideOdas; background:#cbf6ff; border:1px solid deepskyblue; border-radius:35px; padding:4px; margin-bottom:20px;'>
+					$tutor_list .="<form method='post' action='views/chat.php' style='display:$hideOdas; background:#cbf6ff; border:1px solid deepskyblue; border-radius:35px; padding:0 10px 20px 10px; margin-bottom:20px;'>
   					<input type='hidden' name='u_type' value='1'>
     	            <input type='hidden' name='loginAudio' id='loginAudio' value='1'>
     	            <input type='hidden' name='que' class='que' id='que".$xpt_id."' value=''>
