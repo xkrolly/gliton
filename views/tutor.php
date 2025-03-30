@@ -178,7 +178,7 @@ $locked != '' ? $myBalSpan = "<span style='color:#fff; padding:10px; font-weight
 					count($appoCheck) > 0 ? $hideOdas = 'block' : $hideOdas = 'none';
 				    count($appoCheck2) == 0 ? $hideOdas = 'block' : $hideOdas;
         
-					$tutor_list .="<form method='post' action='views/chat.php' style='display:$hideOdas; background:#cbf6ff; border:1px solid deepskyblue; border-radius:35px; padding:0 10px 20px 10px; margin-bottom:20px;'>
+					$tutor_list .="<form method='post' action='views/chat.php' style='display:$hideOdas; background:#cbf6ff; border:1px solid deepskyblue; border-radius:35px; padding:4px; margin-bottom:20px;'>
   					<input type='hidden' name='u_type' value='1'>
     	            <input type='hidden' name='loginAudio' id='loginAudio' value='1'>
     	            <input type='hidden' name='que' class='que' id='que".$xpt_id."' value=''>
