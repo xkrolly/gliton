@@ -1,6 +1,7 @@
 <?php
   $usersContr = new usersContr();
   $usersView = new usersView();
+var_dump('YESSSSSS');
 
   $udata = $usersView->fetchUser();
   $me = $udata[0]['profile_id'];
