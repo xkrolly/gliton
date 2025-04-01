@@ -36,7 +36,7 @@ var_dump('11111YESSSSSS');
         $__me = '%.'.$_me.'.%';
         $_vals = $product_ID.', '.$__me;
         $purchData = $usersView->select('purchase', ' WHERE product_id = ? AND buyer LIKE ?', $_vals);
-
+var_dump($_vals);
       if(count($purchData) > 0){
 	      var_dump('4444444444444YESSSSSS');
 
