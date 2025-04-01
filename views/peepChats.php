@@ -1,22 +1,18 @@
 <?php
   $usersContr = new usersContr();
   $usersView = new usersView();
-var_dump('YESSSSSS');
 
   $udata = $usersView->fetchUser();
   $me = $udata[0]['profile_id'];
   $regCompleted = $udata[0]['regCompleted'];
 
 if($regCompleted == 1){
-var_dump('11111YESSSSSS');
     
         if(isset($_GET['pub'])){
-   var_dump($_GET['pub']);
 
 		//$_GET['solo'] == $usersView->encryptor0('solo');
         //  $pub_id = $usersView->decryptor0( str_replace(' ', '+', $_GET['pub']) );
           $pub_id = $usersView->alphaA_Num($_GET['pub']);
-var_dump($pub_id);
     
           //get the pub_id
           $pub_data = $usersView->select('publish', ' WHERE pub_id = ?', $pub_id);
@@ -31,15 +27,12 @@ var_dump($pub_id);
     	    //check the sharedKey
     	  $sharedK = $usersView->getSharedKey($product_ID);
     	  $sharedK_enc_cons = $usersView->enc_cons($sharedK);
-    var_dump('33333333333YESSSSSS');
 	  
         $_me = $usersView->usercode($me);
         $__me = '%.'.$_me.'.%';
         $_vals = $product_ID.', '.$__me;
         $purchData = $usersView->select('purchase', ' WHERE product_id = ? AND buyer LIKE ?', $_vals);
-var_dump($_vals);
       if(count($purchData) > 0){
-	      var_dump('4444444444444YESSSSSS');
 
         //////////////////////////////////
           $published_dec = $usersView->dec_cons($published);
