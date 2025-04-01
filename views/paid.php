@@ -91,7 +91,7 @@ if(!empty($_GET['link'])){
 	//var_dump($usersView->dec_cons($_SESSION['product_keyxx']));
 
 //	$pubid = $usersView->encryptor0($prodData[0]['pub_id']);
-        $pubid = $usersView->num_alphaA($prodData[0]['pub_id']);
+        $pubid = $usersView->num_AlphaA($prodData[0]['pub_id']);
 
 	$usersView->msgUser('0', $_buyer, '10', '', $heading, $prodData[0]['pub_id']);
    	$_published = $prodData[0]['published'];
