@@ -31,7 +31,7 @@ if(!empty($_GET['link'])){
    
     //$usersView->verifyFlutterPayment($tx_status, $tx_ref, $tx_id, $buyer, $productID, $key);
     require("../flutterwavephp/processPayment.php");
-/*    $flutterwave = new Flutterwave(
+    $flutterwave = new Flutterwave(
             getenv(pubK),
             getenv(secK),
             getenv(encK)
