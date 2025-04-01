@@ -11,11 +11,12 @@ if($regCompleted == 1){
 var_dump('11111YESSSSSS');
     
         if(isset($_GET['pub'])){
-   var_dump('222222222YESSSSSS');
+   var_dump($_GET['pub']);
 
 		//$_GET['solo'] == $usersView->encryptor0('solo');
         //  $pub_id = $usersView->decryptor0( str_replace(' ', '+', $_GET['pub']) );
           $pub_id = $usersView->alphaA_Num($_GET['pub']);
+var_dump($pub_id);
     
           //get the pub_id
           $pub_data = $usersView->select('publish', ' WHERE pub_id = ?', $pub_id);
