@@ -16,6 +16,7 @@ if($regCompleted == 1){
 		//get the pub_id
           $pub_data = $usersView->select('publish', ' WHERE pub_id = ?', $pub_id);
           $published = $pub_data[0]['published'];
+		
           $product_ID = $published;
 
           //CHECK to prevent double purchase
@@ -31,7 +32,9 @@ if($regCompleted == 1){
         $__me = '%.'.$_me.'.%';
         $_vals = $product_ID.', '.$__me;
         $purchData = $usersView->select('purchase', ' WHERE product_id = ? AND buyer LIKE ?', $_vals);
-      if(count($purchData) > 0){
+      var_dump('ONE');
+		if(count($purchData) > 0){
+      var_dump('TWO');
 
         //////////////////////////////////
           $published_dec = $usersView->dec_cons($published);
@@ -40,6 +43,7 @@ if($regCompleted == 1){
     
           $pub_data[0]['chatpop'] == 'd' ? $recipient = $usersView->encryptor0($pub_array[1]) : $recipient = 0;
     ///////////////////////////////
+      var_dump('3333ONE');
 
           $vals = str_replace(' ', '+', $published);
           $pub_data[0]['chatpop'] == 'd' ? 
@@ -47,14 +51,16 @@ if($regCompleted == 1){
           ($pub_data[0]['chatpop'] == 's' ? 
             $resultChats = $usersView->select('solochat', ' INNER JOIN agro USING (agro_id) INNER JOIN veterinary USING (vet_id) INNER JOIN health USING (hth_id) WHERE content_id = ? ORDER BY solo_id DESC', $vals) : 
             $resultChats = $usersView->select('grpchat', ' INNER JOIN agro USING (agro_id) INNER JOIN veterinary USING (vet_id) INNER JOIN health USING (hth_id) WHERE uniq_conv = ? ORDER BY chat_id DESC', $vals));
-    
+          var_dump('4444');
+
           $cat = $resultChats[1]['category_id'];
          // $usersView->checkSubscription( $cat, $product_ID );
    
           $ln = count($resultChats) - 1;
           $Chats = "<div id='all_chat'>";   
           $pub_data[0]['chatpop'] == 's' ? $learner = $resultChats[$ln]['scriptor_id'] : $learner = $resultChats[$ln]['sender_id'];
-    
+          var_dump('5555');
+
           $Chats .="<div style='position:fixed; top:0; left:0; height:100vh; width:100vw; z-index:0; background:transparent;'>
                     <div style='display:flex; flex-direction:column; height:100%; justify-content:center; align-items:center;'>
                       <div style='display:flex; flex-direction:column; justify-content:center; align-items:center; color:#fff; border-radius:50%; font-weight:bold; font-family:sans-serif; font-size:20px; background:#eee; height:110px; width:110px;'>
@@ -69,7 +75,8 @@ if($regCompleted == 1){
             $flag = $resultChats[$ln]['flag'];
             $replyto = $resultChats[$ln]['replyto'];
             $pub_data[0]['chatpop'] == 's' ? $uniqconv_ID = $resultChats[$ln]['content_id'] : $uniqconv_ID = $resultChats[$ln]['uniq_conv'];
-    
+          var_dump('666');
+
             $sc = $usersView->getSharedKey($uniqconv_ID);
     
             $pub_data[0]['chatpop'] == 's' ? $chat_id = $resultChats[$ln]['solo_id'] : ($pub_data[0]['chatpop'] == 'm' ? $chat_id = $resultChats[$ln]['gchat_id'] : $chat_id = $resultChats[$ln]['chat_id']);
@@ -89,7 +96,8 @@ if($regCompleted == 1){
             $locked = $resultChats[$ln]['locked'];
             
             $mode = $resultChats[$ln]['media'];
-    
+          var_dump('7777');
+
             $mode == 2 ? $cWidth = 'width:80%;' : ($mode == 3 ? $cWidth = 'width:80%;' : $cWidth='max-width:80%;');
             $pub_data[0]['chatpop'] == 's' ? $cWidth = 'width:100%;' : $cWidth; 
             /////////////////////replyto code
@@ -107,7 +115,8 @@ if($regCompleted == 1){
     		    }
     		    
             $array = $usersView->aoi_cht($agro_id, $vet_id, $hth_id, $guide_id, $cook_id);
-    	 			
+    	       var_dump('8888');
+			
             $queCol = $array['queCol']; 
             $user_id_col = $array['user_id_col'];
             $cat_id = $array['col_id'];
