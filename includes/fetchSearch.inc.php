@@ -40,8 +40,7 @@ include('autoloader.inc.php');
 			$heading[] = $row['heading'];
 			$published[] = $row['published'];
 			$tutor[] = $row['rsP'];
-//			$pub_id[] = $row['pub_id'];
-			$pub_id[] = $usersView->encryptor0($row['pub_id']);
+			$pub_id[] = $usersView->num_AlphaA($row['pub_id']);
 			$price[] = $row['price'];
 
 			$published_dec = $usersView->dec_cons($row['published']);
