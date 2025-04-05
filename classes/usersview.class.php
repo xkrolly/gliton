@@ -160,15 +160,15 @@ class UsersView extends Users {
                 <div style='border-bottom-right-radius:5px; border-bottom-left-radius:5px; background:#fff; filter:drop-shadow(-2px 2px 2px #888); font-size:16px; padding:5px 20px 10px 20px;'>
               <p style='text-align:left; margin-right:-15px; margin-bottom:-5px;' onclick='$(\"#menus\").slideUp(20);'>&times;</p>
               <div style='display:flex; align-items:center; justify-content:flex-start; padding:8px; border-bottom:1px solid #ccc;'>
-                <span class='material-icons' style='margin-right:5px; font-size:25px;'>&#xe064;</span>
-                <a href='subscribe' style='text-decoration:none; font-size:14px;'>Subscribe</a>
+                <span class='material-icons' style='margin-right:8px; color:#444; font-size:20px;'>&#xe064;</span>
+                <a href='subscribe' style='text-decoration:none; color:#000; font-size:14px;'>Subscribe</a>
               </div>
               <div style='display:flex; align-items:center; justify-content:flex-start; padding:8px; border-bottom:1px solid #ccc;'>
-                <span class='material-icons' style='color:#000; margin-right:5px; font-size:25px;'>&#xeb3f;</span>
-                <a href='https://glit.ng/glit' target='_blank' style='text-decoration:none; font-size:14px;'>Glit for Biz</a>
+                <span class='material-icons' style='color:#444; margin-right:8px; font-size:20px;'>&#xeb3f;</span>
+                <a href='https://glit.ng/glit' target='_blank' style='text-decoration:none; color:#000; font-size:14px;'>Glit for Biz</a>
               </div>
               <div style='display:flex; align-items:center; justify-content:flex-start; padding:8px;'>
-                <span class='material-icons' style='color:red; margin-right:5px; font-size:25px;'>&#xe9ba;</span>
+                <span class='material-icons' style='color:red; margin-right:8px; font-size:20px;'>&#xe9ba;</span>
                 <a href='logout' style='font-weight:bold; text-decoration:none; font-size:14px; color:red;'>Log out</a>
               </div>
         </div></div></div>";
