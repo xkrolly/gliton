@@ -163,11 +163,11 @@ $sol .="<video style='z-index:10; display:none; background:#fff; height:100vh; w
                             
                     
                         <div class='form-group' style='margin-top:30px;'>
-                                <label class='numberedWall' style='margin-bottom:20px;'> <span style='font-weight:bold; font-size:14px;' class='numbered'>4.</span>
+                                <label class='numberedWall' style='margin-bottom:20px;'> <span style='font-weight:bold; font-size:14px;' class='numbered'>3.</span>
                                     Confirmatory Visual Evidence
 				</label>
                               
-				<div class='' style='display:flex; justify-content:space-around; align-items:center;'>
+				<div class='' style='display:flex; justify-content:center; align-items:center;'>
                                     <div onclick='useCamera();'>
                                         <span>
                                            <span class='material-icons' style='color:deepskyblue; font-size:35px; filter:drop-shadow(1px 1px .5px #444);'>&#xe412;</span>
@@ -201,7 +201,7 @@ $sol .="<video style='z-index:10; display:none; background:#fff; height:100vh; w
                         </div>
                     </div>
 
-                    <div style='font-size:10px; color:red; padding:10px; text-align:left; font-style:italic;'>NOTE: Ensure CTT and CVE are accurate before you start</div>
+                    <div style='font-size:10px; color:red; padding:10px; text-align:left; font-style:italic; margin-top:30px;'>NOTE: Ensure CTT and CVE are accurate before you start</div>
                     <div class='form-group' onclick='inlineLoader(\"inLoader\");'>
                       <button type='submit' id='post_enq' class='' style='display:flex; align-items:center; justify-content:center; padding:10px; font-size:20px; width:100%; border-radius:12px; background:green; color:#fff; border:transparent;' name='create'><span>Start</span> <span id='inLoader' style='display:none;'></span></button>
                     </div>
