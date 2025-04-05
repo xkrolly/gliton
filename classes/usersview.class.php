@@ -158,7 +158,7 @@ class UsersView extends Users {
                       <div id='menus' style='display:none; width:100%; z-index:11; position:fixed; right:0; top:4%; margin:20px 5px auto auto;'>
                 <div style='display:flex; width:100%; justify-content:flex-end;'>
                 <div style='border-bottom-right-radius:5px; border-bottom-left-radius:5px; background:#fff; filter:drop-shadow(-2px 2px 2px #888); font-size:16px; padding:5px 20px 10px 10px;'>
-              <p style='text-align:left; margin-bottom:-25px; margin-top:4px;' onclick='$(\"#menus\").slideUp(20);'>&times;</p>
+              <p style='text-align:left; margin-bottom:-10px; margin-top:8px;' onclick='$(\"#menus\").slideUp(20);'>&times;</p>
               <div style='display:flex; align-items:center; justify-content:flex-start; padding:8px; border-bottom:1px solid #ccc;'>
                 <span class='material-icons' style='margin-right:8px; color:#444; font-size:20px;'>&#xe064;</span>
                 <a href='subscribe' style='text-decoration:none; color:#000; font-size:14px;'>Subscribe</a>
