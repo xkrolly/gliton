@@ -165,7 +165,7 @@ class UsersView extends Users {
               </div>
               <div style='display:flex; align-items:center; justify-content:flex-start; padding:8px; border-bottom:1px solid #ccc;'>
                 <span class='material-icons' style='color:#2166f3; margin-right:5px; font-size:25px;'>&#xe064;</span>
-                <a href='https://glit.ng/glitforbiz' target='_blank' style='font-weight:bold; text-decoration:none; font-size:14px;'>Glit for Business</a>
+                <a href='https://glit.ng/glit' target='_blank' style='font-weight:bold; text-decoration:none; font-size:14px;'>Glit for Business</a>
               </div>
               <div style='display:flex; align-items:center; justify-content:flex-start; padding:8px;'>
                 <span class='material-icons' style='color:red; margin-right:5px; font-size:25px;'>&#xe9ba;</span>
