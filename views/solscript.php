@@ -167,7 +167,7 @@ $sol .="<video style='z-index:10; display:none; background:#fff; height:100vh; w
                                     Confirmatory Visual Evidence
 				</label>
                               
-				<div class='' style='display:flex; justify-content:center; align-items:center;'>
+				<div class='' style='display:flex; justify-content:space-around; align-items:center;'>
                                     <div onclick='useCamera();'>
                                         <span>
                                            <span class='material-icons' style='color:deepskyblue; font-size:35px; filter:drop-shadow(1px 1px .5px #444);'>&#xe412;</span>
@@ -175,15 +175,15 @@ $sol .="<video style='z-index:10; display:none; background:#fff; height:100vh; w
                                         <div style='font-size:10px;'>Image proof</div>
                                     </div>            
                                     <div style='width:18px; height:18px; background:transparent; border:4px solid #aaa; border-radius:50%;' onclick='checkSelection();'>
-                                </div>
-                                <div onclick='checkSelection();'>
-                                    <span id='chatMicSpan' onclick='startVideo(\"$catid\", \"$directory\", \"$rid\", \"$chid\", \"$contentID_enc\", \"$height\", \"$lck\", \"$uploadURL\", \"$addVideoFrame\", \"$addSpanPadin\", \"15\", \"\");' class='hover'>
-                                        <span class='material-icons' style='color:deepskyblue; font-size:35px; filter:drop-shadow(1px 1px .5px #444);'>&#xe04b;</span>
-                                    </span>
-                                    <div style='font-size:10px;'>Video proof</div>
-                                </div>
-                            <div id='check_item' style='text-align:center; color:red;'></div>
+      		                    </div>
+                	            <div onclick='checkSelection();'>
+                                      <span id='chatMicSpan' onclick='startVideo(\"$catid\", \"$directory\", \"$rid\", \"$chid\", \"$contentID_enc\", \"$height\", \"$lck\", \"$uploadURL\", \"$addVideoFrame\", \"$addSpanPadin\", \"15\", \"\");' class='hover'>
+                                         <span class='material-icons' style='color:deepskyblue; font-size:35px; filter:drop-shadow(1px 1px .5px #444);'>&#xe04b;</span>
+                                      </span>
+                                      <div style='font-size:10px;'>Video proof</div>
+                                    </div>
                 </div>
+                            <div id='check_item' style='text-align:center; color:red;'></div>
 
                     <div id='all_chat' style='width:100%;'></div>
                     <div style='display:flex; flex-direction:column; justify-content:flex-end; margin-bottom:10px;'>
