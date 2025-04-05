@@ -69,17 +69,9 @@ $sol .="<video style='z-index:10; display:none; background:#fff; height:100vh; w
                     </header>
                     <div style='text-align:right; margin-bottom:30px; font-size:11px;'>Creating practicable solution contents</div>
                
-                    <div style='margin-top:15px; background:#eee; border-radius:90px; padding:20px; border:.5px solid #aaa;'>
-                        <div class='form-group'>
-                            <h5 style='font-weight:bold; display:flex; margin-left:-18px; width:100%; display:flex; justify-content:flex-start; align-items:center;'>
-                                <span style='height:45px; width:45px; display:flex; justify-content:center; align-items:center; border-radius:50%; background:#eee; margin-right:10px; font-size:25px; border:8px solid #fff;'>1</span>
-                                <span style='font-size:10px;'>Create category, topic, title - <span style='color:red;'>CTT</span>
-                            </h5>
-
-
                        <div class='form-group' style='margin-top:20px;'>
-                            <label class='numberedWall'> <span style='font-weight:bold; font-size:14px;' class='numbered'>2.</span>
-                            Use-case category</label>
+                            <label class='numberedWall'> <span style='font-weight:bold; font-size:14px;' class='numbered'>1.</span>
+                            Category</label>
                             
                             <div style='height:200px; overflow:scroll; border-radius:20px; filter:drop-shadow(1px 1px 1px #eee);'>
 	                            <div id='subList-panel' style='margin-bottom:10px;'>
@@ -156,19 +148,19 @@ $sol .="<video style='z-index:10; display:none; background:#fff; height:100vh; w
                             </div>
 
                         </div>
-                       
 
-
-
-
-                            
-                        <div class='form-group' id='textQ' style='display:none; padding:5px; margin-bottom:20px;'>
-                                <input type='text' name='title' id='textspace' class='form-control' placeholder='Your succint title' style='font-size:14px; border-radius:20px;'/>
+                       <div class='form-group' id='textQ' style='display:none; padding:5px; margin-top:40px;'>
+                            <label class='numberedWall'> <span style='font-weight:bold; font-size:14px;' class='numbered'>3.</span>
+								Add title
+							</label>
+                           <input type='text' name='title' id='textspace' class='form-control' placeholder='Your succinct title' style='font-size:14px; border-radius:20px;'/>
                                 <div style='display:flex; flex-direction:column; font-size:12px; padding:5px 10px 5px 20px; margin-top:10px; background:#fff; border-radius:10px;' >
-                                      <div style='font-size:10px; text-align:left; font-style:italic; color:#2166f3;'>NOTE: Title should reflect the uniqueness of your solution approach by quantifying all or either of the associated parameters </div>
-                                      <div style='display:flex; width:100%;'><div style='display:flex; margin-left:auto; justify-content:center; align-items:center; height:14px; width:14px; border:1px solid #2166f3; color:#2166f3; border-radius:50%; font-size:10px; font-family:serif; font-style:italic; font-weight:1000;' onclick='learnmore(6);'>i</div></div>
+                                      <div style='font-size:10px; text-align:left; font-style:italic; color:#2166f3; display:flex; justify-content:flex-start; align-items:center;'>NOTE: Title should reflect the uniqueness of your solution approach by quantifying all or either of the associated parameters<span style='display:flex; margin-left:auto; justify-content:center; align-items:center; height:14px; width:14px; border:1px solid #2166f3; color:#2166f3; border-radius:50%; font-size:10px; font-family:serif; font-style:italic; font-weight:1000;' onclick='learnmore(6);'>i
+                                      	</span></div>
                                 </div>
                         </div>
+
+                            
                     </div>
                     </div>
                     
