@@ -162,21 +162,19 @@ $sol .="<video style='z-index:10; display:none; background:#fff; height:100vh; w
 
                             
                     
-                        <div class='form-group' style=''>
-                            <div class='col-sm-12' style='width:100%; background:#ADD8E6; margin-top:20px;  border:.5px solid #aaa;  padding:20px; border-radius:90px;'>
-                                <h5 style='font-weight:bold; display:flex; align-items:center; width:100%; margin-left:-18px; margin-bottom:20px;'>
-                                    <span style='height:45px; width:45px; display:flex; justify-content:center; align-items:center; border-radius:50%; background:#ADD8E6; margin-right:10px; border:8px solid #fff;'>2</span>
-                                    <span style='font-size:10px;'>Confirmatory Visual evidence - <span style='color:red;'>CVE</span></span>
-                                </h5>
-                                <hr style=' margin-top:5px;'>
-                                <div class='' style='display:flex; justify-content:space-around; align-items:center;'>
+                        <div class='form-group' style='margin-top:30px;'>
+                                <label class='numberedWall' style='margin-bottom:20px;'> <span style='font-weight:bold; font-size:14px;' class='numbered'>4.</span>
+                                    Confirmatory Visual Evidence
+				</label>
+                              
+				<div class='' style='display:flex; justify-content:space-around; align-items:center;'>
                                     <div onclick='useCamera();'>
                                         <span>
                                            <span class='material-icons' style='color:deepskyblue; font-size:35px; filter:drop-shadow(1px 1px .5px #444);'>&#xe412;</span>
                                         </span>
                                         <div style='font-size:10px;'>Image proof</div>
                                     </div>            
-                                    <div style='width:30px; height:30px; background:transparent; border:6px solid #bbb; border-radius:50%;' onclick='checkSelection();'>
+                                    <div style='width:18px; height:18px; background:transparent; border:4px solid #aaa; border-radius:50%;' onclick='checkSelection();'>
                                 </div>
                                 <div onclick='checkSelection();'>
                                     <span id='chatMicSpan' onclick='startVideo(\"$catid\", \"$directory\", \"$rid\", \"$chid\", \"$contentID_enc\", \"$height\", \"$lck\", \"$uploadURL\", \"$addVideoFrame\", \"$addSpanPadin\", \"15\", \"\");' class='hover'>
@@ -184,11 +182,7 @@ $sol .="<video style='z-index:10; display:none; background:#fff; height:100vh; w
                                     </span>
                                     <div style='font-size:10px;'>Video proof</div>
                                 </div>
-                            </div>
-                            <hr style=' margin-top:35px;'>
-                            <div style='width:100%; text-align:center; font-size:10px; color:#2166f3;'>Snap or videoshoot the problem</div>               
                             <div id='check_item' style='text-align:center; color:red;'></div>
-                        </div>
                 </div>
 
                     <div id='all_chat' style='width:100%;'></div>
