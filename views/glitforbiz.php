@@ -61,7 +61,7 @@ $sol .="
 					<h6 style='margin-top:10px; text-align:center; font-weight:bold;'><span style='background:deepskyblue; padding:10px; border-radius:20px; filter:drop-shadow(1px 1px 1px #ccc);'>3<sup>rd</sup> Party Product Scripting</h6><br>
 
                         <div class='form-group'>
-                            <label class='numberedWall'> <span class='numbered'>1</span>
+                            <label class='numberedWall'> <span style='font-weight:bold; font-size:14px;' class='numbered'>1.</span>
                                    Product detail</label>
                             <input type='text' value='' placeholder='Product name' class='form-control property col-sm-12' name='product-name' style='height:40px; font-size:14px; border-radius:20px;' />
                             <input type='text' value='' placeholder='Company name' class='form-control property col-sm-12' name='company-name' style='height:40px; font-size:14px; border-radius:20px;' />
@@ -69,7 +69,7 @@ $sol .="
                             <input type='text' value='' placeholder='Purchased from?' class='form-control property col-sm-12' name='store-name' style='height:40px; font-size:14px; border-radius:20px;' />
                         </div>
                         <div class='form-group' style='margin-top:40px;'>
-                            <label class='numberedWall'> <span class='numbered'>2</span>
+                            <label class='numberedWall'> <span style='font-weight:bold; font-size:14px;' class='numbered'>2.</span>
                             Use-case category</label>
                             
                             <div style='height:200px; overflow:scroll; border-radius:20px; filter:drop-shadow(1px 1px 1px #eee);'>
@@ -148,7 +148,7 @@ $sol .="
 
                         </div>
                         <div class='form-group' style='margin-top:40px;'>
-                            <label class='numberedWall'> <span class='numbered'>3</span>
+                            <label class='numberedWall'> <span style='font-weight:bold; font-size:14px;' class='numbered'>3.</span>
 								Use-case title
 							</label>
                            <input type='text' name='title' id='textspace' class='form-control' placeholder='Your use-case title' style='font-size:14px; border-radius:20px;'/>
@@ -158,7 +158,7 @@ $sol .="
                                 </div>
                         </div>
                         <div class='form-group' style='margin-top:40px;'>
-                                <label class='numberedWall'> <span class='numbered'>4</span>
+                                <label class='numberedWall'> <span style='font-weight:bold; font-size:14px;' class='numbered'>4</span>
                                     Record proof
                                 </label>
                                 <div class='' style='display:flex; justify-content:space-around; align-items:center;'>
@@ -179,9 +179,9 @@ $sol .="
                         </div>
          				<div id='all_chat' style='width:100%;'></div>
            
-                    	<div style='font-size:10px; color:red; padding:10px; text-align:left; font-style:italic; margin-top:40px;'>NOTE: Ensure accurate data provision before you start</div>
+                    	<div style='font-size:10px; color:red; padding:10px; text-align:left; font-style:italic; margin-top:40px;'>NOTE: Ensure accurate data provision before you proceed</div>
                     	<div class='form-group' onclick='inlineLoader(\"inLoader\");'>
-                      		<button type='submit' id='post_enq' class='' style='display:flex; align-items:center; justify-content:center; padding:10px; font-size:20px; width:100%; border-radius:12px; background:#2166f3; color:#fff; border:transparent;' name='create'><span>Start</span> <span id='inLoader' style='display:none;'></span></button>
+                      		<button type='submit' id='post_enq' class='' style='display:flex; align-items:center; justify-content:center; padding:10px; font-size:20px; width:100%; border-radius:12px; background:#2166f3; color:#fff; border:transparent;' name='create'><span>Proceed</span> <span id='inLoader' style='display:none;'></span></button>
                     	</div>
 
                 </form>
