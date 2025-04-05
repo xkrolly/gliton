@@ -58,7 +58,7 @@ $sol .="
                     <input type='hidden' name='user' id='user' value=''/>
                     <input type='hidden' name='category' id='category' class='category' value=''/>
 	
-					<h6 style='margin-top:10px; text-align:center; font-weight:bold;'><span style='background:deepskyblue; padding:10px; border-radius:20px; filter:drop-shadow(1px 1px 1px #ccc);'>3<sup>rd</sup> Party Product Scripting</h6><br>
+					<h6 style='margin-top:10px; text-align:center; font-weight:bold;'><span style='background:deepskyblue; padding:10px; border-radius:20px; filter:drop-shadow(1px 1px 1px #ccc);'>3<sup>rd</sup>-party Product Scripting</h6><br>
 
                         <div class='form-group'>
                             <label class='numberedWall'> <span style='font-weight:bold; font-size:14px;' class='numbered'>1.</span>
