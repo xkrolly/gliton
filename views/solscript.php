@@ -149,7 +149,7 @@ $sol .="<video style='z-index:10; display:none; background:#fff; height:100vh; w
 
                         </div>
 
-                       <div class='form-group' id='textQ' style='display:none; padding:5px; margin-top:30px;'>
+                       <div class='form-group' id='textQ' style='display:flex; padding:5px; margin-top:30px;'>
                             <label class='numberedWall'> <span style='font-weight:bold; font-size:14px;' class='numbered'>2.</span>
 								Add title
 							</label>
@@ -203,7 +203,7 @@ $sol .="<video style='z-index:10; display:none; background:#fff; height:100vh; w
 
                     <div style='font-size:10px; color:red; padding:10px; text-align:left; font-style:italic; margin-top:30px;'>NOTE: Ensure CTT and CVE are accurate before you start</div>
                     <div class='form-group' onclick='inlineLoader(\"inLoader\");'>
-                      <button type='submit' id='post_enq' class='' style='display:flex; align-items:center; justify-content:center; padding:10px; font-size:20px; width:100%; border-radius:12px; background:green; color:#fff; border:transparent;' name='create'><span>Start</span> <span id='inLoader' style='display:none;'></span></button>
+                      <button type='submit' id='post_enq' class='' style='display:flex; align-items:center; justify-content:center; padding:8px; font-size:18px; width:100%; border-radius:12px; background:green; color:#fff; border:transparent;' name='create'><span>Start</span> <span id='inLoader' style='display:none;'></span></button>
                     </div>
                 </form>
             </div>
