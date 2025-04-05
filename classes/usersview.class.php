@@ -155,8 +155,8 @@ class UsersView extends Users {
             </div>
           </div>
 
-                      <div id='menus' style='display:none; width:100%; z-index:11; position:fixed; right:0; top:4%; margin:20px 5px auto auto; padding-right:200px;'>
-                <div style='display:flex; justify-content:flex-end;'>
+                      <div id='menus' style='display:none; width:100%; background:green; z-index:11; position:fixed; right:0; top:4%; margin:20px 5px auto auto; padding-right:200px;'>
+                <div style='display:flex; justify-content:flex-end; background:red;'>
                 <div style='border-bottom-right-radius:5px; border-bottom-left-radius:5px; background:#fff; filter:drop-shadow(-2px 2px 2px #888); font-size:16px; padding:5px 20px 10px 10px;'>
               <p style='text-align:left; margin-right:-25px; margin-bottom:-2px;' onclick='$(\"#menus\").slideUp(20);'>&times;</p>
               <div style='display:flex; align-items:center; justify-content:flex-start; padding:8px; border-bottom:1px solid #ccc;'>
@@ -168,8 +168,8 @@ class UsersView extends Users {
                 <a href='https://glit.ng/glit' target='_blank' style='text-decoration:none; color:#000; font-size:14px;'>Glit for Biz</a>
               </div>
               <div style='display:flex; align-items:center; justify-content:flex-start; padding:8px;'>
-                <span class='material-icons' style='color:red; margin-right:8px; font-size:20px;'>&#xe9ba;</span>
-                <a href='logout' style='font-weight:bold; text-decoration:none; font-size:14px; color:red;'>Log out</a>
+                <span class='material-icons' style='color:#444; margin-right:8px; font-size:16px;'>&#xe9ba;</span>
+                <a href='logout' style='text-decoration:none; font-size:12px; color:#000;'>Log out</a>
               </div>
         </div></div></div>";
   }
