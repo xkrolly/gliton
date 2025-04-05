@@ -151,14 +151,14 @@ $sol .="
                             <label class='numberedWall'> <span style='font-weight:bold; font-size:14px;' class='numbered'>3.</span>
 								Use-case title
 							</label>
-                           <input type='text' name='title' id='textspace' class='form-control' placeholder='Your use-case title' style='font-size:14px; border-radius:20px;'/>
+                           <input type='text' name='title' id='textspace' class='form-control' placeholder='Title for your use-case' style='font-size:14px; border-radius:20px;'/>
                                 <div style='display:flex; flex-direction:column; font-size:12px; padding:5px 10px 5px 20px; margin-top:10px; background:#fff; border-radius:10px;' >
                                       <div style='font-size:10px; text-align:left; font-style:italic; color:#2166f3; display:flex; justify-content:flex-start; align-items:center;'>NOTE: Title should reflect the function you intend to apply the product for<span style='display:flex; margin-left:auto; justify-content:center; align-items:center; height:14px; width:14px; border:1px solid #2166f3; color:#2166f3; border-radius:50%; font-size:10px; font-family:serif; font-style:italic; font-weight:1000;' onclick='learnmore(6);'>i
                                       	</span></div>
                                 </div>
                         </div>
                         <div class='form-group' style='margin-top:40px;'>
-                                <label class='numberedWall'> <span style='font-weight:bold; font-size:14px;' class='numbered'>4</span>
+                                <label class='numberedWall' style='margin-bottom:20px;'> <span style='font-weight:bold; font-size:14px;' class='numbered'>4.</span>
                                     Record proof
                                 </label>
                                 <div class='' style='display:flex; justify-content:space-around; align-items:center;'>
@@ -168,7 +168,7 @@ $sol .="
                                         </span>
                                         <div style='font-size:10px;'>Image proof</div>
                                     </div>            
-                                    <div style='width:30px; height:30px; background:transparent; border:6px solid #bbb; border-radius:50%;' onclick='checkSelection();'>
+                                    <div style='width:18px; height:18px; background:transparent; border:6px solid #aaa; border-radius:50%;' onclick='checkSelection();'>
                                 	</div>
                                 	<div onclick='checkSelection();'>
                                    	 <span id='chatMicSpan' onclick='startVideo(\"$catid\", \"$directory\", \"$rid\", \"$chid\", \"$contentID_enc\", \"$height\", \"$lck\", \"$uploadURL\", \"$addVideoFrame\", \"$addSpanPadin\", \"15\", \"\");' class='hover'>
@@ -181,7 +181,7 @@ $sol .="
            
                     	<div style='font-size:10px; color:red; padding:10px; text-align:left; font-style:italic; margin-top:40px;'>NOTE: Ensure accurate data provision before you proceed</div>
                     	<div class='form-group' onclick='inlineLoader(\"inLoader\");'>
-                      		<button type='submit' id='post_enq' class='' style='display:flex; align-items:center; justify-content:center; padding:10px; font-size:20px; width:100%; border-radius:12px; background:#2166f3; color:#fff; border:transparent;' name='create'><span>Proceed</span> <span id='inLoader' style='display:none;'></span></button>
+                      		<button type='submit' id='post_enq' class='' style='display:flex; align-items:center; justify-content:center; padding:8px; font-size:18px; width:100%; border-radius:12px; background:#2166f3; color:#fff; border:transparent;' name='create'><span>Proceed</span> <span id='inLoader' style='display:none;'></span></button>
                     	</div>
 
                 </form>
