@@ -149,20 +149,18 @@ $sol .="<video style='z-index:10; display:none; background:#fff; height:100vh; w
 
                         </div>
 
-                       <div class='form-group' id='textQ' style='display:none; padding:5px; margin-top:40px;'>
-                            <label class='numberedWall'> <span style='font-weight:bold; font-size:14px;' class='numbered'>3.</span>
+                       <div class='form-group' id='textQ' style='display:none; padding:5px; margin-top:30px;'>
+                            <label class='numberedWall'> <span style='font-weight:bold; font-size:14px;' class='numbered'>2.</span>
 								Add title
 							</label>
                            <input type='text' name='title' id='textspace' class='form-control' placeholder='Your succinct title' style='font-size:14px; border-radius:20px;'/>
                                 <div style='display:flex; flex-direction:column; font-size:12px; padding:5px 10px 5px 20px; margin-top:10px; background:#fff; border-radius:10px;' >
-                                      <div style='font-size:10px; text-align:left; font-style:italic; color:#2166f3; display:flex; justify-content:flex-start; align-items:center;'>NOTE: Title should reflect the uniqueness of your solution approach by quantifying all or either of the associated parameters<span style='display:flex; margin-left:auto; justify-content:center; align-items:center; height:14px; width:14px; border:1px solid #2166f3; color:#2166f3; border-radius:50%; font-size:10px; font-family:serif; font-style:italic; font-weight:1000;' onclick='learnmore(6);'>i
-                                      	</span></div>
+                                      <div style='font-size:10px; text-align:left; font-style:italic; color:#2166f3; display:flex; justify-content:flex-start; align-items:center;'>NOTE: Title should reflect the uniqueness of your solution approach by quantifying all or either of the associated parameters
+				      </div>
                                 </div>
                         </div>
 
                             
-                    </div>
-                    </div>
                     
                         <div class='form-group' style=''>
                             <div class='col-sm-12' style='width:100%; background:#ADD8E6; margin-top:20px;  border:.5px solid #aaa;  padding:20px; border-radius:90px;'>
