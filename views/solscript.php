@@ -75,28 +75,93 @@ $sol .="<video style='z-index:10; display:none; background:#fff; height:100vh; w
                                 <span style='height:45px; width:45px; display:flex; justify-content:center; align-items:center; border-radius:50%; background:#eee; margin-right:10px; font-size:25px; border:8px solid #fff;'>1</span>
                                 <span style='font-size:10px;'>Create category, topic, title - <span style='color:red;'>CTT</span>
                             </h5>
-                            <select class='form-control property col-sm-12' name='topic' id='topic' title='topic' onchange='showSublist()' style='height:40px; font-size:14px; margin-top:20px; border-radius:20px;'>
-                                <option value=''>Select category</option>
-                                <option value='a'>Agro/ Farming</option>
-                                <option value='b'>Veterinary</option>
-                                <option value='e'>Nutrition/Diet</option>
-                            </select>
-                            <div id='subList-panel' style='margin-bottom:10px;'>
-                                <div class='cat-list-panel' style='background:#eee;'>
-                                    <div style='display:flex; width:100%;'><input type='hidden' name='categoryval' id='categoryval'>
-                                        <p class='list-ring'>
-                                            <label><input type='radio' name='category' class='category' value='1'>&nbsp;&nbsp;Agrochemicals</label>
-                                            <label><input type='radio' name='category' class='category' value='2'>&nbsp;&nbsp;Seed</label>
-                                            <label><input type='radio' name='category' class='category' value='3'>&nbsp;&nbsp;Farm machinery</label>
-                                        </p>
-                                        <p class='list-ring'>
-                                            <label><input type='radio' name='category' class='category' value='4'>&nbsp;&nbsp;Plant diseases</label>
-                                            <label><input type='radio' name='category' class='category' value='5'>&nbsp;&nbsp;Farm operations</label>
-                                            <label><input type='radio' name='category' class='category' value='6'>&nbsp;&nbsp;Agro market</label>
-                                        </p>
-                                    </div>
-                                </div>
+
+
+                       <div class='form-group' style='margin-top:20px;'>
+                            <label class='numberedWall'> <span style='font-weight:bold; font-size:14px;' class='numbered'>2.</span>
+                            Use-case category</label>
+                            
+                            <div style='height:200px; overflow:scroll; border-radius:20px; filter:drop-shadow(1px 1px 1px #eee);'>
+	                            <div id='subList-panel' style='margin-bottom:10px;'>
+	                                <div class='cat-list-panel' style='background:#fff;'>
+	                                    <h6>Agro</h6>
+	                                    <div style='display:flex; width:100%;'><input type='hidden' name='categoryval' id='categoryval'>
+	                                        <p class='list-ring'>
+	                                            <label><input type='radio' name='category' class='category' value='1'>&nbsp;&nbsp;Agrochemicals</label>
+	                                            <label><input type='radio' name='category' class='category' value='2'>&nbsp;&nbsp;Seed</label>
+	                                            <label><input type='radio' name='category' class='category' value='3'>&nbsp;&nbsp;Farm machinery</label>
+	                                        </p>
+	                                        <p class='list-ring'>
+	                                            <label><input type='radio' name='category' class='category' value='4'>&nbsp;&nbsp;Plant diseases</label>
+	                                            <label><input type='radio' name='category' class='category' value='5'>&nbsp;&nbsp;Farm operations</label>
+	                                            <label><input type='radio' name='category' class='category' value='6'>&nbsp;&nbsp;Agro market</label>
+	                                        </p>
+	                                    </div>
+	                                </div>
+	                        	</div>
+	                        	<div id='subList-panel' style='margin-bottom:10px;'>
+	                                <div class='cat-list-panel' style='background:#fff;'>
+	                                 <h6>Vet</h6>
+	                                   
+	                                    <div style='display:flex; width:100%;'><input type='hidden' name='categoryval' id='categoryval'>
+	                                        <p class='list-ring'>
+	                                            <label><input type='radio' name='category' class='category' value='1'>&nbsp;&nbsp;Agrochemicals</label>
+	                                            <label><input type='radio' name='category' class='category' value='2'>&nbsp;&nbsp;Seed</label>
+	                                            <label><input type='radio' name='category' class='category' value='3'>&nbsp;&nbsp;Farm machinery</label>
+	                                        </p>
+	                                        <p class='list-ring'>
+	                                            <label><input type='radio' name='category' class='category' value='4'>&nbsp;&nbsp;Plant diseases</label>
+	                                            <label><input type='radio' name='category' class='category' value='5'>&nbsp;&nbsp;Farm operations</label>
+	                                            <label><input type='radio' name='category' class='category' value='6'>&nbsp;&nbsp;Agro market</label>
+	                                        </p>
+	                                    </div>
+	                                </div>
+	                        	</div>
+	                        	<div id='subList-panel' style='margin-bottom:10px;'>
+	                                <div class='cat-list-panel' style='background:#fff;'>
+	                                     <h6>Medicals</h6>
+	                                   
+	                                    <div style='display:flex; width:100%;'><input type='hidden' name='categoryval' id='categoryval'>
+	                                        <p class='list-ring'>
+	                                            <label><input type='radio' name='category' class='category' value='1'>&nbsp;&nbsp;Agrochemicals</label>
+	                                            <label><input type='radio' name='category' class='category' value='2'>&nbsp;&nbsp;Seed</label>
+	                                            <label><input type='radio' name='category' class='category' value='3'>&nbsp;&nbsp;Farm machinery</label>
+	                                        </p>
+	                                        <p class='list-ring'>
+	                                            <label><input type='radio' name='category' class='category' value='4'>&nbsp;&nbsp;Plant diseases</label>
+	                                            <label><input type='radio' name='category' class='category' value='5'>&nbsp;&nbsp;Farm operations</label>
+	                                            <label><input type='radio' name='category' class='category' value='6'>&nbsp;&nbsp;Agro market</label>
+	                                        </p>
+	                                    </div>
+	                                </div>
+	                        	</div>
+								                  <div id='subList-panel' style='margin-bottom:10px;'>
+	                                <div class='cat-list-panel' style='background:#fff;'>
+	                                     <h6>Nutritions</h6>
+	                                   
+	                                    <div style='display:flex; width:100%;'><input type='hidden' name='categoryval' id='categoryval'>
+	                                        <p class='list-ring'>
+	                                            <label><input type='radio' name='category' class='category' value='1'>&nbsp;&nbsp;Agrochemicals</label>
+	                                            <label><input type='radio' name='category' class='category' value='2'>&nbsp;&nbsp;Seed</label>
+	                                            <label><input type='radio' name='category' class='category' value='3'>&nbsp;&nbsp;Farm machinery</label>
+	                                        </p>
+	                                        <p class='list-ring'>
+	                                            <label><input type='radio' name='category' class='category' value='4'>&nbsp;&nbsp;Plant diseases</label>
+	                                            <label><input type='radio' name='category' class='category' value='5'>&nbsp;&nbsp;Farm operations</label>
+	                                            <label><input type='radio' name='category' class='category' value='6'>&nbsp;&nbsp;Agro market</label>
+	                                        </p>
+	                                    </div>
+	                                </div>
+	                        	</div>
+                            </div>
+
                         </div>
+                       
+
+
+
+
+                            
                         <div class='form-group' id='textQ' style='display:none; padding:5px; margin-bottom:20px;'>
                                 <input type='text' name='title' id='textspace' class='form-control' placeholder='Your succint title' style='font-size:14px; border-radius:20px;'/>
                                 <div style='display:flex; flex-direction:column; font-size:12px; padding:5px 10px 5px 20px; margin-top:10px; background:#fff; border-radius:10px;' >
