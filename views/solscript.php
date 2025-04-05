@@ -149,7 +149,7 @@ $sol .="<video style='z-index:10; display:none; background:#fff; height:100vh; w
 
                         </div>
 
-                       <div class='form-group' id='textQ' style='display:flex; padding:5px; margin-top:30px;'>
+                       <div class='form-group' id='textQ' style='display:flex; flex-direction:column; padding:5px; margin-top:30px;'>
                             <label class='numberedWall'> <span style='font-weight:bold; font-size:14px;' class='numbered'>2.</span>
 								Add title
 							</label>
