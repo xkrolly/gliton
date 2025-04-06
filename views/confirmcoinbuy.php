@@ -49,7 +49,7 @@ include('../includes/autoloader.inc.php');
 } else {
     $response = "<div style='height:100vh; width:100%; display:flex; flex-direction:column; justify-content:center; align-items:center;'>
     			<h4>Payment verification failed</h4>". 
-    		 	"Status: ".($result['message'] ?? 'Unknown error').
+    		 	"<p>Status: <span style='color:red; font-style:italic;'>".($result['message'] ?? 'Unknown error')."</span></p>";
     		 	"<div><a href='buycoin'>Try again</a></div>
      		</div>";
     return $response;
