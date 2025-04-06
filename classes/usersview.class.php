@@ -20,59 +20,38 @@ class UsersView extends Users {
 
 	}
 	public function verifyFlutterwavePayment($transaction_id){
-			    $secret_key = 'YOUR_SECRET_KEY'; // Replace with your actual secret key
-				    $url = "https://api.flutterwave.com/v3/transactions/{$transaction_id}/verify";
+		$secret_key = 'YOUR_SECRET_KEY'; // Replace with your actual secret key
+		$url = "https://api.flutterwave.com/v3/transactions/{$transaction_id}/verify";
 
-					    $headers = [
-							        "Authorization: Bearer $secret_key",
-									        "Content-Type: application/json"
-						];
+		$headers = [
+		   "Authorization: Bearer $secret_key",
+		   "Content-Type: application/json"
+		];
 
-						    $options = [
-								        'http' => [
-											            'header'  => implode("\r\n", $headers),
-														            'method'  => 'GET'
-										]
-										];
+		$options = [
+		        'http' => [
+		            'header'  => implode("\r\n", $headers),
+		            'method'  => 'GET'
+			]
+		];
 
-										    $context = stream_context_create($options);
-											    $result = file_get_contents($url, false, $context);
+		$context = stream_context_create($options);
+		$result = file_get_contents($url, false, $context);
 
-												    if ($result === FALSE) {
-														        return ['status' => 'error', 'message' => 'Unable to connect to Flutterwave API'];
-													}
+		if ($result === FALSE) {
+		   return ['status' => 'error', 'message' => 'Unable to connect to Flutterwave API'];
+		}
 
-													    $response = json_decode($result, true);
-
-														    if ($response['status'] === 'success' && $response['data']['status'] === 'successful') {
-																        return ['status' => 'success', 'data' => $response['data']];
-															} else {
-																        return ['status' => 'failed', 'data' => $response['data']];
-															}
-														}
-
-														// Example usage
-														$transaction_id = $_GET['transaction_id']; // Get this from the redirect or webhook
-														$result = verifyFlutterwavePayment($transaction_id);
-
-														if ($result['status'] == 'success') {
-															    echo "Payment verified successfully!";
-																    // Process the order
-														} else {
-															    echo "Payment verification failed: " . ($result['message'] ?? 'Unknown error');
-														}
-
-														}
-														}
-															}
-															}
-													}
-										]
-							]
-						]
+		$response = json_decode($result, true);
+  	        if ($response['status'] === 'success' && $response['data']['status'] === 'successful') {
+		        return ['status' => 'success', 'data' => $response['data']];
+		} else {
+	           return ['status' => 'failed', 'data' => $response['data']];
 		}
 	}
-	public function ribbon(){
+
+	
+public function ribbon(){
 		return "<div class='ribbon-wrap'><div class='ribbon'>Special offer</div></div>";
 	}
   public function productInteraction($_prdID, $intCol, $intTotalCol){
