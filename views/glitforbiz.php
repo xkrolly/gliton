@@ -72,7 +72,7 @@ $sol .="
                             <label class='numberedWall'> <span style='font-weight:bold; font-size:14px;' class='numbered'>2.</span>
                             Use-case category</label>
                             
-                            <div style='height:200px; overflow:scroll; border-radius:20px; filter:drop-shadow(1px 1px 1px #eee);'>
+                            <div style='height:200px; overflow-y:scroll; scrollbar-width:none; -ms-overflow-style:none; border-radius:20px; filter:drop-shadow(1px 1px 1px #eee);'>
 	                            <div id='subList-panel' style='margin-bottom:10px;'>
 	                                <div class='cat-list-panel' style='background:#fff;'>
 	                                    <h6>Agro</h6>
