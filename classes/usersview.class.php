@@ -12,6 +12,7 @@ class UsersView extends Users {
    	const HEADER = 'img/profiles/header/';
    	const SM_MAXFILESIZE = 1000000;
 	const session_duration = 60*30;
+	const GLITCOIN_price = 1000;
    	
 	public function change_Password(){
 		
@@ -2366,7 +2367,8 @@ $output = intval($output) * 1;
 
 		$payfor = 'Glitcoin';
 		$cat = '0';
-		$coins = intval($price)/1000;
+	    	$coinPrice = intval($this::GLITCOIN_price);
+		$coins = intval($price)/$coinPrice;
 		$now = time();
 		$userData = $this->fetchUser();
 		$buyer = $userData[0]['profile_id'];
@@ -2374,7 +2376,6 @@ $output = intval($output) * 1;
 		$link = $this->enc_cons($_link);
 		$redirectURL = '../index.php?page=confirmcoinbuy&link='.$link;
 		$product_ID = '';
-//		$this->pay_now($cat, $price, $redirectURL, $payfor, $product_ID);
 		$this->flutterPay($price, $redirectURL);
 
     }
