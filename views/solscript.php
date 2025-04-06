@@ -57,7 +57,7 @@ $sol .="<video style='z-index:10; display:none; background:#fff; height:100vh; w
                 <button id='stopBtn' class='sm' style='position:fixed; bottom:20px; right:20px; z-index:101; background:transparent; color:#fff; border-radius:10px; border:1px solid #000;'>Stop</button>
             </div>
             <div style='display:flex; min-height:50vh; align-items:center; justify-content:center; width:100%; z-index:5; margin-bottom:100px;'>
-               <form action='uscript' method='post' id='' class='col-sm-12 enquiry-form' role='form' style='background:#fff; padding:20px; margin-top:60px;'>
+               <form action='uscript' method='post' id='' class='col-sm-12 enquiry-form' role='form' style='background:#fff; padding:20px; margin-top:80px;'>
                     <input type='hidden' name='mediaproof' id='mediaproof'/>
                     <input type='hidden' name='mediaType' id='mediaType'/>
                     <input type='hidden' name='encmsg' id='encmsg'/>
