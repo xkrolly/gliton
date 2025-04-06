@@ -4,6 +4,14 @@ include('../includes/autoloader.inc.php');
   $usersContr = new usersContr();
   $usersView = new usersView();
 
+//FLUTTERWAVE PAY VERIFY
+
+ $transaction_id = $_GET['transaction_id']; // Get this from the redirect or webhook
+ $result = $usersView->verifyFlutterwavePayment($transaction_id);
+
+ if ($result['status'] == 'success') {
+	// "Payment verified successfully!";
+	// add to coinBalance
     $_link = str_replace(' ', '+', $_GET['link']);
     $link = $usersView->dec_cons($_link);
     $linkArray = explode('_', $link);
@@ -38,3 +46,6 @@ include('../includes/autoloader.inc.php');
     				</div>
 			    </div>";
 
+} else {
+    return "Payment verification failed: " . ($result['message'] ?? 'Unknown error');
+}
