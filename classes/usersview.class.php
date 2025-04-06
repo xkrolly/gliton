@@ -20,7 +20,7 @@ class UsersView extends Users {
 
 	}
 	public function verifyFlutterwavePayment($transaction_id){
-		$secret_key = 'YOUR_SECRET_KEY'; // Replace with your actual secret key
+		$secret_key = 'FLWSECK_TEST-1bec3883bd45619e18cefd2c58944be0-X';//'YOUR_SECRET_KEY'; // Replace with your actual secret key
 		$url = "https://api.flutterwave.com/v3/transactions/{$transaction_id}/verify";
 
 		$headers = [
