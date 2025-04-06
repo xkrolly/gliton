@@ -50,7 +50,7 @@ include('../includes/autoloader.inc.php');
     $response = "<div style='height:100vh; width:100%; display:flex; flex-direction:column; justify-content:center; align-items:center;'>
     			<h4>Payment verification failed</h4> 
     		 	<p>Status: <span style='color:red; font-style:italic;'>".($result['message'] ?? 'Unknown error')."</span></p>
-    		 	<div><a href='buycoin'>Try again</a></div>
+    		 	<div><a href='buycoin'>Try again</a> <span style='margin-left:10px; margin-right:10px;'>|</span> <a href='enquiry'>Exit</a></div>
      		</div>";
     return $response;
 }
