@@ -15,50 +15,7 @@ if(!empty($_GET['link'])){
 	//$buyer = str_replace(' ', '+', $buyer);
 	$_buyer = $usersView->dec_cons($buyer);
 
-    $tx_status = $_GET['status'];
-    $tx_ref = $_GET['tx_ref'];
-    $tx_id = $_GET['transaction_id'];
-    $amount = '50';
-    $currency = 'NGN';
-   // $outcome = $usersView->verifyFlutterPayment($tx_ref, $amount, $currency);
-//    var_dump('successssssssssssssss');
-    /*if($outcome['status'] == 'success'){
-        $goOn = true;
-    }else{
-        header('Location: scrolls');
-    }*/
-   /*....................VERIFY PAYMENT........................
-   
-    //$usersView->verifyFlutterPayment($tx_status, $tx_ref, $tx_id, $buyer, $productID, $key);
-    require("../flutterwavephp/processPayment.php");
-    $flutterwave = new Flutterwave(
-            getenv(pubK),
-            getenv(secK),
-            getenv(encK)
-        );
-    $verification = $flutterwave->verifyPayment($_GET['tx_ref']);
-    if($verification['status'] == 'success'){
-            //payment verified, update db
-            $currency='NGN';
-            $amount = '50';
-            $verifyPayCode = $buyer.'_'.$currency.$amount;
-
-            $valus = $verifyPayCode.', '.$productID.', '.$key.', '.$buyer;
-            $this->update('purchase', 'payVerified = ? WHERE product_id = ? AND productKey = ? AND buyer = ?', $valus);
-        } else {
-            //payment failed, notify user
-        }
-        
-    require("Flutterwave-PHP-v3/library/Transactions.php");
-    use Flutterwave\Transactions;
-    $history = new Transactions();
-    $data = array("id"=>"288200108");
-    $verifyTransaction = $history->verifyTransaction($data);
-    print_r($verifyTransaction);
-
-..........................................*/
-
-    $buy_er = $usersView->usercode($_buyer);
+      $buy_er = $usersView->usercode($_buyer);
 	$_vals = $productID.', '.$key.', %.'.$buy_er.'.%';
 	$_vals2 = $productID.', '.$key;
 	$val = array('product_id'=>$productID, 'productKey'=> $key, 'buyer'=>'.'.$buyer.'.');
@@ -136,7 +93,6 @@ if(!empty($_GET['link'])){
 
 				</div>
 			</div>";
-			/*<a href='index.php?page=peepChats&s=$tutor&r=$student&convid=$conv_id&pubid=$pubid&published=$_published' style='font-size:10px;'>View</a>*/
 
 }
 elseif(isset($_GET['tsess'])){
