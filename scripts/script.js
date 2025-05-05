@@ -261,14 +261,17 @@ function pageView(content){
               var favStatus = content[34];
               var pubDate = content[35];
               var balance = content[36];
+
               var thumb = content[38];
               var thumb2 = content[39];
+              var tppimg = content[40];
+
+              var srcA = strDir+'/dec/'+que;
+              var srcB = strDir2+'/dec/'+que2;
               
               var posterA = strDir+'/thumb/'+que+'t';
               var posterB = strDir2+'/thumb/'+que2+'t';
 
-	      var srcA = strDir+'/dec/'+que;
-              var srcB = strDir2+'/dec/'+que2;
               var srcImgA = strDir+'/'+que;
               var srcImgB = strDir2+'/'+que2;
 
@@ -279,18 +282,18 @@ function pageView(content){
                 document.getElementById('solscriptVidTotal').innerHTML = vidTotal;
                 document.getElementById('pubDate').innerHTML = pubDate;
                 
-//                document.getElementById('totalShares').innerHTML = shared;
+                //document.getElementById('totalFavs').innerHTML = favs;
                 
                 function numEestimator(a){
-                 
+                //  alert(a);
                   a.length == 4 ? y = 1 : (a.length == 5 ? y = 2 : (a.length == 6 ? y = 3 : y = 4 )); 
                   var _a = a.substr(y, 1);
                   a.length >= 4 ? 
                   output = a.substr(0, y)+'.'+_a+'K' : output = a;
                   return output;
                 }
-                 shared === undefined ? shared = 0 : shared = numEestimator(shared);
-                document.getElementById('totalShares').innerHTML = shared;
+                 
+                document.getElementById('totalShares').innerHTML = numEestimator(shared);
                 document.getElementById('timespan').innerHTML = timespan;
                 document.getElementById('timespan2').innerHTML = timespan;
 
@@ -319,11 +322,21 @@ function pageView(content){
 
                   document.getElementById('mediaA').style.display = 'block';
                   document.getElementById('mediaA').src = 'videos/'+srcA+'.webm';
+
                   if(thumb != ''){document.getElementById('mediaA').setAttribute('poster', 'videos/'+posterA+'.webp');}
                   document.getElementById('imgA').style.display = 'none';
                   document.getElementById('wordingsA').style.display = 'none';
                   $('.flexible2').stop();
                   document.getElementById('mediaA').play();
+                  ///////////////////3ppp
+                    if(tppimg == ''){document.getElementById('productIMG').style.display = 'none';}
+
+                    if(tppimg != ''){
+                      tppimg2 = tppimg+'_2';
+                      document.getElementById('productIMG').style.display = 'block';
+                      document.getElementById('productIMG').src = 'img3pp/'+strDir+'/'+tppimg+'.webp';
+                       
+                    }
 
                   if(insight != ''){
                     document.getElementById('insightBtn').style.display = 'block';
@@ -416,66 +429,31 @@ function pageView(content){
               document.getElementById('FavStatus').value = nFavStatus;
 
               
-              //Share shareData(title, text, href)
-              var url = 'https://glit.ng/checkout.php?&checkoutid='+pubidEnc;
-              var title = insight;
-              var text = heading;
-              document.getElementById('shareContent').setAttribute('onclick', 'shareData(\"'+title+'\", \"'+text+'\", \"'+url+'\", \"'+pubidEnc+'\")');
-
-                  shareContent
+              //Share
+              document.getElementById('shareContent').href = 'https://wa.me/+2347037940894?text=heading';
               //script content
             var scriptURL ="index.php?page=peepChats&pub="+pubidEnc;
-                insight = insight.replace('<br />', '&&&&&');
-                insight = insight.replace('<br />', '&&&&&');
-                insight = insight.replace('<br />', '&&&&&');
-              document.getElementById('_contentScript').setAttribute('onclick', 'paymentSubpage(\"'+scriptURL+'\", \"'+heading+'\", \"'+price+'\", \"'+balance+'\", \"'+insight+'\")');
-              document.getElementById('_contentScript2').setAttribute('onclick', 'paymentSubpage(\"'+scriptURL+'\", \"'+heading+'\", \"'+price+'\", \"'+balance+'\", \"'+insight+'\")');
+
+              document.getElementById('_contentScript').setAttribute('onclick', 'paymentSubpage(\"'+scriptURL+'\", \"'+heading+'\", \"'+price+'\", \"'+balance+'\")');
+              document.getElementById('_contentScript2').setAttribute('onclick', 'paymentSubpage(\"'+scriptURL+'\", \"'+heading+'\", \"'+price+'\", \"'+balance+'\")');
 
 }
 
-function paymentSubpage(url, title, price, balance, insight){
+function paymentSubpage(url, title, price, balance){
     var price = parseInt(price)/1000;
-
     balance < price ? disable='disabled' : disable = '';
-
-var widthFactor = balance/price;
-var width = widthFactor * 40;
-width > 100 ? width = 100 : width;
-
+    
   var subpage = " <div id='paySubpage' style='background:#fff; padding:20px; color:#000; height:100%; width:100%; position:fixed; top:0; right:0; bottom:0;'>"+
-                    "<div style='display:flex; flex-direction:column; height:100%; padding:10px; align-items:center; justify-content:space-around;'>"+
-                    "<div style='color:#000; width:100%; text-align:center; font-size:13px;'>Pay "+price+"GC to own this solscript</div><br><br>"+
-                    "<div style='display:flex; justify-content:center; align-items:center; border-radius:50%; height:240px; width:240px; border-top:2px solid gold;'>"+
-                      "<span class='material-icons' style='font-size:120px; color:gold;'>&#xea24;</span>"+
-                    "</div>"+
-                    "<h4 style='color:#111; width:100%; text-align:center; padding:20px; font-family:roboto; font-weight:bold; font-size:18px;'>"+title+"</h4>"+
- "<div style='font-size:12px; padding:5px 20px 20px 10px; text-align:center;'>"+insight+"</div>"+
-                    "<div style='font-size:14px;'>@</div>"+
-                    "<div style='display:flex; justify-content:center; align-items:center; font-weight:bold; color:#2166f3; border-radius:50%; border:2px solid #2166f3; height:40px; width:40px; padding:10px; margin-bottom:8px;'><span style='font-size:20px;'>"+price+"</span><sub style='font-size:10px;'>GC</sub></div>"+
-                    "<div style='display:flex; flex-direction:column; align-items:center; justify-content:center;'>"+
-                    "<span style='width:5px; height:5px; border:1px solid #2166f3; border-radius:50%;'></span>"+
-                    "<span style='width:5px; height:5px; border:1px solid #2166f3; border-radius:50%;'></span>"+
-                    "<span style='width:5px; height:5px; border:1px solid #2166f3; border-radius:50%;'></span>"+
-                    "<span style='width:5px; height:5px; border:1px solid #2166f3; border-radius:50%;'></span>"+
-                    "<span style='width:5px; height:5px; border:1px solid #2166f3; border-radius:50%;'></span>"+
-                    "<span style='width:5px; height:5px; border:1px solid #2166f3; border-radius:50%;'></span>"+
-                    "<span style='width:5px; height:5px; border:1px solid #2166f3; border-radius:50%;'></span>"+
-
-                        "<div id='walletBal'  style='font-size:12px; margin-top:8px;'>"+
-                            "<div id='walletSphere' style='display:flex; justify-content:center; align-items:center; width:"+width+"px; height:"+width+"px; border-radius:50%; border:1px solid #000;'><span style='font-size:14px;'>"+balance+"</span><sub style='font-size:8px;'>GC</sub></div>"+
-                            "<div id='wallet' style='display:flex; justify-content:center; align-items:center;'><span class='material-icons' style='font-size:12px;'>&#xe850;</span> Bal</div>"+
-                        "</div>"+
-                    "</div><br><br><br>";
-                    
-if(balance < price){
-      subpage +=   "<div style='width:100%;'><a href='index.php?page=buycoin&price="+price+"' style='width:100%;'><button id='fundwallet' class='form-control theme' style='border-radius:10px; width:100%; padding:20px auto 20px auto; color:#fff;'>Fund your wallet</button></a></div>";
-}    
-      subpage +=    "<div style='display:flex; flex-direction:column; align-items:center; font-size:12px; width:100%;'><a href='"+url+"' "+disable+" style='width:100%;'><button "+disable+" id='payBtn' class='form-control theme' style='border-radius:10px; width:100%; padding:20px auto 20px auto; color:#fff;'>Proceed to pay</button></a><span style='margin:10px auto;'></span>"+
-                    "<span onclick='copyToClipboard(\""+url+"\");' id='clipboardCopy' style='color:#2166f3; font-size:16px; text-decoration:underlined;'>Copy link</span>"+
-
-                 
-                    "<span onclick='cancelPay();' style='color:#aaa; font-size:16px; text-decoration:underlined;'>Cancel</span></div>"+
-                 
+                    "<div style='display:flex; flex-direction:column; height:100%; padding:10px; align-items:center; justify-content:space-around; border:5px solid #2166f3; border-radius:20px;'>"+
+                    "<h6 style='color:#000; width:100%; text-align:center;'>Pay "+price+"GC to own this solscript</h6>"+
+                    "<hr>"+
+                    "<span class='material-icons' style='background:rgba(0, 0, 0, .1); padding:10px; border-radius:50%; font-size:90px; filter:drop-shadow(1px 1px .5px #444); color:#fff'>&#xef6e;</span>"+
+                    "<h4 style='color:#000; width:100%; text-align:center; padding:20px; font-family:roboto; font-weight:bold; font-size:20px;'>&quot;"+title+"&quot;</h4>"+
+                    "<h3>@</h3>"+
+                    "<div style='display:flex; justify-content:center; align-items:center; font-weight:bold; font-size:25px; color:#fff; background:#2166f3; border-radius:50%; height:60px; width:60px; filter:drop-shadow(1px 1px 1px #ccc);'>"+price+"GC</div>"+
+                    "<h6 id='walletBal'>Your wallet balance - "+balance+"GC</h6>"+
+                    "<div style='display:flex; flex-direction:column; align-items:center;'><a href='"+url+"' "+disable+"><button "+disable+" id='payBtn' class='theme' style='border-radius:10px;'>Proceed to pay</button></a><span style='margin:20px auto;'>OR</span><a href='index.php?page=buycoin&price="+price+"' style='text-decoration:underlined;'>Fund your wallet</a>"+
+                    "<br><br><span onclick='cancelPay();' style='color:red;'>Cancel</span></div>"+
                   "</div></div>";
 $('main').hide();
 document.getElementById('_paymentSubpage').innerHTML = subpage;
@@ -484,73 +462,15 @@ document.getElementById('_paymentSubpage').style.display = 'block';
         document.getElementById('payBtn').style.background = '#eee';
         document.getElementById('payBtn').style.border = '1px solid #eee';
         document.getElementById('walletBal').style.color = 'red';
-        document.getElementById('wallet').style.color = 'red';
-        document.getElementById('fundwallet').style.background = 'green';
-        document.getElementById('walletSphere').style.background = 'red';
-        document.getElementById('walletSphere').style.color = '#fff';
- 
-        
-    }
-    if(balance >= price){ 
-        document.getElementById('walletBal').style.color = 'green';
-        document.getElementById('fundwallet').style.color = '#ddd';
 
-        document.getElementById('wallet').style.color = 'green';
+        
+    }else{ 
+        document.getElementById('walletBal').style.color = '#0f0';
         document.getElementById('payBtn').style.background = '#2166f3';
-        document.getElementById('walletSphere').style.background = 'green';
     }
     
 }
-function recordShare(id){
 
-              var shr = document.getElementById('totalShares').innerHTML;
-              var newShr = parseInt(shr) + 1;
-              document.getElementById('totalShares').innerHTML = newShr;
-
-    $.ajax({
-            url: 'includes/recordShared.inc.php',
-            method: 'POST',
-            data: {id:id},
-            dataType:'json',
-            success: function(data){
-            },
-            error: function(data){
-
-            }
-          });
-}
-    async function shareData(title, text, href, id) {
-      recordShare(id);
-      try{
-        await navigator.share({
-          title: title,
-          text: text,
-          url: href,
-        });
-      } catch (error){
-        console.error('error: ', error);
-      }
-    };
-
-/*function shareData(title, text, href){
-  if(navigator.share){
-    //document.getElementById('shareContent').addEventListener('click', 
-    async () => {
-      try{
-        await navigator.share({
-          title: title,
-          text: text,
-          url: href, //window.location.href,
-        });
-      } catch (error){
-        console.error('error: ', error);
-      }
-    };
-  }else{
-    console.log('web share api not supported');
-  }
-}
-*/
 function cancelPay(){
 document.getElementById('_paymentSubpage').innerHTML = '';
 document.getElementById('_paymentSubpage').style.display = 'none';
@@ -558,23 +478,6 @@ $('main').show();
 
 }
 
-function copyToClipboard(text){
-
- // var link = 'localhost/gliton/checkout.php?&checkoutid='+text.replace('index.php?page=peepChats&pub=', '');
-  var link = 'https://glit.ng/checkout.php?&checkoutid='+text.replace('index.php?page=peepChats&pub=', '');
-  navigator.clipboard.writeText(link).then(() => {
-    document.getElementById('clipboardCopy').style.display = 'block';
-    document.getElementById('clipboardCopy').innerHTML = 'link successfully copied';
-    document.getElementById('clipboardCopy').style.color = 'green';
-
-  }).catch((error) => {
-    var err = 'error copying to clipboard: '+error;
-    document.getElementById('clipboardCopy').style.display = 'block';
-    document.getElementById('clipboardCopy').innerHTML = err;
-    document.getElementById('clipboardCopy').style.color = 'red';
-    
-  });
-}
 /*              function shareDis(){
                 const src = $('#A-src').val();
                 fetch(src)
@@ -623,7 +526,6 @@ function copyToClipboard(text){
                   });
 //                });
               };
-
 
 function generateScrollets(){
   var genspec = 2;//$('#genspec').val();
@@ -823,8 +725,13 @@ function checkSelection(){
 }
 
 $(document).on('click','.category', function(){ 
- document.getElementById('post_enq').disabled = false;
- $('#textQ').show();
+  const category = document.querySelector("input[name='category']:checked");
+  category ? document.getElementById('categoryval').value = category.value : doNothing;
+
+  var categ = $('.categoryval').val();
+  $('#category').val(categ);
+  document.getElementById('post_enq').disabled = false;
+  $('#textQ').show();
   document.getElementById('textspace').focus();
     
 });
