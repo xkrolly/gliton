@@ -1,5 +1,7 @@
 <?php
-include('autoloader.inc.php');
+	
+	include('autoloader.inc.php');
+	
 	$usersContr = new usersContr();
 	$usersView = new usersView();
 	
@@ -10,4 +12,4 @@ include('autoloader.inc.php');
     $userData = $usersView->fetchUser();
     $que = $userData[0]['save_que'];
 
-	$output = $usersView->postSoloChat($cat, $que, $media, $contentID_enc);
+	$output = $usersView->postSoloChat($cat, $que, $media, $contentID_enc, '', '', '');
