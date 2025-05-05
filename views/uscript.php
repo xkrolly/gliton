@@ -80,6 +80,7 @@ $timeOfDay = $usersView->estDate($startDate, $soloData[0]['cdate']);
 //$timeOfDay = $usersView->estDate('2024-11-01 06:00:00', '2024-11-04 06:00:00');
 //$timeOfDay = $usersView->timeBanner($soloData[0]['cdate']);
     
+    $thirdparty = false;
         $catid = $catid;
         $directory = $directory;
 		$rid='';
@@ -213,6 +214,10 @@ $timeOfDay = $usersView->estDate($startDate, $soloData[0]['cdate']);
 									<p style='margin-bottom:4px; margin-left:-4px; padding: 6px 2px; border-bottom:1px solid #ccc;'>
 										<a style='font-size:14px; color:#000;' href=''>Add people</a>
 									</p>
+																	<p style='margin-bottom:4px; margin-left:-4px; padding: 6px 2px; border-bottom:1px solid #ccc;'>
+										<a style='font-size:14px; color:#000;' href=''>Link to followers</a>
+									</p>
+	
 					    			<p style='margin-bottom:4px; margin-left:-4px; padding: 6px 2px; border-bottom:1px solid #ccc; font-size:14px;' id='close".$contentID_enc."' onclick='$(\"#dialog\").slideDown(20);'>
 					    				<a href='pending' style='color:#000;'>Pend project</a>
 					    			</p>
@@ -229,7 +234,7 @@ $timeOfDay = $usersView->estDate($startDate, $soloData[0]['cdate']);
 						</div>
 
   
-			<div style='padding-bottom:80px;'><div id='all_chat' style='min-height:6vh; scroll-snap-type:x mandatory; content-visibility:auto; contain-intrinsic-size:1px 5000px;'>".$usersView->soloscript($contentID_enc, $cat_tbl)."</div></div><br>";
+			<div style='padding-bottom:80px;'><div id='all_chat' style='min-height:6vh; scroll-snap-type:x mandatory; content-visibility:auto; contain-intrinsic-size:1px 5000px;'>".$usersView->soloscript($contentID_enc, $cat_tbl, $thirdparty)."</div></div><br>";
 	
 			if($xpat !== '1'){
 
