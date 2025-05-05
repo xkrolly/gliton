@@ -47,6 +47,18 @@
 		$results = $stmt->fetchAll();
 		return $results;
 	}
+
+	protected function selectStmt3($tableName, $whereOpr, $whereVal) {
+		$whereVal = explode(', ', $whereVal);
+
+		$sql="SELECT * FROM ".$tableName.$whereOpr;
+		$stmt = $this->connect3()->prepare($sql);
+		$stmt->execute($whereVal);
+		$this->count = $stmt->rowCount();
+		$results = $stmt->fetchAll();
+		return $results;
+	}
+
 	protected function deleteStmt($tableName, $whereOpr, $whereVal) {
 		$whereVal = explode(', ', $whereVal);
 
@@ -59,6 +71,13 @@
 
 		$sql="DELETE FROM ".$tableName.$whereOpr;
 		$stmt = $this->connect2()->prepare($sql);
+		$stmt->execute($whereVal);
+	}
+	protected function deleteStmt3($tableName, $whereOpr, $whereVal) {
+		$whereVal = explode(', ', $whereVal);
+
+		$sql="DELETE FROM ".$tableName.$whereOpr;
+		$stmt = $this->connect3()->prepare($sql);
 		$stmt->execute($whereVal);
 	}
 
@@ -134,6 +153,29 @@
 	 	$stmt = $this->connect2()->prepare($sql);
 		$stmt->execute($values);
 //	$lastID = $this->connect()->lastInsertId();
+	}
+
+	protected function insert23p($tableName, $data) {
+		$num = count($data);
+		$tag=array_fill(0, $num, '?');
+		$all_tags=implode(", ", $tag);
+
+	 	$sql = "INSERT INTO ".$tableName." (";
+	 	$sql .= implode(", ", array_keys($data)) . ") VALUES (".$all_tags.")";
+	 	$values = array_values($data);	
+	 	$stmt = $this->connect3()->prepare($sql);
+		$stmt->execute($values);
+	}
+
+
+    protected function update3Stmt($tableName, $setOPRs, $setWhereVals) {
+	    
+	    $setWhereVals = explode(', ', $setWhereVals);
+	 	$sql = "UPDATE ".$tableName." SET ".$setOPRs;
+	 	$stmt = $this->connect3()->prepare($sql);
+		$stmt->execute($setWhereVals);
+		$results = $stmt->fetchAll();
+		return $results;
 	}
     protected function update2Stmt($tableName, $setOPRs, $setWhereVals) {
 	    
@@ -507,6 +549,40 @@
   		$diff <= 0 ? $return = '1' : $return = '0';
   		return $return;
   	}
+  	protected function fetch3rdparty($scriptID){
+  		$uData = $this->fetchUser();
+		$user = $uData[0]['profile_id'];
+		$oWHERE ="productscript.brandid = '$user' AND productscript.productUniq = '$scriptID' ORDER BY script_id DESC";
+
+ 	    $sql="SELECT * FROM productscript INNER JOIN agro USING (agro_id) INNER JOIN veterinary USING (vet_id) INNER JOIN health USING (hth_id) INNER JOIN guidance USING (guide_id) INNER JOIN cooking USING (cook_id) WHERE ".$oWHERE;
+		$stmt = $this->connect()->query($sql);
+
+		$chatsArray=array();
+		while($row1 = $stmt->fetch()){
+	
+			$array = $this->_aoi_cht($row1['agro_id'], $row1['vet_id'], $row1['hth_id'], $row1['guide_id'], $row1['cook_id']);
+			
+			$_que=$array['queCol'];
+			$que = $row1[$_que];
+			$chatType = $array['strDir'];
+
+            $que =  str_replace("&#39;", "'", $que);
+			$solo_id = $row1['script_id'];
+			$replyto = '';//$row1['replyto'];
+			$lock = '0';//$row1['locked'];
+			$content_id = $row1['productUniq'];
+			$media = $row1['media'];
+			$date = $row1['sDate'];
+			$flag = $row1['flag'];
+			$title = "WAR";//$row1['title'];
+			$insight = $row1['insight'];
+			$category_id = $row1['category_id'];
+
+	  		$chatsArray[] =array("chatid"=>$solo_id, "catid"=>$category_id, "type"=>$chatType, "que"=>$que, "mode"=>$media, "cid"=>$content_id, "replyto"=>$replyto, "locked"=>$lock, "flag"=>$flag, "title"=>$title, "insight"=>$insight, "sol_date"=>$date);
+		}
+		return $chatsArray;
+	
+  	}
 
   	protected function fetchsolochat($scriptID){
 		$uData = $this->fetchUser();
@@ -537,7 +613,7 @@
 			$insight = $row1['insight'];
 			$category_id = $row1['category_id'];
 
-	  		$chatsArray[] =array("solo_id"=>$solo_id, "catid"=>$category_id, "type"=>$chatType, "que"=>$que, "mode"=>$media, "cid"=>$content_id, "replyto"=>$replyto, "locked"=>$lock, "flag"=>$flag, "title"=>$title, "insight"=>$insight, "sol_date"=>$date);
+	  		$chatsArray[] =array("chatid"=>$solo_id, "catid"=>$category_id, "type"=>$chatType, "que"=>$que, "mode"=>$media, "cid"=>$content_id, "replyto"=>$replyto, "locked"=>$lock, "flag"=>$flag, "title"=>$title, "insight"=>$insight, "sol_date"=>$date);
 		}
 		return $chatsArray;		
   	}
@@ -699,6 +775,21 @@
 		$check2 = "UPDATE chat SET view='$_both' WHERE sender_id = '$recipient_id' AND view='$_recipient_id'";
 		$this->connect()->query($check2);
 			
+		//$resumingCID == 0 ? $subSQL = " AND conv_id = '$resumingCID' " : $subSQL = " AND conv_id = '$tutorConvId' ";
+	   
+	    //conv_id = (SELECT MAX(conv_id) FROM chat) AND";
+		//check to knw which to pick
+		//$hxList == true ? $showOnlyNewChats = '' : $showOnlyNewChats = ' AND close = 0';
+/*			($resumingCID > 0 && $hxList == true) ? $oWHERE ="chat.sender_id = '$user' AND flag > 0 OR conv_id = '$learnerConvId' AND chat.recipient_id = '$user' AND flag > 0 ORDER BY conv_id DESC, chat_id DESC" : $oWHERE = chat.sender_id = '$user' AND chat.recipient_id = '$recipient_id'".$subSQL." OR conv_id = '$learnerConvId' AND chat.sender_id = '$recipient_id' AND chat.recipient_id = '$user'".$subSQL." ORDER BY conv_id DESC, chat_id DESC";
+
+    $sql="SELECT * FROM chat INNER JOIN agro USING (agro_id) INNER JOIN veterinary USING (vet_id) INNER JOIN health USING (hth_id) INNER JOIN guidance USING (guide_id) WHERE conv_id = '$learnerConvId' AND ".$oWHERE;
+
+*/
+
+            // $limitToOneConverse == true ? $limitToCid =  "conv_id = '$learnerConvId' AND " : $limitToCid = "";
+                      /*  $limitToOneConverse == true ? $subSQL = $subSQL : $subSQL = "";*/
+            
+		//	($resumingCID == 0 && $hxList == true) ? $oWHERE ="uniq_conv = '$resumingCID' AND chat.sender_id = '$user' AND flag > 0 OR chat.recipient_id = '$user' AND flag > 0 ORDER BY conv_id DESC, chat_id DESC" : 
 
 			$oWHERE ="uniq_conv = '$resumingCID' AND chat.sender_id = '$user' AND chat.recipient_id = '$recipient_id' OR uniq_conv = '$resumingCID' AND chat.sender_id = '$recipient_id' AND chat.recipient_id = '$user' ORDER BY chat_id DESC";
 
