@@ -73,90 +73,74 @@ $sol .="<video style='z-index:10; display:none; background:#fff; height:100vh; w
                             <label class='numberedWall'> <span style='font-weight:bold; font-size:14px;' class='numbered'>1.</span>
                             Category</label>
                             
-                            <div style='height:200px; overflow:scroll; border-radius:20px; filter:drop-shadow(1px 1px 1px #eee);'>
-	                            <div id='subList-panel' style='margin-bottom:10px;'>
-	                                <div class='cat-list-panel' style='background:#fff;'>
-	                                    <h6>Agro</h6>
-	                                    <div style='display:flex; width:100%;'><input type='hidden' name='categoryval' id='categoryval'>
-	                                        <p class='list-ring'>
-	                                            <label><input type='radio' name='category' class='category' value='1'>&nbsp;&nbsp;Agrochemicals</label>
-	                                            <label><input type='radio' name='category' class='category' value='2'>&nbsp;&nbsp;Seed</label>
-	                                            <label><input type='radio' name='category' class='category' value='3'>&nbsp;&nbsp;Farm machinery</label>
-	                                        </p>
-	                                        <p class='list-ring'>
-	                                            <label><input type='radio' name='category' class='category' value='4'>&nbsp;&nbsp;Plant diseases</label>
-	                                            <label><input type='radio' name='category' class='category' value='5'>&nbsp;&nbsp;Farm operations</label>
-	                                            <label><input type='radio' name='category' class='category' value='6'>&nbsp;&nbsp;Agro market</label>
-	                                        </p>
-	                                    </div>
-	                                </div>
-	                        	</div>
-	                        	<div id='subList-panel' style='margin-bottom:10px;'>
-	                                <div class='cat-list-panel' style='background:#fff;'>
-	                                 <h6>Vet</h6>
-	                                   
-	                                    <div style='display:flex; width:100%;'><input type='hidden' name='categoryval' id='categoryval'>
-	                                        <p class='list-ring'>
-	                                            <label><input type='radio' name='category' class='category' value='1'>&nbsp;&nbsp;Agrochemicals</label>
-	                                            <label><input type='radio' name='category' class='category' value='2'>&nbsp;&nbsp;Seed</label>
-	                                            <label><input type='radio' name='category' class='category' value='3'>&nbsp;&nbsp;Farm machinery</label>
-	                                        </p>
-	                                        <p class='list-ring'>
-	                                            <label><input type='radio' name='category' class='category' value='4'>&nbsp;&nbsp;Plant diseases</label>
-	                                            <label><input type='radio' name='category' class='category' value='5'>&nbsp;&nbsp;Farm operations</label>
-	                                            <label><input type='radio' name='category' class='category' value='6'>&nbsp;&nbsp;Agro market</label>
-	                                        </p>
-	                                    </div>
-	                                </div>
-	                        	</div>
-	                        	<div id='subList-panel' style='margin-bottom:10px;'>
-	                                <div class='cat-list-panel' style='background:#fff;'>
-	                                     <h6>Medicals</h6>
-	                                   
-	                                    <div style='display:flex; width:100%;'><input type='hidden' name='categoryval' id='categoryval'>
-	                                        <p class='list-ring'>
-	                                            <label><input type='radio' name='category' class='category' value='1'>&nbsp;&nbsp;Agrochemicals</label>
-	                                            <label><input type='radio' name='category' class='category' value='2'>&nbsp;&nbsp;Seed</label>
-	                                            <label><input type='radio' name='category' class='category' value='3'>&nbsp;&nbsp;Farm machinery</label>
-	                                        </p>
-	                                        <p class='list-ring'>
-	                                            <label><input type='radio' name='category' class='category' value='4'>&nbsp;&nbsp;Plant diseases</label>
-	                                            <label><input type='radio' name='category' class='category' value='5'>&nbsp;&nbsp;Farm operations</label>
-	                                            <label><input type='radio' name='category' class='category' value='6'>&nbsp;&nbsp;Agro market</label>
-	                                        </p>
-	                                    </div>
-	                                </div>
-	                        	</div>
-								                  <div id='subList-panel' style='margin-bottom:10px;'>
-	                                <div class='cat-list-panel' style='background:#fff;'>
-	                                     <h6>Nutritions</h6>
-	                                   
-	                                    <div style='display:flex; width:100%;'><input type='hidden' name='categoryval' id='categoryval'>
-	                                        <p class='list-ring'>
-	                                            <label><input type='radio' name='category' class='category' value='1'>&nbsp;&nbsp;Agrochemicals</label>
-	                                            <label><input type='radio' name='category' class='category' value='2'>&nbsp;&nbsp;Seed</label>
-	                                            <label><input type='radio' name='category' class='category' value='3'>&nbsp;&nbsp;Farm machinery</label>
-	                                        </p>
-	                                        <p class='list-ring'>
-	                                            <label><input type='radio' name='category' class='category' value='4'>&nbsp;&nbsp;Plant diseases</label>
-	                                            <label><input type='radio' name='category' class='category' value='5'>&nbsp;&nbsp;Farm operations</label>
-	                                            <label><input type='radio' name='category' class='category' value='6'>&nbsp;&nbsp;Agro market</label>
-	                                        </p>
-	                                    </div>
-	                                </div>
-	                        	</div>
+                            <div style='height:200px; overflow-y:scroll; scrollbar-width:none; -ms-overflow-style:none; border-radius:20px; filter:drop-shadow(1px 1px 1px #eee);'>
+                                <div id='subList-panel' style='margin-bottom:10px;'>
+                                    <div class='cat-list-panel' style='background:#fff;'>
+                                        <h6>Agro</h6>
+                                        <div style='display:flex; width:100%;'>
+                                            <p class='list-ring'>
+                                                <label><input type='radio' name='category' class='category' value='1'>&nbsp;&nbsp;Agrochemicals</label>
+                                                <label><input type='radio' name='category' class='category' value='2'>&nbsp;&nbsp;Seed</label>
+                                                <label><input type='radio' name='category' class='category' value='3'>&nbsp;&nbsp;Farm machinery</label>
+                                            </p>
+                                            <p class='list-ring'>
+                                                <label><input type='radio' name='category' class='category' value='4'>&nbsp;&nbsp;Plant diseases</label>
+                                                <label><input type='radio' name='category' class='category' value='5'>&nbsp;&nbsp;Farm operations</label>
+                                                <label><input type='radio' name='category' class='category' value='6'>&nbsp;&nbsp;Agro market</label>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id='subList-panel' style='margin-bottom:10px;'>
+                                    <div class='cat-list-panel' style='background:#fff;'>
+                                     <h6>Vet</h6>
+
+                                        <div style='display:flex; width:100%;'>
+                                            <p class='list-ring'>
+                                                <label><input type='radio' name='category' class='category' value='11'>&nbsp;&nbsp;Poultry</label>
+                                                <label><input type='radio' name='category' class='category' value='12'>&nbsp;&nbsp;Pet</label>
+                                                <label><input type='radio' name='category' class='category' value='13'>&nbsp;&nbsp;Ruminants</label>
+                                            </p>
+                                            <p class='list-ring'>
+                                                <label><input type='radio' name='category' class='category' value='14'>&nbsp;&nbsp;Fish</label>
+                                                <label><input type='radio' name='category' class='category' value='15'>&nbsp;&nbsp;Feed formulation</label>
+                                                <label><input type='radio' name='category' class='category' value='16'>&nbsp;&nbsp;Others</label>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id='subList-panel' style='margin-bottom:10px;'>
+                                    <div class='cat-list-panel' style='background:#fff;'>
+                                         <h6>Medicals</h6>
+                                       
+                                        <div style='display:flex; width:100%;'>
+                                            <p class='list-ring'>
+                                                <label><input type='radio' name='category' class='category' value='21'>&nbsp;&nbsp;General Health</label>
+                                                <label><input type='radio' name='category' class='category' value='22'>&nbsp;&nbsp;Infertility</label>
+                                                <label><input type='radio' name='category' class='category' value='23'>&nbsp;&nbsp;Diabetes</label>
+                                                <label><input type='radio' name='category' class='category' value='24'>&nbsp;&nbsp;Hepatitis</label>
+                                            </p>
+                                            <p class='list-ring'>
+                                                <label><input type='radio' name='category' class='category' value='25'>&nbsp;&nbsp;Alergy</label>
+                                                <label><input type='radio' name='category' class='category' value='26'>&nbsp;&nbsp;Obesity/Weightloss</label>
+                                                <label><input type='radio' name='category' class='category' value='27'>&nbsp;&nbsp;Sickle cell</label>
+                                                <label><input type='radio' name='category' class='category' value='28'>&nbsp;&nbsp;Hypertension</label>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
 
                         </div>
 
                        <div class='form-group' id='textQ' style='display:flex; flex-direction:column; padding:5px; margin-top:30px;'>
                             <label class='numberedWall'> <span style='font-weight:bold; font-size:14px;' class='numbered'>2.</span>
-								Add title
-							</label>
+                                Add title
+                            </label>
                            <input type='text' name='title' id='textspace' class='form-control' placeholder='Your succinct title' style='font-size:14px; border-radius:20px;'/>
                                 <div style='display:flex; flex-direction:column; font-size:12px; padding:5px 10px 5px 20px; margin-top:10px; background:#fff; border-radius:10px;' >
                                       <div style='font-size:10px; text-align:left; font-style:italic; color:#2166f3; display:flex; justify-content:flex-start; align-items:center;'>NOTE: Title should reflect the uniqueness of your solution approach by quantifying all or either of the associated parameters
-				      </div>
+                      </div>
                                 </div>
                         </div>
 
@@ -165,18 +149,18 @@ $sol .="<video style='z-index:10; display:none; background:#fff; height:100vh; w
                         <div class='form-group' style='margin-top:30px;'>
                                 <label class='numberedWall' style='margin-bottom:20px;'> <span style='font-weight:bold; font-size:14px;' class='numbered'>3.</span>
                                     Confirmatory Visual Evidence
-				</label>
+                </label>
                               
-				<div class='' style='display:flex; justify-content:space-around; align-items:center;'>
-                                    <div onclick='useCamera();'>
+                <div class='' style='display:flex; justify-content:space-around; align-items:center;'>
+                                    <div onclick='useCamera(\"proof\");'>
                                         <span>
                                            <span class='material-icons' style='color:deepskyblue; font-size:35px; filter:drop-shadow(1px 1px .5px #444);'>&#xe412;</span>
                                         </span>
                                         <div style='font-size:10px;'>Image proof</div>
                                     </div>            
                                     <div style='width:18px; height:18px; background:transparent; border:4px solid #aaa; border-radius:50%;' onclick='checkSelection();'>
-      		                    </div>
-                	            <div onclick='checkSelection();'>
+                                </div>
+                                <div onclick='checkSelection();'>
                                       <span id='chatMicSpan' onclick='startVideo(\"$catid\", \"$directory\", \"$rid\", \"$chid\", \"$contentID_enc\", \"$height\", \"$lck\", \"$uploadURL\", \"$addVideoFrame\", \"$addSpanPadin\", \"15\", \"\");' class='hover'>
                                          <span class='material-icons' style='color:deepskyblue; font-size:35px; filter:drop-shadow(1px 1px .5px #444);'>&#xe04b;</span>
                                       </span>
@@ -219,4 +203,3 @@ else{
 $sol.=$usersView->searchPanel();
 
 return $sol;
-
