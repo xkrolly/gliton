@@ -1,7 +1,7 @@
 <?php
 if(isset($_POST['publish'])){
 
-  include('../includes/autoloader.inc.php'); 
+  include('../includes/autoloader.inc.php');
   $usersContr = new usersContr();
   $usersView = new usersView();
 
@@ -16,7 +16,9 @@ if(isset($_POST['publish'])){
   }
   !empty($projectID) ? $publink = $projectID : $publink = $_POST['publink'];
   $caption = $_POST['caption'];
-  $shrdKey = $_POST['sk'];
+  //IS BELOW LINE ACCURATE?? CHECK LATER
+  isset($_POST['sk']) ? $shrdKey = $_POST['sk'] : $shrdKey = $publink;
+
   $timespan = $_POST['timespan'];
   $insight = $_POST['insight'];
   $insight = str_replace('  ', '\n', $insight);
@@ -29,67 +31,10 @@ if(isset($_POST['publish'])){
   $chatpop = $_POST['chatpop'];
   $pubtype = $_POST['pubtype'];
   
-  $usersView->publish($publink, $caption, $searchkeys, $topic_id, $chatpop, $publish_mode, $authorization, $price, $timespan, $shrdKey);
+  $pubtype == 'thirdparty' ? $publishTo = '3rdpartyproduct' : $publishTo = 'publish';
 
-/*
+  $usersView->publish($publink, $caption, $searchkeys, $topic_id, $chatpop, $publish_mode, $authorization, $price, $timespan, $shrdKey, $publishTo);
 
-  $pubVal = $publink.', '.$caption.', '.$searchkeys;
-
-  $checkPub = $usersView->select('publish', ' WHERE published = ? AND heading=? AND searchKeys = ?', $pubVal);
-
-  
-  if(count($checkPub) == 0){
-  $rsP = ''; //rsP = resource Person
-  $dec_publink = $usersView->dec_cons($publink);
-  $publink_array = explode('_', $dec_publink);
-  //getting resource person
-  $rsP = $publink_array[0]; 
-  $rsP_enc = $usersView->enc_cons($rsP);
-  
-  $topic_id = $_POST['cat_id']; 
-//  $price .=$_POST['price']; price should be taken from publisher's input price
-  $chatpop = $_POST['chatpop'];
-  $pubtype = $_POST['pubtype'];
-  $insight = $usersView->paragrafin($insight);
-
-  $val = array('published' => $publink, 'pubmode'=>$publish_mode, 'auth'=>$authorization, 'topic_id'=>$topic_id, 'chatpop'=>$chatpop, 'price'=>$price, 'rsP'=>$rsP_enc, 'heading'=>$caption, 'searchKeys'=>$searchkeys, 'insight'=>$insight, 'timespan'=>$timespan);
-  
-    $usersContr->insert('publish', $val);
-    $_POST['publish'] = '';
-
-//delete if pending file
-    $valu = $publink;
-    $usersContr->delete('pending', ' WHERE projectID = ?', $valu);
-
-//update resource person profile about their new publicatn
-    $rsp_data = $usersView->select('publish', ' WHERE rsP = ?', $rsP_enc);
-    $allPub = count($rsp_data);
-    $valus = $allPub.', '.$rsP;
-    $usersContr->update('profile', 'works = ? WHERE profile_id = ?', $valus);
-
-//inform foloas of the rsp about their new publicatn
-$vall = $publink.', '.$caption.', '.$searchkeys;
-$_data = $usersView->select('publish', ' WHERE published = ? AND heading = ? AND searchKeys = ?', $vall);
-$pub_id = $_data[0]['pub_id'];
-
-$userData = $usersView->fetchUser();
-$me = $userData[0]['profile_id'];
-$usersView->decryptor0($pubtype) == 'soloPublish' ? $xpt = $me : $xpt=$rsP;
-$usersView->informFoloas($xpt, $pub_id);
-
-  //store the shrdk into external shk database
-    $_uniqconv_id = $publink;//
-    $shrdKey_enc = $usersView->enc_cons($shrdKey);
-
-    $data = $usersView->select2('sharedkey', ' WHERE ucid = ?', $_uniqconv_id);
-
-    $val = array('ucid' => $_uniqconv_id, 'sk'=>$shrdKey_enc);
-  
-    count($data) == 0 ? $usersContr->insert2('sharedkey', $val) : '';
-  
-  //d//elete approval
-    $usersContr->delete('approval', ' WHERE uniqconvID = ?', $publink);
-  }*/
   
     echo "<div style='display:flex; height:100vh; width:100vw; justify-content:center; align-items:center;'>
         <div style='font-size:38px; width:70%; text-align:center; font-family:serif;'>
@@ -130,7 +75,7 @@ $usersView->informFoloas($xpt, $pub_id);
   $catid = $usersView->decryptor0( $cat );
   $row = $usersView->select('approval', ' WHERE uniqconvID = ? LIMIT 1', $uniqconv_id);
  
-    if($action == 'xpertPublish' || $action == 'soloPublish'){
+    if($action == 'xpertPublish' || $action == 'soloPublish' || $action == 'thirdparty'){
 
         $conv_pop = '';
         $startDate = '';
@@ -167,11 +112,26 @@ $usersView->informFoloas($xpt, $pub_id);
           $conv_pop == '1' ? $chatpop .= 'd' : $chatpop .= 'm';
 
         }
+        if($action == 'thirdparty'){
+
+          $usersContr->update('productscript', 'close = ? WHERE productUniq = ?', $val2);
+
+          //get chatpop from chat table
+          $data = $usersView->select('productscript', ' WHERE productUniq = ?', $_uniqconv_id);
+          $conv_pop = 0;
+          $startDate = $data[0]['sDate'];
+          $n = count($data) - 1;
+          $endDate = $data[$n]['sDate'];
+          $_timespan = strtotime($endDate) - strtotime($startDate);
+          $timespan .= $usersView->getTimeDiff($_timespan);
+          $chatpop .= 's';
+
+        }
 
     $rid='0';
     $chid='';
     $lck='0';
-    $uploadURL ='views/solo_vid_upload.php';
+    $action == 'thirdparty' ? $uploadURL ='views/thirdparty_vid_upload.php' : $uploadURL ='views/solo_vid_upload.php';
     $addVideoFrame = 0;
     $addSpanPadin = 0;
         $height='500px';
@@ -385,7 +345,7 @@ $keyWords.="
                 <input type='hidden' name='publink' value='".$_uniqconv_id."'>
                 <input type='hidden' name='timespan' value='".$timespan."'>
                 <input type='hidden' id='sk' name='sk' value=''>
-                <input type='hidden' id='pubtype' name='pubtype' value='".$ab."'>
+                <input type='hidden' id='pubtype' name='pubtype' value='".$action."'>
                 <input type='hidden' id='chatpop' name='chatpop' value='".$chatpop."'>
                 <script>
                   var rid = localStorage.getItem('rid_enc_cons');
