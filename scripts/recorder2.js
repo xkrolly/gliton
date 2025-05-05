@@ -1,20 +1,19 @@
 
 /*-----------------------Image capturing-----------------------------*/
 
-function accessCamera(){
-
+function accessCamera(imgusage){
   navigator.mediaDevices.getUserMedia({
     video:{facingMode: 'environment'}, audio:false})
       .then(function(stream){
         document.getElementById('camera-preview').style.display = 'block';
         document.getElementById('snap').style.display = 'block';
-        document.getElementById('canvas').style.display = 'block';
+        imgusage == 'productimg2' ? document.getElementById('canvas2').style.display = 'block' : document.getElementById('canvas').style.display = 'block';
         var video = document.getElementById('camera-preview');
         video.srcObject = stream;
         video.play();
         
         $('#snap').on('click', function(){
-          snap(video);
+          snap(video, imgusage);
         });
  
  var dataURL = canvas.toDataURL();
@@ -29,41 +28,48 @@ function accessCamera(){
   return new Blob([arrayBuffer], {type: 'image/webp'});
  }
 
- function saveBlob(blob, filename){
-  //alert(filename);
-  var url = URL.createObjectURL(blob);
-  var a = document.createElement('a');
-      var xhr=new XMLHttpRequest();
-var cat = $('#category').val();
+ function saveBlob(blob, filename, imgusage){
+    //alert(filename);
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement('a');
+    var xhr=new XMLHttpRequest();
+    var cat = $('#categoryval').val();
 
-var randomInt = window.crypto.getRandomValues(new Uint32Array(1))[0]%90000 + 10000;
-  filename = randomInt + Date.now() + cat;
-  var shrd = Date.now() + cat + Date.now()
-  filename_enc = sym_encrypt(filename, shrd);
-  filename_enc = filename_enc.replace(/[/]/g, '_');
-  localStorage.setItem('shrd', shrd);
+    var randomInt = window.crypto.getRandomValues(new Uint32Array(1))[0]%90000 + 10000;
+    filename = randomInt + Date.now() + cat;
+    var shrd = Date.now() + cat + Date.now()
+    filename_enc = sym_encrypt(filename, shrd);
+    filename_enc = filename_enc.replace(/[/]/g, '_');
+    localStorage.setItem('shrd', shrd);
 //////////
        var fd=new FormData();
-            fd.append("img_data", blob, filename_enc);
+       imgusage == 'proof' ? imgurl = 'img_data' : imgurl = 'product_img';
+            fd.append(imgurl, blob, filename_enc);
             fd.append("cat", cat);
             fd.append("mediaProof", filename);
+            imgusage == 'productimg2' ? fd.append("mediaProof2", filename) : '';
+
+            fd.append("imgusage", imgusage);
  
             xhr.open("POST", "views/img_upload.php", true);
             xhr.send(fd);
     document.getElementById('camera-preview').style.display = 'none';
     document.getElementById('snap').style.display = 'none';
-    document.getElementById('cancel').style.display = 'block';
-    document.getElementById('mediaproof').value = filename;
+    imgusage == 'productimg2' ? document.getElementById('cancel2').style.display = 'block' : document.getElementById('cancel').style.display = 'block';
+    
     document.getElementById('mediaType').value = '2';
+    imgusage == 'productimg1' ? document.getElementById('prdImg').value = filename : '';
+    const videoTrack = stream.getVideoTracks()[0];
+    videoTrack.stop();
  }
-        function snap(video){
-          var canvas = document.getElementById('canvas');
+ function snap(video, imgusage){
+          imgusage == 'productimg2' ? canvas = document.getElementById('canvas2') : canvas = document.getElementById('canvas');
           var context = canvas.getContext('2d');
           context.drawImage(video, 0, 0, canvas.width, canvas.height);
           var snapshot = canvas.toDataURL();
           var blob = dataURLToBlob(snapshot);
-          saveBlob(blob, 'image');
-        }
+          saveBlob(blob, 'image', imgusage);
+ }
 
       }).catch(function(error){
         console.error('Error accessing camera:', error);
