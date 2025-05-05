@@ -70,16 +70,25 @@ function proceedUpload(){
   document.getElementById('cancel').style.display = 'none';
 }
 
-function useCamera(){
+function useCamera(imgusage){
   var category = document.querySelector('input[name="category"]:checked');
+
   if(category){
+    document.getElementById('categoryval').value = category.value;
     $('#textQ').show();
-    accessCamera();
+   imgusage == 'productimg2' && $('#mediaType').val() =='' ? 
+  alert('Snap front view first') : accessCamera(imgusage);
   }
   else{
     alert('Select a topic first');
   }
 }
+
+function snapProduct(a){
+//    a == '1' ?
+    accessCamera();
+}
+
 
 
 function loadImg(){
@@ -228,8 +237,8 @@ $(document).on('click', '.flexible2', function(){
     var _vdsrc = __vdsrc.split('.');
 vdsrc = _vdsrc[0];
 var ext = _vdsrc[1];
-     var div = document.createElement('div');
-      div.setAttribute('id', 'bgo');
+    var div = document.createElement('div');
+    div.setAttribute('id', 'bgo');
      //stop the video first
     document.getElementById('flexible').appendChild(div);
 
@@ -237,8 +246,11 @@ var ext = _vdsrc[1];
     document.getElementById('bgo').innerHTML = "<video class='flexible2b' id='media_B' autoplay id='fullscreen' style='object-fit:cover; width:100vw; height:100vh;'>"+ 
     "<source  src='"+vdsrc+"."+ext+"'>"+
     "</video>";
-document.getElementById('media_B').play();
-document.getElementById(vdId).pause();
+    //document.getElementById('media_B').pause();
+    document.getElementById('media_B').play();
+    vdId == 'mediaA' ? vid = 'mediaB' : vid = 'mediaA';
+//    alert(vdId+'===='+vid);
+    document.getElementById(vid).pause();
 
 });  
 
