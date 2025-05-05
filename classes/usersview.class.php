@@ -1,4 +1,5 @@
 <?php
+
 class UsersView extends Users {
     public $scriptElements = "";
    	public $contact;
@@ -12,48 +13,90 @@ class UsersView extends Users {
    	const HEADER = 'img/profiles/header/';
    	const SM_MAXFILESIZE = 1000000;
 	const session_duration = 60*30;
-	const GLITCOIN_price = 1000;
-   	
+
+  public function send_txtmsg($to, $message){//, $api_key, $sender_id = 'Glit' ){
+  	$url = 'https://api.ng.termii.com/api/sms/send';
+  	$baseUrl = 'https://v3.api.termii.com';
+  	$data = [
+  			'to' => $to,
+  			'from' => 'Glit',//$sender_id,
+  			'sms' => $message,
+  			'type' => 'plain',
+  			'channel' => 'generic',
+  			'api_key' => 'TLNkyYqyCWtUUzgXHumlPchVlMHdkEodNEvBjvLjHkWkVRaLKlYgZliYagCzdH'  //$api_key
+
+  	];
+
+  	$options = [
+  			'http' => [
+  					'method' => 'POST',
+  					'header' => [
+  								'Content-Type: application/json',
+  								'Content-Length: '. strlen(json_encode($data)),
+  					],
+  					'content' => json_encode($data),
+  					'ignore_errors' => true
+  			]
+  	];
+
+  	$context = stream_context_create($options);
+  	$result = file_get_contents($url, false, $context);
+
+  	return $result;// ? : "Failed to send SMS.";
+
+  }
 	public function change_Password(){
 		
 	}
 	public function processes_onInternet(){
 
 	}
-	public function verifyFlutterwavePayment($transaction_id){
-		$secret_key = 'FLWSECK_TEST-1bec3883bd45619e18cefd2c58944be0-X';//'YOUR_SECRET_KEY'; // Replace with your actual secret key
-		$url = "https://api.flutterwave.com/v3/transactions/{$transaction_id}/verify";
-
-		$headers = [
-		   "Authorization: Bearer $secret_key",
-		   "Content-Type: application/json"
-		];
-
-		$options = [
-		        'http' => [
-		            'header'  => implode("\r\n", $headers),
-		            'method'  => 'GET'
-			]
-		];
-
-		$context = stream_context_create($options);
-		$result = file_get_contents($url, false, $context);
-
-		if ($result === FALSE) {
-		   return ['status' => 'error', 'message' => 'Unable to connect to Flutterwave API'];
-		}
-
-		$response = json_decode($result, true);
-  	        if ($response['status'] === 'success' && $response['data']['status'] === 'successful') {
-		        return ['status' => 'success', 'data' => $response['data']];
-		} else {
-	           return ['status' => 'failed', 'data' => $response['data']];
-		}
+	public function ribbon(){
+		return "<div class='ribbon-wrap'><div class='ribbon'>Special offer</div></div>";
 	}
 
-	
-public function ribbon(){
-		return "<div class='ribbon-wrap'><div class='ribbon'>Special offer</div></div>";
+	public function clearProductImage(){
+		$userData = $this->fetchUser();
+	  $me = $userData[0]['profile_id'];
+		$val = ' , , '.$me;
+		$this->updateStmt('profile', '3pp_img1 = ?, 3pp_img2 = ? WHERE profile_id = ?', $val);
+
+	}
+
+	public function imguploader3p($cat, $prdImg, $imgusage){
+
+	  $userData = $this->fetchUser();
+	  $me = $userData[0]['profile_id'];
+	  $tpp1 = $userData[0]['3pp_img1'];
+	  $tpp2 = $userData[0]['3pp_img2'];
+	  //capture img for storage
+	  
+	  $imgusage === 'productimg2' && !empty($tpp1) ? $imgName = $tpp1.'_2' : $imgName = mt_rand(1000, 9999).$me.time().$cat;
+	 
+	  $cat_arr = $this->aoi($cat);
+	  $folder = $cat_arr['folder'];
+	  move_uploaded_file($prdImg, '../img3pp/'.$folder.'/'.$imgName.'.webp');
+
+	  $vals = $imgName.', '.$me;
+	  if($imgusage === 'productimg1'){
+	  	 $this->updateStmt('profile', '3pp_img1 = ? WHERE profile_id = ?', $vals);
+	  }
+	}
+	public function imguploader($cat, $img_input){
+
+	  $userData = $this->fetchUser();
+	  $me = $userData[0]['profile_id'];
+	  //capture img for storage
+
+		$imgName = mt_rand(1000, 9999).$me.time().$cat;
+	 
+	  $cat_arr = $this->aoi($cat);
+	  $folder = $cat_arr['folder'];
+	  move_uploaded_file($img_input, '../img/'.$folder.'/'.$imgName.'.webp');
+
+	  $vals = $imgName.', '.$me;
+	  $this->updateStmt('profile', 'save_que = ?  WHERE profile_id = ?', $vals);
+
 	}
   public function productInteraction($_prdID, $intCol, $intTotalCol){
 	    $data = $this->fetchUser();
@@ -188,28 +231,27 @@ public function ribbon(){
             </div>
           </div>
 
-                      <div id='menus' style='display:none; width:100%; z-index:11; position:fixed; right:0; top:4%; margin:20px 5px auto auto;'>
-                <div style='display:flex; width:100%; justify-content:flex-end;'>
-                <div style='border-bottom-right-radius:5px; border-bottom-left-radius:5px; background:#fff; filter:drop-shadow(-2px 2px 2px #888); font-size:16px; padding:5px 20px 10px 10px;'>
-              <p style='text-align:left; margin-bottom:-1px; margin-top:8px;' onclick='$(\"#menus\").slideUp(20);'>&times;</p>
+                      <div id='menus' style='display:none; width:100%; z-index:11; position:fixed; right:0; top:4%; margin:20px 5px auto auto; padding-right:200px;'>
+                <div style='display:flex; justify-content:flex-end;'>
+                <div style='border-bottom-right-radius:5px; border-bottom-left-radius:5px; background:#fff; filter:drop-shadow(-2px 2px 2px #888); font-size:16px; padding:5px 20px 10px 20px;'>
+              <p style='text-align:left; margin-right:-15px; margin-bottom:-5px;' onclick='$(\"#menus\").slideUp(20);'>&times;</p>
               <div style='display:flex; align-items:center; justify-content:flex-start; padding:8px; border-bottom:1px solid #ccc;'>
-                <span class='material-icons' style='margin-right:8px; color:#444; font-size:20px;'>&#xe064;</span>
-                <a href='subscribe' style='text-decoration:none; color:#000; font-size:14px;'>Subscribe</a>
+                <span class='material-icons' style='color:#2166f3; margin-right:5px; font-size:25px;'>&#xe064;</span>
+                <a href='subscribe' style='font-weight:bold; text-decoration:none; font-size:14px;'>Subscribe</a>
               </div>
-              <div style='display:flex; align-items:center; justify-content:flex-start; padding:8px; border-bottom:1px solid #ccc;'>
-                <span class='material-icons' style='color:#444; margin-right:8px; font-size:20px;'>&#xeb3f;</span>
-                <a href='https://glit.ng/glitforbiz' target='_blank' style='text-decoration:none; color:#000; font-size:14px;'>Glit for Biz</a>
-              </div>
-              <div style='display:flex; align-items:center; justify-content:center; padding:8px;'>
-                <a href='logout' style='text-decoration:none; font-size:12px; color:#000;'>Log out</a>
+              <div style='display:flex; align-items:center; justify-content:flex-start; padding:8px;'>
+                <span class='material-icons' style='color:red; margin-right:5px; font-size:25px;'>&#xe9ba;</span>
+                <a href='logout' style='font-weight:bold; text-decoration:none; font-size:14px; color:red;'>Log out</a>
               </div>
         </div></div></div>";
   }
 
-  public function publish($publink, $caption, $searchkeys, $topic_id, $chatpop, $publish_mode, $authorization, $price, $timespan, $shrdKey){
+  public function publish($publink, $caption, $searchkeys, $topic_id, $chatpop, $publish_mode, $authorization, $price, $timespan, $shrdKey, $publishTo){
+	
+	$publishTo == 'publish' ? $contentIDCol = 'published' : $contentIDCol = 'product_uniq';
 
   $pubVal = $publink.', '.$caption.', '.$searchkeys;
-  $checkPub = $this->select('publish', ' WHERE published = ? AND heading=? AND searchKeys = ?', $pubVal);
+  $checkPub = $this->select($publishTo, ' WHERE '.$contentIDCol.' = ? AND heading=? AND searchKeys = ?', $pubVal);
   
   if(count($checkPub) == 0){
 	  $rsP = ''; //rsP = resource Person
@@ -222,31 +264,36 @@ public function ribbon(){
 	  $insight = $this->paragrafin($caption);
 
 	  $seederData = $this->select('seeder', ' WHERE content_id = ?', $publink);
-	  $topic = $seederData[0]['topic'];
+	  count($seederData) > 0 ? $topic = $seederData[0]['topic'] : $topic = $caption;
 
-	  $val = array('published' => $publink, 'pubmode'=>$publish_mode, 'auth'=>$authorization, 'topic_id'=>$topic_id, 'chatpop'=>$chatpop, 'price'=>$price, 'rsP'=>$rsP_enc, 'heading'=>$topic, 'searchKeys'=>$searchkeys, 'insight'=>$insight, 'timespan'=>$timespan);
-	  
-	  $this->insert2Db('publish', $val);
+	  $val = array($contentIDCol => $publink, 'pubmode'=>$publish_mode, 'auth'=>$authorization, 'topic_id'=>$topic_id, 'chatpop'=>$chatpop, 'price'=>$price, 'rsP'=>$rsP_enc, 'heading'=>$topic, 'searchKeys'=>$searchkeys, 'insight'=>$insight, 'timespan'=>$timespan);
+
+/*var_dump($rsP);
+	  var_dump($publishTo);
+	   var_dump($val);
+*/
+	  $this->insert2Db($publishTo, $val);
 	  
 	  //delete if pending file
 	  $valu = $publink;
 	  $this->deleteStmt('pending', ' WHERE projectID = ?', $valu);
 
 	  //update resource person profile about their new publicatn
-	  $rsp_data = $this->select('publish', ' WHERE rsP = ?', $rsP_enc);
+	  $rsp_data = $this->select($publishTo, ' WHERE rsP = ?', $rsP_enc);
 	  $allPub = count($rsp_data);
 	  $valus = $allPub.', '.$rsP;
 	  $this->updateStmt('profile', 'works = ? WHERE profile_id = ?', $valus);
 
 		//inform foloas of the rsp about their new publicatn
 		$vall = $publink.', '.$topic.', '.$searchkeys;
-		$_data = $this->select('publish', ' WHERE published = ? AND heading = ? AND searchKeys = ?', $vall);
-		$pub_id = $_data[0]['pub_id'];
+		$_data = $this->select($publishTo, ' WHERE '.$contentIDCol.' = ? AND heading = ? AND searchKeys = ?', $vall);
+		$publishTo == 'publish' ? $pub_id = $_data[0]['pub_id'] : $pub_id = $_data[0]['product_id'];
 
 		$userData = $this->fetchUser();
 		$me = $userData[0]['profile_id'];
 //		$this->decryptor0($pubtype) == 'soloPublish' 
 		$publish_mode == 's' ? $xpt = $me : $xpt=$rsP;
+		var_dump($xpt.', '.$pub_id);
 		$this->informFoloas($xpt, $pub_id);
 
 	  //store the shrdk into external shk database for dual chat
@@ -890,6 +937,7 @@ return $heading;
 		}
 
 //		file_put_contents($dir.'enc_'.basename($video), 													$encrypted_content);
+		//file_put_contents($dir.$vidName.'.webm', $encrypted_content);
 		file_put_contents($dir.$vidName, $encrypted_content);
 		file_put_contents($dir.'iv.txt', $iv);
 		file_put_contents($dir.'key.txt', $key);
@@ -933,14 +981,15 @@ return $heading;
 	public function videoDecryptor22($tmp_video_enc, $cat_folder){
 		$storage_dir = '../videos/'.$cat_folder.'/';
 		$file_name = $tmp_video_enc;
-		$file_path = $storage_dir.$file_name.'.webm';
+		//var_dump($file_name);
+		$file_path = $storage_dir.$file_name;//.'.webm';
 
 		//if(file_exists($file_path)){
 		//	var_dump('file exist');
 			$enc_video_file = file_get_contents($file_path);
 
 			//get filename frm db
-			$mediaData = $this->select2('mediastorage', ' WHERE file = ?', $tmp_video_enc.'.webm');
+			$mediaData = $this->select2('mediastorage', ' WHERE file = ?', $tmp_video_enc);
 
 			$iv = $mediaData[0]['iv'];
 			$key = $mediaData[0]['pw'];
@@ -954,7 +1003,7 @@ return $heading;
 	}
 	public function checkClassTime($chatAudience, $class_date){
 		return $this->checkClassDate($chatAudience, $class_date);
-  	}
+  }
 	public function getGChatTopicDesc($lectureID){
 		$lectureID = str_replace(' ', '+', $lectureID);
 		$data = $this->select('classes', ' WHERE lecture_id = ?', $lectureID);
@@ -1044,11 +1093,12 @@ return $heading;
         $cd = "<div id='activeTimer2' style='position:fixed; top:48%; bottom:49%; display:flex; justify-content:center; align-items:center; width:100%; z-index:101; filter:drop-shadow(1px 1px 1px #fff); -webkit-text-stroke-width:1.5px; text-stroke-width:1.5px; -webkit-text-stroke-color:#fff; text-stroke-color:#fff; color:rgba(255,255,255, .05); font-size:200px; font-weight:1000;'></div>"; 
         return $cd;
     }
-	public function soloscript($contentID_enc, $cat){
-		$soloChats = $this->fetchsolochat($contentID_enc);
-		//var_dump($soloChats);
+	public function soloscript($contentID_enc, $cat, $thirdparty){
+
+		$thirdparty === true ? $soloChats = $this->fetch3rdparty($contentID_enc) : $soloChats = $this->fetchsolochat($contentID_enc);
 		$ln = count($soloChats) - 1;
-			$title = $soloChats[$ln]['title'];
+		if($ln > 0){
+		$title = $soloChats[$ln]['title'];
 		$chats = "";
         $ndata = $this->fetchUser();
         $this_user = $ndata[0]['profile_id'];
@@ -1057,7 +1107,7 @@ return $heading;
 			$catid = $soloChats[$ln]['catid'];
 			$mode = $soloChats[$ln]['mode'];
 			$chatDir = $soloChats[$ln]['type'];
-			$chat_id = $soloChats[$ln]['solo_id'];
+			$chat_id = $soloChats[$ln]['chatid'];
 			$content_id = $soloChats[$ln]['cid'];
 			$lock = $soloChats[$ln]['locked'];
 			$flag = $soloChats[$ln]['flag'];
@@ -1096,6 +1146,7 @@ return $heading;
         					</div>
 						</div>
 				*/
+
 			/*	$chats.="
 				  
 				  		<div id='modal' class='menulist' style='display:none; z-index:5421; position:fixed; top:25px; right:5px;'>
@@ -1125,23 +1176,21 @@ if($flag==0){
 					            <div style='position:relative; color:#000; background:#fff; width:100%;' id='".$chat_id."a'>
 					 	            <div><a id='".$chat_id."' href='#".$chat_id."' style='color:#000; text-decoration:none;'></a></div>
                                         ".$format."
-    					            <figcaption id='ins".$soloChats[$ln]['solo_id']."' style='position:absolute; top:0; left:0; font-size:14px; height:100%; display:none; justify-content:center; align-items:center; width:100%; z-index:10;'>
+    					            <figcaption id='ins".$chat_id."' style='position:absolute; top:0; left:0; font-size:14px; height:100%; display:none; justify-content:center; align-items:center; width:100%; z-index:10;'>
     					            	<div style='display:flex; flex-direction:column; z-index:10; width:100%; color:#fff; text-shadow:1px 1px #222; height:500px;'>
     					            		<div style='border-top-right-radius:20px; border-top-left-radius:20px; padding:20px; width:100%; margin-top:auto; padding-bottom:50px; text-align:justify;  background:rgba(255, 255, 255, .05);'>
-																<div onclick='$(\"#ins".$soloChats[$ln]['solo_id']."\").slideUp(1000);' style='display:flex; justify-content:center; margin:0 auto 20px auto;'>
-																	<div onclick='$(\"#ins".$soloChats[$ln]['solo_id']."\").slideUp(1000);' style='height:4px; width:30px; background:#fff; border:1px solid #fff; border-radius:20px;'>
+																<div onclick='$(\"#ins".$chat_id."\").slideUp(1000);' style='display:flex; justify-content:center; margin:0 auto 20px auto;'>
+																	<div onclick='$(\"#ins".$chat_id."\").slideUp(1000);' style='height:4px; width:30px; background:#fff; border:1px solid #fff; border-radius:20px;'>
 																	</div>
 																</div>
-				    					            <div id='cntted".$soloChats[$ln]['solo_id']."' contenteditable='true' onclick='clearContent(\"cntted".$soloChats[$ln]['solo_id']."\");' style='width:100%;'>".$scrollet_insight."
+				    					            <div id='cntted".$chat_id."' contenteditable='true' onclick='clearContent(\"cntted".$chat_id."\");' style='width:100%;'>".$scrollet_insight."
 				    					            </div>
-				    					            <p style='text-align:center; margin:25px auto 5px auto;'><span style='color:yellow;' onclick='addContent(\"cntted".$soloChats[$ln]['solo_id']."\");'>Add</span></p>
+				    					            <p style='text-align:center; margin:25px auto 5px auto;'><span style='color:yellow;' onclick='addContent(\"cntted".$chat_id."\");'>Add</span></p>
     					            	  </div>
     					           		</div>
     					          	</figcaption>
     					            <div style='display:flex; align-items:center; justify-content:center; padding-bottom:-5px;'>
-    					             <div style='font-size:10px; color:#000; margin-left:5px;'>".$timeStmp."</div>
-    					            
-    					            ";
+    					             <div style='font-size:10px; color:#000; margin-left:5px;'>".$timeStmp."</div>";
 
     					            if($lock==1){$chats .="<div style='margin-left:10px; width:3px; height:3px; border:1px solid #aaa; background:#aaa; border-radius:50%;'></div><div onClick='lock(".$chat_id.", 0)' style='margin-left:10px; margin-right:15px;' id='lock".$chat_id."'>
 	            			                <span class='material-icons' style='font-size:14px; color:skyblue;'>&#xe897;</span>
@@ -1164,7 +1213,9 @@ if($flag==0){
 					       </div>";}
 		$ln--;
 		}
+
 		return $chats;
+	}
 	}
 
 
@@ -2367,8 +2418,7 @@ $output = intval($output) * 1;
 
 		$payfor = 'Glitcoin';
 		$cat = '0';
-	    	$coinPrice = intval($this::GLITCOIN_price);
-		$coins = intval($price)/$coinPrice;
+		$coins = intval($price)/1000;
 		$now = time();
 		$userData = $this->fetchUser();
 		$buyer = $userData[0]['profile_id'];
@@ -2376,6 +2426,7 @@ $output = intval($output) * 1;
 		$link = $this->enc_cons($_link);
 		$redirectURL = '../index.php?page=confirmcoinbuy&link='.$link;
 		$product_ID = '';
+//		$this->pay_now($cat, $price, $redirectURL, $payfor, $product_ID);
 		$this->flutterPay($price, $redirectURL);
 
     }
@@ -2981,6 +3032,9 @@ $output = intval($output) * 1;
 
 	public function select2($a, $b, $c) {
 		return $this->selectStmt2($a, $b, $c);
+	}
+	public function select3($a, $b, $c) {
+		return $this->selectStmt3($a, $b, $c);
 	}
 
 	public function fetchUser() {
@@ -4042,6 +4096,160 @@ $n = count($chat) - 1;
 
 			
 }
+public function thirdPPL($user){
+	$userInt = $this->select('prd_interactions', ' WHERE profile_id = ?', $user);
+
+	$data = array('profile_id'=>$user, 'likes'=>'', 'favs'=>'');
+    count($userInt) == 0 ? $this->insert2Db('prd_interactions', $data) : '';
+    count($userInt) == 0 ? $userInt = $this->select('prd_interactions', ' WHERE profile_id = ?', $user) : '';
+
+    $myLovedContents = $userInt[0]['3pplikes'];
+    $myFavContents = $userInt[0]['3ppfavs'];
+    $matchDiff_array = $this->fetchLovableContent($user);
+
+	$query = '';
+
+	if(!empty($matchDiff_array) && count($matchDiff_array) >= 5){ 
+    	    
+    	$matchDiff_str = implode(", ", $matchDiff_array);
+    	foreach($matchDiff_array as $match){
+    		$query == '' ? $query .= "?" : $query .=", ?";
+    	}
+	    $pub = $this->select('3rdpartyproduct', " WHERE product_id IN ($query)", $matchDiff_str);
+	}else{
+	    $pub = $this->select('3rdpartyproduct', " WHERE product_id > ?", 0);
+	}
+	    $pub = $this->select('3rdpartyproduct', " WHERE product_id > ? ORDER BY product_id DESC", 0);
+	$ln = count($pub) - 1;
+	$all = '';
+	$que = '';
+	$me = $user;
+
+	$previousLiked = '';
+
+	//////////////////////////////////////////////////////////////////////////////////////////
+	while($ln >= 0){
+		$_me = '_'.$me.'_';
+
+		strpos($myLovedContents, $pub[$ln]['product_id']) !== false ? $likeStatus = 1 : $likeStatus = 0;
+		strpos($myFavContents, $pub[$ln]['product_id']) !== false ? $favStatus = 1 : $favStatus = 0;
+
+			$published_dec = $this->dec_cons($pub[$ln]['product_uniq']);
+			$pub_array = explode("_", $published_dec);
+				$tutorID = $this->dec_cons($pub[$ln]['rsP']);
+				$tutorID_enc_con = $this->enc_cons($tutorID);
+				$tutorID_enc0 = $this->encryptor0($tutorID);
+				$tutor = $this->fetchProfile($tutorID);
+
+				$_tutorImgUrl = $tutor[0]['picture'];
+				$tutorImgUrl = $this::PROFILE.$_tutorImgUrl;
+
+            //check if user is the creator
+            $tutorID == $me ? $consultancy = false : $consultancy = true;
+            
+            //fetch user username
+            $uData = $this->select('skyman_user', ' WHERE profile_id = ?', $tutorID);
+            $username = $this->decryptor0($uData[0]['username']);
+ 
+			$pub[$ln]['chatpop'] == 'm' ? $recipient = 0 :
+			$recipient = $this->encryptor0($pub_array[1]);
+			//$convid = $this->encryptor0($pub_array[2]);
+//			$pub_id_enc = $this->encryptor0($pub[$ln]['pub_id']);
+			$pub_id_enc = $this->num_AlphaA($pub[$ln]['product_id']);
+			$pub_id = $pub[$ln]['product_id'];
+
+			$productUniqArr = explode('_', $this->dec_cons($pub[$ln]['product_uniq']));
+			$product_image = $productUniqArr[6];
+
+		  $chat = $this->select('productscript', ' WHERE productUniq = ? AND media > ?', $pub[$ln]['product_uniq'].', 1');
+
+			$chatPOP = $this->encryptor0($pub[$ln]['chatpop']);
+		if(count($chat) > 0){
+			$n = count($chat) - 1;
+			$catPass = $this->enc_cons('FALSE');
+	//STARTING MEDIA
+			$category_id = $chat[0]['category_id'];
+			$vet_id = $chat[0]['vet_id'];
+			$agro_id = $chat[0]['agro_id'];
+			$hth_id = $chat[0]['hth_id'];
+			$guide_id = $chat[0]['guide_id'];
+			$cook_id = $chat[0]['cook_id'];
+			$startDate = $chat[0]['sDate'];
+			$mediaInUse = $chat[0]['media'];
+			$thumb = $chat[0]['thumbnail'];
+			empty($mediaInUse) ? $mediaInUse =0 : $mediaInUse; 
+            
+            $_addVideoMedia = array();
+            $_addImageMedia = array();
+            $_addAudioMedia = array();
+            $_addText = array();
+        		
+            foreach($chat as $each){
+	            $each['media'] == 3 ? $_addVideoMedia[] = '3' : ($each['media'] == 2 ? $_addImageMedia[] = '2' : 
+                ($each['media'] = 1 ? $_addAudioMedia = '1' : $_addText = '0'));
+            }
+            $addVideoMedia = count($_addVideoMedia);
+            $addImageMedia = count($_addImageMedia);
+            $addAudioMedia = count($_addAudioMedia);
+            $addText = count($_addText);
+		      
+            
+			$aoi_array = $this->aoi_cht($agro_id, $vet_id, $hth_id, $guide_id, $cook_id);
+			$topic = $aoi_array['topic'];
+			$col_id = $aoi_array['col_id'];
+			$colval = $aoi_array['colval'];
+			$queCol = $aoi_array['queCol'];
+			$strDir = $aoi_array['strDir'];
+
+			$med = $this->select($topic, ' WHERE '.$col_id.' = ?', $colval);
+			$que = $med[0][$queCol];
+			$col_val = $colval;
+            $mediaInUse == 3 && !file_exists('../videos/'.$strDir.'/dec/'.$que.'.webm') ? $this->videoDecryptor22($que, $strDir) : '';
+
+//     $mediaInUse == 3 && !file_exists('../videos/'.$strDir.'/dec/'.$que.'.webm') ? var_dump('POST') : var_dump('NOpost');
+//$this->videoDecryptor22($que, $strDir);
+            //if($mediaInUse == 3){$this->videoDecryptor22($que, 'vet');}
+
+	//ENDING MEDIA
+			$_vet_id = $chat[$n]['vet_id'];
+			$_agro_id = $chat[$n]['agro_id'];
+			$_hth_id = $chat[$n]['hth_id'];
+			$_guide_id = $chat[$n]['guide_id'];
+			$_cook_id = $chat[$n]['cook_id'];
+			$_mediaInUse = $chat[$n]['media'];
+			$endDate = $chat[$n]['sDate'];
+			$thumb2 = $chat[$n]['thumbnail'];
+
+			$_aoi_array = $this->aoi_cht($_agro_id, $_vet_id, $_hth_id, $_guide_id, $_cook_id);
+			$_topic = $_aoi_array['topic'];
+			$_col_id = $_aoi_array['col_id'];
+			$_colval = $_aoi_array['colval'];
+			$_queCol = $_aoi_array['queCol'];
+			$_col_val = $_colval;
+
+			$_strDir = $_aoi_array['strDir'];
+			$_med = $this->select($_topic, ' WHERE '.$_col_id.' = ?', $_colval);
+			$_que = $_med[0][$_queCol];
+            
+            $xxx = $this->videoDecryptor22($_que, $_strDir);
+            //var_dump($_que.'()'.$_strDir.' '.$xxx);
+            $_mediaInUse == 3 && !file_exists('../videos/'.$_strDir.'/dec/'.$_que.'.webm') ? $this->videoDecryptor22($_que, $_strDir) : '';
+      
+      $boughtOrNot = $this->boughtOrNot($pub[$ln]['product_uniq']);
+        
+            //if($_mediaInUse == 3){$this->videoDecryptor22($_que, 'vet');}
+            
+            $balance = $this->getCoinBalance();            
+            $chatDur = strtotime($endDate) - strtotime($startDate);
+            $timespan = "<span style='color:#fff;'>".$this->getTimeDiff($chatDur)."</span>";
+            $_endDate = substr($endDate, 0, 10);
+		    $all .= ', '.$pub[$ln]['topic_id'].'__'.$pub[$ln]['heading'].'__L('.$pub_id.'.'.$pub[$ln]['tL'].'.'.$likeStatus.')L__'.$pub[$ln]['product_uniq'].'__'.$pub[$ln]['price'].'__'.$mediaInUse.'__'.$_mediaInUse.'__'.$tutorImgUrl.'__'.$_colval.'__'.$col_id.'__'.$_col_id.'__'.$ln.'__'.$strDir.'__'.$_strDir.'__'.$que.'__'.$_que.'__'.$pub_id.'__'.$recipient.'__'.$tutorID_enc_con.'__'.$likeStatus.'__'.$category_id.'__'.$catPass.'__'.$pub[$ln]['tshare'].'__'.$pub[$ln]['timespan'].'__'.$pub_id_enc.'__'.nl2br(str_replace(', ', '~ ', $pub[$ln]['insight'])).'__'.$consultancy.'__'.$username.'__'.$addVideoMedia.'__'.$addImageMedia.'__'.$addAudioMedia.'__'.$addText.'__'.$tutorID_enc0.'__F('.$pub_id.'.'.$pub[$ln]['tF'].'.'.$favStatus.')F__'.$favStatus.'__'.$_endDate.'__'.$balance.'__'.$boughtOrNot.'__'.$thumb.'__'.$thumb2.'__'.$product_image;
+		}
+	$ln--;
+	}
+	return substr($all, 2);
+
+}
 public function newList($user){
     
 	$userInt = $this->select('prd_interactions', ' WHERE profile_id = ?', $user);
@@ -4056,26 +4264,22 @@ public function newList($user){
 
 	$query = '';
   //var_dump($matchDiff_array);
-/*	if(!empty($matchDiff_array) && count($matchDiff_array) >= 5){ 
-    	    
-    	$matchDiff_str = implode(", ", $matchDiff_array);
-    	foreach($matchDiff_array as $match){
-    		$query == '' ? $query .= "?" : $query .=", ?";
-    	}
-	    $pub = $this->select('publish', " WHERE pub_id IN ($query)", $matchDiff_str);
-	}else{
-	        $pub = $this->select('publish', " WHERE pub_id > ?", 0);
-	}*/
+			/*if(!empty($matchDiff_array) && count($matchDiff_array) >= 5){ 
+			    	    
+				    	$matchDiff_str = implode(", ", $matchDiff_array);
+				    	foreach($matchDiff_array as $match){
+				    		$query == '' ? $query .= "?" : $query .=", ?";
+				    	}
+				    $pub = $this->select('publish', " WHERE pub_id IN ($query)", $matchDiff_str);
+				}else{
+				    $pub = $this->select('publish', " WHERE pub_id > ?", 0);
+			}*/
 	        $pub = $this->select('publish', " WHERE pub_id > ? ORDER BY pub_id DESC", 0);
 	$ln = count($pub) - 1;
 	$all = '';
 	$que = '';
-	$userData = $this->fetchUser();
+	$me = $user;
 
-	$me = $userData[0]['profile_id'];
-    $myLikesList = $userData[0]['likes'];
-    $myFavsList = $userData[0]['favs'];
-    
 	$previousLiked = '';
    	
 	while($ln >= 0){
@@ -4097,8 +4301,8 @@ public function newList($user){
             $tutorID == $me ? $consultancy = false : $consultancy = true;
             
             //fetch user username
-             $uData = $this->select('skyman_user', ' WHERE profile_id = ?', $tutorID);
-             $username = $this->decryptor0($uData[0]['username']);
+            $uData = $this->select('skyman_user', ' WHERE profile_id = ?', $tutorID);
+            $username = $this->decryptor0($uData[0]['username']);
  
 			$pub[$ln]['chatpop'] == 'm' ? $recipient = 0 :
 			$recipient = $this->encryptor0($pub_array[1]);
@@ -4189,13 +4393,12 @@ public function newList($user){
       
       $boughtOrNot = $this->boughtOrNot($pub[$ln]['published']);
         
-            //if($_mediaInUse == 3){$this->videoDecryptor22($_que, 'vet');}
-            
+      $product_image = '';      
             $balance = $this->getCoinBalance();            
             $chatDur = strtotime($endDate) - strtotime($startDate);
             $timespan = "<span style='color:#fff;'>".$this->getTimeDiff($chatDur)."</span>";
             $_endDate = substr($endDate, 0, 10);
-		    $all .= ', '.$pub[$ln]['topic_id'].'__'.$pub[$ln]['heading'].'__L('.$pub_id.'.'.$pub[$ln]['tL'].'.'.$likeStatus.')L__'.$pub[$ln]['published'].'__'.$pub[$ln]['price'].'__'.$mediaInUse.'__'.$_mediaInUse.'__'.$tutorImgUrl.'__'.$_colval.'__'.$col_id.'__'.$_col_id.'__'.$ln.'__'.$strDir.'__'.$_strDir.'__'.$que.'__'.$_que.'__'.$pub_id.'__'.$recipient.'__'.$tutorID_enc_con.'__'.$likeStatus.'__'.$category_id.'__'.$catPass.'__'.$pub[$ln]['share'].'__'.$pub[$ln]['timespan'].'__'.$pub_id_enc.'__'.nl2br(str_replace(', ', '~ ', $pub[$ln]['insight'])).'__'.$consultancy.'__'.$username.'__'.$addVideoMedia.'__'.$addImageMedia.'__'.$addAudioMedia.'__'.$addText.'__'.$tutorID_enc0.'__F('.$pub_id.'.'.$pub[$ln]['tF'].'.'.$favStatus.')F__'.$favStatus.'__'.$_endDate.'__'.$balance.'__'.$boughtOrNot.'__'.$thumb.'__'.$thumb2;
+		    $all .= ', '.$pub[$ln]['topic_id'].'__'.$pub[$ln]['heading'].'__L('.$pub_id.'.'.$pub[$ln]['tL'].'.'.$likeStatus.')L__'.$pub[$ln]['published'].'__'.$pub[$ln]['price'].'__'.$mediaInUse.'__'.$_mediaInUse.'__'.$tutorImgUrl.'__'.$_colval.'__'.$col_id.'__'.$_col_id.'__'.$ln.'__'.$strDir.'__'.$_strDir.'__'.$que.'__'.$_que.'__'.$pub_id.'__'.$recipient.'__'.$tutorID_enc_con.'__'.$likeStatus.'__'.$category_id.'__'.$catPass.'__'.$pub[$ln]['share'].'__'.$pub[$ln]['timespan'].'__'.$pub_id_enc.'__'.nl2br(str_replace(', ', '~ ', $pub[$ln]['insight'])).'__'.$consultancy.'__'.$username.'__'.$addVideoMedia.'__'.$addImageMedia.'__'.$addAudioMedia.'__'.$addText.'__'.$tutorID_enc0.'__F('.$pub_id.'.'.$pub[$ln]['tF'].'.'.$favStatus.')F__'.$favStatus.'__'.$_endDate.'__'.$balance.'__'.$boughtOrNot.'__'.$thumb.'__'.$thumb2.'__'.$product_image;
 		}
 	$ln--;
 	}
@@ -4229,7 +4432,10 @@ $allnew = "<sub style='display:flex; justify-content:center; align-items:center;
 		<span class='material-icons' style='color:#000; filter:drop-shadow(1px 1px .5px #fff) drop-shadow(-.5px -.5px .5px #fff);'>&#xebcc;</span>
 		</span>" : $calender ='';
 
-$scriptPanel = "<div style='display:flex; flex-direction:column; width:100%; height:100vh; overflow:hidden; background:#ddd; justify-content:center; align-items:center;'>
+$scriptPanel = "
+	  <img id='productIMG' class='flexible' src='' style='display:none; justify-content:center; align-items:center; position:fixed; top:35%; left:35%; height:25%; width:30%;  z-index:50000; background:#fff; border-radius:15%; object-fit:cover; border:2px solid #fff; filter:drop-shadow(1px 1px 1px #444) drop-shadow(-.5px -.5px .5px #444);'>
+
+<div style='display:flex; flex-direction:column; width:100%; height:100vh; overflow:hidden; background:#ddd; justify-content:center; align-items:center;'>
 
 	<nav class='hm-na' style='display:flex; align-items:center; min-width:100%; padding:5px; margin-top:5px; border-radius:10px; position:fixed; top:0; background:transparent; z-index:20; font-size:20px;'>
 
