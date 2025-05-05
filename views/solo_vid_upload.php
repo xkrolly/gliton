@@ -43,7 +43,7 @@ include('../includes/autoloader.inc.php');
     $pw = '1234567890';
     
         $dir = '../videos/'.$folder.'/';
-    $videoName = mt_rand(100, 999).$uid.time().$cat;
+    $videoName = mt_rand(100, 999).$uid.time().$cat;//.'.webm';
     $vd_name = $usersView->videoEncryptor($video, $pw, $dir, $videoName);
     $cat_user_id = substr($topic, 0, 1).'_user_id';
     $valu2 = $vd_name.', '.$uid;
