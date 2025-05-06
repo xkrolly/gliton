@@ -28,7 +28,6 @@ class UsersContr extends Users {
 	public function insert2($tableName, $data){
 		return $this->insert2SHK($tableName, $data);
 	}
-	
 	public function updUserActivity($userId, $btnPressed){
 		$active= $this->selectStmt('userActivity', ' WHERE user_id = ?', $userId);
 
