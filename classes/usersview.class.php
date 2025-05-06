@@ -58,8 +58,8 @@ class UsersView extends Users {
 	public function clearProductImage(){
 		$userData = $this->fetchUser();
 	  $me = $userData[0]['profile_id'];
-		$val = ' , , '.$me;
-		$this->updateStmt('profile', '3pp_img1 = ?, 3pp_img2 = ? WHERE profile_id = ?', $val);
+		$val = ' , '.$me;
+		$this->updateStmt('profile', '3pp_img1 = ? WHERE profile_id = ?', $val);
 
 	}
 
@@ -68,7 +68,6 @@ class UsersView extends Users {
 	  $userData = $this->fetchUser();
 	  $me = $userData[0]['profile_id'];
 	  $tpp1 = $userData[0]['3pp_img1'];
-	  $tpp2 = $userData[0]['3pp_img2'];
 	  //capture img for storage
 	  
 	  $imgusage === 'productimg2' && !empty($tpp1) ? $imgName = $tpp1.'_2' : $imgName = mt_rand(1000, 9999).$me.time().$cat;
