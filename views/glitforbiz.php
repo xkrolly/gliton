@@ -8,7 +8,7 @@ $me = $userData[0]['profile_id'];
 $regCompleted = $userData[0]['regCompleted'];
 $sol ='';
 
-$usersView->clearProductImage();
+//$usersView->clearProductImage();
 
 if($regCompleted == 1){
 
