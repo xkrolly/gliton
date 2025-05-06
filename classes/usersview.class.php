@@ -208,7 +208,6 @@ class UsersView extends Users {
 		}
 	 return $outputThumbnail;
   }
-
   public function topBar($notes){
 
 	return "<div style='display:flex; align-items:center; padding:20px 8px 8px 8px; background:#fff; filter:drop-shadow(2px 2px 2px #ccc); position:fixed; top:0; width:100%; z-index:25;'>
@@ -231,21 +230,24 @@ class UsersView extends Users {
             </div>
           </div>
 
-                      <div id='menus' style='display:none; width:100%; z-index:11; position:fixed; right:0; top:4%; margin:20px 5px auto auto; padding-right:200px;'>
-                <div style='display:flex; justify-content:flex-end;'>
-                <div style='border-bottom-right-radius:5px; border-bottom-left-radius:5px; background:#fff; filter:drop-shadow(-2px 2px 2px #888); font-size:16px; padding:5px 20px 10px 20px;'>
-              <p style='text-align:left; margin-right:-15px; margin-bottom:-5px;' onclick='$(\"#menus\").slideUp(20);'>&times;</p>
+                      <div id='menus' style='display:none; width:100%; z-index:11; position:fixed; right:0; top:4%; margin:20px 5px auto auto;'>
+                <div style='display:flex; width:100%; justify-content:flex-end;'>
+                <div style='border-bottom-right-radius:5px; border-bottom-left-radius:5px; background:#fff; filter:drop-shadow(-2px 2px 2px #888); font-size:16px; padding:5px 20px 10px 10px;'>
+              <p style='text-align:left; margin-bottom:-1px; margin-top:8px;' onclick='$(\"#menus\").slideUp(20);'>&times;</p>
               <div style='display:flex; align-items:center; justify-content:flex-start; padding:8px; border-bottom:1px solid #ccc;'>
-                <span class='material-icons' style='color:#2166f3; margin-right:5px; font-size:25px;'>&#xe064;</span>
-                <a href='subscribe' style='font-weight:bold; text-decoration:none; font-size:14px;'>Subscribe</a>
+                <span class='material-icons' style='margin-right:8px; color:#444; font-size:20px;'>&#xe064;</span>
+                <a href='subscribe' style='text-decoration:none; color:#000; font-size:14px;'>Subscribe</a>
               </div>
-              <div style='display:flex; align-items:center; justify-content:flex-start; padding:8px;'>
-                <span class='material-icons' style='color:red; margin-right:5px; font-size:25px;'>&#xe9ba;</span>
-                <a href='logout' style='font-weight:bold; text-decoration:none; font-size:14px; color:red;'>Log out</a>
+              <div style='display:flex; align-items:center; justify-content:flex-start; padding:8px; border-bottom:1px solid #ccc;'>
+                <span class='material-icons' style='color:#444; margin-right:8px; font-size:20px;'>&#xeb3f;</span>
+                <a href='https://glit.ng/glitforbiz' target='_blank' style='text-decoration:none; color:#000; font-size:14px;'>Glit for Biz</a>
+              </div>
+              <div style='display:flex; align-items:center; justify-content:center; padding:8px;'>
+                <a href='logout' style='text-decoration:none; font-size:12px; color:#000;'>Log out</a>
               </div>
         </div></div></div>";
   }
-
+ 
   public function publish($publink, $caption, $searchkeys, $topic_id, $chatpop, $publish_mode, $authorization, $price, $timespan, $shrdKey, $publishTo){
 	
 	$publishTo == 'publish' ? $contentIDCol = 'published' : $contentIDCol = 'product_uniq';
@@ -352,7 +354,7 @@ public function bottomNavigation(){
         ";
 
     }
-	public function saveScript($chatTableID, $catid, $uniqConvID_enc){
+    public function saveScript($chatTableID, $catid, $uniqConvID_enc){
 		$chatTableID == 's' ? $table = 'solochat' : ($chatTableID == 'd' ? $table = 'chat' : $table = 'grpchat');
 		$chatTableID == 's' ? $row_ID = 'solo_id' : ($chatTableID == 'd' ? $row_ID = 'chat_id' : $row_ID = 'grp_id');
 		
