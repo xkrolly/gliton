@@ -5,12 +5,11 @@ $usersView = new usersView();
 $chatPage = '';
 
 if(isset($_POST['category']) && !empty($_POST['title']) ){
-
+var_dump('HERE 1');
 	$userData = $usersView->fetchUser();
 	$me = $userData[0]['profile_id'];
 	$que = $userData[0]['save_que'];
 	$firstImg = $userData[0]['3pp_img1'];
-	$secondImg = $userData[0]['3pp_img2'];
 
 	$catid = $_POST['category'];
 	$title = $_POST['title'];
