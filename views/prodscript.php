@@ -5,7 +5,7 @@ $usersView = new usersView();
 $chatPage = '';
 
 if(isset($_POST['category']) && !empty($_POST['title']) ){
-//var_dump('HERE 1');
+var_dump('HERE 1');
 	$userData = $usersView->fetchUser();
 	$me = $userData[0]['profile_id'];
 	$que = $userData[0]['save_que'];
@@ -19,6 +19,7 @@ if(isset($_POST['category']) && !empty($_POST['title']) ){
 	$company_name = $_POST['company-name'];
 	$batch_num = $_POST['batch-no'];
 	$store_address = $_POST['store-name'];
+var_dump('HERE 2');
 
 	$company_ID = $me;
 	$PRODUCT_DETAIL = $company_ID.'_'.time().'_'.$product_name.'_'.$company_name.'_'.$batch_num.'_'.$store_address.'_'.$firstImg;
@@ -33,7 +34,8 @@ if(isset($_POST['category']) && !empty($_POST['title']) ){
 
 	//check for double prevention
 	$checkData = $usersView->select($cat_tbl, ' WHERE '.$queCol.'= ?', $que);//media_proof_init);
-	
+	var_dump('HERE 3');
+
 	//var_dump($checkData);
 	//	var_dump($PRODUCT_DETAIL_enc);
 
@@ -42,18 +44,24 @@ if(isset($_POST['category']) && !empty($_POST['title']) ){
 	    $now = time();
 	    $vals2 = $now.', '.$cid;
 	    $usersContr->update('pending', 'newupdate = ? WHERE projectID = ?', $vals2);
-		
+		var_dump('HERE 4');
+
 	}
 	if(count($checkData) == 0 && !isset($_POST['cid']) ){
 	    //get the que from profile save_que
 		$vals = array($queCol=>$que, $user_id_col=>$me);
-		$usersContr->insert($cat_tbl, $vals);
-		
+	var_dump('HERE 5');
+	$usersContr->insert($cat_tbl, $vals);
+		var_dump('HERE 6');
+
 		//move the file from temp folder to dec folder
 		$oldPath = 'videos/temp/'.$que;//.'.webm';
 		$newPath = 'videos/'.$directory.'/'.$que;
-		copy($oldPath, $newPath);
+		var_dump('HERE 7');
+copy($oldPath, $newPath);
+var_dump('HERE 8');
 		unlink($oldPath);
+var_dump('HERE 9');
 
 		//remove the que from profile
 		/*$valss = ' , , '.$me;
@@ -67,12 +75,15 @@ if(isset($_POST['category']) && !empty($_POST['title']) ){
 		$valu = $que.', '.$me;
 		$data = $usersView->select($cat_tbl, ' WHERE '.$queCol.'= ? AND '.$user_id_col.'= ?', $valu);
 		$colVal = $data[0][$cat_id]; 
+var_dump('HERE 10');
 
 		$val = array('brandid'=>$me, 'productUniq'=>$productUniq, 'category_id'=>$catid, 'media'=>$mediaType, 'flag'=>$catid, $cat_id=>$colVal);
 		$usersContr->insert('productscript', $val);
+var_dump('HERE 11');
 
 		$val2 = array('brandid'=>$me, 'productUniq'=>$productUniq, 'category_id'=>$catid, 'media'=>$mediaType, 'flag'=>'0', $cat_id=>$colVal);
 		$usersContr->insert('productscript', $val2);
+var_dump('HERE 12');
 
 		    //add to pending
 	        $projectID = $PRODUCT_DETAIL_enc;
@@ -86,11 +97,13 @@ if(isset($_POST['category']) && !empty($_POST['title']) ){
 	$valu = $que;
 	$tablData = $usersView->select($cat_tbl, ' WHERE '.$queCol.' = ?', $valu);
 	$col_id = $tablData[0][$cat_id];
+var_dump('HERE 13');
 
 	$soloData = $usersView->select('productscript', ' WHERE '.$cat_id.' = ?', $col_id);
 	$contentID_enc = $soloData[0]['productUniq'];
 	$startDate = $soloData[0]['sDate'];
 	$timeOfDay = $usersView->estDate($startDate, $soloData[0]['sDate']);
+var_dump('HERE 14');
 	
 	$thirdparty = true;
 	
