@@ -5,15 +5,17 @@ $usersView = new usersView();
 $chatPage = '';
 
 if(isset($_POST['category']) && !empty($_POST['title']) ){
+
 	$userData = $usersView->fetchUser();
 	$me = $userData[0]['profile_id'];
 	$que = $userData[0]['save_que'];
 	$firstImg = $userData[0]['3pp_img1'];
+	$secondImg = $userData[0]['3pp_img2'];
 
 	$catid = $_POST['category'];
 	$title = $_POST['title'];
 	$mediaType = $_POST['mediaproof'];
-var_dump('ONE');
+
 	$product_name = $_POST['product-name'];
 	$company_name = $_POST['company-name'];
 	$batch_num = $_POST['batch-no'];
@@ -32,7 +34,7 @@ var_dump('ONE');
 
 	//check for double prevention
 	$checkData = $usersView->select($cat_tbl, ' WHERE '.$queCol.'= ?', $que);//media_proof_init);
-
+	
 	//var_dump($checkData);
 	//	var_dump($PRODUCT_DETAIL_enc);
 
@@ -41,21 +43,18 @@ var_dump('ONE');
 	    $now = time();
 	    $vals2 = $now.', '.$cid;
 	    $usersContr->update('pending', 'newupdate = ? WHERE projectID = ?', $vals2);
-var_dump('ONE 2');
-
+		
 	}
 	if(count($checkData) == 0 && !isset($_POST['cid']) ){
 	    //get the que from profile save_que
 		$vals = array($queCol=>$que, $user_id_col=>$me);
-	$usersContr->insert($cat_tbl, $vals);
-var_dump('ONE 3');
-
+		$usersContr->insert($cat_tbl, $vals);
+		
 		//move the file from temp folder to dec folder
 		$oldPath = 'videos/temp/'.$que;//.'.webm';
 		$newPath = 'videos/'.$directory.'/'.$que;
-copy($oldPath, $newPath);
+		copy($oldPath, $newPath);
 		unlink($oldPath);
-var_dump('ONE 4');
 
 		//remove the que from profile
 		/*$valss = ' , , '.$me;
@@ -72,11 +71,9 @@ var_dump('ONE 4');
 
 		$val = array('brandid'=>$me, 'productUniq'=>$productUniq, 'category_id'=>$catid, 'media'=>$mediaType, 'flag'=>$catid, $cat_id=>$colVal);
 		$usersContr->insert('productscript', $val);
-var_dump('ONE 5');
 
-		$val2 = array('brandid'=>$me, 'productUniq'=>$productUniq, 'category_id'=>$catid, 'media'=>$mediaType, 'flag'=>0, $cat_id=>$colVal);
+		$val2 = array('brandid'=>$me, 'productUniq'=>$productUniq, 'category_id'=>$catid, 'media'=>$mediaType, 'flag'=>'0', $cat_id=>$colVal);
 		$usersContr->insert('productscript', $val2);
-var_dump('ONE 6');
 
 		    //add to pending
 	        $projectID = $PRODUCT_DETAIL_enc;
@@ -90,13 +87,11 @@ var_dump('ONE 6');
 	$valu = $que;
 	$tablData = $usersView->select($cat_tbl, ' WHERE '.$queCol.' = ?', $valu);
 	$col_id = $tablData[0][$cat_id];
-var_dump('ONE 7');
 
 	$soloData = $usersView->select('productscript', ' WHERE '.$cat_id.' = ?', $col_id);
 	$contentID_enc = $soloData[0]['productUniq'];
 	$startDate = $soloData[0]['sDate'];
 	$timeOfDay = $usersView->estDate($startDate, $soloData[0]['sDate']);
-var_dump('ONE 8');
 	
 	$thirdparty = true;
 	
