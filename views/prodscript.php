@@ -13,7 +13,7 @@ if(isset($_POST['category']) && !empty($_POST['title']) ){
 	$catid = $_POST['category'];
 	$title = $_POST['title'];
 	$mediaType = $_POST['mediaproof'];
-
+var_dump('ONE');
 	$product_name = $_POST['product-name'];
 	$company_name = $_POST['company-name'];
 	$batch_num = $_POST['batch-no'];
@@ -41,18 +41,21 @@ if(isset($_POST['category']) && !empty($_POST['title']) ){
 	    $now = time();
 	    $vals2 = $now.', '.$cid;
 	    $usersContr->update('pending', 'newupdate = ? WHERE projectID = ?', $vals2);
+var_dump('ONE 2');
 
 	}
 	if(count($checkData) == 0 && !isset($_POST['cid']) ){
 	    //get the que from profile save_que
 		$vals = array($queCol=>$que, $user_id_col=>$me);
 	$usersContr->insert($cat_tbl, $vals);
+var_dump('ONE 3');
 
 		//move the file from temp folder to dec folder
 		$oldPath = 'videos/temp/'.$que;//.'.webm';
 		$newPath = 'videos/'.$directory.'/'.$que;
 copy($oldPath, $newPath);
 		unlink($oldPath);
+var_dump('ONE 4');
 
 		//remove the que from profile
 		/*$valss = ' , , '.$me;
@@ -69,9 +72,11 @@ copy($oldPath, $newPath);
 
 		$val = array('brandid'=>$me, 'productUniq'=>$productUniq, 'category_id'=>$catid, 'media'=>$mediaType, 'flag'=>$catid, $cat_id=>$colVal);
 		$usersContr->insert('productscript', $val);
+var_dump('ONE 5');
 
 		$val2 = array('brandid'=>$me, 'productUniq'=>$productUniq, 'category_id'=>$catid, 'media'=>$mediaType, 'flag'=>'0', $cat_id=>$colVal);
 		$usersContr->insert('productscript', $val2);
+var_dump('ONE 6');
 
 		    //add to pending
 	        $projectID = $PRODUCT_DETAIL_enc;
@@ -85,11 +90,13 @@ copy($oldPath, $newPath);
 	$valu = $que;
 	$tablData = $usersView->select($cat_tbl, ' WHERE '.$queCol.' = ?', $valu);
 	$col_id = $tablData[0][$cat_id];
+var_dump('ONE 7');
 
 	$soloData = $usersView->select('productscript', ' WHERE '.$cat_id.' = ?', $col_id);
 	$contentID_enc = $soloData[0]['productUniq'];
 	$startDate = $soloData[0]['sDate'];
 	$timeOfDay = $usersView->estDate($startDate, $soloData[0]['sDate']);
+var_dump('ONE 8');
 	
 	$thirdparty = true;
 	
