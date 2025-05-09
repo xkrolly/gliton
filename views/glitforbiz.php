@@ -65,7 +65,7 @@ $sol .="
 
                         <div class='form-group'>
                             <label class='numberedWall'> <span class='numbered'>1</span>
-                                   Product detail</label>
+                                   <span style='font-size:16px;'>Product detail</span></label>
                             <input type='text' value='' placeholder='Product name' class='form-control property col-sm-12' name='product-name' style='height:40px; font-size:14px; border-radius:20px;' />
                             <input type='text' value='' placeholder='Company name' class='form-control property col-sm-12' name='company-name' style='height:40px; font-size:14px; border-radius:20px;' />
                             <input type='text' value='' placeholder='Batch number' class='form-control property col-sm-12' name='batch-no' style='height:40px; font-size:14px; border-radius:20px;' />
@@ -73,7 +73,8 @@ $sol .="
                         </div>
                         <div class='form-group' style='margin-top:40px;'>
                             <label class='numberedWall'> <span class='numbered'>2</span>
-                            Use-case category</label>
+                            	<span style='font-size:16px;'>Use-case category</span>
+                            </label>
                             
                             <div style='height:200px; overflow-y:scroll; scrollbar-width:none; -ms-overflow-style:none; border-radius:20px; filter:drop-shadow(1px 1px 1px #eee);'>
 	                            <div id='subList-panel' style='margin-bottom:10px;'>
@@ -136,7 +137,7 @@ $sol .="
                         </div>
                         <div class='form-group' style='margin-top:40px;'>
                             <label class='numberedWall'> <span class='numbered'>3</span>
-								Use-case title
+								<span style='font-size:16px;'>Use-case title</span>
 							</label>
                            <input type='text' name='title' id='textspace' class='form-control' placeholder='Your use-case title' style='font-size:14px; border-radius:20px;'/>
                                 <div style='display:flex; flex-direction:column; font-size:12px; padding:5px 10px 5px 20px; margin-top:10px; background:#fff; border-radius:10px;' >
@@ -147,23 +148,24 @@ $sol .="
                         </div>
                         <div class='form-group' style='margin-top:40px;'>
                                 <label class='numberedWall'> <span class='numbered'>4</span>
-                                    Record proof
+                                    <span style='font-size:16px;'>Record proof</span>
                                 </label>
                                 <div class='' style='display:flex; justify-content:center; align-items:center;'>
                                     <div onclick='checkSelection();' style='text-align:center;'>
                                    	 <span id='chatMicSpan' onclick='startVideo(\"$catid\", \"$directory\", \"$rid\", \"$chid\", \"$contentID_enc\", \"$height\", \"$lck\", \"$uploadURL\", \"$addVideoFrame\", \"$addSpanPadin\", \"10\", \"\");' class='hover'>
                                         <span class='material-icons' style='color:deepskyblue; font-size:35px; filter:drop-shadow(1px 1px .5px #444);'>&#xe04b;</span>
                                    	 </span>
+                                   	 <br><br>
                                     <div style='font-size:10px;'>10s Video proof of problem existence</div>
-                                </div>
+                                </div><br>
                         </div>
 				   <div id='all_chat' style='width:100%;'></div>
                  
 						<div class='form-group' style='margin-top:40px;'>
                                 <label class='numberedWall'> <span class='numbered'>5</span>
-                                    Product Image
+                                    <span style='font-size:16px;'>Product Image</span>
                                 </label>
-                                <div class='' style='display:flex; justify-content:center; align-items:center;'>
+                                <div class='' style='display:flex; justify-content:center; align-items:center; margin-top:30px;'>
                                     <div onclick='useCamera(\"productimg1\");' style='text-align:center;'>
                                         <span>
                                            <span class='material-icons' style='color:deepskyblue; font-size:35px; filter:drop-shadow(1px 1px .5px #444);'>&#xe412;</span>
