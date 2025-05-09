@@ -74,7 +74,7 @@ var_dump('ONE 4');
 		$usersContr->insert('productscript', $val);
 var_dump('ONE 5');
 
-		$val2 = array('brandid'=>$me, 'productUniq'=>$productUniq, 'category_id'=>$catid, 'media'=>$mediaType, 'flag'=>'0', $cat_id=>$colVal);
+		$val2 = array('brandid'=>$me, 'productUniq'=>$productUniq, 'category_id'=>$catid, 'media'=>$mediaType, 'flag'=>0, $cat_id=>$colVal);
 		$usersContr->insert('productscript', $val2);
 var_dump('ONE 6');
 
