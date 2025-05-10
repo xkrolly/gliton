@@ -33,7 +33,7 @@ if(isset($_POST['category']) && !empty($_POST['title']) ){
 
 	//check for double prevention
 	$checkData = $usersView->select($cat_tbl, ' WHERE '.$queCol.'= ?', $que);//media_proof_init);
-	
+	var_dump('ONE 1');
 	//var_dump($checkData);
 	//	var_dump($PRODUCT_DETAIL_enc);
 
@@ -48,12 +48,14 @@ if(isset($_POST['category']) && !empty($_POST['title']) ){
 	    //get the que from profile save_que
 		$vals = array($queCol=>$que, $user_id_col=>$me);
 		$usersContr->insert($cat_tbl, $vals);
+	var_dump('ONE 2');
 		
 		//move the file from temp folder to dec folder
 		$oldPath = 'videos/temp/'.$que;//.'.webm';
 		$newPath = 'videos/'.$directory.'/'.$que;
 		copy($oldPath, $newPath);
 		unlink($oldPath);
+	var_dump('ONE 3');
 
 		//remove the que from profile
 		/*$valss = ' , , '.$me;
@@ -67,12 +69,15 @@ if(isset($_POST['category']) && !empty($_POST['title']) ){
 		$valu = $que.', '.$me;
 		$data = $usersView->select($cat_tbl, ' WHERE '.$queCol.'= ? AND '.$user_id_col.'= ?', $valu);
 		$colVal = $data[0][$cat_id]; 
+	var_dump('ONE 4');
 
 		$val = array('brandid'=>$me, 'productUniq'=>$productUniq, 'category_id'=>$catid, 'media'=>$mediaType, 'flag'=>$catid, $cat_id=>$colVal);
 		$usersContr->insert('productscript', $val);
+	var_dump('ONE 5');
 
 		$val2 = array('brandid'=>$me, 'productUniq'=>$productUniq, 'category_id'=>$catid, 'media'=>$mediaType, 'flag'=>'0', $cat_id=>$colVal);
 		$usersContr->insert('productscript', $val2);
+	var_dump('ONE 6');
 
 		    //add to pending
 	        $projectID = $PRODUCT_DETAIL_enc;
@@ -86,11 +91,13 @@ if(isset($_POST['category']) && !empty($_POST['title']) ){
 	$valu = $que;
 	$tablData = $usersView->select($cat_tbl, ' WHERE '.$queCol.' = ?', $valu);
 	$col_id = $tablData[0][$cat_id];
+	var_dump('ONE 7');
 
 	$soloData = $usersView->select('productscript', ' WHERE '.$cat_id.' = ?', $col_id);
 	$contentID_enc = $soloData[0]['productUniq'];
 	$startDate = $soloData[0]['sDate'];
 	$timeOfDay = $usersView->estDate($startDate, $soloData[0]['sDate']);
+	var_dump('ONE 8');
 	
 	$thirdparty = true;
 	
