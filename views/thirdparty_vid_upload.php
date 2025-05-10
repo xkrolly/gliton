@@ -12,13 +12,15 @@ include('../includes/autoloader.inc.php');
 
   $user = $usersView->fetchUser();
   $uid = $user[0]['profile_id'];
-    
+  	var_dump('ONE 1');
+  
   if(empty($cat)){
         //update profile of the video for later usage
         $dir = '../videos/temp/';
         $video = $vid_input;
         $pw = '1234567890';
-        
+    	var_dump('ONE 2');
+    
         $videoName = mt_rand(1000, 9999).$uid.time().'0';
         $vd_name = $usersView->videoEncryptor($video, $pw, $dir, $videoName);
         $valu = $videoName.', '.$uid;
@@ -35,7 +37,8 @@ include('../includes/autoloader.inc.php');
         $video = $vid_input;
 
     $pw = '1234567890';
-    
+ 	var_dump('ONE 3');
+   
         $dir = '../videos/'.$folder.'/';
     $videoName = mt_rand(100, 999).$uid.time().$cat;
     $vd_name = $usersView->videoEncryptor($video, $pw, $dir, $videoName);
@@ -54,13 +57,16 @@ include('../includes/autoloader.inc.php');
     $catCol_val = $queData[0][$col_id];
 
     $contentCheck = $usersView->select('productscript', ' WHERE productUniq = ?', $content_id);
+	var_dump('ONE 4');
 
 //set conversation flag
     $chat_data = array('brandid'=>$uid, 'category_id'=>$cat, $col_id=>$catCol_val, 'productUniq'=>$content_id, 'media'=>3, 'flag'=>$cat);
     count($contentCheck) == 0 ? $usersContr->insert('productscript', $chat_data) : '';
+	var_dump('ONE 5');
 
     $chat_data = array('brandid'=>$uid, 'category_id'=>$cat, $col_id=>$catCol_val, 'productUniq'=>$content_id, 'media'=>3, 'flag'=>0);
     $usersContr->insert('productscript', $chat_data);
-  
+  	var_dump('ONE 6');
+
 }
 
