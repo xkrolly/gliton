@@ -4110,7 +4110,7 @@ public function thirdPPL($user){
     $matchDiff_array = $this->fetchLovableContent($user);
 
 	$query = '';
-
+/*
 	if(!empty($matchDiff_array) && count($matchDiff_array) >= 5){ 
     	    
     	$matchDiff_str = implode(", ", $matchDiff_array);
@@ -4120,7 +4120,7 @@ public function thirdPPL($user){
 	    $pub = $this->select('3rdpartyproduct', " WHERE product_id IN ($query)", $matchDiff_str);
 	}else{
 	    $pub = $this->select('3rdpartyproduct', " WHERE product_id > ?", 0);
-	}
+	}*/
 	    $pub = $this->select('3rdpartyproduct', " WHERE product_id > ? ORDER BY product_id DESC", 0);
 	$ln = count($pub) - 1;
 	$all = '';
