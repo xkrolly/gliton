@@ -4099,7 +4099,7 @@ $n = count($chat) - 1;
 			
 }
 public function thirdPPL($user){
-	$userInt = $this->select('prd_interactions', ' WHERE profile_id = ?', $user);
+/*	$userInt = $this->select('prd_interactions', ' WHERE profile_id = ?', $user);
 
 	$data = array('profile_id'=>$user, 'likes'=>'', 'favs'=>'');
     count($userInt) == 0 ? $this->insert2Db('prd_interactions', $data) : '';
@@ -4108,7 +4108,7 @@ public function thirdPPL($user){
     $myLovedContents = $userInt[0]['3pplikes'];
     $myFavContents = $userInt[0]['3ppfavs'];
     $matchDiff_array = $this->fetchLovableContent($user);
-
+*/
 	$query = '';
 /*
 	if(!empty($matchDiff_array) && count($matchDiff_array) >= 5){ 
@@ -4130,7 +4130,7 @@ public function thirdPPL($user){
 	$previousLiked = '';
 
 	//////////////////////////////////////////////////////////////////////////////////////////
-/*
+
 	while($ln >= 0){
 		$_me = '_'.$me.'_';
 
@@ -4164,7 +4164,7 @@ public function thirdPPL($user){
 				$ccc = $this->dec_cons($pub[$ln]['product_uniq']);
 
 			$productUniqArr = explode('_', $this->dec_cons($pub[$ln]['product_uniq']));
-//		var_dump($productUniqArr);
+		var_dump($productUniqArr);
 			$product_image = $productUniqArr[6];
 //var_dump($product_image);
 		  $chat = $this->select('productscript', ' WHERE productUniq = ? AND media > ?', $pub[$ln]['product_uniq'].', 1');
@@ -4212,11 +4212,7 @@ public function thirdPPL($user){
 			$col_val = $colval;
             $mediaInUse == 3 && !file_exists('../videos/'.$strDir.'/dec/'.$que.'.webm') ? $this->videoDecryptor22($que, $strDir) : '';
 
-//     $mediaInUse == 3 && !file_exists('../videos/'.$strDir.'/dec/'.$que.'.webm') ? var_dump('POST') : var_dump('NOpost');
-//$this->videoDecryptor22($que, $strDir);
-            //if($mediaInUse == 3){$this->videoDecryptor22($que, 'vet');}
-
-	//ENDING MEDIA
+			//ENDING MEDIA
 			$_vet_id = $chat[$n]['vet_id'];
 			$_agro_id = $chat[$n]['agro_id'];
 			$_hth_id = $chat[$n]['hth_id'];
@@ -4237,25 +4233,19 @@ public function thirdPPL($user){
 			$_med = $this->select($_topic, ' WHERE '.$_col_id.' = ?', $_colval);
 			$_que = $_med[0][$_queCol];
             
-            $xxx = $this->videoDecryptor22($_que, $_strDir);
-            //var_dump($_que.'()'.$_strDir.' '.$xxx);
             $_mediaInUse == 3 && !file_exists('../videos/'.$_strDir.'/dec/'.$_que.'.webm') ? $this->videoDecryptor22($_que, $_strDir) : '';
-      
-      $boughtOrNot = $this->boughtOrNot($pub[$ln]['product_uniq']);
+  	    $boughtOrNot = $this->boughtOrNot($pub[$ln]['product_uniq']);
         
-            //if($_mediaInUse == 3){$this->videoDecryptor22($_que, 'vet');}
-            
             $balance = $this->getCoinBalance();            
             $chatDur = strtotime($endDate) - strtotime($startDate);
             $timespan = "<span style='color:#fff;'>".$this->getTimeDiff($chatDur)."</span>";
             $_endDate = substr($endDate, 0, 10);
-		    $all .= ', '.$pub[$ln]['topic_id'].'__'.$pub[$ln]['heading'].'__L('.$pub_id.'.'.$pub[$ln]['tL'].'.'.$likeStatus.')L__'.$pub[$ln]['product_uniq'].'__'.$pub[$ln]['price'].'__'.$mediaInUse.'__'.$_mediaInUse.'__'.$tutorImgUrl.'__'.$_colval.'__'.$col_id.'__'.$_col_id.'__'.$ln.'__'.$strDir.'__'.$_strDir.'__'.$que.'__'.$_que.'__'.$pub_id.'__'.$recipient.'__'.$tutorID_enc_con.'__'.$likeStatus.'__'.$category_id.'__'.$catPass.'__'.$pub[$ln]['tshare'].'__'.$pub[$ln]['timespan'].'__'.$pub_id_enc.'__'.nl2br(str_replace(', ', '~ ', $pub[$ln]['insight'])).'__'.$consultancy.'__'.$username.'__'.$addVideoMedia.'__'.$addImageMedia.'__'.$addAudioMedia.'__'.$addText.'__'.$tutorID_enc0.'__F('.$pub_id.'.'.$pub[$ln]['tF'].'.'.$favStatus.')F__'.$favStatus.'__'.$_endDate.'__'.$balance.'__'.$boughtOrNot.'__'.$thumb.'__'.$thumb2.'__'.$product_image.'_==_'.$ccc;
-		}
+
+	    $all .= ', '.$pub[$ln]['topic_id'].'__'.$pub[$ln]['heading'].'__L('.$pub_id.'.'.$pub[$ln]['tL'].'.'.$likeStatus.')L__'.$pub[$ln]['product_uniq'].'__'.$pub[$ln]['price'].'__'.$mediaInUse.'__'.$_mediaInUse.'__'.$tutorImgUrl.'__'.$_colval.'__'.$col_id.'__'.$_col_id.'__'.$ln.'__'.$strDir.'__'.$_strDir.'__'.$que.'__'.$_que.'__'.$pub_id.'__'.$recipient.'__'.$tutorID_enc_con.'__'.$likeStatus.'__'.$category_id.'__'.$catPass.'__'.$pub[$ln]['tshare'].'__'.$pub[$ln]['timespan'].'__'.$pub_id_enc.'__'.nl2br(str_replace(', ', '~ ', $pub[$ln]['insight'])).'__'.$consultancy.'__'.$username.'__'.$addVideoMedia.'__'.$addImageMedia.'__'.$addAudioMedia.'__'.$addText.'__'.$tutorID_enc0.'__F('.$pub_id.'.'.$pub[$ln]['tF'].'.'.$favStatus.')F__'.$favStatus.'__'.$_endDate.'__'.$balance.'__'.$boughtOrNot.'__'.$thumb.'__'.$thumb2.'__'.$product_image.'_==_'.$ccc;
+	}
 	$ln--;
-	}*/
-//	return substr($all, 2);
-return $pub;
-	
+	}
+	return substr($all, 2);
 }
 public function newList($user){
     
