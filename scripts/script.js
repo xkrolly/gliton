@@ -330,7 +330,7 @@ function pageView(content){
                   $('.flexible2').stop();
                   document.getElementById('mediaA').play();
                   ///////////////////3ppp
-                    if(tppimg == ''){document.getElementById('productIMG').style.display = 'none';}
+                    if(tppimg == ''){document.getElementById('productIMG').style.display = 'none'; document.getElementById('productIMG2').style.display = 'none';}
 
                     if(tppimg != ''){
                       tppimg2 = tppimg+'_2';
