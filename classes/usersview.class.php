@@ -4426,7 +4426,8 @@ $allnew = "<sub style='display:flex; justify-content:center; align-items:center;
 		</span>" : $calender ='';
 
 $scriptPanel = "
-	  <img id='productIMG' class='flexible' src='' style='display:none; justify-content:center; align-items:center; position:fixed; top:35%; left:26%; height:20%; width:48%;  z-index:50000; background:#fff; border-radius:10%; object-fit:cover; border:.5px solid #fff; filter:drop-shadow(.5px .5px .5px #eee) drop-shadow(-.5px -.5px .5px #eee);'>
+	  <img id='productIMG' class='flexible' src='' style='display:none; justify-content:center; align-items:center; position:fixed; top:35%; left:26%; height:16%; width:24%;  z-index:50000; background:#fff; border-radius:10%; object-fit:cover; border:.5px solid #fff; filter:drop-shadow(.5px .5px .5px #eee) drop-shadow(-.5px -.5px .5px #eee);'>
+	  <img id='productIMG2' class='flexible' src='' style='display:none; justify-content:center; align-items:center; position:fixed; top:35%; right:26%; height:16%; width:24%;  z-index:50000; background:#fff; border-radius:10%; object-fit:cover; border:.5px solid #fff; filter:drop-shadow(.5px .5px .5px #eee) drop-shadow(-.5px -.5px .5px #eee);'>
 
 <div style='display:flex; flex-direction:column; width:100%; height:100vh; overflow:hidden; background:#ddd; justify-content:center; align-items:center;'>
 
