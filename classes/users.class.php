@@ -559,7 +559,6 @@
 		$chatsArray=array();
 
 		while($row1 = $stmt->fetch()){
-		var_dump($row1);
 
 			$array = $this->_aoi_cht($row1['agro_id'], $row1['vet_id'], $row1['hth_id'], $row1['guide_id'], $row1['cook_id']);
 			
