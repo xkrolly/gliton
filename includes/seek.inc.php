@@ -15,15 +15,8 @@ $prodListArr = explode(', ', $thirdpartyProdList);//['a', 'b', 'c'];//
 var_dump('==='.$thirdpartyProdList);
 $newListArr = explode(', ', $newList);
 
-//////////////////////////////////
 $finalArr = [];
-/*foreach (array_map(null, $newListArr, $prodListArr) as $pair) {
-	// code...
-	$finalArr = array_merge($finalArr, array_filter($pair));
-}
-*/
 
-/*************************
 $i = 0;
 $j = 0;
 
@@ -44,6 +37,4 @@ while($i < count($newListArr) || $j < count($prodListArr)){
 $n = count($finalArr);
 
 $finalList = implode(', ', $finalArr);
-var_dump($finalList);
 echo json_encode(array("newList"=>$finalList, "n"=>$n));
-*********************/
