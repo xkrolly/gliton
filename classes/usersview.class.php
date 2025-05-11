@@ -4161,10 +4161,10 @@ public function thirdPPL($user){
 			$pub_id_enc = $this->num_AlphaA($pub[$ln]['product_id']);
 			$pub_id = $pub[$ln]['product_id'];
 
-				$ccc = $this->dec_cons($pub[$ln]['product_uniq']);
-
-			$productUniqArr = explode('_', $this->dec_cons($pub[$ln]['product_uniq']));
-		var_dump($productUniqArr);
+			$ccc = $this->dec_cons($pub[$ln]['product_uniq']);
+			$productUniq_dec = $this->dec_cons($pub[$ln]['product_uniq']);
+			$productUniqArr = explode('_', $productUniq_dec);
+//		var_dump($productUniqArr);
 			$product_image = $productUniqArr[6];
 //var_dump($product_image);
 		  $chat = $this->select('productscript', ' WHERE productUniq = ? AND media > ?', $pub[$ln]['product_uniq'].', 1');
