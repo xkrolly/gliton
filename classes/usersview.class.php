@@ -4161,8 +4161,9 @@ public function thirdPPL($user){
 			$pub_id = $pub[$ln]['product_id'];
 
 			$productUniqArr = explode('_', $this->dec_cons($pub[$ln]['product_uniq']));
+		var_dump($productUniqArr);
 			$product_image = $productUniqArr[6];
-
+var_dump($product_image);
 		  $chat = $this->select('productscript', ' WHERE productUniq = ? AND media > ?', $pub[$ln]['product_uniq'].', 1');
 
 			$chatPOP = $this->encryptor0($pub[$ln]['chatpop']);
