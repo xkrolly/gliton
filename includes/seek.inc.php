@@ -42,5 +42,5 @@ while($i < count($newListArr) || $j < count($prodListArr)){
 $n = count($finalArr);
 
 $finalList = implode(', ', $finalArr);
-//var_dump($finalArr);
+var_dump($finalList);
 echo json_encode(array("newList"=>$finalList, "n"=>$n));
