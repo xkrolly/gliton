@@ -321,6 +321,7 @@ function pageView(content){
               else if(media == 3){
 
                   document.getElementById('mediaA').style.display = 'block';
+                  document.getElementById('mediaA').src = '';
                   document.getElementById('mediaA').src = 'videos/'+srcA+'.webm';
 
                   if(thumb != ''){document.getElementById('mediaA').setAttribute('poster', 'videos/'+posterA+'.webp');}
@@ -364,6 +365,7 @@ function pageView(content){
               }
               else if(media2 == 3){
                   document.getElementById('mediaB').style.display = 'block';
+                  document.getElementById('mediaB').src = '';
                   document.getElementById('mediaB').src = 'videos/'+srcB+'.webm';
                   if(thumb2 != ''){document.getElementById('mediaB').setAttribute('poster', 'videos/'+posterB+'.webp');}
                   document.getElementById('imgB').style.display = 'none';
