@@ -4099,7 +4099,7 @@ $n = count($chat) - 1;
 			
 }
 public function thirdPPL($user){
-/*	$userInt = $this->select('prd_interactions', ' WHERE profile_id = ?', $user);
+	$userInt = $this->select('prd_interactions', ' WHERE profile_id = ?', $user);
 
 	$data = array('profile_id'=>$user, 'likes'=>'', 'favs'=>'');
     count($userInt) == 0 ? $this->insert2Db('prd_interactions', $data) : '';
@@ -4108,7 +4108,6 @@ public function thirdPPL($user){
     $myLovedContents = $userInt[0]['3pplikes'];
     $myFavContents = $userInt[0]['3ppfavs'];
     $matchDiff_array = $this->fetchLovableContent($user);
-*/
 	$query = '';
 /*
 	if(!empty($matchDiff_array) && count($matchDiff_array) >= 5){ 
@@ -4121,16 +4120,15 @@ public function thirdPPL($user){
 	}else{
 	    $pub = $this->select('3rdpartyproduct', " WHERE product_id > ?", 0);
 	}*/
-	    $pub = $this->select('3rdpartyproduct', " WHERE product_id > ? ORDER BY product_id DESC", 0);
+    
+	$pub = $this->select('3rdpartyproduct', " WHERE product_id > ? ORDER BY product_id DESC", 0);
 	$ln = count($pub) - 1;
 	$all = '';
 	$que = '';
 	$me = $user;
 
 	$previousLiked = '';
-
-	//////////////////////////////////////////////////////////////////////////////////////////
-
+	
 	while($ln >= 0){
 		$_me = '_'.$me.'_';
 
@@ -4164,9 +4162,7 @@ public function thirdPPL($user){
 			$ccc = $this->dec_cons($pub[$ln]['product_uniq']);
 			$productUniq_dec = $this->dec_cons($pub[$ln]['product_uniq']);
 			$productUniqArr = explode('_', $productUniq_dec);
-//		var_dump($productUniqArr);
 			$product_image = $productUniqArr[6];
-//var_dump($product_image);
 		  $chat = $this->select('productscript', ' WHERE productUniq = ? AND media > ?', $pub[$ln]['product_uniq'].', 1');
 
 			$chatPOP = $this->encryptor0($pub[$ln]['chatpop']);
