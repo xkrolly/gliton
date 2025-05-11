@@ -4426,7 +4426,7 @@ $allnew = "<sub style='display:flex; justify-content:center; align-items:center;
 		</span>" : $calender ='';
 
 $scriptPanel = "
-	  <img id='productIMG' class='flexible' src='' style='display:none; justify-content:center; align-items:center; position:fixed; top:35%; left:35%; height:25%; width:30%;  z-index:50000; background:#fff; border-radius:15%; object-fit:cover; border:2px solid #fff; filter:drop-shadow(1px 1px 1px #444) drop-shadow(-.5px -.5px .5px #444);'>
+	  <img id='productIMG' class='flexible' src='' style='display:none; justify-content:center; align-items:center; position:fixed; top:35%; left:35%; height:20%; width:40%;  z-index:50000; background:#fff; border-radius:20%; object-fit:cover; border:2px solid #fff; filter:drop-shadow(1px 1px 1px #444) drop-shadow(-.5px -.5px .5px #444);'>
 
 <div style='display:flex; flex-direction:column; width:100%; height:100vh; overflow:hidden; background:#ddd; justify-content:center; align-items:center;'>
 
