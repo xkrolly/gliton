@@ -22,6 +22,8 @@ $finalArr = [];
 	$finalArr = array_merge($finalArr, array_filter($pair));
 }
 */
+
+/*************************
 $i = 0;
 $j = 0;
 
@@ -44,3 +46,4 @@ $n = count($finalArr);
 $finalList = implode(', ', $finalArr);
 var_dump($finalList);
 echo json_encode(array("newList"=>$finalList, "n"=>$n));
+*********************/
