@@ -336,6 +336,8 @@ function pageView(content){
                       tppimg2 = tppimg+'_2';
                       document.getElementById('productIMG').style.display = 'block';
                       document.getElementById('productIMG').src = 'img3pp/'+strDir+'/'+tppimg+'.webp';
+                      document.getElementById('productIMG2').style.display = 'block';
+                      document.getElementById('productIMG2').src = 'img3pp/'+strDir+'/'+tppimg2+'.webp';
                        
                     }
 
