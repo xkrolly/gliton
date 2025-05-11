@@ -12,7 +12,7 @@ $newList = $usersView->newList($user);
 $thirdpartyProdList = $usersView->thirdPPL($user);
 $prodListArr = explode(', ', $thirdpartyProdList);//['a', 'b', 'c'];//
 
-var_dump($prodListArr);
+var_dump('==='.$thirdpartyProdList);
 $newListArr = explode(', ', $newList);
 
 //////////////////////////////////
