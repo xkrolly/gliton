@@ -155,7 +155,7 @@
 //	$lastID = $this->connect()->lastInsertId();
 	}
 
-	protected function insert23p($tableName, $data) {
+	/*protected function insert23p($tableName, $data) {
 		$num = count($data);
 		$tag=array_fill(0, $num, '?');
 		$all_tags=implode(", ", $tag);
@@ -165,10 +165,10 @@
 	 	$values = array_values($data);	
 	 	$stmt = $this->connect3()->prepare($sql);
 		$stmt->execute($values);
-	}
+	}*/
 
 
-    protected function update3Stmt($tableName, $setOPRs, $setWhereVals) {
+    /*protected function update3Stmt($tableName, $setOPRs, $setWhereVals) {
 	    
 	    $setWhereVals = explode(', ', $setWhereVals);
 	 	$sql = "UPDATE ".$tableName." SET ".$setOPRs;
@@ -176,7 +176,7 @@
 		$stmt->execute($setWhereVals);
 		$results = $stmt->fetchAll();
 		return $results;
-	}
+	}*/
     protected function update2Stmt($tableName, $setOPRs, $setWhereVals) {
 	    
 	    $setWhereVals = explode(', ', $setWhereVals);
@@ -556,10 +556,11 @@
 
  	    $sql="SELECT * FROM productscript INNER JOIN agro USING (agro_id) INNER JOIN veterinary USING (vet_id) INNER JOIN health USING (hth_id) INNER JOIN guidance USING (guide_id) INNER JOIN cooking USING (cook_id) WHERE ".$oWHERE;
 		$stmt = $this->connect()->query($sql);
-
 		$chatsArray=array();
+
 		while($row1 = $stmt->fetch()){
-	
+		var_dump($row1);
+
 			$array = $this->_aoi_cht($row1['agro_id'], $row1['vet_id'], $row1['hth_id'], $row1['guide_id'], $row1['cook_id']);
 			
 			$_que=$array['queCol'];
