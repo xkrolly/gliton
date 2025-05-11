@@ -1098,7 +1098,6 @@ return $heading;
 
 		$thirdparty === true ? $soloChats = $this->fetch3rdparty($contentID_enc) : $soloChats = $this->fetchsolochat($contentID_enc);
 		$ln = count($soloChats) - 1;
-			var_dump($soloChats);
 
 		if($ln > 0){
 		$title = $soloChats[$ln]['title'];
