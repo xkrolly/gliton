@@ -4130,6 +4130,7 @@ public function thirdPPL($user){
 	$previousLiked = '';
 
 	//////////////////////////////////////////////////////////////////////////////////////////
+/*
 	while($ln >= 0){
 		$_me = '_'.$me.'_';
 
@@ -4251,9 +4252,10 @@ public function thirdPPL($user){
 		    $all .= ', '.$pub[$ln]['topic_id'].'__'.$pub[$ln]['heading'].'__L('.$pub_id.'.'.$pub[$ln]['tL'].'.'.$likeStatus.')L__'.$pub[$ln]['product_uniq'].'__'.$pub[$ln]['price'].'__'.$mediaInUse.'__'.$_mediaInUse.'__'.$tutorImgUrl.'__'.$_colval.'__'.$col_id.'__'.$_col_id.'__'.$ln.'__'.$strDir.'__'.$_strDir.'__'.$que.'__'.$_que.'__'.$pub_id.'__'.$recipient.'__'.$tutorID_enc_con.'__'.$likeStatus.'__'.$category_id.'__'.$catPass.'__'.$pub[$ln]['tshare'].'__'.$pub[$ln]['timespan'].'__'.$pub_id_enc.'__'.nl2br(str_replace(', ', '~ ', $pub[$ln]['insight'])).'__'.$consultancy.'__'.$username.'__'.$addVideoMedia.'__'.$addImageMedia.'__'.$addAudioMedia.'__'.$addText.'__'.$tutorID_enc0.'__F('.$pub_id.'.'.$pub[$ln]['tF'].'.'.$favStatus.')F__'.$favStatus.'__'.$_endDate.'__'.$balance.'__'.$boughtOrNot.'__'.$thumb.'__'.$thumb2.'__'.$product_image.'_==_'.$ccc;
 		}
 	$ln--;
-	}
-	return substr($all, 2);
-
+	}*/
+//	return substr($all, 2);
+return $pub;
+	
 }
 public function newList($user){
     
