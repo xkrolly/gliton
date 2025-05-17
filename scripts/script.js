@@ -339,6 +339,7 @@ function pageView(content){
                        
                     }
 
+		      
 
                   if(insight != ''){
                     document.getElementById('insightBtn').style.display = 'block';
