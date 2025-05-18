@@ -205,6 +205,9 @@ $(window).on('scroll', function(e) {
               scrollTimeout2 = setTimeout(() => {
 
                   if(e.originalEvent.deltaY > 0){
+                    document.getElementById('productIMG') ? $('#productIMG').slideUp('1500') : '';
+                    document.getElementById('productIMG2') ? $('#productIMG2').slideUp('1500') : '';
+
                     $('#bottomList').val() == '' && $('#topList').val() == '' ? generateScrollets() : bringToView();
                    console.log('scrolling down at d END again');
                   }
@@ -328,8 +331,6 @@ function pageView(content){
                   document.getElementById('mediaA').play();
 
                                     ///////////////////3ppp
-                    if(tppimg == ''){document.getElementById('productIMG').style.display = 'none'; document.getElementById('productIMG2').style.display = 'none';}
-
                     if(tppimg != ''){
                       tppimg2 = tppimg+'_2';
                       document.getElementById('productIMG').style.display = 'block';
