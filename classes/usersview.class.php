@@ -4426,8 +4426,8 @@ $allnew = "<sub style='display:flex; justify-content:center; align-items:center;
 		</span>" : $calender ='';
 //h8 w13.6
 $scriptPanel = "
-	  <img id='productIMG' class='flexible' src='' style='display:none; justify-content:center; align-items:center; position:fixed; top:38%; left:30%; height:100px; width:100px; z-index:5001; opacity:0.8; border-radius:50%; object-fit:cover; border:.5px solid #fff; filter:drop-shadow(.5px .5px .5px #eee) drop-shadow(-.5px -.5px .5px #eee);'>
-	  <img id='productIMG2' class='flexible' src='' style='display:none; justify-content:center; align-items:center; position:fixed; top:38%; left:40%; height:100px; width:100px; z-index:5000; opacity:0.8; border-radius:50%; object-fit:cover; border:.5px solid #fff; filter:drop-shadow(.5px .5px .5px #eee) drop-shadow(-.5px -.5px .5px #eee);'>
+	  <img id='productIMG' class='flexible' src='' style='display:none; justify-content:center; align-items:center; position:fixed; top:38%; left:32%; height:100px; width:100px; z-index:5001; opacity:0.9; border-radius:50%; object-fit:cover; border:.5px solid #fff; filter:drop-shadow(.5px .5px .5px #eee) drop-shadow(-.5px -.5px .5px #eee);'>
+	  <img id='productIMG2' class='flexible' src='' style='display:none; justify-content:center; align-items:center; position:fixed; top:38%; left:40%; height:100px; width:100px; z-index:5000; opacity:0.9; border-radius:50%; object-fit:cover; border:.5px solid #fff; filter:drop-shadow(.5px .5px .5px #eee) drop-shadow(-.5px -.5px .5px #eee);'>
 
 <div style='display:flex; flex-direction:column; width:100%; height:100vh; overflow:hidden; background:#ddd; justify-content:center; align-items:center;'>
 
