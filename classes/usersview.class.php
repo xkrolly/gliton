@@ -4424,10 +4424,10 @@ $allnew = "<sub style='display:flex; justify-content:center; align-items:center;
 		<span style='background:transparent;' onClick='$(\".showpanel\").slideDown()'>
 		<span class='material-icons' style='color:#000; filter:drop-shadow(1px 1px .5px #fff) drop-shadow(-.5px -.5px .5px #fff);'>&#xebcc;</span>
 		</span>" : $calender ='';
-
+//h8 w13.6
 $scriptPanel = "
-	  <img id='productIMG' class='flexible' src='' style='display:none; justify-content:center; align-items:center; position:fixed; top:41.5%; left:36%; height:8%; width:13.6%; z-index:50000; background:#fff; border-radius:10%; object-fit:cover; border:.5px solid #fff; filter:drop-shadow(.5px .5px .5px #eee) drop-shadow(-.5px -.5px .5px #eee);'>
-	  <img id='productIMG2' class='flexible' src='' style='display:none; justify-content:center; align-items:center; position:fixed; top:41.5%; left:50%; height:8%; width:13.6%; margin-left:5px; z-index:50000; background:#fff; border-radius:10%; object-fit:cover; border:.5px solid #fff; filter:drop-shadow(.5px .5px .5px #eee) drop-shadow(-.5px -.5px .5px #eee);'>
+	  <img id='productIMG' class='flexible' src='' style='display:none; justify-content:center; align-items:center; position:fixed; top:41.5%; left:36%; height:200px; width:200px; z-index:5001; opacity:0.7; border-radius:50%; object-fit:cover; border:.5px solid #fff; filter:drop-shadow(.5px .5px .5px #eee) drop-shadow(-.5px -.5px .5px #eee);'>
+	  <img id='productIMG2' class='flexible' src='' style='display:none; justify-content:center; align-items:center; position:fixed; top:41.5%; left:40%; height:200px; width:200px; z-index:5000; opacity:0.7; border-radius:50%; object-fit:cover; border:.5px solid #fff; filter:drop-shadow(.5px .5px .5px #eee) drop-shadow(-.5px -.5px .5px #eee);'>
 
 <div style='display:flex; flex-direction:column; width:100%; height:100vh; overflow:hidden; background:#ddd; justify-content:center; align-items:center;'>
 
