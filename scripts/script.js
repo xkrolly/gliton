@@ -207,7 +207,9 @@ $(window).on('scroll', function(e) {
                   if(e.originalEvent.deltaY > 0){
                     document.getElementById('productIMG') ? $('#productIMG').slideUp('1500') : '';
                     document.getElementById('productIMG2') ? $('#productIMG2').slideUp('1500') : '';
-
+		    document.getElementById('mediaA') ? document.getElementById('mediaA').setAttribute('poster', '') : '';
+		    document.getElementById('mediaB') ? document.getElementById('mediaB').setAttribute('poster', '') : '';
+                 
                     $('#bottomList').val() == '' && $('#topList').val() == '' ? generateScrollets() : bringToView();
                    console.log('scrolling down at d END again');
                   }
