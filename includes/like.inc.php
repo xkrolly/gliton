@@ -9,17 +9,19 @@ include('autoloader.inc.php');
 if($regCompleted == 1){
 
     $_prdID = $_POST['prdID'];
+    $prdType = $_POST['val'];
     $PI_typeCol = 'likes';
     $PI_totalCol = 'tL';
 
-    $dynamus = $usersView->productInteraction($_prdID, $PI_typeCol, $PI_totalCol);
+    $dynamus = $usersView->productInteraction($_prdID, $PI_typeCol, $PI_totalCol, $prdType);
     $addLike = $dynamus[0];
     $newtotalLikes = $dynamus[1];
     $prdID = $dynamus[2];
     $pubid = $dynamus[3];
 
+
 //   echo json_encode(array('status' => $dynamus));
-   echo json_encode(array('status' => $addLike, 'ttl'=>$newtotalLikes, 'prdid'=>$prdID_, 'pubid'=>$pubid));
+   echo json_encode(array('status' => $addLike, 'ttl'=>$newtotalLikes, 'prdid'=>$prdID_, 'pubid'=>$pubid, 'prdType'=>$prdType));
 }
 else{
 		return $usersView->completeRegFirst();
