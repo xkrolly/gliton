@@ -97,11 +97,14 @@ class UsersView extends Users {
 	  $this->updateStmt('profile', 'save_que = ?  WHERE profile_id = ?', $vals);
 
 	}
-  public function productInteraction($_prdID, $intCol, $intTotalCol){
+  public function productInteraction($_prdID, $intCol, $intTotalCol, $prdType){
 	    $data = $this->fetchUser();
 	    $me = $data[0]['profile_id'];
-	    
-		$intData = $this->select('publish', ' WHERE published = ?', $_prdID);
+
+	  $prdType == 'tpp' : $publish_onTable = '3rdpartyproduct' : $publish_onTable = 'publish';
+	  $prdType == 'tpp' : $publish_onCol = 'productuniq' : $publish_onCol = 'published';
+	  
+		$intData = $this->select($publish_onTable, ' WHERE '.$publish_onCol.' = ?', $_prdID);
 	    $totalIntrxs = $intData[0][$intTotalCol];
 	    $pubid = $intData[0]['pub_id'];
 	   
