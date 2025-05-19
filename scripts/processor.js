@@ -217,7 +217,7 @@ function prdIntrxnManager(pubid, int){
 }
 
 
-function likeDis(){
+function likeDis(val){
 
     var prdid = $('#productID').val();
     var pubid = $('#pubID').val();
@@ -227,7 +227,7 @@ function likeDis(){
     $.ajax({
             url: 'includes/like.inc.php',
             method: 'POST',
-            data: {prdID:prdid},
+            data: {prdID:prdid, val:val},
             dataType:'json',
             success: function(data){
                 var prd = data.prdid;
