@@ -333,7 +333,7 @@ function pageView(content){
 
 		      const video = document.getElementById('mediaA');
 
-		      const obserever = new IntersectionObserver((entries) => {
+		      const observer = new IntersectionObserver((entries) => {
 			      if(entries[0].isIntersecting) {
 				      const source = video.querySelector('source');
 				      source.src = source.dataset.src;
@@ -398,7 +398,7 @@ function pageView(content){
   //                document.getElementById('mediaB').pause();
 		      const video = document.getElementById('mediaB');
 
-		      const obserever = new IntersectionObserver((entries) => {
+		      const observer = new IntersectionObserver((entries) => {
 			      if(entries[0].isIntersecting) {
 				      const source = video.querySelector('source');
 				      source.src = source.dataset.src;
