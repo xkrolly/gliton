@@ -330,7 +330,20 @@ function pageView(content){
                   document.getElementById('imgA').style.display = 'none';
                   document.getElementById('wordingsA').style.display = 'none';
                   $('.flexible2').stop();
-                  document.getElementById('mediaA').play();
+
+		      const video = document.getElementById('mediaA');
+
+		      const obserever = IntersectionObserver((entries) => {
+			      if(entries[0].isIntersecting) {
+				      const source = video.querySelector('source');
+				      source.src = source.dataset.src;
+				      video.load();
+				      observer.unobserve(video);
+			      }
+		      }, {
+			      threshold: 0.5,
+		      });
+		      observer.observe(video);
 
                                     ///////////////////3ppp
 	          if(tppimg == ''){
@@ -381,9 +394,24 @@ function pageView(content){
                 //  if(thumb2 != ''){document.getElementById('mediaB').setAttribute('poster', 'videos/'+posterB+'.webp');}
                   document.getElementById('imgB').style.display = 'none';
            //THREE
-                  media != 3 ? document.getElementById('mediaB').play() : 
-                  document.getElementById('mediaB').pause();
-               }
+//                  media != 3 ? document.getElementById('mediaB').play() : 
+  //                document.getElementById('mediaB').pause();
+		      const video = document.getElementById('mediaB');
+
+		      const obserever = IntersectionObserver((entries) => {
+			      if(entries[0].isIntersecting) {
+				      const source = video.querySelector('source');
+				      source.src = source.dataset.src;
+				      video.load();
+				      observer.unobserve(video);
+			      }
+		      }, {
+			      threshold: 0.5,
+		      });
+		      observer.observe(video);
+
+
+	      }
 
               document.getElementById('productID').value = published;
               document.getElementById('pubID').value = pubid;
