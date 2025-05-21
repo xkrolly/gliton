@@ -217,7 +217,7 @@ function prdIntrxnManager(pubid, int){
 }
 
 
-function likeDis(val){
+function likeDis(prdType){
 
     var prdid = $('#productID').val();
     var pubid = $('#pubID').val();
@@ -227,7 +227,7 @@ function likeDis(val){
     $.ajax({
             url: 'includes/like.inc.php',
             method: 'POST',
-            data: {prdID:prdid, val:val},
+            data: {prdID:prdid, val:prdType},
             dataType:'json',
             success: function(data){
                 var prd = data.prdid;
@@ -250,22 +250,9 @@ function likeDis(val){
     });
 }
 
-function saveFav(){
+function saveFav(prdType){
     //set in case of difficulty
-/*    
-    var clicked = $('#clicked').val();
-    var ttf = $('#totalFavhidden').val();
-    
-    clicked === 0 ? color = 'deepskyblue' : color = '#fff';
-    document.getElementById('favIcon').style.color = color;
-    
-    clicked === 0 ? increment = 1 : increment = -1;
-  //  document.getElementById('totalFavs').innerHTML = parseInt(ttf) + parseInt(increment);
-    clicked === 0 ? newClickedVal = 1 : newClickedVal = 0;
-    //document.getElementById
-    $('#clicked').value = newClickedVal;
-//    document.getElementById('totalFavhidden').value = parseInt(ttf) + parseInt(increment);
-*/   
+
     var prdid = $('#productID').val();
     var pubid = $('#pubID').val();
 
@@ -274,7 +261,7 @@ function saveFav(){
     $.ajax({
             url: 'includes/fav.inc.php',
             method: 'POST',
-            data: {prdID:prdid},
+            data: {prdID:prdid, val:prdType},
             dataType:'json',
             success: function(data){
                 var prd = data.prdid;
