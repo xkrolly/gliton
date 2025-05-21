@@ -4787,7 +4787,7 @@ $scriptPanel .="<div id='box' style='margin-bottom:1px; height:100vh; border-bot
                   					</div>
                   				</div>
                   				<div style='margin-top:-10px;'>
-                  					<div id='' onclick = 'saveFav();'>
+                  					<div id='favorite' onclick = 'saveFav();'>
                   				
                   				  <span id='favIcon' class='material-icons' style='font-size:32px; filter:drop-shadow(1px 1px .5px #555); color:#fff; background:rgba(50, 50, 50, .1); padding:2px; border-radius:50%;'>&#xe866;</span>
 		                       
