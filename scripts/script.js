@@ -502,12 +502,12 @@ width > 100 ? width = 100 : width;
                     "<div style='display:flex; flex-direction:column; height:100%; padding:10px; align-items:center; justify-content:space-around;'>"+
                     "<div style='display:flex; color:#000; width:100%; text-align:center; font-size:13px;'><span onclick='cancelPay();' style='margin-right:auto; color:#aaa; font-size:16px; text-align:left;'>&lt;&lt;</span>Pay "+price+"GC to own this solscript<span style='margin-left:auto; color:transparent; font-size:16px; text-align:right;'>&lt;&lt;</span></div><br><br>"+
                     "<div style='display:flex; justify-content:center; align-items:center; border-radius:50%; height:240px; width:240px; border-top:2px solid gold;'>"+
-                      "<span class='material-icons' style='font-size:50px; color:gold;'>&#xea24;</span>"+
+                      "<span class='material-icons' style='font-size:30px; color:gold;'>&#xea24;</span>"+
                     "</div>"+
                     "<h4 style='color:#111; width:100%; text-align:center; padding:20px; font-family:roboto; font-weight:bold; font-size:18px;'>"+title+"</h4>"+
  "<div style='font-size:12px; padding:5px 20px 20px 10px; text-align:center;'>"+insight+"</div>"+
                     "<div style='font-size:14px;'>@</div>"+
-                    "<div style='display:flex; justify-content:center; align-items:center; font-weight:bold; color:#2166f3; border-radius:50%; border:2px solid #2166f3; height:40px; width:40px; padding:10px; margin-bottom:8px;'><span style='font-size:20px;'>"+price+"</span><sub style='font-size:10px;'>GC</sub></div>"+
+                    "<div style='display:flex; justify-content:center; align-items:center; font-weight:bold; color:#2166f3; margin-bottom:8px;'><span style='font-size:20px;'>"+price+"</span><sub style='font-size:10px;'>GC</sub></div>"+
                     "<div style='display:flex; flex-direction:column; align-items:center; justify-content:center;'>"+
                     "<span style='width:5px; height:5px; border:1px solid #2166f3; border-radius:50%;'></span>"+
                     "<span style='width:5px; height:5px; border:1px solid #2166f3; border-radius:50%;'></span>"+
