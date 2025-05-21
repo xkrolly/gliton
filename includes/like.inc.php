@@ -10,7 +10,7 @@ if($regCompleted == 1){
 
     $_prdID = $_POST['prdID'];
     $prdType = $_POST['val'];
-    $PI_typeCol = 'likes';
+    $prdType == 'tpp' ? $PI_typeCol = '3pplikes' : $PI_typeCol = 'likes';
     $PI_totalCol = 'tL';
 
     $dynamus = $usersView->productInteraction($_prdID, $PI_typeCol, $PI_totalCol, $prdType);
