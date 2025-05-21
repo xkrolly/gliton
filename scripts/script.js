@@ -335,7 +335,7 @@ function pageView(content){
                                     ///////////////////3ppp
 	          if(tppimg == ''){
 			  document.getElementById('productIMG').style.display = 'none'; document.getElementById('productIMG2').style.display = 'none';
-  			$('#like').setAttribute('onclick', 'likeDis("fpp");');
+  			document.getElementById('like').setAttribute('onclick', 'likeDis("fpp");');
 
 		  }
 
