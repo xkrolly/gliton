@@ -500,9 +500,9 @@ width > 100 ? width = 100 : width;
 
   var subpage = " <div id='paySubpage' style='background:#fff; padding:20px; color:#000; height:100%; width:100%; position:fixed; top:0; right:0; bottom:0;'>"+
                     "<div style='display:flex; flex-direction:column; height:100%; padding:10px; align-items:center; justify-content:space-around;'>"+
-                    "<div style='color:#000; width:100%; text-align:center; font-size:13px;'>Pay "+price+"GC to own this solscript</div><br><br>"+
+                    "<div style='display:flex; color:#000; width:100%; text-align:center; font-size:13px;'><span onclick='cancelPay();' style='margin-right:auto; color:#aaa; font-size:16px; text-align:left;'>&lt;&lt;</span>Pay "+price+"GC to own this solscript<span style='margin-left:auto; color:transparent; font-size:16px; text-align:right;'>&lt;&lt;</span></div><br><br>"+
                     "<div style='display:flex; justify-content:center; align-items:center; border-radius:50%; height:240px; width:240px; border-top:2px solid gold;'>"+
-                      "<span class='material-icons' style='font-size:120px; color:gold;'>&#xea24;</span>"+
+                      "<span class='material-icons' style='font-size:50px; color:gold;'>&#xea24;</span>"+
                     "</div>"+
                     "<h4 style='color:#111; width:100%; text-align:center; padding:20px; font-family:roboto; font-weight:bold; font-size:18px;'>"+title+"</h4>"+
  "<div style='font-size:12px; padding:5px 20px 20px 10px; text-align:center;'>"+insight+"</div>"+
@@ -518,7 +518,7 @@ width > 100 ? width = 100 : width;
                     "<span style='width:5px; height:5px; border:1px solid #2166f3; border-radius:50%;'></span>"+
 
                         "<div id='walletBal'  style='font-size:12px; margin-top:8px;'>"+
-                            "<div id='walletSphere' style='display:flex; justify-content:center; align-items:center; width:"+width+"px; height:"+width+"px; border-radius:50%; border:1px solid #000;'><span style='font-size:14px;'>"+balance+"</span><sub style='font-size:8px;'>GC</sub></div>"+
+                            "<div id='walletSphere' style='display:flex; justify-content:center; align-items:center; width:"+width+"px; height:"+width+"px;'><span style='font-size:14px;'>"+balance+"</span><sub style='font-size:8px;'>GC</sub></div>"+
                             "<div id='wallet' style='display:flex; justify-content:center; align-items:center;'><span class='material-icons' style='font-size:12px;'>&#xe850;</span> Bal</div>"+
                         "</div>"+
                     "</div><br><br><br>";
