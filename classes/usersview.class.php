@@ -102,7 +102,7 @@ class UsersView extends Users {
 	    $me = $data[0]['profile_id'];
 
 	  $prdType == 'tpp' : $publish_onTable = '3rdpartyproduct' : $publish_onTable = 'publish';
-	  $prdType == 'tpp' : $publish_onCol = 'productuniq' : $publish_onCol = 'published';
+	  $prdType == 'tpp' : $publish_onCol = 'product_uniq' : $publish_onCol = 'published';
 	  
 		$intData = $this->select($publish_onTable, ' WHERE '.$publish_onCol.' = ?', $_prdID);
 	    $totalIntrxs = $intData[0][$intTotalCol];
@@ -122,7 +122,7 @@ class UsersView extends Users {
     	strpos($all_Intrxed, '.'.$pubid.'.') !== false ? $addInt = FALSE : $addInt = TRUE;
     
     	$vals = $newtotalIntrxs.', '.$_prdID;
-    	$this->updateStmt('publish', $intTotalCol.' = ? WHERE published = ?', $vals);
+    	$this->updateStmt($publish_onTable, $intTotalCol.' = ? WHERE '.$publish_onCol.' = ?', $vals);
     	
     	$_vals = $allIntrxed_update.', '.$me;
     	$this->updateStmt('prd_interactions',  $intCol.' = ? WHERE profile_id = ?', $_vals);
