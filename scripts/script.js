@@ -378,7 +378,7 @@ function pageView(content){
               else if(media2 == 3){
                   document.getElementById('mediaB').style.display = 'block';
                   document.getElementById('mediaB').src = 'videos/'+srcB+'.webm';
-                  if(thumb2 != ''){document.getElementById('mediaB').setAttribute('poster', 'videos/'+posterB+'.webp');}
+                //  if(thumb2 != ''){document.getElementById('mediaB').setAttribute('poster', 'videos/'+posterB+'.webp');}
                   document.getElementById('imgB').style.display = 'none';
            //THREE
                   media != 3 ? document.getElementById('mediaB').play() : 
