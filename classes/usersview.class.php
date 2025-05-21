@@ -4553,7 +4553,7 @@ $scriptPanel .="<div id='box' style='margin-bottom:1px; height:100vh; border-bot
                                             </span>
 		        						</div>
 										<div style='padding:0; margin-left:auto; margin-right:auto;'>
-				                  			 <span onclick='likeDis();' id='like' class='material-icons' style='pointer-events:auto; font-size:24px; filter:drop-shadow(1px 1px .5px #444); color:#fff'>&#xe87d;</span>
+				                  			 <span onclick='likeDis(\"\");' id='like' class='material-icons' style='pointer-events:auto; font-size:24px; filter:drop-shadow(1px 1px .5px #444); color:#fff'>&#xe87d;</span>
                          			 		<p id='totalLikes' style='color:#fff; filter:drop-shadow(1px 1px .5px #555); font-weight:600; font-size:10px; margin-top:-12px;'>0
 				                  			</p>
 				                  		</div>
@@ -4631,7 +4631,7 @@ $scriptPanel .="<div id='box' style='margin-bottom:1px; height:100vh; border-bot
                                     </a>
                                     </div>
                                     <div style='padding:0; margin-top:30px; display:flex; flex-direction:column; pointer-events:auto; '>
-                          			  <span onclick='likeDis();' id='like' class='material-icons' style='pointer-events:auto; font-size:48px; filter:drop-shadow(1px 1px .5px #444); color:#fff'>&#xe87d;</span>
+                          			  <span onclick='likeDis(\"\");' id='like' class='material-icons' style='pointer-events:auto; font-size:48px; filter:drop-shadow(1px 1px .5px #444); color:#fff'>&#xe87d;</span>
                          			  <span id='totalLikes' style='color:#fff; margin-top:-4px; filter:drop-shadow(1px 1px .5px #444); font-weight:600; font-size:14px;'>0
                               		  </span>
                            			</div>
@@ -4771,7 +4771,7 @@ $scriptPanel .="<div id='box' style='margin-bottom:1px; height:100vh; border-bot
         	                   <div>
 
                   				<div style='margin-top:0.5px;'>
-                  			       <span onclick='likeDis();' id='like' class='material-icons' style=' background:rgba(0, 0, 0, .1); padding:3px; border-radius:50%; font-size:38px; filter:drop-shadow(1px 1px .5px #444); color:#fff'>&#xe87d;</span>
+                  			       <span onclick='likeDis(\"\");' id='like' class='material-icons' style=' background:rgba(0, 0, 0, .1); padding:3px; border-radius:50%; font-size:38px; filter:drop-shadow(1px 1px .5px #444); color:#fff'>&#xe87d;</span>
 		                       
                   					<p id='totalLikes' style='color:#fff; filter:drop-shadow(1px 1px .5px #555); font-weight:600; font-size:12px; margin-top:-6px;'>0
                   					</p>
