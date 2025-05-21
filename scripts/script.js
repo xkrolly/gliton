@@ -347,8 +347,9 @@ function pageView(content){
 
                                     ///////////////////3ppp
 	          if(tppimg == ''){
-			  document.getElementById('productIMG').style.display = 'none'; document.getElementById('productIMG2').style.display = 'none';
+        		document.getElementById('productIMG').style.display = 'none'; document.getElementById('productIMG2').style.display = 'none';
   			document.getElementById('like').setAttribute('onclick', 'likeDis("fpp");');
+			document.getElementById('favorite').setAttribute('onclick', 'saveFav("fpp");');
 
 		  }
 
@@ -358,7 +359,8 @@ function pageView(content){
                       document.getElementById('productIMG2').style.display = 'block';
                       document.getElementById('productIMG').src = 'img3pp/'+strDir+'/'+tppimg+'.webp';
                       document.getElementById('productIMG2').src = 'img3pp/'+strDir+'/'+tppimg2+'.webp';
-  			document.getElementById('like').setAttribute('onclick', 'likeDis("tpp");');
+    		      document.getElementById('like').setAttribute('onclick', 'likeDis("tpp");');
+		      document.getElementById('favorite').setAttribute('onclick', 'saveFav("tpp");');
                        
                     }
 
