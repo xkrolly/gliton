@@ -101,8 +101,8 @@ class UsersView extends Users {
 	    $data = $this->fetchUser();
 	    $me = $data[0]['profile_id'];
 
-	  $prdType == 'tpp' : $publish_onTable = '3rdpartyproduct' : $publish_onTable = 'publish';
-	  $prdType == 'tpp' : $publish_onCol = 'product_uniq' : $publish_onCol = 'published';
+	  $prdType == 'tpp' ? $publish_onTable = '3rdpartyproduct' : $publish_onTable = 'publish';
+	  $prdType == 'tpp' ? $publish_onCol = 'product_uniq' : $publish_onCol = 'published';
 	  
 		$intData = $this->select($publish_onTable, ' WHERE '.$publish_onCol.' = ?', $_prdID);
 	    $totalIntrxs = $intData[0][$intTotalCol];
