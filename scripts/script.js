@@ -345,7 +345,7 @@ function pageView(content){
                       document.getElementById('productIMG2').style.display = 'block';
                       document.getElementById('productIMG').src = 'img3pp/'+strDir+'/'+tppimg+'.webp';
                       document.getElementById('productIMG2').src = 'img3pp/'+strDir+'/'+tppimg2+'.webp';
-  			$('#like').setAttribute('onclick', 'likeDis("tpp");');
+  			document.getElementById('like').setAttribute('onclick', 'likeDis("tpp");');
                        
                     }
 
