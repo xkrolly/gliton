@@ -504,7 +504,8 @@ width > 100 ? width = 100 : width;
                     "<div style='display:flex; justify-content:center; align-items:center; border-radius:50%; height:100px; width:100px; border-top:2px solid gold;'>"+
                       "<span class='material-icons' style='font-size:50px; color:gold;'>&#xea24;</span>"+
                     "</div>"+
-                    "<h4 style='color:#111; width:100%; text-align:center; padding:20px; font-family:roboto; font-weight:bold; font-size:18px;'>"+title+"</h4>"+
+                    "<h4 style='color:#111; width:100%; text-align:center; padding:20px; font-family:roboto; font-weight:bold; font-size:18px;'>"+title+"<span class='material-icon' onclick='copyToClipboard(\""+url+"\");' id='clipboardCopy' style='margin-left:10px; color:#2166f3; font-size:14px;'>&#xe157;</span>"+
+</h4>"+
  "<div style='font-size:12px; padding:5px 20px 20px 10px; text-align:center;'>"+insight+"</div>"+
                     "<div style='font-size:14px;'>@</div>"+
                     "<div style='display:flex; justify-content:center; align-items:center; font-weight:bold; color:#2166f3; margin-bottom:8px;'><span style='font-size:30px; font-weight:bold;'>"+price+"</span><sup style='font-size:10px;'>GC</sup></div>"+
@@ -512,6 +513,8 @@ width > 100 ? width = 100 : width;
 	                    
 	  	    	"<div style='display:flex; align-items:center; justify-content:center;'>"+	
 		   	    "<span style='width:5px; height:5px; border:1px solid #2166f3; border-radius:50%;'></span>"+
+	                    "<span style='width:5px; height:5px; border:1px solid #2166f3; border-radius:50%;'></span>"+
+	                    "<span style='width:5px; height:5px; border:1px solid #2166f3; border-radius:50%;'></span>"+
 	                    "<span style='width:5px; height:5px; border:1px solid #2166f3; border-radius:50%;'></span>"+
 	                    "<span style='width:5px; height:5px; border:1px solid #2166f3; border-radius:50%;'></span>"+
 	                    "<span style='width:5px; height:5px; border:1px solid #2166f3; border-radius:50%;'></span>"+
@@ -529,7 +532,6 @@ if(balance < price){
       subpage +=   "<div style='width:100%;'><a href='index.php?page=buycoin&price="+price+"' style='width:100%;'><button id='fundwallet' class='form-control theme' style='border-radius:10px; width:100%; padding:20px auto 20px auto; color:#fff;'>Fund your wallet</button></a></div>";
 }    
       subpage +=    "<div style='display:flex; flex-direction:column; align-items:center; font-size:12px; width:100%;'><a href='"+url+"' "+disable+" style='width:100%;'><button "+disable+" id='payBtn' class='form-control' style='border-radius:10px; width:100%; padding:20px auto 20px auto; color:#fff;'>Proceed to pay</button></a><span style='margin:10px auto;'></span>"+
-                    "<span onclick='copyToClipboard(\""+url+"\");' id='clipboardCopy' style='color:#2166f3; font-size:16px; text-decoration:underlined;'>Copy link</span>"+
 
                  
                     "</div>"+
