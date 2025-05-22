@@ -500,7 +500,7 @@ width > 100 ? width = 100 : width;
 
   var subpage = " <div id='paySubpage' style='background:#fff; padding:20px; color:#000; height:100%; width:100%; position:fixed; top:0; right:0; bottom:0;'>"+
                     "<div style='display:flex; flex-direction:column; height:100%; padding:10px; align-items:center; justify-content:space-around;'>"+
-                    "<div style='display:flex; color:#000; width:100%; text-align:center; font-size:16px;'><span onclick='cancelPay();' style='margin-right:auto; color:#000; font-size:22px; text-align:left;'>&lt;&lt;</span>Pay "+price+"GC to own this solscript<span style='margin-left:auto; color:transparent; font-size:16px; text-align:right;'>&lt;&lt;</span></div><br><br>"+
+                    "<div style='display:flex; align-items:center; color:#000; width:100%; text-align:center; font-size:14px;'><span onclick='cancelPay();' style='margin-right:auto; color:#000; font-size:18px; text-align:left;'>&lt;&lt;</span>Pay "+price+"<sup style='font-size:10px;'>GC</sup> to own this solscript<span style='margin-left:auto; color:transparent; font-size:16px; text-align:right;'>&lt;&lt;</span></div><br><br>"+
                     "<div style='display:flex; justify-content:center; align-items:center; border-radius:50%; height:100px; width:100px; border-top:2px solid gold;'>"+
                       "<span class='material-icons' style='font-size:50px; color:gold;'>&#xea24;</span>"+
                     "</div>"+
@@ -508,17 +508,19 @@ width > 100 ? width = 100 : width;
  "<div style='font-size:12px; padding:5px 20px 20px 10px; text-align:center;'>"+insight+"</div>"+
                     "<div style='font-size:14px;'>@</div>"+
                     "<div style='display:flex; justify-content:center; align-items:center; font-weight:bold; color:#2166f3; margin-bottom:8px;'><span style='font-size:30px; font-weight:bold;'>"+price+"</span><sup style='font-size:10px;'>GC</sup></div>"+
-                    "<div style='display:flex; align-items:center; justify-content:center;'>"+
-                    "<span style='width:5px; height:5px; border:1px solid #2166f3; border-radius:50%;'></span>"+
-                    "<span style='width:5px; height:5px; border:1px solid #2166f3; border-radius:50%;'></span>"+
-                    "<span style='width:5px; height:5px; border:1px solid #2166f3; border-radius:50%;'></span>"+
-                    "<span style='width:5px; height:5px; border:1px solid #2166f3; border-radius:50%;'></span>"+
-                    "<span style='width:5px; height:5px; border:1px solid #2166f3; border-radius:50%;'></span>"+
-                    "<span style='width:5px; height:5px; border:1px solid #2166f3; border-radius:50%;'></span>"+
-                    "<span style='width:5px; height:5px; border:1px solid #2166f3; border-radius:50%;'></span>"+
-
+                    "<div style='display:flex; flex-direction:column; align-items:center; justify-content:center;'>"+
+	                    
+	  	    	"<div style='display:flex; align-items:center; justify-content:center;'>"+	
+		   	    "<span style='width:5px; height:5px; border:1px solid #2166f3; border-radius:50%;'></span>"+
+	                    "<span style='width:5px; height:5px; border:1px solid #2166f3; border-radius:50%;'></span>"+
+	                    "<span style='width:5px; height:5px; border:1px solid #2166f3; border-radius:50%;'></span>"+
+	                    "<span style='width:5px; height:5px; border:1px solid #2166f3; border-radius:50%;'></span>"+
+	                    "<span style='width:5px; height:5px; border:1px solid #2166f3; border-radius:50%;'></span>"+
+	                    "<span style='width:5px; height:5px; border:1px solid #2166f3; border-radius:50%;'></span>"+
+	                    "<span style='width:5px; height:5px; border:1px solid #2166f3; border-radius:50%;'></span>"+
+		     	"</div>"+
                         "<div id='walletBal'  style='font-size:12px; margin-top:8px;'>"+
-                            "<div id='walletSpher' style='display:flex; justify-content:center; align-items:center; '><span style='font-size:20px;'>"+balance+"</span><sub style='font-size:8px;'>GC</sub></div>"+
+                            "<div id='walletSpher' style='display:flex; justify-content:center; align-items:center; '><span style='font-size:20px; font-weight:bold;'>"+balance+"</span><sup style='font-size:8px;'>GC</sup></div>"+
                             "<div id='wallet' style='display:flex; justify-content:center; align-items:center;'><span class='material-icons' style='font-size:16px;'>&#xe850;</span> Bal</div>"+
                         "</div>"+
                     "</div><br><br><br>";
@@ -526,7 +528,7 @@ width > 100 ? width = 100 : width;
 if(balance < price){
       subpage +=   "<div style='width:100%;'><a href='index.php?page=buycoin&price="+price+"' style='width:100%;'><button id='fundwallet' class='form-control theme' style='border-radius:10px; width:100%; padding:20px auto 20px auto; color:#fff;'>Fund your wallet</button></a></div>";
 }    
-      subpage +=    "<div style='display:flex; flex-direction:column; align-items:center; font-size:12px; width:100%;'><a href='"+url+"' "+disable+" style='width:100%;'><button "+disable+" id='payBtn' class='form-control theme' style='border-radius:10px; width:100%; padding:20px auto 20px auto; color:#fff;'>Proceed to pay</button></a><span style='margin:10px auto;'></span>"+
+      subpage +=    "<div style='display:flex; flex-direction:column; align-items:center; font-size:12px; width:100%;'><a href='"+url+"' "+disable+" style='width:100%;'><button "+disable+" id='payBtn' class='form-control' style='border-radius:10px; width:100%; padding:20px auto 20px auto; color:#fff;'>Proceed to pay</button></a><span style='margin:10px auto;'></span>"+
                     "<span onclick='copyToClipboard(\""+url+"\");' id='clipboardCopy' style='color:#2166f3; font-size:16px; text-decoration:underlined;'>Copy link</span>"+
 
                  
@@ -537,11 +539,11 @@ $('main').hide();
 document.getElementById('_paymentSubpage').innerHTML = subpage;
 document.getElementById('_paymentSubpage').style.display = 'block';
     if(balance < price){
-        document.getElementById('payBtn').style.background = '#eee';
+        document.getElementById('payBtn').style.color = '#eee';
         document.getElementById('payBtn').style.border = '1px solid #eee';
         document.getElementById('walletBal').style.color = 'red';
         document.getElementById('wallet').style.color = 'red';
-        document.getElementById('fundwallet').style.background = 'green';
+        document.getElementById('fundwallet').style.background = '#2166f3';
         document.getElementById('walletSphere').style.background = 'red';
         document.getElementById('walletSphere').style.color = '#fff';
  
@@ -552,7 +554,7 @@ document.getElementById('_paymentSubpage').style.display = 'block';
         document.getElementById('fundwallet').style.color = '#ddd';
 
         document.getElementById('wallet').style.color = 'green';
-        document.getElementById('payBtn').style.background = '#2166f3';
+        document.getElementById('payBtn').style.background = 'green';
         document.getElementById('walletSphere').style.background = 'green';
     }
     
