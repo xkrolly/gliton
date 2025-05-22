@@ -530,7 +530,7 @@ width > 100 ? width = 100 : width;
 if(balance < price){
       subpage +=   "<div style='width:100%;'><a href='index.php?page=buycoin&price="+price+"' style='width:100%;'><button id='fundwallet' class='form-control theme' style='border-radius:10px; width:100%; padding:20px auto 20px auto; color:#fff;'>Fund your wallet</button></a></div>";
 }    
-      subpage +=    "<div style='display:flex; flex-direction:column; align-items:center; font-size:12px; width:100%;'><a href='"+url+"' "+disable+" style='width:100%;'><button "+disable+" id='payBtn' class='form-control' style='border-radius:10px; width:100%; padding:20px auto 20px auto; color:#fff;'>Proceed to pay</button></a><span style='margin:10px auto;'></span>"+
+      subpage +=    "<div style='display:flex; flex-direction:column; align-items:center; font-size:12px; width:100%;'><a href='"+url+"' "+disable+" style='width:100%; text-decoration:none;'><button "+disable+" id='payBtn' class='form-control' style='border-radius:10px; width:100%; padding:20px auto 20px auto; color:#fff;'>Proceed to pay</button></a><span style='margin:10px auto;'></span>"+
 
                  
                     "</div>"+
@@ -556,6 +556,7 @@ document.getElementById('_paymentSubpage').style.display = 'block';
 
         document.getElementById('wallet').style.color = 'green';
         document.getElementById('payBtn').style.background = 'green';
+        document.getElementById('payBtn').style.color = '#fff';
         document.getElementById('walletSphere').style.background = 'green';
     }
     
