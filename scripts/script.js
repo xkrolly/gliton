@@ -506,10 +506,10 @@ var subpage = " <div id='paySubpage' style='background:#fff; padding:20px; color
                     "</div>"+
                     
                     "<h2 style='color:#000; width:100%; text-align:center; padding:20px; font-family:roboto; font-weight:bold; font-size:24px;'>Practical strategies to raise broilers efficiently</h2>"+
-                    "<div style='font-size:14px; padding:20px;'>"+insight+"There are many insights available to different things. Watchout the detail below. There are many insights available to different things. Watchout the detail below. There are many insights available to different things. Watchout the detail below.</div>"+
+                    "<div style='font-size:14px; padding:20px;'>"+insight+"</div>"+
                     "<div style='font-size:16px;'>@</div>"+
-                    "<div style='display:flex; justify-content:center; align-items:center; font-weight:bold; font-size:25px; color:#fff; background:#2166f3; border-radius:50%; height:60px; width:60px; filter:drop-shadow(1px 1px 1px #ccc);'>65<sup style='font-size:6px;'>GC</sup></div>"+
-                    "<div id='walletBal' style='font-size:12px;'>- Bal 35<sup style='font-size:6px;'>GC</sup> - </div>"+
+                    "<div style='display:flex; justify-content:center; align-items:center; font-weight:bold; font-size:25px; color:#fff; background:#2166f3; border-radius:50%; height:60px; width:60px; filter:drop-shadow(1px 1px 1px #ccc);'>"+price+"<sup style='font-size:6px;'>GC</sup></div>"+
+                    "<div id='walletBal' style='font-size:12px;'>- Bal "+balance+"<sup style='font-size:6px;'>GC</sup> - </div>"+
                     "<div style='display:none; flex-direction:column; align-items:center; width:100%;'><button id='payBtn' class='theme form-control' style='border-radius:10px; width:100%; padding:10px; padding-bottom:35px;'>Proceed to pay</button></div>"+
                     "<div id='pay' style='display:none; flex-direction:column; align-items:center; width:100%;'><button id='payBtn' class='theme form-control' style='border-radius:10px; width:100%; padding:10px; padding-bottom:35px;'>Proceed to pay</button></div>"+
 
