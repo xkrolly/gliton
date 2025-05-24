@@ -55,7 +55,7 @@ $x = 1;
 $output .="<div style='background:#eee; padding-bottom:100px;'>";
 while($n >= 0){
 	$solscript[$n]['media'] == 3 ? 
-	$display = " <video id='media".$n."' class='flexible2' style='width:100px; height:70px; object-fit:cover; border-radius:10px;' src='videos/".$directory."/dec/2243917439710830.webm' ></video>" : ($solscript[$n]['media'] == 2 ? $display = "<img id='img".$n."' src='img/".$directory."/".$solscript[$n][$queCol].".webp' class='flexible' style='width:100px; height:70px; object-fit:cover;' />" : $display = $solscript[$n][$queCol]);
+	$display = " <video id='media".$n."' class='flexible2' style='width:100px; height:70px; object-fit:cover; border-radius:10px;' src='videos/".$directory."/dec/".$solscript[$n][$queCol].".webm' ></video>" : ($solscript[$n]['media'] == 2 ? $display = "<img id='img".$n."' src='img/".$directory."/".$solscript[$n][$queCol].".webp' class='flexible' style='width:100px; height:70px; object-fit:cover;' />" : $display = $solscript[$n][$queCol]);
 
 	$output .= "
 	<div style='display:flex; width:100%; flex-direction:column; border-bottom:1px solid #ccc; padding:5px 0 1px 0; background:#fff; margin-top:20px;'>
