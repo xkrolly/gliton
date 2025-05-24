@@ -497,7 +497,32 @@ function paymentSubpage(url, title, price, balance, insight){
 var widthFactor = balance/price;
 var width = widthFactor * 40;
 width > 100 ? width = 100 : width;
+	
+var subpage = " <div id='paySubpage' style='background:#fff; padding:20px; color:#000; height:100%; width:100%; position:fixed; top:0; right:0; bottom:0;'>"+
+                    "<div style='display:flex; flex-direction:column; height:100%; padding:10px; align-items:center; justify-content:space-around; border:5px solid #2166f3; border-radius:20px;'>"+
+                    "<h6 style='color:#000; width:100%; display:flex;'><span>&lt;&lt;</span><span style='margin-left:auto; margin-right:auto; font-size:14px;'>Pay 65<sup style='font-size:6px;'>GC</sup> to grab a copy of this solscript</span></h6>"+
+                    
+                    "<span class='material-icons' style='background:rgba(0, 0, 0, .1); padding:10px; border-radius:50%; font-size:50px; filter:drop-shadow(1px 1px .5px #444); color:#fff'>&#xef6e;</span>"+
+                    "<h2 style='color:#000; width:100%; text-align:center; padding:20px; font-family:roboto; font-weight:bold; font-size:24px;'>Practical strategies to raise broilers efficiently</h2>"+
+                    "<div style='font-size:14px; padding:20px;'>"+insight+"There are many insights available to different things. Watchout the detail below. There are many insights available to different things. Watchout the detail below. There are many insights available to different things. Watchout the detail below.</div>"+
+                    "<div style='font-size:16px;'>@</div>"+
+                    "<div style='display:flex; justify-content:center; align-items:center; font-weight:bold; font-size:25px; color:#fff; background:#2166f3; border-radius:50%; height:60px; width:60px; filter:drop-shadow(1px 1px 1px #ccc);'>65<sup style='font-size:6px;'>GC</sup></div>"+
+                    "<div id='walletBal' style='font-size:12px;'>- Bal 35<sup style='font-size:6px;'>GC</sup> - </div>"+
+                    "<div style='display:none; flex-direction:column; align-items:center; width:100%;'><button id='payBtn' class='theme form-control' style='border-radius:10px; width:100%; padding:10px; padding-bottom:35px;'>Proceed to pay</button></div>"+
+                    "<div id='pay' style='display:none; flex-direction:column; align-items:center; width:100%;'><button id='payBtn' class='theme form-control' style='border-radius:10px; width:100%; padding:10px; padding-bottom:35px;'>Proceed to pay</button></div>"+
 
+                    "<div style='display:flex; flex-direction:column; align-items:center; width:100%;'>"+
+if(balance >= price){
+        subpage += "<a href='"+url+"' "+disable+" style='width:100%; text-decoration:none;'><button id='payBtn' class='theme form-control' style='display:none; border-radius:10px; width:100%; padding:10px; padding-bottom:35px;'>Proceed to pay</button></a>";
+}
+if(balance < price){
+        subpage +="<span id='fund_note' style='color:red; font-size:14px;'>Insufficient fund!</span>"+
+                        "<a href='index.php?page=buycoin&price="+price+"' style='width:100%; text-decoration:none;'><button id='fundWallet' class='fundWallet theme2 form-control' style='border-radius:10px; width:100%; padding:10px; padding-bottom:35px; border:1px solid #2166f3;'>Fund your wallet</button></a>";
+}				
+subpage +=       "</div>"+
+
+              "</div></div>";
+/*/////////////////////////////////////////
   var subpage = " <div id='paySubpage' style='background:#fff; padding:20px; color:#000; height:100%; width:100%; position:fixed; top:0; right:0; bottom:0;'>"+
                     "<div style='display:flex; flex-direction:column; height:100%; padding:10px; align-items:center; justify-content:space-around;'>"+
                     "<div style='display:flex; align-items:center; color:#000; width:100%; text-align:center; font-size:14px;'><span onclick='cancelPay();' style='margin-right:auto; color:#000; font-size:18px; text-align:left;'>&lt;&lt;</span>Pay "+price+"<sup style='font-size:10px;'>GC</sup> to own this solscript<span style='margin-left:auto; color:transparent; font-size:16px; text-align:right;'>&lt;&lt;</span></div><br><br>"+
@@ -535,11 +560,12 @@ if(balance < price){
                  
                     "</div>"+
                  
-                  "</div></div>";
+                  "</div></div>";*/
 $('main').hide();
 document.getElementById('_paymentSubpage').innerHTML = subpage;
 document.getElementById('_paymentSubpage').style.display = 'block';
-    if(balance < price){
+  /*
+	if(balance < price){
         document.getElementById('payBtn').style.color = '#eee';
         document.getElementById('payBtn').style.border = '1px solid #eee';
         document.getElementById('walletBal').style.color = 'red';
@@ -559,7 +585,7 @@ document.getElementById('_paymentSubpage').style.display = 'block';
         document.getElementById('payBtn').style.color = '#fff';
         document.getElementById('walletSphere').style.background = 'green';
     }
-    
+*/    
 }
 function recordShare(id){
 
