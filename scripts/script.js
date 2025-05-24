@@ -500,12 +500,12 @@ width > 100 ? width = 100 : width;
 	
 var subpage = " <div id='paySubpage' style='background:#fff; padding:20px; color:#000; height:100%; width:100%; position:fixed; top:0; right:0; bottom:0;'>"+
                     "<div style='display:flex; flex-direction:column; height:100%; padding:10px; align-items:center; justify-content:space-around; border:5px solid #2166f3; border-radius:20px;'>"+
-                    "<div style='display:flex; align-items:center; color:#000; width:100%; text-align:center; font-size:14px;'><span onclick='cancelPay();' style='margin-right:auto; color:#000; font-size:18px; text-align:left;'>&lt;&lt;</span>Pay "+price+"<sup style='font-size:10px;'>GC</sup> to own this solscript<span style='margin-left:auto; color:transparent; font-size:16px; text-align:right;'>&lt;&lt;</span></div>"+
+                    "<div style='display:flex; align-items:center; color:#000; width:100%; text-align:center; font-size:14px;'><span onclick='cancelPay();' style='margin-right:auto; color:#000; font-size:18px; text-align:left;'>&lt;&lt;</span>Pay "+price+"<sup style='font-size:10px;'>GC </sup> to get this solscript<span style='margin-left:auto; color:transparent; font-size:16px; text-align:right;'>&lt;&lt;</span></div>"+
                     "<div style='display:flex; justify-content:center; align-items:center; border-radius:50%; height:100px; width:100px; border-top:2px solid gold;'>"+
                       "<span class='material-icons' style='font-size:50px; color:gold;'>&#xea24;</span>"+
                     "</div>"+
                     
-                    "<h2 style='color:#000; width:100%; text-align:center; padding:20px; font-family:roboto; font-weight:bold; font-size:24px;'>Practical strategies to raise broilers efficiently</h2>"+
+                    "<h2 style='color:#000; width:100%; text-align:center; padding:20px; font-family:roboto; font-weight:bold; font-size:18px;'>"+title+"</h2>"+
                     "<div style='font-size:14px; padding:20px;'>"+insight+"</div>"+
                     "<div style='font-size:16px;'>@</div>"+
                     "<div style='display:flex; justify-content:center; align-items:center; font-weight:bold; font-size:25px; color:#fff; background:#2166f3; border-radius:50%; height:60px; width:60px; filter:drop-shadow(1px 1px 1px #ccc);'>"+price+"<sup style='font-size:6px;'>GC</sup></div>"+
