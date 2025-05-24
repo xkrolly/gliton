@@ -511,7 +511,7 @@ var subpage = " <div id='paySubpage' style='background:#fff; padding:20px; color
                     "<div style='display:none; flex-direction:column; align-items:center; width:100%;'><button id='payBtn' class='theme form-control' style='border-radius:10px; width:100%; padding:10px; padding-bottom:35px;'>Proceed to pay</button></div>"+
                     "<div id='pay' style='display:none; flex-direction:column; align-items:center; width:100%;'><button id='payBtn' class='theme form-control' style='border-radius:10px; width:100%; padding:10px; padding-bottom:35px;'>Proceed to pay</button></div>"+
 
-                    "<div style='display:flex; flex-direction:column; align-items:center; width:100%;'>"+
+                    "<div style='display:flex; flex-direction:column; align-items:center; width:100%;'>";
 if(balance >= price){
         subpage += "<a href='"+url+"' "+disable+" style='width:100%; text-decoration:none;'><button id='payBtn' class='theme form-control' style='display:none; border-radius:10px; width:100%; padding:10px; padding-bottom:35px;'>Proceed to pay</button></a>";
 }
