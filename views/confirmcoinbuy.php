@@ -9,7 +9,6 @@ include('../includes/autoloader.inc.php');
  $transaction_id = $_GET['transaction_id']; // Get this from the redirect or webhook
 // $result = $usersView->verifyFlutterwavePayment($transaction_id);
 $result['status'] = $_GET['status'];
-//var_dump('RES: '.$result);
  if ($result['status'] == 'successful') {
 	// "Payment verified successfully!";
 	// add to coinBalance
