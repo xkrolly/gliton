@@ -2083,6 +2083,13 @@ $output = intval($output) * 1;
 			$this->quota($tutor, '0.7', 'class', $product_ID, $cat);
 
 	}
+    public function verifyFlutterwavePayment($txid){
+	$url = 'https://api.flutterwave.com/v3/transactions/'.$txid.'/verify';
+	    $response = file_get_contents($url);
+	    $response !== false ? $output = 'success' : $output = 'failure';
+	    return $output;
+            
+    } 
     public function verifyFlutterPayment($tx_ref, $amount, $currency){
          $secretKey = 'FLWSECK_TEST-1bec3883bd45619e18cefd2c58944be0-X';//FLWSECK_TEST-ef7da8f15c6185ca459c42fefb4ea413-X';
         $url = 'https://api.flutterwave.com/v3/transactions/verify';
