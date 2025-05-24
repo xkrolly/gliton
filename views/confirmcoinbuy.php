@@ -10,7 +10,7 @@ include('../includes/autoloader.inc.php');
 // $result = $usersView->verifyFlutterwavePayment($transaction_id);
 $result['status'] = $_GET['status'];
 //var_dump('RES: '.$result);
- if ($result['status'] == 'success') {
+ if ($result['status'] == 'successful') {
 	// "Payment verified successfully!";
 	// add to coinBalance
     $_link = str_replace(' ', '+', $_GET['link']);
