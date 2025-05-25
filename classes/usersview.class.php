@@ -2448,7 +2448,7 @@ $output = intval($output) * 1;
 		$purchaseData = $this->select('purchase', ' WHERE product_id = ? and buyer LIKE ?', $vals);
 		//if bought already, pass else buy
 		//count($purchaseData) > 0 ? $key = $purchaseData[0]['productKey'] : $this->buyProduct($product_ID);
-		count($purchaseData) == 0 ? header('Location : index.php') : $key = $purchaseData[0]['productKey'];
+		count($purchaseData) == 0 ? $this->buyProduct($product_ID) : $key = $purchaseData[0]['productKey'];
 		$_SESSION['product_keyx'] = $key;
 	}
 	
