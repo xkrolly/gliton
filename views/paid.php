@@ -2,10 +2,6 @@
 	$usersContr = new usersContr();
 	$usersView = new usersView();
 
-$a = $usersView->usercode(0);
-$b = $usersView->usercode(11);
-$c = $usersView->usercode(20);
-var_dump($a.'='.$b.'='.$c);
 if(!empty($_GET['link'])){
 	$link = $_GET['link'];
 	$link_dec_arr = explode(', ', $link);
@@ -16,10 +12,9 @@ if(!empty($_GET['link'])){
 	$cat_id = str_replace(' ', '+', $link_dec_arr[4]);
 	$price = str_replace(' ', '+', $_price);
 	$key = str_replace(' ', '+', $key);
-	//$buyer = str_replace(' ', '+', $buyer);
 	$_buyer = $usersView->alphaA_Num($buyer);
 
-      $buy_er = $usersView->usercode($_buyer);
+        $buy_er = $usersView->usercode($_buyer);
 	$_vals = $productID.', '.$key.', %.'.$buy_er.'.%';
 	$_vals2 = $productID.', '.$key;
 	$val = array('product_id'=>$productID, 'productKey'=> $key, 'buyer'=>'.'.$buy_er.'.');
@@ -33,9 +28,6 @@ if(!empty($_GET['link'])){
 	$_vals3 = $newBuyerList.', '.$productID;
 	count($purchData2) == 0 ? $usersContr->insert('purchase', $val) : (count($purchData) == 0 ? $usersContr->update('purchase', 'buyer = ? WHERE product_id = ?', $_vals3) : '' );
 
-	//$buyer = str_replace(' ', '+', $buyer);
-	//$_buyer = $usersView->dec_cons($buyer);
-
 	$prodData = $usersView->select('publish', ' WHERE published = ?', $productID);
 	$heading = $prodData[0]['heading'];
 	$chatpop = $prodData[0]['chatpop'];
@@ -47,11 +39,7 @@ if(!empty($_GET['link'])){
 	$shrdKey = $usersView->dec_cons($shrd_data[0]['sk']) : 
 	$shrdKey = $key;
 	
-	//$_SESSION['product_keyxx'] = $usersView->enc_cons($shrdKey);
 	$_SESSION[$key] = $usersView->enc_cons($shrdKey);
-	//var_dump($usersView->dec_cons($_SESSION['product_keyxx']));
-
-//	$pubid = $usersView->encryptor0($prodData[0]['pub_id']);
         $pubid = $usersView->num_AlphaA($prodData[0]['pub_id']);
 
 	$usersView->msgUser('0', $_buyer, '10', '', $heading, $prodData[0]['pub_id']);
