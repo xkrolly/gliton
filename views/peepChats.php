@@ -5,23 +5,28 @@
   $udata = $usersView->fetchUser();
   $me = $udata[0]['profile_id'];
   $regCompleted = $udata[0]['regCompleted'];
+var_dump('ONE 1');
 
 if($regCompleted == 1){
     
         if(isset($_GET['pub'])){
+var_dump('ONE 2');
 
 		//$_GET['solo'] == $usersView->encryptor0('solo');
           $pub_id = $usersView->alphaA_Num($_GET['pub']);
+var_dump('ONE 3');
 
+		var_dump($pub_id);
 		//get the pub_id
           $pub_data = $usersView->select('publish', ' WHERE pub_id = ?', $pub_id);
           $published = $pub_data[0]['published'];
 		
           $product_ID = $published;
+var_dump('ONE 4');
 
           //CHECK to prevent double purchase
           $usersView->checkPurchase($product_ID); //checkSubscription will work
-
+var_dump('ONE 5');
     	  //Access only to paid user
     	  $buyer = $usersView->enc_cons($me);
     	    //check the sharedKey
@@ -32,9 +37,9 @@ if($regCompleted == 1){
         $__me = '%.'.$_me.'.%';
         $_vals = $product_ID.', '.$__me;
         $purchData = $usersView->select('purchase', ' WHERE product_id = ? AND buyer LIKE ?', $_vals);
-      var_dump('ONE');
+      var_dump('ONE 6');
 		if(count($purchData) > 0){
-      var_dump('TWO');
+      var_dump('ONE 7');
 
         //////////////////////////////////
           $published_dec = $usersView->dec_cons($published);
@@ -43,7 +48,7 @@ if($regCompleted == 1){
     
           $pub_data[0]['chatpop'] == 'd' ? $recipient = $usersView->encryptor0($pub_array[1]) : $recipient = 0;
     ///////////////////////////////
-      var_dump('3333ONE');
+      var_dump('ONE 8');
 
           $vals = str_replace(' ', '+', $published);
           $pub_data[0]['chatpop'] == 'd' ? 
@@ -51,7 +56,7 @@ if($regCompleted == 1){
           ($pub_data[0]['chatpop'] == 's' ? 
             $resultChats = $usersView->select('solochat', ' INNER JOIN agro USING (agro_id) INNER JOIN veterinary USING (vet_id) INNER JOIN health USING (hth_id) WHERE content_id = ? ORDER BY solo_id DESC', $vals) : 
             $resultChats = $usersView->select('grpchat', ' INNER JOIN agro USING (agro_id) INNER JOIN veterinary USING (vet_id) INNER JOIN health USING (hth_id) WHERE uniq_conv = ? ORDER BY chat_id DESC', $vals));
-          var_dump('4444');
+var_dump('ONE 9');
 
           $cat = $resultChats[1]['category_id'];
          // $usersView->checkSubscription( $cat, $product_ID );
@@ -59,7 +64,7 @@ if($regCompleted == 1){
           $ln = count($resultChats) - 1;
           $Chats = "<div id='all_chat'>";   
           $pub_data[0]['chatpop'] == 's' ? $learner = $resultChats[$ln]['scriptor_id'] : $learner = $resultChats[$ln]['sender_id'];
-          var_dump('5555');
+          var_dump('ONE 10');
 
           $Chats .="<div style='position:fixed; top:0; left:0; height:100vh; width:100vw; z-index:0; background:transparent;'>
                     <div style='display:flex; flex-direction:column; height:100%; justify-content:center; align-items:center;'>
@@ -75,7 +80,7 @@ if($regCompleted == 1){
             $flag = $resultChats[$ln]['flag'];
             $replyto = $resultChats[$ln]['replyto'];
             $pub_data[0]['chatpop'] == 's' ? $uniqconv_ID = $resultChats[$ln]['content_id'] : $uniqconv_ID = $resultChats[$ln]['uniq_conv'];
-          var_dump('666');
+          var_dump('ONE 11');
 
             $sc = $usersView->getSharedKey($uniqconv_ID);
     
