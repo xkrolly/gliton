@@ -81,13 +81,13 @@ if(!empty($_GET['link'])){
 			   <div style='display:flex; height:50px; width:50px; margin-bottom:20px; margin-left:auto; margin-right:auto; border-radius:50%; border:2px solid #0f0; align-items:center; justify-content:center;'>
         			<span class='material-icons' style='color:#0f0; font-size:60px;'>&#xe86c;</span>
                            </div>
-			   <h3>Awesome!!! </h3>
-			   <div style='font-size:18px; font-family:serif;'>Your purchase of <span style='font-style:italic; text-decoration:underline; font-family:serif;'>".$heading."</span> 
-                		<span style='font-style:italic; font-family:serif;'>solscript</span> was successful. You can now freely access it through search and/or scrolls. Thanks. <p style='font-style:italic; color:red; margin-top:10px; font-size:13px;'>Your new Glitcoin balance is <strong>$coinBal</strong>.</p></div>
+			   <h2>Awesome!!! </h2>
+			   <div style='font-size:20px; font-family:serif;'>Your purchase of <span style='font-style:italic; text-decoration:underline; font-family:serif;'>".$heading."</span> 
+                		<span style='font-style:italic; font-family:serif;'>solscript</span> was successful. You can now freely access it through search and/or scrolls. Thanks. <p style='font-style:italic; color:#2166f3; margin-top:10px; font-size:16px;'>Your Glitcoin balance is <strong>$coinBal</strong><sup style='font-size:8px;'>GC</sup>.</p></div>
 					<div style='display:flex; justify-content:center; align-items:center; margin:20px auto -8px auto;'>
 						<a href='index.php?page=download&catid=$catID&scriptid=$_published&chat=$chatpop' style='font-style:italic; color:#fff; background:#2166f3; font-size:16px; padding:10px;'>Download</a> 
 						<div style='height:16px; width:1px; background:#000; margin-left:20px; margin-right:20px;'></div>
-						<a href='index.php?page=peepChats&s=$tutor&r=$student&pub=$pubid' style='font-style:italic; color:#2166f3; background:#fff; border:2px solid #2166f3; padding:10px; font-size:16px;'>View</a>
+						<a href='index.php?page=peepChats&s=$tutor&r=$student&pub=$pubid' style='font-style:italic; color:#2166f3; background:#fff; border:2px solid #2166f3; padding:10px; font-size:16px;'>View script</a>
 					</div>
 					<div style='width:100%; font-style:italic; display:flex; flex-direction:column; justify-content:center; align-items:center; margin-top:50px; padding:10px; font-size:12px; background:#eee; border:1px solid #000; border-radius:20px;'>
      						<div style='font-size:16px; font-weight:1000; font-family:roboto;'>Solution trial</div>					
