@@ -7,11 +7,15 @@ include('../includes/autoloader.inc.php');
 //FLUTTERWAVE PAY VERIFY
 
  $transaction_id = $_GET['transaction_id']; // Get this from the redirect or webhook
- $result = $usersView->verifyFlutterwavePayment($transaction_id);
+var_dump('NORES');
+$result = $usersView->verifyFlutterwavePayment($transaction_id);
+var_dump($result);
 //$result['status'] = $_GET['status'];
  if ($result['status'] == 'success') {
 	// "Payment verified successfully!";
 	// add to coinBalance
+    $amount = $result['data']['amount'];
+	 
     $_link = str_replace(' ', '+', $_GET['link']);
     $link = $usersView->dec_cons($_link);
     $linkArray = explode('_', $link);
