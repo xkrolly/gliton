@@ -9,7 +9,7 @@ var_dump($a.'='.$b.'='.$c);
 if(!empty($_GET['link'])){
 	$link = $_GET['link'];
 	$link_dec_arr = explode(', ', $link);
-	$buyer = str_replace(' ', '+', $link_dec_arr[0]);
+	$buyer = $link_dec_arr[0];
 	$productID = str_replace(' ', '+', $link_dec_arr[1]);
 	$key = str_replace(' ', '+', $link_dec_arr[2]);
 	$_price = str_replace(' ', '+', $link_dec_arr[3]);
@@ -17,7 +17,7 @@ if(!empty($_GET['link'])){
 	$price = str_replace(' ', '+', $_price);
 	$key = str_replace(' ', '+', $key);
 	//$buyer = str_replace(' ', '+', $buyer);
-	$_buyer = $usersView->dec_cons($buyer);
+	$_buyer = $usersView->alphaA_Num($buyer);
 
       $buy_er = $usersView->usercode($_buyer);
 	$_vals = $productID.', '.$key.', %.'.$buy_er.'.%';
