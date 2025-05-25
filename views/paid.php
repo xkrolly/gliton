@@ -92,10 +92,10 @@ if(!empty($_GET['link'])){
 					</div>
 					<div style='width:100%; font-style:italic; display:flex; flex-direction:column; justify-content:center; align-items:center; margin-top:50px; padding:10px; font-size:12px; background:#eee; border:1px solid #000; border-radius:20px;'>
      						<div style='font-size:16px; font-weight:1000; font-family:roboto;'>Get a discount!</div>					
-     						<div style='font-size:14px; font-family:roboto;'>Get a discount, opportunity to impact people and access to unlimited earning from this solscript by creating a <span style='color:#2166f3; font-weight:bold;'>solution trial</span> with it! You dont want to miss out on this huge offer!</div>
-	   					<div style='font-size:12px; font-family:roboto;'>Just record a solscript about your version through the link below when applying the solution. As simple as that!</div>
+     						<div style='font-size:14px; font-family:roboto;'>Get a discount, opportunity to impact people and access to unlimited earning from this solscript by creating a <span style='color:#2166f3; font-weight:bold;'>solution trial</span> with it!</div>
+	   					<div style='font-size:12px; font-family:roboto;'> <br>You dont want to miss out on this huge offer! All it takes is to just record a solscript about your experience when applying the solution through the link below.</div>
 	   
-	  					<a href='index.php?page=trial&pubid=$pubid&catid=$catID' style='color:#000; padding:10px; margin-right:10px; text-decoration:underline; border-radius:10px;' class='hover'>Trial offer - 10% discount</a>".$usersView->learnMore(5, 12)."
+	  					<a href='index.php?page=trial&pubid=$pubid&catid=$catID' style='color:#000; padding:10px; margin-right:10px; text-decoration:underline; border-radius:10px;' class='hover'>Trial offer - 10% discount</a>
 	   				</div>
 	    		   </div>
 			</div>
