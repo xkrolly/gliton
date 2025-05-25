@@ -91,7 +91,7 @@ if(!empty($_GET['link'])){
 						<a href='index.php?page=peepChats&s=$tutor&r=$student&pub=$pubid' style='font-style:italic; color:#2166f3; background:#fff; border:2px solid #2166f3; padding:10px; font-size:16px;'>View script</a>
 					</div>
 					<div style='width:100%; font-style:italic; display:flex; flex-direction:column; justify-content:center; align-items:center; margin-top:50px; padding:10px; font-size:12px; background:#eee; border:1px solid #000; border-radius:20px;'>
-     						<div style='font-size:16px; font-weight:1000; font-family:roboto;'>Get a discount!</div>					
+     						<div style='font-size:18px; font-weight:1000; font-family:roboto; margin-bottom:20px;'>Get a discount!</div>					
      						<div style='font-size:14px; font-family:roboto;'>Get a discount, opportunity to impact people and access to unlimited earning from this solscript by creating a <span style='color:#2166f3; font-weight:bold;'>solution trial</span> with it!</div>
 	   					<div style='font-size:12px; font-family:roboto;'> <br>You dont want to miss out on this huge offer! All it takes is to just record a solscript about your experience when applying the solution through the link below.</div>
 	   
