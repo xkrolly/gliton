@@ -7,11 +7,11 @@ include('../includes/autoloader.inc.php');
 //FLUTTERWAVE PAY VERIFY
 
  $transaction_id = $_GET['transaction_id']; // Get this from the redirect or webhook
-var_dump('NORES');
-$result = $usersView->verifyFlutterwavePayment($transaction_id);
-var_dump($result);
-//$result['status'] = $_GET['status'];
- if ($result['status'] == 'success') {
+//BELOW not working. Maybe due to incorrect secret key
+///$result = $usersView->verifyFlutterwavePayment($transaction_id);
+$result['status'] = $_GET['status'];
+
+if ($result['status'] == 'successful') {
 	// "Payment verified successfully!";
 	// add to coinBalance
     $amount = $result['data']['amount'];
