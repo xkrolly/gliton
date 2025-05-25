@@ -2083,93 +2083,40 @@ $output = intval($output) * 1;
 			$this->quota($tutor, '0.7', 'class', $product_ID, $cat);
 
 	}
-    public function verifyFlutterwavePayment($txid){
-	$url = 'https://api.flutterwave.com/v3/transactions/'.$txid.'/verify';
-	    $response = file_get_contents($url);
-	    $response !== false ? $output = 'success' : $output = 'failure';
-	    return $output;
-            
-    } 
-    public function verifyFlutterPayment($tx_ref, $amount, $currency){
+	public function verifyFlutterwavePayment($txid){
          $secretKey = 'FLWSECK_TEST-1bec3883bd45619e18cefd2c58944be0-X';//FLWSECK_TEST-ef7da8f15c6185ca459c42fefb4ea413-X';
-        $url = 'https://api.flutterwave.com/v3/transactions/verify';
+        $url = 'https://api.flutterwave.com/v3/transactions/'.$txid.'/verify';
         $headers = [
             'Authorization: Bearer'.$secretKey,
             'Content-Type: application/json',
             ];
-        $data = [
-            'tx_ref' => $tx_ref,
-            'amount' => $amount,
-            'currency' => $currency,
-            ];
-        
-        $ch = surl_init($url);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_POST, true);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
-        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-        $response = curl_exec($ch);
-        curl_close($ch);
-        return json_decode($response, true);
+        $options = [
+            'http' => [
+		'method'=>'GET',
+		'header'=>implode("\r\n", $headers)
+            ]
+	];
+
+	$context = stream_context_create($options);
+	$response = file_get_contents($url, false, $context);
+	if($response === FALSE){
+	  $result = 'false';//json_decode($response, false);
+	  return $result;  
+	  
+	}else{
+	  $result = json_decode($response, true);
+	  return $result;  
+	 /*if($result['status'] == 'success'){
+	      $paymentStatus = $result['data']['status'];
+	      $amount = $result['data']['amount'];
+	      $currency = $result['data']['currency'];
+	      echo 'Transaction verified: $paymentStatus | Amount: $amount $currency';
+	   }else{
+	      echo 'verification failed: '.$result['message'];
+	   }*/
+	}    
         
     }
-    public function verifyFlutterPayment2($tx_status, $tx_ref, $tx_id, $buyer, $productID, $key){
-        
-        //require_once 'vendor/autoload.php';
-        //require("PHP-v3-1.0.6/processPayment.php");
-        
-        /*$flutterwave = new Flutterwave(
-            getenv(pubK),
-            getenv(secK),
-            getenv(encK)
-        );
-        *///uniqid()
-        $payload = [
-            'tx_ref' => $tx_ref,
-            'amount' => 50,
-            'currency' => 'NGN',
-            'payment_options' => 'card, banktransfer',
-            'redirect_url' => '',
-            'customer' => [
-                'name' => '',
-                'email' => '',
-                'phone' => '',
-            ],
-        ];
-        
-
-        //$verification = $flutterwave->verifyPayment($payload['tx_ref']);
-        
-        /*if($verification['status'] == 'success'){
-            //payment verified, update db
-            $currency='NGN';
-            $amount = '50';
-            $verifyPayCode = $buyer.'_'.$currency.$amount;
-
-            $valus = $verifyPayCode.', '.$productID.', '.$key.', '.$buyer;
-            $this->update('purchase', 'payVerified = ? WHERE product_id = ? AND productKey = ? AND buyer = ?', $valus);
-        } else {
-            //payment failed, notify user
-        }*/
-        
-/*
-        $payment = $flutterwave->initializePayment($payload);
-        if($payment['status'] == 'success'){
-            //update DB and do sth
-        } else {
-            //payment failed, notify user
-        }
-        
-        
-        
-        //require("../PHP-v3-1.0.6/processPayment.php");
-        //use Flutterwave\Transactions;
-        $history = new Transactions();
-        $data = array("id"=>$tx_id);//"288200108");
-        $verifyTransaction = $history->verifyTransaction($data);
-        print_r($verifyTransaction);
-        
-*/    }
     public function pay_now2($cat, $amount, $redirectURL, $payfor, $productID){
         $amount=50;
 		$userData = $this->fetchUser();
