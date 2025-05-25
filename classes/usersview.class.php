@@ -2445,7 +2445,7 @@ $output = intval($output) * 1;
 		$_me = $myData[0]['profile_id'];
 		$me = '%.'.$this->usercode($_me).'.%';
 		$vals = $product_ID.', '.$me;
-		$purchaseData = $this->select('purchase', ' WHERE product_id = ? and buyer LIKE ?', $vals);
+		$purchaseData = $this->select('purchase', ' WHERE product_id = ? AND buyer LIKE ?', $vals);
 		//if bought already, pass else buy
 		//count($purchaseData) > 0 ? $key = $purchaseData[0]['productKey'] : $this->buyProduct($product_ID);
 		count($purchaseData) == 0 ? $this->buyProduct($product_ID) : $key = $purchaseData[0]['productKey'];
