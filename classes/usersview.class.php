@@ -2450,6 +2450,7 @@ $output = intval($output) * 1;
 		//count($purchaseData) > 0 ? $key = $purchaseData[0]['productKey'] : $this->buyProduct($product_ID);
 		count($purchaseData) == 0 ? $this->buyProduct($product_ID) : $key = $purchaseData[0]['productKey'];
 		$_SESSION['product_keyx'] = $key;
+		return;
 	}
 	
 	public function check_PurchasedSessions($catid_enc){
