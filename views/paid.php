@@ -77,22 +77,28 @@ if(!empty($_GET['link'])){
 
 	///////////////////////////////////
 	return "<div style='display:flex; height:100vh; width:100vw; justify-content:center; padding-top:65%;'>
-				<div style='font-size:14px; width:70%; text-align:center; font-family:serif;'>
-				<div style='display:flex; height:50px; width:50px; margin-bottom:20px; margin-left:auto; margin-right:auto; border-radius:50%; border:2px solid #0f0; align-items:center; justify-content:center;'>
+			<div style='font-size:14px; width:70%; text-align:center; font-family:serif;'>
+			   <div style='display:flex; height:50px; width:50px; margin-bottom:20px; margin-left:auto; margin-right:auto; border-radius:50%; border:2px solid #0f0; align-items:center; justify-content:center;'>
         			<span class='material-icons' style='color:#0f0; font-size:60px;'>&#xe86c;</span>
-                </div>
-				<h3>Awesome!!! </h3>
-							<div style='font-family:serif;'>Your purchase of <span style='font-style:italic; text-decoration:underline; font-family:serif;'>".$heading."</span> 
-                <span style='font-style:italic; font-family:serif;'>solscript</span> was successful. You can now freely access it through search and/or scrolls. Thanks. <p style='font-style:italic; color:red; margin-top:10px; font-size:13px;'>Your new Glitcoin balance is <strong>$coinBal</strong>.</p></div>
+                           </div>
+			   <h3>Awesome!!! </h3>
+			   <div style='font-family:serif;'>Your purchase of <span style='font-style:italic; text-decoration:underline; font-family:serif;'>".$heading."</span> 
+                		<span style='font-style:italic; font-family:serif;'>solscript</span> was successful. You can now freely access it through search and/or scrolls. Thanks. <p style='font-style:italic; color:red; margin-top:10px; font-size:13px;'>Your new Glitcoin balance is <strong>$coinBal</strong>.</p></div>
 					<div style='display:flex; justify-content:center; align-items:center; margin:20px auto -8px auto;'>
 						<a href='index.php?page=download&catid=$catID&scriptid=$_published&chat=$chatpop' style='font-style:italic; color:deepskyblue; font-size:14px;'>Download</a> 
-							<div style='height:15px; width:1px; background:#000; margin-left:20px; margin-right:20px;'></div>
+						<div style='height:15px; width:1px; background:#000; margin-left:20px; margin-right:20px;'></div>
 						<a href='index.php?page=peepChats&s=$tutor&r=$student&pub=$pubid' style='font-style:italic; color:deepskyblue; font-size:14px;'>View</a>
 					</div>
-					<div style='width:100%; display:flex; justify-content:center; align-items:center; margin-top:15px; font-size:12px;'><a href='index.php?page=trial&pubid=$pubid&catid=$catID' style='color:#000; padding:10px; margin-right:10px; text-decoration:underline; border-radius:10px;' class='hover'>Trial #1 available - 50% discount</a>".$usersView->learnMore(5, 12)."</div>
-
-				</div>
-			</div>";
+					<div style='width:100%; display:flex; justify-content:center; align-items:center; margin-top:15px; font-size:12px;'>
+     						<div style='font-size:25px; font-weight:900; font-family:roboto;'>Want to try out solution trial??</div>					
+     						<div style='font-size:16px; font-family:roboto;'>With solution trial, you get a discount, and opportunity of unlimited earning from this solscript! You dont want to miss out on this huge offer!</div>
+	   					<div style='font-size:14px; font-family:roboto;'>All it takes is for you to click on the link below to record your solscript through the link when applying the solution. As simple as that!</div>
+	   
+	  					<a href='index.php?page=trial&pubid=$pubid&catid=$catID' style='color:#000; padding:10px; margin-right:10px; text-decoration:underline; border-radius:10px;' class='hover'>Trial #1 available - 50% discount</a>".$usersView->learnMore(5, 12)."
+	   				</div>
+	    		   </div>
+			</div>
+               </div>";
 
 }
 elseif(isset($_GET['tsess'])){
