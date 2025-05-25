@@ -2427,7 +2427,7 @@ $output = intval($output) * 1;
 
 		$vals_enc = $this->enc_cons($vals);
 		$redirectURL = 'index.php?page=paid&link='.$vals;
-		//header('Location: '.$redirectURL);//_Link);
+		header('Location: '.$redirectURL);//_Link);
 		
 		$payfor = $productName;
 //		$this->pay_now($cat, $price, $redirectURL, $payfor, $product_ID);
