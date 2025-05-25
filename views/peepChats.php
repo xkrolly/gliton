@@ -30,12 +30,12 @@ if($regCompleted == 1){
         $__me = '%.'.$_me.'.%';
         $_vals = $product_ID.', '.$__me;
         $purchData = $usersView->select('purchase', ' WHERE product_id = ? AND buyer LIKE ?', $_vals);
-	
+	/*
 		$me = '%.'.$this->usercode($_me).'.%';
 		$vals = $product_ID.', '.$me;
-		$purchaseData = $this->select('purchase', ' WHERE product_id = ? and buyer LIKE ?', $vals);
-		var_dump($vals);
-		var_dump($purchaseData);
+		$purchaseData = $this->select('purchase', ' WHERE product_id = ? and buyer LIKE ?', $vals);*/
+		var_dump($_vals);
+		var_dump($purchData);
 		if(count($purchData) > 0){
       var_dump('ONE 7');
 
