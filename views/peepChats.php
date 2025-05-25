@@ -19,7 +19,7 @@ if($regCompleted == 1){
           $product_ID = $published;
 
           //CHECK to prevent double purchase
-         // $usersView->checkPurchase($product_ID); //checkSubscription will work
+         $usersView->checkPurchase($product_ID); //checkSubscription will work
     	  //Access only to paid user
     	  $buyer = $usersView->enc_cons($me);
     	    //check the sharedKey
