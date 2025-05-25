@@ -20,6 +20,7 @@ var_dump('ONE 3');
 		//get the pub_id
           $pub_data = $usersView->select('publish', ' WHERE pub_id = ?', $pub_id);
           $published = $pub_data[0]['published'];
+		var_dump($published);
 		
           $product_ID = $published;
 var_dump('ONE 4');
@@ -38,6 +39,13 @@ var_dump('ONE 5');
         $_vals = $product_ID.', '.$__me;
         $purchData = $usersView->select('purchase', ' WHERE product_id = ? AND buyer LIKE ?', $_vals);
       var_dump('ONE 6');
+//////////////////////
+$me = '%.'.$this->usercode($_me).'.%';
+		$vals = $product_ID.', '.$me;
+		$purchaseData = $this->select('purchase', ' WHERE product_id = ? and buyer LIKE ?', $vals);
+		
+//////////////////
+		
 		if(count($purchData) > 0){
       var_dump('ONE 7');
 
