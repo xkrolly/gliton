@@ -76,7 +76,7 @@ if(!empty($_GET['link'])){
     $coinBal = $usersView->coinBalance($me);
 
 	///////////////////////////////////
-	return "<div style='display:flex; height:100vh; width:100vw; justify-content:center; padding-top:65%;'>
+	return "<div style='display:flex; height:100vh; width:100vw; justify-content:center; padding-top:20%;'>
 			<div style='font-size:14px; width:70%; text-align:center; font-family:serif;'>
 			   <div style='display:flex; height:50px; width:50px; margin-bottom:20px; margin-left:auto; margin-right:auto; border-radius:50%; border:2px solid #0f0; align-items:center; justify-content:center;'>
         			<span class='material-icons' style='color:#0f0; font-size:60px;'>&#xe86c;</span>
@@ -95,7 +95,7 @@ if(!empty($_GET['link'])){
 	   					<div style='font-size:12px; font-family:roboto; font-style:italic;'> <br>You dont want to miss out on this huge offer! All it takes is to just record a solscript about your experience when applying the solution through the link below.</div>
 	   
 	  					<a href='index.php?page=trial&pubid=$pubid&catid=$catID' style='color:#000; padding:10px; margin-right:10px; text-decoration:underline; border-radius:10px;' class='hover'>Trial offer - 10% discount</a>
-	   				</div>
+	   				</div><br><br>
 	    		   </div>
 			</div>
                </div>";
