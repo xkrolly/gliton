@@ -83,9 +83,8 @@ if(!empty($_GET['link'])){
                            </div>
 			   <h2>Awesome!!! </h2>
 			   <div style='font-size:20px; font-family:serif; margin-top:20px;'>Your purchase of <span style='font-style:italic; text-decoration:underline; font-family:serif;'>".$heading."</span> 
-                		<span style='font-style:italic; font-family:serif;'>solscript</span> was successful. You can now freely access it through search and/or scrolls. Thanks. 
-		  			<p style='font-style:italic; color:red; margin-top:20px; font-size:14px;'>Your Glitcoin balance is <strong>$coinBal</strong><sup style='font-size:8px;'>GC</sup>.</p>
-					<div style='display:flex; justify-content:center; align-items:center; margin:20px auto -8px auto;'>
+                		<span style='font-style:italic; font-family:serif;'>solscript</span> was successful and your Glitcoin balance is <strong>$coinBal</strong><sup style='font-size:8px;'>GC</sup>. You can now freely access it through search and/or scrolls. Thanks. 
+					<div style='display:flex; justify-content:center; align-items:center; margin:30px auto 0 auto;'>
 						<a href='index.php?page=download&catid=$catID&scriptid=$_published&chat=$chatpop' style='font-style:italic; color:#fff; background:#2166f3; font-size:16px; padding:10px;'>Download</a> 
 						<div style='height:14px; width:2px; background:#000; margin-left:35px; margin-right:35px;'></div>
 						<a href='index.php?page=peepChats&s=$tutor&r=$student&pub=$pubid' style='font-style:italic; color:#2166f3; background:#fff; border:2px solid #2166f3; padding:10px; font-size:16px;'>View script</a>
