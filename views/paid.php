@@ -89,12 +89,12 @@ if(!empty($_GET['link'])){
 						<div style='height:15px; width:1px; background:#000; margin-left:20px; margin-right:20px;'></div>
 						<a href='index.php?page=peepChats&s=$tutor&r=$student&pub=$pubid' style='font-style:italic; color:deepskyblue; font-size:14px;'>View</a>
 					</div>
-					<div style='width:100%; display:flex; flex-direction:column; justify-content:center; align-items:center; margin-top:15px; font-size:12px;'>
-     						<div style='font-size:25px; font-weight:900; font-family:roboto;'>Want to try out solution trial??</div>					
-     						<div style='font-size:16px; font-family:roboto;'>With solution trial, you get a discount, and opportunity of unlimited earning from this solscript! You dont want to miss out on this huge offer!</div>
-	   					<div style='font-size:14px; font-family:roboto;'>All it takes is for you to click on the link below to record your solscript through the link when applying the solution. As simple as that!</div>
+					<div style='width:100%; display:flex; flex-direction:column; justify-content:center; align-items:center; margin-top:20px; font-size:12px; background:#ccc; border:2px solid #000; border-radius:20px;'>
+     						<div style='font-size:16px; font-weight:1000; font-family:roboto;'>Solution trial</div>					
+     						<div style='font-size:14px; font-family:roboto;'>Get a discount, opportunity to impact people and access to unlimited earning from this solscript! You dont want to miss out on this huge offer!</div>
+	   					<div style='font-size:12px; font-family:roboto;'>Just record a solscript about your version through the link below when applying the solution. As simple as that!</div>
 	   
-	  					<a href='index.php?page=trial&pubid=$pubid&catid=$catID' style='color:#000; padding:10px; margin-right:10px; text-decoration:underline; border-radius:10px;' class='hover'>Trial #1 available - 50% discount</a>".$usersView->learnMore(5, 12)."
+	  					<a href='index.php?page=trial&pubid=$pubid&catid=$catID' style='color:#000; padding:10px; margin-right:10px; text-decoration:underline; border-radius:10px;' class='hover'>Trial offer - 10% discount</a>".$usersView->learnMore(5, 12)."
 	   				</div>
 	    		   </div>
 			</div>
