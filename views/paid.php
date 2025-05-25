@@ -2,9 +2,9 @@
 	$usersContr = new usersContr();
 	$usersView = new usersView();
 
-$a = $usersView->usercode(9);
-$b = $usersView->usercode(10);
-$c = $usersView->usercode(11);
+$a = $usersView->usercode(8);
+$b = $usersView->usercode(18);
+$c = $usersView->usercode(19);
 var_dump($a.'='.$b.'='.$c);
 if(!empty($_GET['link'])){
 	$link = $_GET['link'];
