@@ -14,7 +14,7 @@ $result['status'] = $_GET['status'];
 if ($result['status'] == 'successful') {
 	// "Payment verified successfully!";
 	// add to coinBalance
-    $amount = $result['data']['amount'];
+    //$amount = $result['data']['amount'];
 	 
     $_link = str_replace(' ', '+', $_GET['link']);
     $link = $usersView->dec_cons($_link);
