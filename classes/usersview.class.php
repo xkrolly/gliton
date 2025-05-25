@@ -2443,15 +2443,12 @@ $output = intval($output) * 1;
 			//is it bought already???
 		$myData = $this->fetchUser();
 		$_me = $myData[0]['profile_id'];
-/*		$_me = $this->enc_cons($__me);
-		$me = str_replace('==', '', $_me);
-*/
 		$me = '%.'.$this->usercode($_me).'.%';
 		$vals = $product_ID.', '.$me;
 		$purchaseData = $this->select('purchase', ' WHERE product_id = ? and buyer LIKE ?', $vals);
-		var_dump($purchaseData);
 		//if bought already, pass else buy
-		count($purchaseData) > 0 ? $key = $purchaseData[0]['productKey'] : $this->buyProduct($product_ID);
+		//count($purchaseData) > 0 ? $key = $purchaseData[0]['productKey'] : $this->buyProduct($product_ID);
+		count($purchaseData) == 0 ? $this->buyProduct($product_ID) : $key = $purchaseData[0]['productKey'];
 		$_SESSION['product_keyx'] = $key;
 	}
 	
