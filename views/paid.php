@@ -2,6 +2,10 @@
 	$usersContr = new usersContr();
 	$usersView = new usersView();
 
+$a = $usersView->usercode(9);
+$b = $usersView->usercode(10);
+$c = $usersView->usercode(11);
+var_dump($a.'='.$b.'='.$c);
 if(!empty($_GET['link'])){
 	$link = $_GET['link'];
 	$link_dec_arr = explode(', ', $link);
