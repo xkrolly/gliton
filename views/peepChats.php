@@ -34,7 +34,8 @@ if($regCompleted == 1){
 		$me = '%.'.$this->usercode($_me).'.%';
 		$vals = $product_ID.', '.$me;
 		$purchaseData = $this->select('purchase', ' WHERE product_id = ? and buyer LIKE ?', $vals);
-		
+		var_dump($vals);
+		var_dump($purchaseData);
 		if(count($purchData) > 0){
       var_dump('ONE 7');
 
