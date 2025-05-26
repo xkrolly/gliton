@@ -2001,10 +2001,10 @@ public function usercode3($userDigit){
 		return $output;
 
 	}
- public function coinBalance($me){
- 	$cData = $this->select('coin', ' WHERE owner_id = ?', $me);
- 	return $cData[0]['Gcoin'];
- }
+	public function coinBalance($me){
+	 	$cData = $this->select('coin', ' WHERE owner_id = ?', $me);
+	 	return $cData[0]['Gcoin'];
+	}
 	public function alphaA_Num($code){
 
 		$alphas = ['j', 'i', 'h', 'g', 'f', 'e', 'd', 'c', 'b', 'a', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'k', 'l', 'm', 'n', 'o', 'p'];
@@ -2017,13 +2017,13 @@ public function usercode3($userDigit){
 
 		while($n <= $nlen){
 			
-      $position = array_search($digit[$n], $alphas, false);
+      			$position = array_search($digit[$n], $alphas, false);
 			strlen($position) > 1 ? $output[] = substr($position, -1) : $output[] = $position;
 
 		 $n++;	
 		}		
-				$output = implode('', $output);
-$output = intval($output) * 1;
+		$output = implode('', $output);
+		$output = intval($output) * 1;
 		return $output;
 	}
 	public function num_AlphaA($_digit){
