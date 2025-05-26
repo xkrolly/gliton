@@ -18,18 +18,15 @@ $userData = $usersView->fetchUser();
 $me = $userData[0]['profile_id'];
 
 $pubid = $usersView->alphaA_Num($pubid);
-$trial = "<div>I am the trial for $pubid</div>";
 
 $published = $usersView->select('publish', ' WHERE pub_id = ?', $pubid);
 $chatpop = $published[0]['chatpop'];
 $conversID = $published[0]['published'];
-var_dump($pubid.'=='.$conversID.'//');
 
 $chatpop = 's' ? $table = 'solochat' : ($chatpop = 'd'? $table = 'chat' : $table = 'grpchat');
 $chatpop = 's' ? $col = 'content_id' : ($chatpop = 'd'? $col = 'uniq_conv' : $col = 'class_id');
 
 $solscript = $usersView->select($table, ' INNER JOIN '.$cat_tbl.' USING ('.$cat_id.') WHERE '.$col.' = ?', $conversID);
-var_dump($table.'=='.$cat_tbl.'=='.$cat_id.'=='.$col.'=='.$conversID);
 $n = count($solscript) - 1;
 $output ="
 		<div id='vidframe' style='z-index:100; display:none; width:100%; position:fixed; top:0;'>
@@ -76,7 +73,7 @@ var_dump($solscript[$n][$queCol]);
 				</div>
 			</div>
 
-			<div id='all_chat$n' style='width:100%; height:250px; display:flex; align-items:center; justify-content:center; background:#fff; border:1px solid #aaa; font-size:12px;'>Your Scrollet copy appears here after you create it
+			<div id='all_chat$n' style='width:100%; height:250px; display:flex; align-items:center; justify-content:center; background:#fff; border:1px solid #aaa; font-size:12px;'><span id='scrollet$n'>Your Scrollet copy appears here after you create it</span>
   <div style='display:flex; flex-direction:column; justify-content:flex-end; margin-bottom:30px;'>
 
 
