@@ -17,7 +17,7 @@ $catid = $_GET['catid'];
 $userData = $usersView->fetchUser();
 $me = $userData[0]['profile_id'];
 
-$pubid = $usersView->decryptor0($pubid);
+$pubid = $usersView->alphaA_Num($pubid);
 $trial = "<div>I am the trial for $pubid</div>";
 
 $published = $usersView->select('publish', ' WHERE pub_id = ?', $pubid);
