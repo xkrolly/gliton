@@ -54,6 +54,8 @@ $addSpanPadin=0;
 $x = 1;
 $output .="<div style='background:#eee; padding-bottom:100px;'>";
 while($n >= 0){
+var_dump($solscript[$n][$queCol]);
+
 	$solscript[$n]['media'] == 3 ? 
 	$display = " <video id='media".$n."' class='flexible2' style='width:100px; height:70px; object-fit:cover; border-radius:10px;' src='videos/".$directory."/dec/".$solscript[$n][$queCol].".webm' ></video>" : ($solscript[$n]['media'] == 2 ? $display = "<img id='img".$n."' src='img/".$directory."/".$solscript[$n][$queCol].".webp' class='flexible' style='width:100px; height:70px; object-fit:cover;' />" : $display = $solscript[$n][$queCol]);
 
