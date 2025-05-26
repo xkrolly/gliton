@@ -33,7 +33,7 @@ if(isset($_POST['publish'])){
   
   $pubtype == 'thirdparty' ? $publishTo = '3rdpartyproduct' : $publishTo = 'publish';
 
-  $usersView->publish($publink, $caption, $searchkeys, $topic_id, $chatpop, $publish_mode, $authorization, $price, $timespan, $shrdKey, $publishTo);
+  $usersView->publish($publink, $caption, $insight, $searchkeys, $topic_id, $chatpop, $publish_mode, $authorization, $price, $timespan, $shrdKey, $publishTo);
 
   
     echo "<div style='display:flex; height:100vh; width:100vw; justify-content:center; align-items:center;'>
