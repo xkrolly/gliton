@@ -23,6 +23,7 @@ $trial = "<div>I am the trial for $pubid</div>";
 $published = $usersView->select('publish', ' WHERE pub_id = ?', $pubid);
 $chatpop = $published[0]['chatpop'];
 $conversID = $published[0]['published'];
+var_dump($pubid.'=='.$conversID.'//');
 
 $chatpop = 's' ? $table = 'solochat' : ($chatpop = 'd'? $table = 'chat' : $table = 'grpchat');
 $chatpop = 's' ? $col = 'content_id' : ($chatpop = 'd'? $col = 'uniq_conv' : $col = 'class_id');
