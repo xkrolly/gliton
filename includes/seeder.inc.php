@@ -95,6 +95,8 @@ if(isset($_POST['procedure'])){
 if(isset($_POST['publishSeed'])){
 
 	$caption = $_POST['insight'];
+	$topic = $_POST['textspace'];
+
 	$sdID = $_POST['project'];
 	$sdData = $usersView->select('seeder', ' WHERE sd_id = ?', $sdID);
 	$projectID = $sdData[0]['content_id'];
@@ -153,7 +155,7 @@ if(isset($_POST['publishSeed'])){
 
 		  $shrdKey = $usersView->generateSoloSharedKey($topic_id);
 
-	$usersView->publish($contentID_enc, $caption, $searchkeys, $topic_id, $chatpop, $publish_mode, $authorization, $price, $timespan, $shrdKey);
+	$usersView->publish($contentID_enc, $topic, $caption, $searchkeys, $topic_id, $chatpop, $publish_mode, $authorization, $price, $timespan, $shrdKey);
 
 	echo json_encode(array("cat"=>$topic_id, "que"=>$que));	
 
