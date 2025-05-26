@@ -262,11 +262,13 @@ function startVideo(catid, category, rid, chid, cid, height, lck, uploadURL, add
     span.setAttribute("id", "video"+serialn);
     div.setAttribute("style", dropshadow+"display:flex; justify-content:flex-end; font-size:16px; margin-bottom:0px; width:100%;");
     div.appendChild(span);
-  
-    //document.getElementById('all_chat'+serialn).innerHTML = '';
-    document.getElementById('all_chat'+serialn).appendChild(div);
+
+  //remove the inner comment
+    document.getElementById('all_chat'+serialn).removeChild();
+    document.getElementById('scrollet'+serialn) ? document.getElementById('scrollet'+serialn).remove() : '';
+
+   document.getElementById('all_chat'+serialn).appendChild(div);
     var video = "<video id='videoFram"+serialn+"' class='flexible2' controls loading='lazy' autoplay style='object-fit:cover; width:100%; border-radius:10px; height:"+height+"' src=''><source src=''></video>";
-    
     document.getElementById('video'+serialn).innerHTML= video;
     //ENDDDDDDDDDDDDDD       
     window.scrollBy(-200000000000000, 20000000000000000000);
