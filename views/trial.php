@@ -28,7 +28,7 @@ $chatpop = 's' ? $table = 'solochat' : ($chatpop = 'd'? $table = 'chat' : $table
 $chatpop = 's' ? $col = 'content_id' : ($chatpop = 'd'? $col = 'uniq_conv' : $col = 'class_id');
 
 $solscript = $usersView->select($table, ' INNER JOIN '.$cat_tbl.' USING ('.$cat_id.') WHERE '.$col.' = ?', $conversID);
-var_dump($solscript);
+var_dump($table.'=='.$cat_tbl.'=='.$cat_id.'=='.$col.'=='.$conversID);
 $n = count($solscript) - 1;
 $output ="
 		<div id='vidframe' style='z-index:100; display:none; width:100%; position:fixed; top:0;'>
