@@ -730,7 +730,7 @@ return $heading;
 						    document.getElementById('flexible').appendChild(div);
 						
 						    $('#bgo').css({'z-index':1000, 'background':'#ccc', 'position':'fixed', 'top':0, 'right':0, 'width':'100vw', 'height':'100vh', 'overflow':'scroll'});
-						    document.getElementById('bgo').innerHTML = "<img class='flexible' id='"+imgId+"' src='"+imgsrc+"' style='object-fit:contain; width:100%; height:102%;' />"; 
+						    document.getElementById('bgo').innerHTML = \"<img class='flexible' id='\"+imgId+\"' src='\"+imgsrc+\"' style='object-fit:contain; width:100%; height:102%;' />\"; 
 						
 						});
 						
@@ -747,9 +747,9 @@ return $heading;
 						    document.getElementById('flexible').appendChild(div);
 						
 						    $('#bgo').css({'z-index':1000, 'background':'#fff', 'position':'fixed', 'top':0, 'right':0, 'width':'100vw', 'height':'100vh', 'overflow':'scroll'});
-						    document.getElementById('bgo').innerHTML = "<video class='flexible2b' id='media_B' autoplay id='fullscreen' style='object-fit:cover; width:100vw; height:100vh;'>"+ 
-						    "<source  src='"+vdsrc+"."+ext+"'>"+
-						    "</video>";
+						    document.getElementById('bgo').innerHTML = \"<video class='flexible2b' id='media_B' autoplay id='fullscreen' style='object-fit:cover; width:100vw; height:100vh;'>\"+ 
+						    \"<source  src='\"+vdsrc+\".\"+ext+\"'>\"+
+						    \"</video>\";
 						    document.getElementById('media_B').play();
 						    vdId == 'mediaA' ? vid = 'mediaB' : vid = 'mediaA';
 						    document.getElementById(vid).pause();
