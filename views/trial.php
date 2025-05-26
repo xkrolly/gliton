@@ -45,7 +45,7 @@ $output ="
 
 $rid='';
 $chid='';
-$height='250px';
+$height='240px';
 $lck=0;
 $uploadURL='views/solo_vid_upload.php';
 $contentID = $conversID;
