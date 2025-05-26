@@ -759,7 +759,7 @@ return $heading;
 			} 
 			elseif($scriptData[$n]['media'] == 3){
 				$filename = $scriptData[$n][$queCol].'.webm';
-				$content = "<video controls class='flexible2' id='vid".$ID."' style='height:500px; width:100%; margin-bottom:20px; object-fit:cover;'>".
+				$content = "<video controls class='flexible2' id='vid".$ID."' style='height:1000px; width:100%; margin-bottom:20px; object-fit:cover;'>".
 				"<source src='".$headingSubfolder.$filename."' type='video/webm'>".
 				"</video><figcaption>Video.Insight</figcaption>";
 				fwrite($fp, $content);
