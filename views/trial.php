@@ -28,7 +28,7 @@ $chatpop = 's' ? $col = 'content_id' : ($chatpop = 'd'? $col = 'uniq_conv' : $co
 
 $chatpop = 's' ? $tableID = 'solo_id' : ($chatpop = 'd'? $tableID = 'chat_id' : $tableID = 'grp_id');
 
-$solscript = $usersView->select($table, ' INNER JOIN '.$cat_tbl.' USING ('.$cat_id.') WHERE '.$col.' = ? ORDER BY '.$tableID.' ASC', $conversID);
+$solscript = $usersView->select($table, ' INNER JOIN '.$cat_tbl.' USING ('.$cat_id.') WHERE '.$col.' = ? ORDER BY '.$tableID.' DESC', $conversID);
 $n = count($solscript) - 1;
 $output ="
 		<div id='vidframe' style='z-index:100; display:none; width:100%; position:fixed; top:0;'>
@@ -74,7 +74,7 @@ while($n >= 0){
 				</div>
 			</div>
 
-			<div id='all_chat$n' style='width:100%; height:250px; display:flex; align-items:center; justify-content:center; background:#fff; border:1px solid #aaa; font-size:12px;'><span id='scrollet$n'>Your Scrollet copy appears here after you create it</span>
+			<div id='all_chat$n' style='width:100%; height:250px; display:flex; align-items:center; justify-content:center; background:#fff; border:1px solid #aaa; font-size:12px;'><span id='scrollet$n'>Your scrollet copy appears here after you create it</span>
   <div style='display:flex; flex-direction:column; justify-content:flex-end; margin-bottom:30px;'>
 
 
