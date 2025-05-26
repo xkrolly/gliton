@@ -250,7 +250,7 @@ class UsersView extends Users {
         </div></div></div>";
   }
  
-  public function publish($publink, $caption, $searchkeys, $topic_id, $chatpop, $publish_mode, $authorization, $price, $timespan, $shrdKey, $publishTo){
+  public function publish($publink, $caption, $insight, $searchkeys, $topic_id, $chatpop, $publish_mode, $authorization, $price, $timespan, $shrdKey, $publishTo){
 	
 	$publishTo == 'publish' ? $contentIDCol = 'published' : $contentIDCol = 'product_uniq';
 
@@ -265,7 +265,7 @@ class UsersView extends Users {
 	  $rsP = $publink_array[0]; 
 	  $rsP_enc = $this->enc_cons($rsP);
 	  
-	  $insight = $this->paragrafin($caption);
+	  $insight = $this->paragrafin($insight);
 
 	  $seederData = $this->select('seeder', ' WHERE content_id = ?', $publink);
 	  count($seederData) > 0 ? $topic = $seederData[0]['topic'] : $topic = $caption;
