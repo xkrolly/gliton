@@ -264,7 +264,6 @@ function startVideo(catid, category, rid, chid, cid, height, lck, uploadURL, add
     div.appendChild(span);
 
   //remove the inner comment
-    document.getElementById('all_chat'+serialn).removeChild();
     document.getElementById('scrollet'+serialn) ? document.getElementById('scrollet'+serialn).remove() : '';
 
    document.getElementById('all_chat'+serialn).appendChild(div);
