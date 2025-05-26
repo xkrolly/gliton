@@ -16,7 +16,7 @@ $catid = $_GET['catid'];
 
 $userData = $usersView->fetchUser();
 $me = $userData[0]['profile_id'];
-
+$_me = $usersView->usercode($me);
 $pubid = $usersView->alphaA_Num($pubid);
 
 $published = $usersView->select('publish', ' WHERE pub_id = ?', $pubid);
@@ -48,7 +48,7 @@ $chid='';
 $height='240px';
 $lck=0;
 $uploadURL='views/solo_vid_upload.php';
-$contentID = $conversID;
+$contentID = $conversID.'_'.$_me; //adding my fingerprint
 $addVideoFrame=0;
 $addSpanPadin=0;
 $x = 1;
