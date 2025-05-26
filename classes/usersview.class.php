@@ -713,7 +713,49 @@ return $heading;
 		    				const originalText = bytes.toString(CryptoJS.enc.Utf8);
 		    				return originalText;
 						}
-                        
+
+						$(document).on('click', '#bgo', function(){
+						    document.getElementById('bgo').remove();
+						    document.getElementById('fullscreen') ? document.getElementById('fullscreen').pause() : '';                    
+						   
+						});
+						
+						$(document).on('click', '.flexible', function(){
+						    var imgId =$(this).prop('id');
+						    var imgsrc = document.getElementById(imgId).getAttribute('src');
+						     
+						     var div = document.createElement('div');
+						      div.setAttribute('id', 'bgo');
+						                         
+						    document.getElementById('flexible').appendChild(div);
+						
+						    $('#bgo').css({'z-index':1000, 'background':'#ccc', 'position':'fixed', 'top':0, 'right':0, 'width':'100vw', 'height':'100vh', 'overflow':'scroll'});
+						    document.getElementById('bgo').innerHTML = "<img class='flexible' id='"+imgId+"' src='"+imgsrc+"' style='object-fit:contain; width:100%; height:102%;' />"; 
+						
+						});
+						
+						$(document).on('click', '.flexible2', function(){
+						                         
+						    var vdId =$(this).prop('id');
+						    var __vdsrc = document.getElementById(vdId).getAttribute('src');
+						    var _vdsrc = __vdsrc.split('.');
+						vdsrc = _vdsrc[0];
+						var ext = _vdsrc[1];
+						    var div = document.createElement('div');
+						    div.setAttribute('id', 'bgo');
+						     //stop the video first
+						    document.getElementById('flexible').appendChild(div);
+						
+						    $('#bgo').css({'z-index':1000, 'background':'#fff', 'position':'fixed', 'top':0, 'right':0, 'width':'100vw', 'height':'100vh', 'overflow':'scroll'});
+						    document.getElementById('bgo').innerHTML = "<video class='flexible2b' id='media_B' autoplay id='fullscreen' style='object-fit:cover; width:100vw; height:100vh;'>"+ 
+						    "<source  src='"+vdsrc+"."+ext+"'>"+
+						    "</video>";
+						    document.getElementById('media_B').play();
+						    vdId == 'mediaA' ? vid = 'mediaB' : vid = 'mediaA';
+						    document.getElementById(vid).pause();
+						
+						});  
+
                         
 					</script>";
 			$content = $this->topBar('');
