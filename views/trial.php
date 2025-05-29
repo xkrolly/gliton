@@ -102,7 +102,7 @@ $x++;
 $n--;
 
 }
-$output .="</div>";
+$output .="<div style='margin-top:20px; width:100%; text-align:center;'><button class='theme bg'>Publish trial</button></div></div>";
 return $output;
 //work on creating a chat pg using this detail and user will copy and add their input
 //return $trial;
