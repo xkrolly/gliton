@@ -69,7 +69,7 @@ while($n >= 0){
         		  	<input type='hidden' name='encmsg$n' id='encmsg$n'/>
                     <input type='hidden' name='user' id='user$n' value='$me'/>
                     <input type='hidden' name='category' id='category$n' class='category' value='$catid'>
-					<div style='font-size:12px; padding:10px; border-radius:10px;' class='theme' id='chatMicSpan' onclick='startVideo(\"$catid\", \"$directory\", \"$rid\", \"$chid\", \"$contentID\", \"$height\", \"$lck\", \"$uploadURL\", \"$addVideoFrame\", \"$addSpanPadin\", \"5\", $n);' class='hover'>Create</div>
+					<div style='font-size:12px; padding:10px; border-radius:10px;' class='theme2' id='chatMicSpan' onclick='startVideo(\"$catid\", \"$directory\", \"$rid\", \"$chid\", \"$contentID\", \"$height\", \"$lck\", \"$uploadURL\", \"$addVideoFrame\", \"$addSpanPadin\", \"5\", $n);' class='hover'>Create</div>
 				</form>
 				</div>
 			</div>
@@ -102,7 +102,9 @@ $x++;
 $n--;
 
 }
-$output .="<div style='margin-top:20px; width:100%; text-align:center;'><button class='theme bg'>Publish trial</button></div></div>";
+$output .="<div style='margin-top:20px; width:100%; text-align:center;'><button class='bg theme' style='border-radius:10px;'>Publish trial</button></div>
+<div style='font-size:10px; font-style:italic; margin:5px 20px 10px 20px;'>Kindly note that you only get the 10% discount after you publish this trial and the trial has passed the genuiness test for approval by the admin.</div>
+</div>";
 return $output;
 //work on creating a chat pg using this detail and user will copy and add their input
 //return $trial;
