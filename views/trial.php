@@ -28,7 +28,7 @@ $chatpop = 's' ? $col = 'content_id' : ($chatpop = 'd'? $col = 'uniq_conv' : $co
 
 $chatpop = 's' ? $tableID = 'solo_id' : ($chatpop = 'd'? $tableID = 'chat_id' : $tableID = 'grp_id');
 
-$solscript = $usersView->select($table, ' INNER JOIN '.$cat_tbl.' USING ('.$cat_id.') WHERE '.$col.' = ? ORDER BY '.$tableID.' DESC', $conversID);
+$solscript = $usersView->select($table, ' INNER JOIN '.$cat_tbl.' USING ('.$cat_id.') WHERE '.$col.' = ? AND flag = ? ORDER BY '.$tableID.' DESC', $conversID.', 0');
 $n = count($solscript) - 1;
 $output ="
 		<div id='vidframe' style='z-index:100; display:none; width:100%; position:fixed; top:0;'>
