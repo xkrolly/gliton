@@ -106,9 +106,8 @@ $n--;
 			$_cat_enc = $usersView->encryptor0($catid);
 
 $output .="<div style='margin-top:20px; width:100%; text-align:center;'>
-		<input type='text' class='form-control' name='title' value='$title' placeholder='Add your desired title'/>
 		<a style='text-decoration:none;' href='index.php?page=publish&val=$contentID&ab=$soloPublish&cat=$_cat_enc&ttl=$title'>
-		     <button class='bg theme' style='border-radius:10px; border:2px solid #fff;'>Publish trial</button>
+		     <button class='bg theme' style='border-radius:10px; border:5px solid #fff;'>Publish trial</button>
 		</a>
 	   </div>
 </form>
