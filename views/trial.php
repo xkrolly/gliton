@@ -22,6 +22,7 @@ $pubid = $usersView->alphaA_Num($pubid);
 $published = $usersView->select('publish', ' WHERE pub_id = ?', $pubid);
 $chatpop = $published[0]['chatpop'];
 $conversID = $published[0]['published'];
+$title = $published[0]['title'];
 
 $chatpop = 's' ? $table = 'solochat' : ($chatpop = 'd'? $table = 'chat' : $table = 'grpchat');
 $chatpop = 's' ? $col = 'content_id' : ($chatpop = 'd'? $col = 'uniq_conv' : $col = 'class_id');
@@ -52,7 +53,8 @@ $contentID = $conversID.'_'.$_me; //adding my fingerprint
 $addVideoFrame=0;
 $addSpanPadin=0;
 $x = 1;
-$output .="<div style='background:#eee; padding-bottom:60px;'>";
+$output .="<div style='background:#eee; padding-bottom:60px;'><form action='' method='post'>
+				";
 while($n >= 0){
 
 	$solscript[$n]['media'] == 3 ? 
@@ -63,14 +65,12 @@ while($n >= 0){
 			<div style='display:flex; width:100%;'>
 				<div style='padding:1px; padding-left:10px; display:flex; align-items:center; margin-bottom:2px;'>".$display."<span style='font-size:12px; margin-left:10px;'>Scrollet $x</span></div>
 				<div style='margin-left:auto; margin-right:30px; margin-top:auto; margin-bottom:auto;'>
-				<form action='' method='post'>
 				    <input type='hidden' name='mediaproof' id='mediaproof$n'/>
 		        	<input type='hidden' name='mediaType' id='mediaType$n'/>
         		  	<input type='hidden' name='encmsg$n' id='encmsg$n'/>
                     <input type='hidden' name='user' id='user$n' value='$me'/>
                     <input type='hidden' name='category' id='category$n' class='category' value='$catid'>
 					<div style='font-size:12px; padding:10px; border-radius:10px; border:1px solid #2166f3;' class='theme2' id='chatMicSpan' onclick='startVideo(\"$catid\", \"$directory\", \"$rid\", \"$chid\", \"$contentID\", \"$height\", \"$lck\", \"$uploadURL\", \"$addVideoFrame\", \"$addSpanPadin\", \"5\", $n);' class='hover'>Create</div>
-				</form>
 				</div>
 			</div>
 
@@ -102,8 +102,17 @@ $x++;
 $n--;
 
 }
-$output .="<div style='margin-top:20px; width:100%; text-align:center;'><button class='bg theme' style='border-radius:10px;'>Publish trial</button></div>
-<div style='font-size:12px; font-style:italic; font-weight:bold; margin:20px 50px 10px 50px;'>Kindly note that you only get the 10% discount after you publish this trial and the trial has passed the genuiness test for approval by the admin.</div>
+   			$soloPublish = $usersView->encryptor0('soloPublish');
+			$_cat_enc = $usersView->encryptor0($catid);
+
+$output .="<div style='margin-top:20px; width:100%; text-align:center;'>
+		<input type='text' class='form-control' name='title' value='$title' placeholder='Add your desired title'/>
+		<a style='text-decoration:none;' href='index.php?page=publish&val=$contentID&ab=$soloPublish&cat=$_cat_enc&ttl=$title'>
+		     <button class='bg theme' style='border-radius:10px; border:2px solid #fff;'>Publish trial</button>
+		</a>
+	   </div>
+</form>
+<div style='font-size:12px; font-style:italic; margin:20px 50px 10px 50px;'><strong>Note: </strong>You only get the 10% discount after you publish the trial and the trial has passed the genuiness test for approval by the admin.</div>
 </div>";
 return $output;
 //work on creating a chat pg using this detail and user will copy and add their input
