@@ -111,7 +111,7 @@ $output .="<div style='margin-top:20px; width:100%; text-align:center;'>
 		</a>
 	   </div>
 </form>
-<div style='font-size:12px; font-style:italic; margin:20px 50px 10px 50px;'><strong>Note: </strong>You only get the 10% discount after you publish the trial and the trial has passed the genuiness test for approval by the admin.</div>
+<div style='font-size:12px; font-style:italic; margin:20px 50px 10px 50px; width:100%; text-align:center;'><strong>Note: </strong>You only get the 10% discount after you publish the trial and the trial has passed the genuiness test for approval by the admin.</div>
 </div>";
 return $output;
 //work on creating a chat pg using this detail and user will copy and add their input
