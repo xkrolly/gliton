@@ -52,7 +52,7 @@ $contentID = $conversID.'_'.$_me; //adding my fingerprint
 $addVideoFrame=0;
 $addSpanPadin=0;
 $x = 1;
-$output .="<div style='background:#eee; padding-bottom:100px;'>";
+$output .="<div style='background:#eee; padding-bottom:60px;'>";
 while($n >= 0){
 
 	$solscript[$n]['media'] == 3 ? 
@@ -103,7 +103,7 @@ $n--;
 
 }
 $output .="<div style='margin-top:20px; width:100%; text-align:center;'><button class='bg theme' style='border-radius:10px;'>Publish trial</button></div>
-<div style='font-size:10px; font-style:italic; margin:5px 20px 10px 20px;'>Kindly note that you only get the 10% discount after you publish this trial and the trial has passed the genuiness test for approval by the admin.</div>
+<div style='font-size:10px; font-style:italic; font-weight:bold; margin:20px 50px 10px 50px;'>Kindly note that you only get the 10% discount after you publish this trial and the trial has passed the genuiness test for approval by the admin.</div>
 </div>";
 return $output;
 //work on creating a chat pg using this detail and user will copy and add their input
