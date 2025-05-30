@@ -107,7 +107,7 @@ $n--;
 
 $output .="<div style='margin-top:20px; width:100%; text-align:center;'>
 		<a style='text-decoration:none;' href='index.php?page=publish&val=$contentID&ab=$soloPublish&cat=$_cat_enc&ttl=$title'>
-		     <div class='bg theme' style='border-radius:10px; padding:15px; border:5px solid #fff;'>Publish trial</div>
+		     <div style='display:flex; justify-content:center; align-item:center;'><div class='bg theme' style='border-radius:10px; padding:15px; border:5px solid #fff;'>Publish trial</div></div>
 		</a>
 	   </div>
 </form>
