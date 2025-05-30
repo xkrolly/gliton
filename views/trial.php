@@ -37,7 +37,7 @@ $output ="
               <source id='webcam' src='' type='video/webm'>
             </video>
               <span id='log'></span>
-              <div id='activeTimer2' style='position:fixed; bottom:48%; left:48%; z-index:101; color:red; font-size:25px;'></div>    
+	                      ".$usersView->countDownStyled()."
               <button id='stopBtn' class='sm' style='position:fixed; bottom:20px; right:20px; z-index:101; background:transparent; color:#fff; border-radius:10px; border:1px solid #000;'>Stop</button>
 
         </div>
