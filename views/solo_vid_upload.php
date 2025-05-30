@@ -62,8 +62,8 @@ include('../includes/autoloader.inc.php');
     $contentCheck = $usersView->select('solochat', ' WHERE content_id = ?', $content_id);
 
 //set conversation flag and post video on db
-    $chat_data = array('scriptor_id'=>$uid, 'category_id'=>$cat, $col_id=>$catCol_val, 'content_id'=>$content_id, 'media'=>3, 'flag'=>$cat);
-    count($contentCheck) == 0 ? $usersContr->insert('solochat', $chat_data) : '';
-
+    count($contentCheck) == 0 ? $flag = $cat : $flag = 0;
+    $chat_data = array('scriptor_id'=>$uid, 'category_id'=>$cat, $col_id=>$catCol_val, 'content_id'=>$content_id, 'media'=>3, 'flag'=>$flag);
+    $usersContr->insert('solochat', $chat_data)
 }
 
