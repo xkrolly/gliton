@@ -53,6 +53,7 @@ if(isset($_POST['publish'])){
   $_SESSION['SET_CHAT'] = FALSE;
 
 }else{
+  var_dump('HALLO WORLD!');
   $usersContr = new usersContr();
   $usersView = new usersView();
   $keyWords = "<div style='display:flex; align-items:center; justify-content:center; height:100vh; width:100vw;'>
