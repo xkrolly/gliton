@@ -76,7 +76,7 @@ while($n >= 0){
 		        	<input type='hidden' name='mediaType' id='mediaType$n'/>
         		  	<input type='hidden' name='encmsg$n' id='encmsg$n'/>
                     <input type='hidden' name='user' id='user$n' value='$me'/>
-                    <input type='hidden' name='category' id='category$n' class='category' value='$catid'>
+                    <input type='hidden' name='category' id='category$n' class='category' value='$catid'>";
  $n==0 ? $output .= "<div></div>" : $output .= "<div style='font-size:12px; padding:10px; border-radius:10px; border:1px solid #2166f3;' class='theme2' id='chatMicSpan' onclick='startVideo(\"$catid\", \"$directory\", \"$rid\", \"$chid\", \"$contentID\", \"$height\", \"$lck\", \"$uploadURL\", \"$addVideoFrame\", \"$addSpanPadin\", \"5\", $n);' class='hover'>Create</div>";
 		$output .="</div>
 			</div>
