@@ -86,10 +86,12 @@ while($n >= 0){
 			<div style='font-size:13px; font-style:italic; padding:20px 50px 10px 50px; width:100%; text-align:center;'>
 	                     Watch this scrollet and create your copy at the solution proof in the next publish page after you click on publish trial.
 		  	</div>
- 			 <div><input type='radio' name='endresult'><span style='margin-left:20px; color:green;'>Satisfied by the End-Result i get</span></div>
-			 <div><input type='radio' name='endresult'><span style='margin-left:20px; color:gold;'>Somewhat satisfied by the End-Result</span></div>
-			 <div><input type='radio' name='endresult'><span style='margin-left:20px; color:red;'>Not Satisfied at all</span></div>
-		     </div>" : 
+	     			<div style='margin-left:20px; font-style:italic; font-weight:500;'>	
+	 			 <label><input type='radio' name='endresult'><span style='margin-left:10px;'>Satisfied by the End-Result i get</span></label>
+				 <label><input type='radio' name='endresult'><span style='margin-left:10px;'>Somewhat satisfied by the End-Result</span></label>
+				 <label><input type='radio' name='endresult'><span style='margin-left:10px;'>Not Satisfied at all</span></label>
+			     	</div>
+       		       </div>" : 
 	 $output .= "<span id='scrollet$n'>Your scrollet copy appears here after you create it</span>";
 		$output .="<div style='display:flex; flex-direction:column; justify-content:flex-end; margin-bottom:30px;'>
 				    <canvas id='canvas$n' style='background:transparent; width:100%; height:400px; z-index:11; display:none;'>
