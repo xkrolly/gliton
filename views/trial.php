@@ -53,11 +53,11 @@ $contentID = $conversID.'_'.$_me; //adding my fingerprint
 $addVideoFrame=0;
 $addSpanPadin=0;
 
-$mediaType ='3'; 
+$trialNo = 1; 
 $owner = $me;
 $contributors = '';
 $projectType = 's';
-$usersView->addToPending($catid, $title, $contentID, $mediaType, $owner, $contributors, $projectType);
+$usersView->addToPending($catid, $title, $contentID, $trialNo, $owner, $contributors, $projectType);
 
 $x = 1;
 $output .="<div style='background:#eee; padding-bottom:60px;'><form action='' method='post'>
