@@ -61,6 +61,7 @@ $usersView->addToPending($catid, $title, $contentID, $mediaType, $owner, $contri
 
 $x = 1;
 $output .="<div style='background:#eee; padding-bottom:60px;'><form action='' method='post'>
+<div style='postion:fixed; top:0; text-align:center; width:100%; padding:8px; margin-bottom:10px; background: rgba(0, 0, 0, .5); color:#fff;'>$title</div>
 				";
 while($n >= 0){
 
@@ -87,9 +88,9 @@ while($n >= 0){
 	                     Watch this scrollet and create your copy at the solution proof in the next publish page after you click on publish trial.
 		  	</div>
 	     			<div style='margin-left:50px; font-style:italic; font-weight:500;'>	
-	 			 <label style='display:flex; align-items:center;'><input type='radio' name='endresult'><span style='margin-left:10px;'>Satisfied by the End-Result i get</span> <span class='material-icons' style='font-size:60px; margin-left:10px; color:green;'>&#xe813;</span></label>
-				 <label style='display:flex; align-items:center;'><input type='radio' name='endresult'><span style='margin-left:10px;'>Somewhat satisfied by the End-Result</span> <span class='material-icons' style='font-size:60px; margin-left:10px; color:gold;'>&#xe812;</span></label>
-				 <label style='display:flex; align-items:center;'><input type='radio' name='endresult'><span style='margin-left:10px;'>Not Satisfied at all</span> <span class='material-icons' style='font-size:60px; margin-left:10px; color:red;'>&#xe811;</span></label>
+	 			 <label style='display:flex; align-items:center;'><input type='radio' name='endresult'><span style='margin-left:10px;'>Satisfied by the End-Result i get</span> <span class='material-icons' style='font-size:20px; margin-left:10px; color:green;'>&#xe813;</span></label>
+				 <label style='display:flex; align-items:center;'><input type='radio' name='endresult'><span style='margin-left:10px;'>Somewhat satisfied by the End-Result</span> <span class='material-icons' style='font-size:20px; margin-left:10px; color:gold;'>&#xe812;</span></label>
+				 <label style='display:flex; align-items:center;'><input type='radio' name='endresult'><span style='margin-left:10px;'>Not Satisfied at all</span> <span class='material-icons' style='font-size:20px; margin-left:10px; color:red;'>&#xe811;</span></label>
 			     	</div>
        		       </div>" : 
 	 $output .= "<span id='scrollet$n'>Your scrollet copy appears here after you create it</span>";
