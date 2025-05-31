@@ -77,13 +77,16 @@ while($n >= 0){
         		  	<input type='hidden' name='encmsg$n' id='encmsg$n'/>
                     <input type='hidden' name='user' id='user$n' value='$me'/>
                     <input type='hidden' name='category' id='category$n' class='category' value='$catid'>
-					<div style='font-size:12px; padding:10px; border-radius:10px; border:1px solid #2166f3;' class='theme2' id='chatMicSpan' onclick='startVideo(\"$catid\", \"$directory\", \"$rid\", \"$chid\", \"$contentID\", \"$height\", \"$lck\", \"$uploadURL\", \"$addVideoFrame\", \"$addSpanPadin\", \"5\", $n);' class='hover'>Create</div>
-				</div>
+ $n==0 ? $output .= "<div></div>" : $output .= "<div style='font-size:12px; padding:10px; border-radius:10px; border:1px solid #2166f3;' class='theme2' id='chatMicSpan' onclick='startVideo(\"$catid\", \"$directory\", \"$rid\", \"$chid\", \"$contentID\", \"$height\", \"$lck\", \"$uploadURL\", \"$addVideoFrame\", \"$addSpanPadin\", \"5\", $n);' class='hover'>Create</div>";
+		$output .="</div>
 			</div>
 
 			<div id='all_chat$n' style='width:100%; height:250px; display:flex; align-items:center; justify-content:center; background:#fff; border:1px solid #aaa; font-size:12px;'>";
  $n==0 ? $output .= "<div style='display:flex; flex-direction:column;'>
-			 <div><input type='radio' name='endresult'><span style='margin-left:20px; color:green;'>Satisfied by the End-Result i get</span></div>
+			<div style='font-size:13px; font-style:italic; padding:20px 50px 10px 50px; width:100%; text-align:center;'>
+	                     Watch this scrollet and create your copy at the solution proof in the next publish page after you click on publish trial.
+		  	</div>
+ 			 <div><input type='radio' name='endresult'><span style='margin-left:20px; color:green;'>Satisfied by the End-Result i get</span></div>
 			 <div><input type='radio' name='endresult'><span style='margin-left:20px; color:gold;'>Somewhat satisfied by the End-Result</span></div>
 			 <div><input type='radio' name='endresult'><span style='margin-left:20px; color:red;'>Not Satisfied at all</span></div>
 		     </div>" : 
