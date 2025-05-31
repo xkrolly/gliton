@@ -73,9 +73,15 @@ $pend .="<div style='width:100%; height:100%; display:flex; justify-content:cent
 if($n < 0){$pend .="<div style='width:100%; display:flex; justify-content:center;'><div style='font-size:12px;'>Hoops! no pending project.</div></div>";}
 while($n >= 0){
 $pendingData[$n]['projectType'] == 1 ? $fa = 'e7fd' : ($pendingData[$n]['projectType'] == 2 ? $fa = '38d3' : $fa = 'f233');		
-$pendingData[$n]['projectType'] == 1 ? $contentUrl = 'uscript' : ($pendingData[$n]['projectType'] == 2 ? $contentUrl = 'views/chat.php' : $contentUrl = 'views/grpchat.php');		
+//$pendingData[$n]['projectType'] == 1 ? $contentUrl = 'uscript' : ($pendingData[$n]['projectType'] == 2 ? $contentUrl = 'views/chat.php' : $contentUrl = 'views/grpchat.php');		
+	
+	$pendingData[$n]['projectType'] == 1 && $trial == 0 ? $contentUrl = 'uscript' : 
+	($pendingData[$n]['projectType'] == 1 && $trial == 1 ? $contentUrl = 'trial' : 
+	 ($pendingData[$n]['projectType'] == 2 ? $contentUrl = 'views/chat.php' : $contentUrl = 'views/grpchat.php'));
+
 	$catid = $pendingData[$n]['projectCat'];
 	$title = $pendingData[$n]['projectTitle'];
+	$trial = $pendingData[$n]['trial'];
 	$projectID = $pendingData[$n]['projectID'];
 	$projectType = $pendingData[$n]['projectType'];
 	$tutor = $pendingData[$n]['owner']; 
@@ -98,7 +104,7 @@ $pendingData[$n]['projectType'] == 1 ? $contentUrl = 'uscript' : ($pendingData[$
  
 
   $pending = $usersView->enc_cons($catid.'_pending');
-
+$pubid = str_replace('_'.$usersView->usercode($me), '', $projectID);
 	$pend .="
 				<div style='width:100%; display:flex; border:1px solid #fff; border-radius:10px; filter:drop-shadow(.5px .5px .5px #aaa) drop-shadow(-.5px -.5px .5px #aaa); background:#fff; padding:10px; justify-content:space-around; align-items:center; margin-bottom:10px;'>
 					<div style='width:20%; padding:10px;'><span class='material-icons' style='font-size:20px; color:#bbb; filter:drop-shadow(1px 1px 1px #000);'>&#x".$fa.";</span></div>
@@ -109,7 +115,9 @@ $pendingData[$n]['projectType'] == 1 ? $contentUrl = 'uscript' : ($pendingData[$
 							<span>update: ".date('m-d H:i', strtotime($pendingData[$n]['newupdate']))."</span>
 						</div>
 					</div>
-					<div style='width:20%; text-align:right;'><form action='$contentUrl' method='post'>
+					<div style='width:20%; text-align:right;'>";
+     					$trial == 1 ?	$pend .= "<a href='index.php?page=trial&pubid=$pubid&catid=$catid' style='text-decoration:none;'><span class='theme' style='padding:10px; border:1px solid #fff;'>Resume</span></a>" :
+     					$pend .= "<form action='$contentUrl' method='post'>
 							<input type='submit' value='Resume' style='color:deepskyblue; border:0; background:transparent; font-size:14px;'/>
 							<input type='hidden' name='category' value='$catid' />
 							<input type='hidden' name='title' value='$title' />
@@ -129,8 +137,9 @@ $pendingData[$n]['projectType'] == 1 ? $contentUrl = 'uscript' : ($pendingData[$
     		        <input type='hidden' name='haltResponse' value='0'>  
 
 							<input type='hidden' name='projectType' value='$projectType' />
-						</form>
-						<script>
+						</form>";
+		
+			$pend .="		<script>
 		      		
 		    					var enc_pwd = localStorage.getItem('encP'); 
 		              var pwd_enc_pk = localStorage.getItem('prv');
