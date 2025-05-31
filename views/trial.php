@@ -62,7 +62,7 @@ $usersView->addToPending($catid, $title, $contentID, $mediaType, $owner, $contri
 $x = 1;
 $output .="<div style='background:#eee; padding-bottom:60px;'><form action='' method='post'>
 <div style='position:fixed; top:0; text-align:center; width:100%; padding:8px; margin-bottom:50px; background: rgba(0, 0, 0, .4); font-size:14px; color:#fff;'>$title</div>
-				";
+		<br><br><br><br>		";
 while($n >= 0){
 
 	$solscript[$n]['media'] == 3 ? 
