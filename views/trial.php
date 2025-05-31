@@ -52,6 +52,13 @@ $uploadURL='views/solo_vid_upload.php';
 $contentID = $conversID.'_'.$_me; //adding my fingerprint
 $addVideoFrame=0;
 $addSpanPadin=0;
+
+$mediaType ='3'; 
+$owner = $me;
+$contributors = '';
+$projectType = 's';
+$usersView->addToPending($catid, $title, $contentID, $mediaType, $owner, $contributors, $projectType);
+
 $x = 1;
 $output .="<div style='background:#eee; padding-bottom:60px;'><form action='' method='post'>
 				";
@@ -74,26 +81,30 @@ while($n >= 0){
 				</div>
 			</div>
 
-			<div id='all_chat$n' style='width:100%; height:250px; display:flex; align-items:center; justify-content:center; background:#fff; border:1px solid #aaa; font-size:12px;'><span id='scrollet$n'>Your scrollet copy appears here after you create it</span>
-  <div style='display:flex; flex-direction:column; justify-content:flex-end; margin-bottom:30px;'>
+			<div id='all_chat$n' style='width:100%; height:250px; display:flex; align-items:center; justify-content:center; background:#fff; border:1px solid #aaa; font-size:12px;'>";
+ $n==0 ? $output .= "<div style='display:flex; flex-direction:column;'>
+			 <div><input type='radio' name='endresult'><span style='margin-left:20px; color:green;'>Satisfied by the End-Result i get</span></div>
+			 <div><input type='radio' name='endresult'><span style='margin-left:20px; color:gold;'>Somewhat satisfied by the End-Result</span></div>
+			 <div><input type='radio' name='endresult'><span style='margin-left:20px; color:red;'>Not Satisfied at all</span></div>
+		     </div>" : 
+	 $output .= "<span id='scrollet$n'>Your scrollet copy appears here after you create it</span>";
+		$output .="<div style='display:flex; flex-direction:column; justify-content:flex-end; margin-bottom:30px;'>
+				    <canvas id='canvas$n' style='background:transparent; width:100%; height:400px; z-index:11; display:none;'>
+				    </canvas>
+				    <div id='cancel$n' style='z-index:12; color:red; background:transparent; display:none; width:100%; padding:5px; margin-top:-80px;'>
+				      <div style='display:flex; justify-content:space-around;'>
+				          <div onclick='cancelUpload();' style='display:flex; justify-content:center; align-items:center; border-radius:50%; height:50px; width:50px; background:#fff;'>
+				                        <span class='material-icons' style='color:red; font-size:30px;'>&#xe5c9;</span>
+				                        
+				          </div>
+				          <div id='proceed$n' onclick='proceedUpload();' style='display:flex; justify-content:center; align-items:center; background:#fff; border:5px solid 2166f3; border-radius:50%; height:50px; width:50px; margin-left:auto;'>
+				          <span class='material-icons' style='color:#2166f3; font-size:30px;'>&#xe86c;</span>
+				                        
+				          </div>
+				      </div>
+				    </div>
 
-
-    <canvas id='canvas$n' style='background:transparent; width:100%; height:400px; z-index:11; display:none;'>
-    </canvas>
-    <div id='cancel$n' style='z-index:12; color:red; background:transparent; display:none; width:100%; padding:5px; margin-top:-80px;'>
-      <div style='display:flex; justify-content:space-around;'>
-          <div onclick='cancelUpload();' style='display:flex; justify-content:center; align-items:center; border-radius:50%; height:50px; width:50px; background:#fff;'>
-                        <span class='material-icons' style='color:red; font-size:30px;'>&#xe5c9;</span>
-                        
-          </div>
-          <div id='proceed$n' onclick='proceedUpload();' style='display:flex; justify-content:center; align-items:center; background:#fff; border:5px solid 2166f3; border-radius:50%; height:50px; width:50px; margin-left:auto;'>
-          <span class='material-icons' style='color:#2166f3; font-size:30px;'>&#xe86c;</span>
-                        
-          </div>
-      </div>
-    </div>
-
-  </div>
+			     </div>
 
 
 			</div>
