@@ -1111,14 +1111,14 @@ return $heading;
     	return $pendingData;
     }
     
-    public function addToPending($catid, $title, $projectID, $mediaType, $owner, $contributors, $projectType){
+    public function addToPending($catid, $title, $projectID, $trialNo, $owner, $contributors, $projectType){
 
     	$vals = $projectID;
     	$pendingData = $this->select('pending', ' WHERE projectID = ?', $vals);
       	
       	!empty($pendingData[0]['contributor']) ? $contributors = $pendingData[0]['contributor'].$contributors.'.' : $contributors ='.'.$contributors.'.';
 
-    	$vals = array('projectCat'=>$catid, 'projectTitle'=>$title, 'projectID'=>$projectID, 'contributor'=>$contributors, 'projectType'=>$projectType, 'owner'=>$owner);
+    	$vals = array('projectCat'=>$catid, 'trial'=>$trialNo, 'projectTitle'=>$title, 'projectID'=>$projectID, 'contributor'=>$contributors, 'projectType'=>$projectType, 'owner'=>$owner);
     	count($pendingData) == 0 ? $this->insert2Db('pending', $vals) : '';
 
     }
