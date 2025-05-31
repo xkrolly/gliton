@@ -85,7 +85,7 @@ while($n >= 0){
 			<div id='all_chat$n' style='width:100%; height:250px; display:flex; align-items:center; justify-content:center; background:#fff; border:1px solid #aaa; font-size:12px;'>";
  $n==0 ? $output .= "<div style='display:flex; flex-direction:column;'>
 			<div style='font-size:13px; font-style:italic; padding:20px 50px 10px 50px; width:100%; text-align:center; margin-bottom:20px;'>
-	                     Choose your option below, then Watch this scrollet $n and create your copy as the solution proof in the next publish page after you click on publish trial.
+	                     Choose your option below, then Watch this scrollet $x and create your copy as the solution proof in the next publish page after you click on publish trial.
 		  	</div>
 	     			<div style='margin-left:50px; font-style:italic; font-weight:500;'>	
 	 			 <label style='display:flex; align-items:center;'><input type='radio' name='endresult'><span style='margin-left:10px;'>Satisfied by the End-Result i get</span> <span class='material-icons' style='font-size:20px; margin-left:10px; color:green;'>&#xe813;</span></label>
