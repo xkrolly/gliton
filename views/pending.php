@@ -109,8 +109,9 @@ $pendingData[$n]['projectType'] == 1 ? $fa = 'e7fd' : ($pendingData[$n]['project
   $pending = $usersView->enc_cons($catid.'_pending');
 $published = str_replace('_'.$usersView->usercode($me), '', $projectID);
 $pubData = $usersView->select('publish', ' WHERE published = ?', $published);
-$pubid = $pubData[0]['pub_id'];		
-	$pend .="		<div style='width:100%; padding-left:40px; padding-right:40px;'>
+$_pubid = $pubData[0]['pub_id'];		
+$pubid = $usersView->num_AlphaA($_pubid);
+		$pend .="		<div style='width:100%; padding-left:40px; padding-right:40px;'>
  				<div style='display:flex; border:1px solid #fff; border-radius:10px; filter:drop-shadow(.5px .5px .5px #aaa) drop-shadow(-.5px -.5px .5px #aaa); background:#fff; justify-content:space-around; align-items:center; margin-bottom:10px;'>
 					<div style='width:15%; padding:10px;'><span class='material-icons' style='font-size:20px; color:#bbb; filter:drop-shadow(1px 1px 1px #000);'>&#x".$fa.";</span></div>
 					<div style='display:flex; flex-direction:column; width:60%; text-align:center;'>
