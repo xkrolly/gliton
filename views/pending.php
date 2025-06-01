@@ -66,7 +66,9 @@ $pend .="<div style='width:100%; height:100%; display:flex; justify-content:cent
                 <span style='margin-right:auto; padding:10px; font-weight:bold;'><a href='buycoin' style='color:#2166f3;'>Fund wallet</a>
                 </span><span style='color:#fff; padding:10px; font-weight:bold; margin-left:auto;'>".$myBal."Gc </span></div>
 
-			<div style='position:fixed; top:10%; display:flex; justify-content:center; width:100%;'><div style='padding:5px; background:#111; color:#fff; font-size:14px;'>Pending projects</div></div>
+			<div style='position:fixed; top:8%; display:flex; justify-content:center; width:100%;'>
+   				<div style='padding:8px; border-radius:5px; background:#2166f3; color:#fff; font-size:14px;'>Pending projects</div>
+       			</div>
 			<div class='scrollet enquiry-form'>";
 
 	$mediaType = 1;
@@ -106,7 +108,8 @@ $pendingData[$n]['projectType'] == 1 ? $fa = 'e7fd' : ($pendingData[$n]['project
 
   $pending = $usersView->enc_cons($catid.'_pending');
 $pubid = str_replace('_'.$usersView->usercode($me), '', $projectID);
-	$pend .="		<div style='width:100%; display:flex; border:1px solid #fff; border-radius:10px; filter:drop-shadow(.5px .5px .5px #aaa) drop-shadow(-.5px -.5px .5px #aaa); background:#fff; padding:10px; justify-content:space-around; align-items:center; margin-bottom:10px;'>
+	$pend .="		<div style='width:100%; padding:30px;'>
+ 				<div style='display:flex; border:1px solid #fff; border-radius:10px; filter:drop-shadow(.5px .5px .5px #aaa) drop-shadow(-.5px -.5px .5px #aaa); background:#fff; padding:10px; justify-content:space-around; align-items:center; margin-bottom:10px;'>
 					<div style='width:20%; padding:10px;'><span class='material-icons' style='font-size:20px; color:#bbb; filter:drop-shadow(1px 1px 1px #000);'>&#x".$fa.";</span></div>
 					<div style='display:flex; flex-direction:column; width:60%;'>
 						<div class='truncate'>".$pendingData[$n]['projectTitle']."</div>
@@ -153,7 +156,7 @@ $pubid = str_replace('_'.$usersView->usercode($me), '', $projectID);
             	    </script>
 					
 					</div>
-				</div>";
+				</div></div>";
 			}
 	$n--;
 }
