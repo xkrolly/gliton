@@ -119,7 +119,7 @@ $pubid = str_replace('_'.$usersView->usercode($me), '', $projectID);
 						</div>
 					</div>
 					<div style='width:25%; text-align:right; padding:10px;'>";
-     					$trial == 1 ?	$pend .= "<a href='index.php?page=trial&pubid=$pubid&catid=$catid' style='text-decoration:none;'><span class='theme' style='padding:10px; border:1px solid #fff;'>Resume</span></a>" :
+     					$trial == 1 ?	$pend .= "<a href='index.php?page=trial&pubid=$pubid&catid=$catid' style='text-decoration:none; display:flex; align-items:center;'><span class='' style='color:#2166f3; background:transparent; border:1px solid #fff;'>Resume</span></a>" :
      					$pend .= "<form action='$contentUrl' method='post'>
 							<input type='submit' value='Resume' style='color:#2166f3; border:0; background:transparent; font-size:12px;'/>
 							<input type='hidden' name='category' value='$catid' />
