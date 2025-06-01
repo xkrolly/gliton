@@ -1,4 +1,6 @@
 <?php
+  var_dump('T 0');
+
 include('../includes/autoloader.inc.php');
     $usersView = new usersView();
     $usersContr = new usersContr();
