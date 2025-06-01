@@ -72,7 +72,7 @@ $pend .="<div style='width:100%; height:100%; display:flex; justify-content:cent
 	$mediaType = 1;
 if($n < 0){$pend .="<div style='width:100%; display:flex; justify-content:center;'><div style='font-size:12px;'>Hoops! no pending project.</div></div>";}
 while($n >= 0){
-	var_dump('INSIDE--');
+	//var_dump('INSIDE--');
 $pendingData[$n]['projectType'] == 1 ? $fa = 'e7fd' : ($pendingData[$n]['projectType'] == 2 ? $fa = '38d3' : $fa = 'f233');		
 //$pendingData[$n]['projectType'] == 1 ? $contentUrl = 'uscript' : ($pendingData[$n]['projectType'] == 2 ? $contentUrl = 'views/chat.php' : $contentUrl = 'views/grpchat.php');		
 	
@@ -97,7 +97,7 @@ $pendingData[$n]['projectType'] == 1 ? $fa = 'e7fd' : ($pendingData[$n]['project
 
 	//get client or tutor rpub
   $recipi = $usersView->select('skyman_user', ' WHERE user_id = ? ORDER BY online DESC', $recipi_id);
-	if(count($recipi) > 0){
+	if(count($recipi) >= 0){
 	$online = $recipi[0]['online'];
 	$rPub = $recipi[0]['pub'];
 	$xpid = $recipi_id;
@@ -106,8 +106,7 @@ $pendingData[$n]['projectType'] == 1 ? $fa = 'e7fd' : ($pendingData[$n]['project
 
   $pending = $usersView->enc_cons($catid.'_pending');
 $pubid = str_replace('_'.$usersView->usercode($me), '', $projectID);
-	$pend .="
-				<div style='width:100%; display:flex; border:1px solid #fff; border-radius:10px; filter:drop-shadow(.5px .5px .5px #aaa) drop-shadow(-.5px -.5px .5px #aaa); background:#fff; padding:10px; justify-content:space-around; align-items:center; margin-bottom:10px;'>
+	$pend .="		<div style='width:100%; display:flex; border:1px solid #fff; border-radius:10px; filter:drop-shadow(.5px .5px .5px #aaa) drop-shadow(-.5px -.5px .5px #aaa); background:#fff; padding:10px; justify-content:space-around; align-items:center; margin-bottom:10px;'>
 					<div style='width:20%; padding:10px;'><span class='material-icons' style='font-size:20px; color:#bbb; filter:drop-shadow(1px 1px 1px #000);'>&#x".$fa.";</span></div>
 					<div style='display:flex; flex-direction:column; width:60%;'>
 						<div class='truncate'>".$pendingData[$n]['projectTitle']."</div>
