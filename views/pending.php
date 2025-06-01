@@ -66,7 +66,7 @@ $pend .="<div style='width:100%; height:100%; display:flex; justify-content:cent
                 <span style='margin-right:auto; padding:10px; font-weight:bold;'><a href='buycoin' style='color:#2166f3;'>Fund wallet</a>
                 </span><span style='color:#fff; padding:10px; font-weight:bold; margin-left:auto;'>".$myBal."Gc </span></div>
 
-			<h5>Pending projects</h5>
+			<h6 style='font-size:18px;'>Pending projects</h6>
 			<div class='scrollet enquiry-form'>";
 
 	$mediaType = 1;
