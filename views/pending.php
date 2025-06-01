@@ -56,7 +56,7 @@ $user_id_enc = $usersView->enc_cons($uid);
 
 $pendingData = $usersView->fetchPending();
 
-//var_dump($pendingData);
+var_dump($pendingData);
 
 $n = count($pendingData) - 1;
 $pend = $usersView->topBar($notes);
