@@ -1,8 +1,8 @@
 <?php
-var_dump('HELOO COMPut');
+var_dump('HELOO CO');
 
 include('../includes/autoloader.inc.php');
-/*    $usersView = new usersView();
+    $usersView = new usersView();
     $usersContr = new usersContr();
 //capture audio for storage
   $vid_input=$_FILES['vid_data']['tmp_name'];
@@ -13,7 +13,7 @@ include('../includes/autoloader.inc.php');
   
     $user = $usersView->fetchUser();
     $uid = $user[0]['profile_id'];
- 
+
     if(empty($cat)){
         //update profile of the video for later usage
         $dir = '../videos/temp/';
@@ -27,7 +27,7 @@ include('../includes/autoloader.inc.php');
        // move_uploaded_file($vid_input, '../videos/temp/'.$vid.'.webm');
 
     }
-
+/*
    if(!empty($cat) ){
         $aoi_array = $usersView->aoi($cat);
  	    $qCol = $aoi_array['queCol'];
