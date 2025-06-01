@@ -1,9 +1,9 @@
 <?php
   var_dump('T 0');
 
-include('../includes/autoloader.inc.php');
+/*include('../includes/autoloader.inc.php');
     $usersView = new usersView();
-    $usersContr = new usersContr();
+    $usersContr = new usersContr();*/
   var_dump('T 1');
 //capture audio for storage
   $vid_input=$_FILES['vid_data']['tmp_name'];
