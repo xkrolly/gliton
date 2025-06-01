@@ -112,13 +112,6 @@ $pendingData[$n]['projectType'] == 1 ? $fa = 'e7fd' : ($pendingData[$n]['project
 $published = str_replace('_'.$usersView->usercode($me), '', $projectID);
 $pubData = $usersView->select('publish', ' WHERE published = ?', $published);
 $_pubid = $pubData[0]['pub_id'];	
-var_dump('PUBID: '.$published);
-var_dump('PUBID: '.$published);
-var_dump('PUBID: '.$published);
-var_dump('PUBID: '.$published);
-var_dump('PUBID: '.$published);
-var_dump('PUBID: '.$published);
-var_dump('PUBID: '.$published);
 $pubid = $usersView->num_AlphaA($_pubid);
 		$pend .="		<div style='width:100%; padding-left:40px; padding-right:40px;'>
  				<div style='display:flex; border:1px solid #fff; border-radius:10px; filter:drop-shadow(.5px .5px .5px #aaa) drop-shadow(-.5px -.5px .5px #aaa); background:#fff; justify-content:space-around; align-items:center; margin-bottom:10px;'>
