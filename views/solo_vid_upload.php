@@ -1,5 +1,5 @@
 <?php
-var_dump('HELOO CO1');
+//var_dump('HELOO CO1');
 
 include('../includes/autoloader.inc.php');
     $usersView = new usersView();
@@ -41,7 +41,7 @@ include('../includes/autoloader.inc.php');
 
         $dir = '../videos/'.$folder.'/';
     $videoName = mt_rand(100, 999).$uid.time().$cat;//.'.webm';
-    $vd_name = '';//$usersView->videoEncryptor($video, $pw, $dir, $videoName);
+    $vd_name = $usersView->videoEncryptor($video, $pw, $dir, $videoName);
     $cat_user_id = substr($topic, 0, 1).'_user_id';
     $valu2 = $vd_name.', '.$uid;
 
@@ -61,7 +61,7 @@ include('../includes/autoloader.inc.php');
 //set conversation flag and post video on db
     count($contentCheck) == 0 ? $flag = $cat : $flag = 0;
     $chat_data = array('scriptor_id'=>$uid, 'category_id'=>$cat, $col_id=>$catCol_val, 'content_id'=>$content_id, 'media'=>3, 'flag'=>$flag);
-    $usersContr->insert('solochat', $chat_data)
+    $usersContr->insert('solochat', $chat_data);
 
 }/**/
 
