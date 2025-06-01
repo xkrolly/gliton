@@ -1,8 +1,8 @@
 <?php
-var_dump('HELOO COMP');
-/*
+var_dump('HELOO COMPut');
+
 include('../includes/autoloader.inc.php');
-    $usersView = new usersView();
+/*    $usersView = new usersView();
     $usersContr = new usersContr();
 //capture audio for storage
   $vid_input=$_FILES['vid_data']['tmp_name'];
