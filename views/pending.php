@@ -67,7 +67,7 @@ $pend .="<div style='width:100%; height:100%; display:flex; justify-content:cent
                 </span><span style='color:#fff; padding:10px; font-weight:bold; margin-left:auto;'>".$myBal."Gc </span></div>
 
 			<div style='position:fixed; z-index:20000; top:8%; display:flex; justify-content:center; width:100%;'>
-   				<div style='padding:8px; border-radius:5px; background:#2166f3; color:#fff; font-size:14px;'>Pending projects</div>
+   				<div style='padding:5px; border-radius:5px; background:#bbb; color:#fff; font-size:13px;'>Pending projects</div>
        			</div>
 			<div class='scrollet enquiry-form'>";
 
@@ -113,7 +113,7 @@ $pubid = str_replace('_'.$usersView->usercode($me), '', $projectID);
 					<div style='width:15%; padding:10px;'><span class='material-icons' style='font-size:20px; color:#bbb; filter:drop-shadow(1px 1px 1px #000);'>&#x".$fa.";</span></div>
 					<div style='display:flex; flex-direction:column; width:60%; text-align:center;'>
 						<div class='truncate' style='font-size:13px;'>".$pendingData[$n]['projectTitle']."</div>
-						<div style='display:flex; font-size:10px; font-style:italic;'>
+						<div style='display:flex; font-size:10px; font-style:italic; width:100%; text-align:center;'>
 							<span style='margin-right:10px;'>".date('m-d H:i', strtotime($pendingData[$n]['startDate']))."</span>
 							<span> to ".date('m-d H:i', strtotime($pendingData[$n]['newupdate']))."</span>
 						</div>
