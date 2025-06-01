@@ -1,5 +1,5 @@
 <?php
-var_dump('HELOO CO');
+var_dump('HELOO CO1');
 
 include('../includes/autoloader.inc.php');
     $usersView = new usersView();
@@ -27,7 +27,7 @@ include('../includes/autoloader.inc.php');
        // move_uploaded_file($vid_input, '../videos/temp/'.$vid.'.webm');
 
     }
-/*
+
    if(!empty($cat) ){
         $aoi_array = $usersView->aoi($cat);
  	    $qCol = $aoi_array['queCol'];
@@ -63,5 +63,5 @@ include('../includes/autoloader.inc.php');
     $chat_data = array('scriptor_id'=>$uid, 'category_id'=>$cat, $col_id=>$catCol_val, 'content_id'=>$content_id, 'media'=>3, 'flag'=>$flag);
     $usersContr->insert('solochat', $chat_data)
 
-}*/
+}/**/
 
