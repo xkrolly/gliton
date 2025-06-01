@@ -109,9 +109,9 @@ $pendingData[$n]['projectType'] == 1 ? $fa = 'e7fd' : ($pendingData[$n]['project
   $pending = $usersView->enc_cons($catid.'_pending');
 $pubid = str_replace('_'.$usersView->usercode($me), '', $projectID);
 	$pend .="		<div style='width:100%; padding-left:40px; padding-right:40px;'>
- 				<div style='display:flex; border:1px solid #fff; border-radius:10px; filter:drop-shadow(.5px .5px .5px #aaa) drop-shadow(-.5px -.5px .5px #aaa); background:#fff; padding:10px; justify-content:space-around; align-items:center; margin-bottom:10px;'>
+ 				<div style='display:flex; border:1px solid #fff; border-radius:10px; filter:drop-shadow(.5px .5px .5px #aaa) drop-shadow(-.5px -.5px .5px #aaa); background:#fff; justify-content:space-around; align-items:center; margin-bottom:10px;'>
 					<div style='width:15%; padding:10px;'><span class='material-icons' style='font-size:20px; color:#bbb; filter:drop-shadow(1px 1px 1px #000);'>&#x".$fa.";</span></div>
-					<div style='display:flex; flex-direction:column; width:60%;'>
+					<div style='display:flex; flex-direction:column; width:60%; text-align:center;'>
 						<div class='truncate' style='font-size:13px;'>".$pendingData[$n]['projectTitle']."</div>
 						<div style='display:flex; font-size:10px; font-style:italic;'>
 							<span style='margin-right:10px;'>".date('m-d H:i', strtotime($pendingData[$n]['startDate']))."</span>
@@ -121,7 +121,7 @@ $pubid = str_replace('_'.$usersView->usercode($me), '', $projectID);
 					<div style='width:25%; text-align:right; padding:10px;'>";
      					$trial == 1 ?	$pend .= "<a href='index.php?page=trial&pubid=$pubid&catid=$catid' style='text-decoration:none;'><span class='theme' style='padding:10px; border:1px solid #fff;'>Resume</span></a>" :
      					$pend .= "<form action='$contentUrl' method='post'>
-							<input type='submit' value='Resume' style='color:deepskyblue; border:0; background:transparent; font-size:14px;'/>
+							<input type='submit' value='Resume' style='color:#2166f3; border:0; background:transparent; font-size:12px;'/>
 							<input type='hidden' name='category' value='$catid' />
 							<input type='hidden' name='title' value='$title' />
 							<input type='hidden' name='pending' value='$pending' />
