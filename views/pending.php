@@ -56,7 +56,7 @@ $user_id_enc = $usersView->enc_cons($uid);
 
 $pendingData = $usersView->fetchPending();
 
-var_dump($pendingData);
+//var_dump($pendingData);
 
 $n = count($pendingData) - 1;
 $pend = $usersView->topBar($notes);
@@ -72,6 +72,7 @@ $pend .="<div style='width:100%; height:100%; display:flex; justify-content:cent
 	$mediaType = 1;
 if($n < 0){$pend .="<div style='width:100%; display:flex; justify-content:center;'><div style='font-size:12px;'>Hoops! no pending project.</div></div>";}
 while($n >= 0){
+	var_dump('INSIDE--');
 $pendingData[$n]['projectType'] == 1 ? $fa = 'e7fd' : ($pendingData[$n]['projectType'] == 2 ? $fa = '38d3' : $fa = 'f233');		
 //$pendingData[$n]['projectType'] == 1 ? $contentUrl = 'uscript' : ($pendingData[$n]['projectType'] == 2 ? $contentUrl = 'views/chat.php' : $contentUrl = 'views/grpchat.php');		
 	
