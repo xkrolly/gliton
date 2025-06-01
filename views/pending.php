@@ -72,6 +72,8 @@ $pend .="<div style='width:100%; height:100%; display:flex; justify-content:cent
 			<div class='scrollet enquiry-form'>";
 
 	$mediaType = 1;
+$userData = $usersView->fetchUser();
+$me = $userData[0]['profile_id'];	
 if($n < 0){$pend .="<div style='width:100%; display:flex; justify-content:center;'><div style='font-size:12px;'>Hoops! no pending project.</div></div>";}
 while($n >= 0){
 	//var_dump('INSIDE--');
